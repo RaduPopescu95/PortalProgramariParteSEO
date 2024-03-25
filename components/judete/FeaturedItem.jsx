@@ -4,8 +4,8 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addLength } from "../../../features/properties/propertiesSlice";
-import properties from "../../../data/properties";
+import { addLength } from "../../features/properties/propertiesSlice";
+import properties from "../../data/properties";
 import Image from "next/image";
 
 const FeaturedItem = () => {

@@ -22,7 +22,7 @@ const SectiuneIncredere = () => {
                   {/* <Link href={`/blog-details/${item.id}`}>Test title</Link> */}
                   <Link href={`/`}>Test title</Link>
                 </h4>
-                <p className="text-thm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p className="text-thm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
               <div className="fp_footer">
                 <ul className="fp_meta float-end pr10">

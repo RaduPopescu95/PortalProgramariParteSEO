@@ -1,21 +1,21 @@
-import ListSearchJudete from "../../common/ListSearchJudete";
-import Pagination from "../../common/blog/Pagination";
-import CopyrightFooter from "../../common/footer/CopyrightFooter";
-import Footer from "../../common/footer/Footer";
-import GlobalHeroFilter from "../../common/GlobalHeroFilter";
-import Header from "../../common/header/DefaultHeader";
-import MobileMenu from "../../common/header/MobileMenu";
-import FilterTopBar from "../../common/listing/FilterTopBar";
-import GridListButton from "../../common/listing/GridListButton";
-import ShowFilter from "../../common/listing/ShowFilter";
-import SidebarListing3 from "../../common/listing/SidebarListing3";
-import PopupSignInUp from "../../common/PopupSignInUp";
+import ListSearchJudete from "../common/ListSearchJudete";
+import Pagination from "../common/blog/Pagination";
+import CopyrightFooter from "../common/footer/CopyrightFooter";
+import Footer from "../common/footer/Footer";
+import GlobalHeroFilter from "../common/GlobalHeroFilter";
+import Header from "../common/header/DefaultHeader";
+import MobileMenu from "../common/header/MobileMenu";
+import FilterTopBar from "../common/listing/FilterTopBar";
+import GridListButton from "../common/listing/GridListButton";
+import ShowFilter from "../common/listing/ShowFilter";
+import SidebarListing3 from "../common/listing/SidebarListing3";
+import PopupSignInUp from "../common/PopupSignInUp";
 import BreadCrumb from "./BreadCrumb2";
 import FeaturedItem from "./FeaturedItem";
 import HeroSlider from "./HeroSlider";
 import Image from "next/image";
-import CallToAction from "../../common/CallToAction";
-import SidebarListing from "../../common/listing/SidebarListing";
+import CallToAction from "../common/CallToAction";
+import SidebarListing from "../common/listing/SidebarListing";
 
 const index = () => {
   return (

@@ -45,11 +45,11 @@ const index = () => {
             <div className="col-lg-12">
               <div className="home_content home4">
               <div className="home-text w-75">
-  <h2 className="fz50 txt-color-primary text-center mb10">Medicul potrivit pentru nevoile tale!</h2>
-  <p className="fz18 txt-color-third w-75 mx-auto text-center mb10">
-    Articole medicale și liste cu top clinici din fiecare oraș. Găsește ușor clinica cea mai potrivită (și apropiată de tine) pentru nevoile tale medicale.
-  </p>
-  <div className="d-flex justify-content-center gap-3 w-100 mb10">
+                <h2 className="fz50 txt-color-primary text-center mb10">Medicul potrivit pentru nevoile tale!</h2>
+                <p className="fz18 txt-color-third w-75 mx-auto text-center mb10">
+                  Articole medicale și liste cu top clinici din fiecare oraș. Găsește ușor clinica cea mai potrivită (și apropiată de tine) pentru nevoile tale medicale.
+                </p>
+              <div className="d-flex justify-content-center gap-3 w-100 mb10">
                 <Button style={{ minWidth: 'calc(40% - 10px)'}}>Caută medic        <span className="flaticon-right-arrow ml10"/></Button>
       <Button className="btnSecondary" style={{ minWidth: 'calc(40% - 10px)'}}>Înscrie o clinică <span className="flaticon-right-arrow ml10"/></Button>
 </div>
@@ -209,7 +209,7 @@ const index = () => {
       </section>
 
       {/* <!-- Our Blog --> */}
-      <section className="our-blog bgc-f7 pb30">
+      <section className="our-blog bgc-f7 pb30 pt0">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
