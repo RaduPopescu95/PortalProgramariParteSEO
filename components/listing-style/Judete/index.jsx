@@ -1,4 +1,4 @@
-import ListSearchJudete from "@/components/common/ListSearchJudete";
+import ListSearchJudete from "../../../components/common/ListSearchJudete";
 import Pagination from "../../common/blog/Pagination";
 import CopyrightFooter from "../../common/footer/CopyrightFooter";
 import Footer from "../../common/footer/Footer";
@@ -13,11 +13,9 @@ import PopupSignInUp from "../../common/PopupSignInUp";
 import BreadCrumb from "./BreadCrumb2";
 import FeaturedItem from "./FeaturedItem";
 import HeroSlider from "./HeroSlider";
-import Partners from "@/components/common/Partners";
 import Image from "next/image";
-import Button from "@/components/common/CommonButton";
-import CallToAction from "@/components/common/CallToAction";
-import SidebarListing from "@/components/common/listing/SidebarListing";
+import CallToAction from "../../../components/common/CallToAction";
+import SidebarListing from "../../../components/common/listing/SidebarListing";
 
 const index = () => {
   return (
