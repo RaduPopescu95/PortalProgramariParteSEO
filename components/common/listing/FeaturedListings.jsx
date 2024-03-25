@@ -8,7 +8,7 @@ const FeaturedListings = () => {
     <>
       {blogContent.slice(1, 3).map((item) => (
         <div className="media d-flex" key={item.id}>
-          <Link href={`/listing-details-v1/${item.id}`}>
+          <Link href={`/blog-details/${item.id}`}>
             <Image
               width={102}
               height={80}

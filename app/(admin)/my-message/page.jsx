@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import MyMessage from "@/components/dashboard/my-message";
 
 export const metadata = {
-  title: 'My Message || FindHouse - Real Estate React Template',
+  title: 'titlu',
   description:
-    'FindHouse - Real Estate React Template',
+    'descriere',
 }
 
 const index = () => {

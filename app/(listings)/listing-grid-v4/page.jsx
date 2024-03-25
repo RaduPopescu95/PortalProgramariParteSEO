@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import GridV4 from "@/components/listing-grid/grid-v4";
 
 export const metadata = {
-  title: 'Simple Listing – Grid V4 || FindHouse - Real Estate React Template',
+  title: 'Titlu',
   description:
-    'FindHouse - Real Estate React Template',
+    'Desciere',
 }
 
 const index = () => {

@@ -5,9 +5,9 @@ import dynamic from "next/dynamic";
 import NotFound from "@/components/404";
 
 export const metadata = {
-  title: '404 Not Found || FindHouse - Real Estate React Template',
+  title: '404 Not Found',
   description:
-    'FindHouse - Real Estate React Template',
+    '404 Not Found',
 }
 
 const index = () => {
