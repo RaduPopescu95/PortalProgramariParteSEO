@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import Judete from "@/components/listing-style/judete";
+import Judete from "../../../components/listing-style/judete";
 
 export const metadata = {
   title: 'Judete',
