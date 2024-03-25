@@ -1,0 +1,338 @@
+
+.bgc-primary {
+  background-color: #f1f5f9;
+}
+.bgc-secondary {
+  background-color: #2867fb;
+}
+.bgc-accent {
+  background-color: #2969ff
+}
+.bgc-white {
+  background-color: #ffffff; /* Menține fundalul butonului alb */
+  color: var(--color-primary); /* Ajustează culoarea textului dacă este necesar */
+}
+.txt-color{
+  color: #484848 !important;
+}
+.txt-color-primary{
+  color: var(--txt-primary) !important;
+}
+.txt-color-secondary{
+  color: var(--txt-secondary) !important;
+}
+.txt-color-third{
+  color: var(--txt-third) !important;
+}
+
+.programeaza {
+  position: relative;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.programeaza h2 {
+  font-size: 30px;
+  font-family: "Nunito";
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.programeaza p {
+  font-size: 16px;
+  font-family: "Nunito";
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 25px;
+  text-align: end;
+}
+
+.programeaza button.btn.ht_offer {
+  border-radius: 8px;
+  background-image: -moz-linear-gradient(
+    148deg,
+    rgb(253, 85, 89) 0%,
+    rgb(255, 51, 125) 100%
+  );
+  background-image: -webkit-linear-gradient(
+    148deg,
+    rgb(253, 85, 89) 0%,
+    rgb(255, 51, 125) 100%
+  );
+  background-image: -ms-linear-gradient(
+    148deg,
+    rgb(253, 85, 89) 0%,
+    rgb(255, 51, 125) 100%
+  );
+  background-image: linear-gradient(
+    148deg,
+    rgb(253, 85, 89) 0%,
+    rgb(255, 51, 125) 100%
+  );
+  box-shadow: 0px 0px 50px 0px rgba(19, 19, 28, 0.12);
+  color: #ffffff;
+  font-size: 16px;
+  font-family: "Nunito";
+  font-weight: bold;
+  height: 50px;
+  line-height: 1.2;
+  width: 170px;
+}
+
+.search-input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+.search-main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-container {
+  min-height: 20rem;
+}
+
+/* Stilul implicit pentru .action-container */
+.action-container {
+  margin-top: 0rem;
+}
+
+/* Pentru tablete (dispozitive cu lățimea ecranului până la 768px) */
+@media (max-width: 768px) {
+  .action-container {
+    margin-top: 8rem; /* O valoare mai mică pentru tablete */
+  }
+}
+
+/* Pentru dispozitive mobile mari (dispozitive cu lățimea ecranului până la 600px) */
+@media (max-width: 600px) {
+  .action-container {
+    margin-top: 8rem; /* O valoare și mai mică pentru dispozitive mobile mari */
+  }
+}
+
+/* Pentru dispozitive mobile mici (dispozitive cu lățimea ecranului până la 480px) */
+@media (max-width: 480px) {
+  .action-container {
+    margin-top: 8rem; /* O valoare minimă pentru dispozitive mobile mici */
+  }
+}
+
+/* Stilul implicit pentru .action-container */
+.action-container-location {
+  margin-top: 10rem;
+}
+
+/* Pentru tablete (dispozitive cu lățimea ecranului până la 768px) */
+@media (max-width: 768px) {
+  .action-container-location {
+    margin-top: 3rem; /* O valoare mai mică pentru tablete */
+  }
+}
+
+/* Pentru dispozitive mobile mari (dispozitive cu lățimea ecranului până la 600px) */
+@media (max-width: 600px) {
+  .action-container-location {
+    margin-top: 3rem; /* O valoare și mai mică pentru dispozitive mobile mari */
+  }
+}
+
+/* Pentru dispozitive mobile mici (dispozitive cu lățimea ecranului până la 480px) */
+@media (max-width: 480px) {
+  .action-container-location {
+    margin-top: 3rem; /* O valoare minimă pentru dispozitive mobile mici */
+  }
+}
+
+.dashboard-sigin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logout-button {
+  cursor: pointer;
+}
+
+.spinner-container {
+  position: fixed; /* Poate fi folosit și 'absolute', dar 'fixed' asigură că rămâne în centrul ecranului chiar și la scroll */
+  top: 0;
+  left: 0;
+  height: 100vh; /* 100% din înălțimea viewport-ului */
+  width: 100vw; /* 100% din lățimea viewport-ului */
+  display: flex;
+  justify-content: center; /* Centrează orizontal */
+  align-items: center; /* Centrează vertical */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Opțional: adaugă un fundal semi-transparent pentru a atenua restul paginii */
+  z-index: 1050; /* Asigură-te că se află deasupra altor elemente; ajustează conform necesităților */
+}
+
+.modal-dialog-centered {
+  position: fixed; /* Poziționare fixă pe tot ecranul */
+  top: 0%; /* Centrat vertical */
+  left: 45%; /* Valoarea implicită pentru ecrane mai mari */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ajustează poziționarea exact pe centrul ecranului */
+  z-index: 1050; /* Asigură că este peste alte elemente */
+}
+
+@media (max-width: 767px) {
+  /* Media query pentru ecranele mai mici de 768px */
+  .modal-dialog-centered {
+    left: 5%; /* Ajustează pentru mobil */
+    transform: translate(
+      0,
+      -50%
+    ); /* Modifică transformarea pentru a se alinia corect */
+  }
+}
+
+.home-header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.cta-container-section-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #f7f7f7;
+}
+.cta-container-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 70%;
+  background-color: #2441e7;
+  border-radius: 25px;
+  height: auto;
+}
+
+.container-butoane-cta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+}
+
+.contact-info h5 {
+  font-weight: bold;
+  margin-top: 20px;
+  color: #333; /* Sau orice culoare preferi */
+}
+
+.contact-info p {
+  margin-bottom: 5px;
+  color: #666; /* Sau orice culoare preferi */
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 250px; /* Ajustează înălțimea conform nevoilor */
+  border: none; /* Înlătură border-ul implicit al iframe-ului */
+}
+
+
+.btn.btnGeneral {
+  border-radius: 25px;
+  background-color: var(--btn-primary);
+  color: var(--btn-secondary);
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  height: 50px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  width: auto;
+  border: 2px solid transparent; /* Adaugă o bordură transparentă pentru un efect mai consistent la hover */
+  transition: all 0.3s ease; /* Suavizează tranziția culorilor și a bordurii */
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); /* Adaugă o umbră ușoară pentru un efect de profunzime */
+  cursor: pointer; /* Schimbă cursorul pentru a indica că butonul este clicabil */
+}
+
+.btn.btnGeneral:hover {
+  background-color: transparent;
+  color: var(--btn-primary);
+  border-color: var(--btn-primary);
+  /* transform: scale(1.05);  */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Întunecă și mărește umbră pentru a adăuga un efect vizual mai puternic */
+}
+
+
+
+.btn.btnGeneral.btnSecondary{
+  color: var(--btn-primary);
+  background-color: var(--btn-third);
+}
+.btn.btnGeneral.btnSecondary:hover{
+  color: var(--btn-primary);
+  border-color: var(--btn-primary);
+  /* transform: scale(1.05);  */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Întunecă și mărește umbră pentru a adăuga un efect vizual mai puternic */
+}
+
+
+.properti_city.pasi_urmat{
+  height: 150px;
+  overflow: hidden; /* Ascunde conținutul care depășește max-height */
+}
+
+.container.pasi_urmat{
+  width: 100%;
+}
+
+
+
+.image-cta{
+  position: absolute;
+  bottom: 1.2rem;
+  right:15rem
+}
+
+.roundedDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  font-size: 2em;
+  font-weight: bold;
+  position: absolute;
+  bottom: 6px; /* Ajustează după cum este necesar */
+  left: 7px; /* Ajustează după cum este necesar */
+  font-size: medium;
+}
+
+
