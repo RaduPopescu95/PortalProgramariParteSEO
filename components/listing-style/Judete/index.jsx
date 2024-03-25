@@ -27,7 +27,7 @@ const index = () => {
       <MobileMenu />
 
       {/* <!-- Modal --> */}
-      <PopupSignInUp />
+      {/* <PopupSignInUp /> */}
 
       {/* <!-- 6th Home Design --> */}
       <section className="home-listing-slider hight-fx p0">
