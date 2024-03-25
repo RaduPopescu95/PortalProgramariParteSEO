@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import Judete from "@/components/listing-style/judete";
 
 export const metadata = {
-  title: 'Listing - Slider Style || FindHouse - Real Estate React Template',
+  title: 'Judete',
   description:
-    'FindHouse - Real Estate React Template',
+    'Judete',
 }
 
 const index = () => {
