@@ -29,7 +29,7 @@ const index = () => {
       {/* <PopupSignInUp /> */}
 
       {/* <!-- 4th Home Slider --> */}
-      <div className="home-four ">
+      <div className="home-four">
         <div className="container-fluid p0">
           <div className="main-banner-wrapper">
             <div className="arrow-style-2 banner-style-one ">
@@ -44,15 +44,16 @@ const index = () => {
           <div className="row posr mb25">
             <div className="col-lg-12">
               <div className="home_content home4">
-              <div className="home-text w-75">
+              <div class="home-text w-100 w-md-75">
                 <h2 className="fz50 txt-color-primary text-center mb10">Medicul potrivit pentru nevoile tale!</h2>
-                <p className="fz18 txt-color-third w-75 mx-auto text-center mb10">
+                <p className="fz18 txt-color-third w-75 mx-auto mx-sm-auto text-center mb-2">
                   Articole medicale și liste cu top clinici din fiecare oraș. Găsește ușor clinica cea mai potrivită (și apropiată de tine) pentru nevoile tale medicale.
                 </p>
-              <div className="d-flex justify-content-center gap-3 w-100 mb10">
-                <Button style={{ minWidth: 'calc(40% - 10px)'}}>Caută medic        <span className="flaticon-right-arrow ml10"/></Button>
-      <Button className="btnSecondary" style={{ minWidth: 'calc(40% - 10px)'}}>Înscrie o clinică <span className="flaticon-right-arrow ml10"/></Button>
+                <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 w-100 mb-10">
+  <Button style={{ minWidth: 'calc(30% - 10px)' }}>Caută medic <span className="flaticon-right-arrow ml-10"/></Button>
+  <Button className="btnSecondary" style={{ minWidth: 'calc(30% - 10px)' }}>Înscrie o clinică <span className="flaticon-right-arrow ml-10"/></Button>
 </div>
+
 </div>
 
          
@@ -92,7 +93,7 @@ const index = () => {
             <section className="our-hot-offer parallax">
         <div className="container" style={{display:"flex", justifyContent:"start"}}>
           <div className="row mt40">
-            <div className="col-md-6 col-lg-8">
+            <div className="col-md-6 col-lg-8 order-2 order-md-1">
               <div className="our_hotoffer">
               <h2 className="fz30 txt-color-third"><span className="fz40 txt-color-primary">ÎMPREUNĂ,</span> Conectați pentru sănătate</h2>
                 <p className="fz20 txt-color-third">
@@ -122,14 +123,14 @@ const index = () => {
               </ul>
 
             </div>
-                <div className="d-flex justify-content-start gap-2">
-                <Button style={{ width: 'calc(30% - 10px)'}}>Despre noi</Button>
-      <Button style={{ width: 'calc(30% - 10px)'}}>Contact</Button>
+            <div className="d-flex flex-column flex-sm-row justify-content-start gap-3 w-100 mb-10">
+            <Button className="w-75 w-md-75">Despre noi</Button>
+  <Button className="w-75 w-md-75">Contact</Button>
 </div>
 
               </div>
             </div>
-            <div className="col-md-6 col-lg-4">
+            <div className="col-md-6 col-lg-4 order-1 order-md-2">
               <div className="our_hotoffer">
               <Image
               src="/assets/images/pasurmat.svg" // Calea relativă la directorul public

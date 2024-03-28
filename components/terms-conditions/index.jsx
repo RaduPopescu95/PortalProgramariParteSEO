@@ -33,7 +33,7 @@ const index = () => {
 
       {/* <!-- Start Call to Action --> */}
 
-      <CallToAction/>
+      <CallToAction className={'pt40 bgc-white'}/>
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one">

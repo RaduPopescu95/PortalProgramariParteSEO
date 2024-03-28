@@ -30,7 +30,7 @@ const ListSearchInputs = ({ className = "" }) => {
           </div>
         </li>
         {/* End li */}
-        <li className="list-inline-item">
+        <li className="list-inline-item mb15">
           <div className="form-group">
             <input
               type="text"

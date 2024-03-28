@@ -9,9 +9,9 @@ const Social = () => {
   return (
     <>
       {socialContent.map((item) => (
-        <li className="list-inline-item" key={item.id}>
+        <li className="list-inline-item ml-sm-0 ml10" key={item.id}>
           <a href={item.liveLink} target="_blank" rel="noopener noreferrer">
-            <i className={`fa ${item.icon} fz40 mr20`}></i>
+            <i className={`fa ${item.icon} fz40 p-1`}></i>
           </a>
         </li>
       ))}

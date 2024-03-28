@@ -858,9 +858,15 @@
 	.home1-mainslider .main-banner-wrapper .carousel-btn-block .carousel-btn.right-btn {
 		right: 10px;
 	}
+	.slide {
+		height: 605px;
+	}
 	.banner-style-one .slide {
 		padding: 165px 60px;
 	}
+	.cta-container-list {
+		width: 90%;
+	  }
 	header.header-nav.menu_style_home_one a.navbar_brand {
 		margin-top: 10px;
 	}
@@ -1189,9 +1195,25 @@
 	.home_adv_srch_opt.home4 .home1_adsrchfrm {
 		display: table;
 	}
-	.home4_iconbox li {
-		margin-bottom: 10px;
-	}
+	.home4_iconbox {
+		display: block; /* sau flex, dacă preferi să menții flexbox */
+		overflow-x: scroll; /* Schimbă în scroll pentru a păstra funcționalitatea de scroll */
+		white-space: nowrap; /* Previne elementele copil să treacă la linia următoare */
+		-ms-overflow-style: none; /* Ascunde scrollbar pentru Internet Explorer/Edge */
+		scrollbar-width: none; /* Ascunde scrollbar pentru Firefox */
+	  }
+	  
+	  .home4_iconbox::-webkit-scrollbar {
+		display: none; /* Ascunde scrollbar pentru Chrome, Safari și Opera */
+	  }
+	  
+	  .home4_iconbox li {
+		display: inline-flex; /* Utilizează inline-flex pentru a menține elementele flexibile */
+		justify-content: center; /* Centrează conținutul pe orizontală */
+		align-items: center; /* Centrează conținutul pe verticală */
+		min-width: 130px; /* Setează o lățime minimă fixă pentru fiecare element */
+		margin-right: 20px; /* Ajustează în funcție de spațiul dorit între elemente */
+	  }
 	ul.apeartment_area_list.home5 {
 		margin-top: -35px;
 	}
@@ -1253,6 +1275,11 @@
 		max-height: 667px;
 		overflow-y: scroll;
 	}
+
+	.sidebar_listing_list {
+		padding: 10px;
+		margin-bottom: 0px;
+	  }
 
 	.start_partner {
 		margin-bottom: 30px;
@@ -2361,9 +2388,6 @@
 	.home_content.home4 {
 		padding: 120px 0 30px !important;
 	}
-	.home4_iconbox {
-		display: none;
-	}
 	.banner-style-one .owl-dots {
 		bottom: 20px;
 		display: block !important;
@@ -3024,7 +3048,7 @@
 		top: -55px;
 	}
 	.home_content.home4 {
-		padding: 160px 0 30px !important;
+		padding: 160px 0 0px !important;
 	}
 
 	.app_grid .apple_btn .icon,

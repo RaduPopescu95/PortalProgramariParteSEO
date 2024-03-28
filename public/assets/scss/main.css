@@ -5103,6 +5103,7 @@ form.home5_advanced_search_form
   content: "";
   top: 0;
   bottom: 0;
+  height: "auto";
 }
 
 .home4_overlay:before {
@@ -5303,6 +5304,13 @@ form.home5_advanced_search_form
 .home-listing-slider {
   margin-top: 0;
   position: relative;
+}
+.slide {
+  height: 805px;
+}
+
+.slide.image-1 {
+  background-image: url(../../assets/images/header-categorie.jpg);
 }
 
 .home-listing-slider .banner-style-one .slide:before {

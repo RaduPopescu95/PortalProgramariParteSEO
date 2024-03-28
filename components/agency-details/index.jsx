@@ -69,10 +69,10 @@ const index = () => {
                   <div className="shop_single_tab_content style2 mt30">
                     <TabDetailsContent />
                   </div>
-                  <div className=" style2 mt30">
+                  <div className="style2 mt30">
                 <SidebarListings />
                 </div>
-                  <div className=" style2 mt30">
+                  <div className="style2 mt30">
                   <ListingGallery />
                 </div>
                 </div>

@@ -1,8 +1,8 @@
 const ContactWithAgent = () => {
   return (
-    <div className="container py-5">
+    <div className="container py-sm-5 py-2">
     <div className="row">
-      <div className="col-md-4">
+      <div className="col-md-4 order-3 order-md-1">
       <form action="#">
       <ul className="sasw_list mb0">
         <li className="search_area">
@@ -62,7 +62,7 @@ const ContactWithAgent = () => {
       </ul>
     </form>
       </div>
-      <div className="col-md-4">
+      <div className="col-md-4 order-2 order-md-2 my-sm-0 my-2">
         {/* Componenta pentru informații de contact suplimentare */}
         <div className="contact-info">
           <h5 className="mt0">CALL US</h5>
@@ -76,7 +76,7 @@ const ContactWithAgent = () => {
           <p>Excursions and Tours</p>
         </div>
       </div>
-      <div className="col-md-4">
+      <div className="col-md-4 order-1 order-md-3">
         {/* Componenta pentru harta */}
         <div className="map-container" style={{ height: '100%' }}>
           {/* Aici vei integra harta, de exemplu folosind Google Maps Embed API */}

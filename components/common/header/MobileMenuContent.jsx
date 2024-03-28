@@ -18,44 +18,14 @@ import { usePathname, useRouter } from "next/navigation";
 
 const home = [
   {
-    name: "Home 1",
-    routerPath: "/",
+    id: 1,
+    name: "Despre platforma",
+    routerPath: "/about-us",
   },
   {
-    name: "Home 2",
-    routerPath: "/home-2",
-  },
-  {
-    name: "Home 3",
-    routerPath: "/home-3",
-  },
-  {
-    name: "Home 4",
-    routerPath: "/home-4",
-  },
-  {
-    name: "Home 5",
-    routerPath: "/home-5",
-  },
-  {
-    name: "Home 6",
-    routerPath: "/home-6",
-  },
-  {
-    name: "Home 7",
-    routerPath: "/home-7",
-  },
-  {
-    name: "Home 8",
-    routerPath: "/home-8",
-  },
-  {
-    name: "Home 9",
-    routerPath: "/home-9",
-  },
-  {
-    name: "Home 10",
-    routerPath: "/home-10",
+    id: 2,
+    name: "Politica de confidentialitate",
+    routerPath: "/terms",
   },
 ];
 
@@ -176,16 +146,6 @@ const listing = [
       },
     ],
   },
-  {
-    id: 7,
-    title: "Adauga statie ITP",
-    items: [
-      {
-        name: "Adauga statie ITP",
-        routerPath: "/create-listing",
-      },
-    ],
-  },
 ];
 
 const property = [
@@ -257,49 +217,17 @@ const property = [
 
 const blog = [
   { id: 1, name: "Blog List 1", routerPath: "/blog-list-1" },
-  { id: 2, name: "Blog List 2", routerPath: "/blog-list-2" },
-  { id: 3, name: "Blog List 3", routerPath: "/blog-list-3" },
-  {
-    id: 4,
-    name: "Blog Details",
-    routerPath: "/blog-details",
-  },
 ];
 
 const pages = [
   {
-    name: "About Us",
+    id: 1,
+    name: "Despre platforma",
     routerPath: "/about-us",
   },
   {
-    name: "Gallery",
-    routerPath: "/gallery",
-  },
-  {
-    name: "Faq",
-    routerPath: "/faq",
-  },
-  {
-    name: "LogIn",
-    routerPath: "/login",
-  },
-  { name: "Compare", routerPath: "/compare" },
-  { name: "Membership", routerPath: "/membership" },
-
-  {
-    name: "Register",
-    routerPath: "/register",
-  },
-  {
-    name: "Service",
-    routerPath: "/service",
-  },
-  {
-    name: "404 Page",
-    routerPath: "/404",
-  },
-  {
-    name: "Terms & Conditions",
+    id: 2,
+    name: "Politica de confidentialitate",
     routerPath: "/terms",
   },
 ];
@@ -312,14 +240,14 @@ const MobileMenuContent = () => {
     <>
       <div className="sidebar-header">
         <Link href="/" className="sidebar-header-inner">
-          <Image
+          {/* <Image
             width={40}
             height={45}
             className="nav_logo_img img-fluid mt20"
             src="/assets/images/header-logo2.png"
             alt="header-logo.png"
-          />
-          <span className="brand-text">Titlu</span>
+          /> */}
+          <span className="brand-text">Portal</span>
         </Link>
         {/* End .logo */}
 
@@ -337,133 +265,33 @@ const MobileMenuContent = () => {
       {/* <Sidebar> */}
       <div style={{ maxHeight: "calc(100vh - 100px)", overflowY: "auto" }}>
         <Menu>
-          <SubMenu
-            label="Home"
-            className={
-              home.some(
-                (page) =>
-                  page.routerPath?.split("/")[1] === pathname.split("/")[1]
-              )
-                ? "parent-menu-active"
-                : "inactive-mobile-menu"
-            }
-          >
-            {home.map((val, i) => (
-              <MenuItem key={i} active={true}>
-                <div
-                  onClick={() => router.push(val.routerPath)}
-                  className={
-                    val.routerPath?.split("/")[1] === pathname.split("/")[1]
-                      ? "ui-active"
-                      : "inactive-mobile-menu"
-                  }
-                >
-                  {val.name}
-                </div>
-              </MenuItem>
-            ))}
-          </SubMenu>
-          {/* End Home Home */}
+        <MenuItem>
+            <div
+              onClick={() => router.push("/")}
+              className={
+                pathname === "/" ? "ui-active" : "inactive-mobile-menu"
+              }
+            >
+              Acasă
+            </div>
+          </MenuItem>
 
-          <SubMenu
-            label="Listing"
-            className={
-              listing.some((parent) => {
-                return parent.items.some(
-                  (page) =>
-                    page.routerPath?.split("/")[1] === pathname.split("/")[1]
-                );
-              })
-                ? "parent-menu-active"
-                : "inactive-mobile-menu"
-            }
-          >
-            {listing.map((item) => (
-              <SubMenu
-                label={item.title}
-                className={
-                  item.items.some(
-                    (page) =>
-                      page.routerPath?.split("/")[1] === pathname.split("/")[1]
-                  )
-                    ? "ui-active plus alt"
-                    : "plus alt inactive-mobile-menu"
-                }
-                key={item.id}
-              >
-                {item.items.map((val, i) => (
-                  <MenuItem key={i}>
-                    <div
-                      onClick={() => router.push(val.routerPath)}
-                      className={
-                        pathname?.split("/")[1] ===
-                        val.routerPath?.split("/")[1]
-                          ? "ui-active"
-                          : "inactive-mobile-menu"
-                      }
-                    >
-                      {val.name}
-                    </div>
-                  </MenuItem>
-                ))}
-              </SubMenu>
-            ))}
-          </SubMenu>
+          {/* End Home Home */}
+          <MenuItem>
+            <div
+              onClick={() => router.push("/categorie")}
+              className={
+                pathname === "/categorie" ? "ui-active" : "inactive-mobile-menu"
+              }
+            >
+              Cauta clinica
+            </div>
+          </MenuItem>
+
           {/* End Pages Listing */}
 
           <SubMenu
-            label="Property"
-            className={
-              property.some((parent) => {
-                return parent.items.some(
-                  (page) =>
-                    page.routerPath?.split("/")[1] === pathname.split("/")[1] ||
-                    page.routerPath?.split("/")[1] + "/[id]" ===
-                      pathname.split("/")[1]
-                );
-              })
-                ? "parent-menu-active"
-                : "inactive-mobile-menu"
-            }
-          >
-            {property.map((item) => (
-              <SubMenu
-                label={item.title}
-                className={
-                  item.items.some(
-                    (page) =>
-                      page.routerPath?.split("/")[1] ===
-                        pathname.split("/")[1] ||
-                      page.routerPath?.split("/")[1] + "/[id]" ===
-                        pathname.split("/")[1]
-                  )
-                    ? "ui-active plus alt"
-                    : "plus alt inactive-mobile-menu"
-                }
-                key={item.id}
-              >
-                {item.items.map((val, i) => (
-                  <MenuItem key={i}>
-                    <div
-                      onClick={() => router.push(val.routerPath)}
-                      className={
-                        pathname.split("/")[1] === val.routerPath?.split("/")[1]
-                          ? // val.routerPath === pathname.split('/')[1]
-                            "ui-active"
-                          : "inactive-mobile-menu"
-                      }
-                    >
-                      {val.name}
-                    </div>
-                  </MenuItem>
-                ))}
-              </SubMenu>
-            ))}
-          </SubMenu>
-          {/* End Pages Property */}
-
-          <SubMenu
-            label="Blog"
+            label="Despre noi"
             className={
               blog.some(
                 (page) =>
@@ -474,7 +302,7 @@ const MobileMenuContent = () => {
                 : "inactive-mobile-menu"
             }
           >
-            {blog.map((val, i) => (
+            {pages.map((val, i) => (
               <MenuItem key={i}>
                 <div
                   onClick={() => router.push(val.routerPath)}
@@ -490,35 +318,18 @@ const MobileMenuContent = () => {
               </MenuItem>
             ))}
           </SubMenu>
-          {/* End pages Blog */}
+          {/* End Pages Property */}
 
-          <SubMenu
-            label="Pages"
-            className={
-              pages.some(
-                (page) =>
-                  page.routerPath?.split("/")[1] === pathname.split("/")[1]
-              )
-                ? "parent-menu-active"
-                : "inactive-mobile-menu"
-            }
-          >
-            {pages.map((val, i) => (
-              <MenuItem key={i}>
-                <div
-                  onClick={() => router.push(val.routerPath)}
-                  className={
-                    pathname?.split("/")[1] === val.routerPath?.split("/")[1]
-                      ? "ui-active"
-                      : "inactive-mobile-menu"
-                  }
-                >
-                  {val.name}
-                </div>
-              </MenuItem>
-            ))}
-          </SubMenu>
-          {/* End pages Pages */}
+          <MenuItem>
+            <div
+              onClick={() => router.push("/blog")}
+              className={
+                pathname === "/blog" ? "ui-active" : "inactive-mobile-menu"
+              }
+            >
+              Blog
+            </div>
+          </MenuItem>
 
           <MenuItem>
             <div
@@ -531,7 +342,7 @@ const MobileMenuContent = () => {
             </div>
           </MenuItem>
 
-          <MenuItem>
+          {/* <MenuItem>
             <div
               onClick={() => router.push("/login")}
               className={
@@ -540,9 +351,9 @@ const MobileMenuContent = () => {
             >
               <span className="flaticon-user"></span> Login
             </div>
-          </MenuItem>
+          </MenuItem> */}
 
-          <MenuItem>
+          {/* <MenuItem>
             <div
               onClick={() => router.push("/register")}
               className={
@@ -551,13 +362,14 @@ const MobileMenuContent = () => {
             >
               <span className="flaticon-edit"></span> Register
             </div>
-          </MenuItem>
+          </MenuItem> */}
+
         </Menu>
       </div>
       {/* </Sidebar> */}
 
       <Link
-        href="/create-listing"
+        href="/contact"
         className="btn btn-block btn-lg btn-thm circle"
         style={{ width: "90%", margin: "0px auto" }}
       >

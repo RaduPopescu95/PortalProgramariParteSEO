@@ -229,19 +229,12 @@
 .cta-container-list {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 70%;
   background-color: #2441e7;
   border-radius: 25px;
   height: auto;
-}
-
-.container-butoane-cta{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30rem;
 }
 
 .contact-info h5 {
@@ -314,7 +307,7 @@
 
 .image-cta{
   position: absolute;
-  bottom: 1.2rem;
+  bottom: 3.7rem;
   right:15rem
 }
 

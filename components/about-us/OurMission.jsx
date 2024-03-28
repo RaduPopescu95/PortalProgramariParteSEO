@@ -31,7 +31,7 @@ const OurMission = () => {
 
   return (
     <>
-      <div className="col-lg-8 col-xl-7">
+      <div className="col-lg-8 col-xl-7 order-2 order-md-1 mt-sm-0 mt-3">
         <div className="about_content">
           <p className="large">
             Conceptul de platforma online care grupeaza statii ITP si informatii
@@ -74,7 +74,7 @@ const OurMission = () => {
       </div>
       {/* End .col */}
 
-      <div className="col-lg-4 col-xl-5">
+      <div className="col-lg-4 col-xl-5 order-1 order-md-2">
         <div className="about_thumb">
           <Image
             width={461}

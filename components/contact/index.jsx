@@ -45,7 +45,7 @@ const index = () => {
 
       {/* <!-- Start Call to Action --> */}
       
-          <CallToAction className={"pt120"}/>
+          <CallToAction className={"pt-20 pt-sm-120"}/>
         
 
       {/* <!-- Our Footer --> */}
