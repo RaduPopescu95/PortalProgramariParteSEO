@@ -99,11 +99,8 @@ const index = () => {
       </section>
 
       {/* <!-- Our Hot Offier --> */}
-      <section className="our-hot-offer parallax">
-        <div
-          className="container"
-          style={{ display: "flex", justifyContent: "start" }}
-        >
+      <section className="our-hot-offer parallax d-flex justify-content-center">
+        <div className="container home-texts">
           <div className="row mt40">
             <div className="col-md-6 col-lg-8 order-2 order-md-1">
               <div className="our_hotoffer">
@@ -169,8 +166,8 @@ const index = () => {
         </div>
       </section>
       {/* <!-- Our Hot Offier --> */}
-      <section className="our-hot-offer parallax">
-        <div className="container">
+      <section className="our-hot-offer parallax d-flex justify-content-center">
+        <div className="container home-texts">
           <div className="row">
             {/* End .col */}
             <div className="col-md-6 col-lg-4">
@@ -226,6 +223,40 @@ const index = () => {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      {/* <!-- Our Hot Offier --> */}
+      <section className="our-hot-offer parallax d-flex justify-content-center pt0">
+        <div className="container home-texts">
+          <div className="row mt40">
+            <div className="col-md-6 col-lg-8 order-2 order-md-1">
+              <div className="our_hotoffer">
+                <h2 className="fz30 txt-color-third">
+                  Cum se foloseste platforma ?
+                </h2>
+                <p className="fz20 txt-color-third">
+                  Daca urmeaza sa iti faci inspectia tehnica perioada si nu stii
+                  ce statie ITP sa alegi sau vrei sa vezi ultimele modificari
+                  aparute in legislatie, nu iti face griji, noi suntem mereu
+                  aici pentru tine, acolo unde esti si tu: pe telefon, laptop
+                  sau pe tableta. Trebuie doar sa selectezi judetul si orasul in
+                  care vrei sa faci ITP-ul, folosind harta interactiva sau
+                  folosind functia cauta si notand locatia dorita. Si nu uita sa
+                  revii periodic pe platforma pentru ca adaugam constant noi
+                  informatii care te vor ajuta cu siguranta.
+                </p>
+                <div className="d-flex flex-column flex-sm-row justify-content-start gap-3 w-100 mb-10">
+                  <Button className="w-50 w-md-50">Află mai multe</Button>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4 order-1 order-md-2">
+              <div className="our_hotoffer d-none d-md-block">
+                <Map />
+              </div>
+            </div>
+            {/* End .col */}
           </div>
         </div>
       </section>

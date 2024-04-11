@@ -329,3 +329,15 @@
 .details:hover p {
   color: var(--txt-secondary); /* Sau orice culoare dorești */
 }
+
+.container.home-texts {
+  max-width: 1270px; /* Acest lucru va face containerul să se extindă pe toată lățimea disponibilă */
+  padding-left: 0;
+  padding-right: 0;
+}
+@media (max-width: 575.98px) {
+  .container.home-texts {
+    padding-left: 15px; /* Ajustează această valoare conform nevoilor */
+    padding-right: 15px; /* Ajustează această valoare conform nevoilor */
+  }
+}

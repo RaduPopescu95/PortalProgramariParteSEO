@@ -80,8 +80,8 @@ const HeaderMenuContent = ({ float = "" }) => {
 
       <li className="last">
         <Link
-          href="/categorie"
-          className={pathname === "/categorie" ? "ui-active" : undefined}
+          href="/cauta"
+          className={pathname === "/cauta" ? "ui-active" : undefined}
         >
           Cauta clinica
         </Link>
@@ -90,8 +90,8 @@ const HeaderMenuContent = ({ float = "" }) => {
 
       <li className="last">
         <Link
-          href="/categorie"
-          className={pathname === "/categorie" ? "ui-active" : undefined}
+          href="/clinici"
+          className={pathname === "/clinici" ? "ui-active" : undefined}
         >
           Clinici
         </Link>

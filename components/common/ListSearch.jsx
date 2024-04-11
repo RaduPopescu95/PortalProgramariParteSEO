@@ -1,7 +1,7 @@
 import GlobalFilter from "./GlobalFilter";
 import ListSearchInputs from "./ListSearchInputs";
 
-const ListSearch = ({ className = "" }) => {
+const ListSearch = ({ className = "", judete }) => {
   return (
     <div className={`home_adv_srch_opt ${className}`}>
       {/* End nav-pills */}
@@ -13,7 +13,7 @@ const ListSearch = ({ className = "" }) => {
           role="tabpanel"
           aria-labelledby="pills-home-tab"
         >
-          <ListSearchInputs />
+          <ListSearchInputs judete={judete} />
         </div>
         <div
           className="tab-pane fade"

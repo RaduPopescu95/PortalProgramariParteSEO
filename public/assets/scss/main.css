@@ -5100,7 +5100,7 @@ form.home5_advanced_search_form
   content: "";
   top: 0;
   bottom: 0;
-  height: "auto";
+  height: auto;
 }
 
 .home4_overlay:before {
@@ -8306,14 +8306,12 @@ form.home5_advanced_search_form
   font-family: "Nunito";
   color: #ffffff;
   font-weight: bold;
-  line-height: 1.2;
 }
 
 .our_hotoffer p {
   font-size: 16px;
   font-family: "Nunito";
   color: #ffffff;
-  line-height: 1.2;
   margin-bottom: 25px;
 }
 

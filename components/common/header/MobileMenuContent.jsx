@@ -215,9 +215,7 @@ const property = [
   },
 ];
 
-const blog = [
-  { id: 1, name: "Blog List 1", routerPath: "/blog-list-1" },
-];
+const blog = [{ id: 1, name: "Blog List 1", routerPath: "/blog-list-1" }];
 
 const pages = [
   {
@@ -265,7 +263,7 @@ const MobileMenuContent = () => {
       {/* <Sidebar> */}
       <div style={{ maxHeight: "calc(100vh - 100px)", overflowY: "auto" }}>
         <Menu>
-        <MenuItem>
+          <MenuItem>
             <div
               onClick={() => router.push("/")}
               className={
@@ -279,9 +277,9 @@ const MobileMenuContent = () => {
           {/* End Home Home */}
           <MenuItem>
             <div
-              onClick={() => router.push("/categorie")}
+              onClick={() => router.push("/cauta")}
               className={
-                pathname === "/categorie" ? "ui-active" : "inactive-mobile-menu"
+                pathname === "/cauta" ? "ui-active" : "inactive-mobile-menu"
               }
             >
               Cauta clinica
@@ -289,8 +287,20 @@ const MobileMenuContent = () => {
           </MenuItem>
 
           {/* End Pages Listing */}
+          <MenuItem>
+            <div
+              onClick={() => router.push("/clinici")}
+              className={
+                pathname === "/clinici" ? "ui-active" : "inactive-mobile-menu"
+              }
+            >
+              Clinici
+            </div>
+          </MenuItem>
 
-          <SubMenu
+          {/* End Pages Listing */}
+
+          {/* <SubMenu
             label="Despre noi"
             className={
               blog.some(
@@ -317,10 +327,10 @@ const MobileMenuContent = () => {
                 </div>
               </MenuItem>
             ))}
-          </SubMenu>
+          </SubMenu> */}
           {/* End Pages Property */}
 
-          <MenuItem>
+          {/* <MenuItem>
             <div
               onClick={() => router.push("/blog")}
               className={
@@ -329,7 +339,7 @@ const MobileMenuContent = () => {
             >
               Blog
             </div>
-          </MenuItem>
+          </MenuItem> */}
 
           <MenuItem>
             <div
@@ -363,7 +373,6 @@ const MobileMenuContent = () => {
               <span className="flaticon-edit"></span> Register
             </div>
           </MenuItem> */}
-
         </Menu>
       </div>
       {/* </Sidebar> */}

@@ -16,8 +16,9 @@ import HeroSlider from "./HeroSlider";
 import Image from "next/image";
 import CallToAction from "../common/CallToAction";
 import SidebarListing from "../common/listing/SidebarListing";
+import { handleQueryFirestoreSubcollection } from "@/utils/firestoreUtils";
 
-const index = () => {
+const index = ({ localitati }) => {
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -55,10 +56,9 @@ const index = () => {
                   </h2>
                 </div>
                 {/* End home-text */}
-                <ListSearchJudete className="mt40" />
+                <ListSearchJudete className="mt40" localitati={localitati} />
               </div>
             </div>
-            
           </div>
         </div>
         {/* End container */}
@@ -67,11 +67,8 @@ const index = () => {
       {/* <!-- Listing Grid View --> */}
       <section className="our-listing bgc-primary pt-0 pb30-991 md-mt0 categorii-container-section">
         <div className="container">
-
           <div className="row pt30">
             <div className="col-md-8 col-lg-8">
-
-
               <div className="row">
                 <FeaturedItem />
               </div>
@@ -89,23 +86,19 @@ const index = () => {
             </div>
             {/* End  .col */}
             <div className="col-md-4 col-lg-4">
-
-            <div className="sidebar-listing-wrapper">
-                <SidebarListing />
+              <div className="sidebar-listing-wrapper">
+                <SidebarListing localitati={localitati} />
               </div>
             </div>
             {/* End  .col */}
-
-
           </div>
           {/* End .row */}
         </div>
       </section>
 
-            {/* <!-- Start Call to Action --> */}
-   
-      <CallToAction/>
- 
+      {/* <!-- Start Call to Action --> */}
+
+      <CallToAction />
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one">

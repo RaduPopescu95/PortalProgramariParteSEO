@@ -18,7 +18,7 @@ import Image from "next/image";
 import Button from "@/components/common/CommonButton";
 import CallToAction from "@/components/common/CallToAction";
 
-const index = () => {
+const index = ({ judete }) => {
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -56,10 +56,9 @@ const index = () => {
                   </h2>
                 </div>
                 {/* End home-text */}
-                <ListSearch className="mt40" />
+                <ListSearch className="mt40" judete={judete} />
               </div>
             </div>
-            
           </div>
         </div>
         {/* End container */}
@@ -68,11 +67,8 @@ const index = () => {
       {/* <!-- Listing Grid View --> */}
       <section className="our-listing bgc-primary pt-0 pb30-991 md-mt0 categorii-container-section">
         <div className="container">
-
           <div className="row pt30">
             <div className="col-md-12 col-lg-12">
-
-
               <div className="row">
                 <FeaturedItem />
               </div>
@@ -89,17 +85,14 @@ const index = () => {
               {/* End .row */}
             </div>
             {/* End  .col */}
-
-
           </div>
           {/* End .row */}
         </div>
       </section>
 
-            {/* <!-- Start Call to Action --> */}
-   
-      <CallToAction/>
- 
+      {/* <!-- Start Call to Action --> */}
+
+      <CallToAction />
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one">

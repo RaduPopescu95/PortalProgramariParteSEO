@@ -26,7 +26,7 @@ export default function Map() {
         data-src="/assets/harta.png"
         data-srcset="/assets/harta.png"
         useMap="#m_harta"
-        alt="Statii ITP Romania"
+        alt="Cabinete Romania"
         width="398"
         height="280"
         srcSet="/assets/harta.png"
@@ -51,309 +51,309 @@ export default function Map() {
           href="/judet/alba"
           shape="poly"
           coords="104,103,104,112,113,116,114,120,118,122,119,132,124,134,131,157,141,166,139,152,141,146,145,144,152,133,157,132,165,125,165,120,157,113,157,109,144,109,142,113,139,106,131,103,117,106,115,102,106,102,104,103"
-          alt="Statii ITP Alba"
-          title="Statii ITP Alba"
+          alt="Cabinete Alba"
+          title="Cabinete Alba"
         />
         <area
           href="/judet/arad"
           shape="poly"
           coords="21,118,32,127,38,129,46,130,51,127,57,133,69,133,71,131,79,138,84,136,91,130,91,126,94,120,100,119,103,110,92,110,86,101,82,101,79,94,70,94,68,92,55,93,52,90,44,100,44,105,40,108,40,112,33,115,25,113,22,114,21,118"
-          alt="Statii ITP Arad"
-          title="Statii ITP Arad"
+          alt="Cabinete Arad"
+          title="Cabinete Arad"
         />
         <area
           href="/judet/arges"
           shape="poly"
           coords="190,232,209,229,210,224,206,218,204,186,208,184,212,173,201,161,190,161,186,159,179,161,177,173,178,184,180,188,178,191,178,200,173,204,175,206,178,204,186,212,189,231,190,232"
-          alt="Statii ITP Arges"
-          title="Statii ITP Arges"
+          alt="Cabinete Arges"
+          title="Cabinete Arges"
         />
         <area
           href="/judet/bacau"
           shape="poly"
           coords="268,130,280,130,294,124,298,124,304,123,304,116,296,98,296,95,292,90,281,90,278,87,276,90,270,91,265,95,245,96,243,93,241,95,243,107,241,110,249,116,254,115,253,119,262,133,265,133,268,130"
-          alt="Statii ITP Bacau"
-          title="Statii ITP Bacau"
+          alt="Cabinete Bacau"
+          title="Cabinete Bacau"
         />
         <area
           href="/judet/bihor"
           shape="poly"
           coords="55,90,55,83,63,73,62,71,71,59,72,54,78,50,79,46,78,42,85,36,91,47,95,48,101,51,99,54,98,58,96,61,97,63,99,68,105,72,103,74,103,77,106,80,105,84,102,86,107,99,103,102,102,109,93,109,87,101,82,100,80,94,70,93,55,91"
-          alt="Statii ITP Bihor"
-          title="Statii ITP Bihor"
+          alt="Cabinete Bihor"
+          title="Cabinete Bihor"
         />
         <area
           href="/judet/bistrita-nasaud"
           shape="poly"
           coords="173,40,198,40,202,43,200,65,187,78,182,79,177,88,168,88,167,80,163,69,157,63,156,58,173,40"
-          alt="Statii ITP Bistrita Nasaud"
-          title="Statii ITP Bistrita Nasaud"
+          alt="Cabinete Bistrita Nasaud"
+          title="Cabinete Bistrita Nasaud"
         />
         <area
           href="/judet/botosani"
           shape="poly"
           coords="247,18,257,3,263,3,266,0,275,1,280,5,283,12,291,19,294,31,296,38,296,40,289,42,286,42,286,46,284,48,281,46,274,44,270,44,269,48,270,50,267,52,263,44,262,34,247,18"
-          alt="Statii ITP Botosani"
-          title="Statii ITP Botosani"
+          alt="Cabinete Botosani"
+          title="Cabinete Botosani"
         />
         <area
           href="/judet/braila"
           shape="poly"
           coords="325,171,326,178,330,180,332,184,334,188,333,191,333,197,330,207,322,208,319,206,316,207,299,207,297,208,296,208,297,201,298,196,294,192,293,189,290,186,291,183,295,183,303,176,303,172,309,166,314,171,325,171"
-          alt="Statii ITP Braila"
-          title="Statii ITP Braila"
+          alt="Cabinete Braila"
+          title="Cabinete Braila"
         />
         <area
           href="/judet/brasov"
           shape="poly"
           coords="189,140,188,146,185,151,186,158,190,160,201,160,212,171,229,166,234,167,239,164,245,165,246,160,232,150,228,152,222,146,222,134,219,133,218,130,210,126,208,128,205,127,199,128,189,140"
-          alt="Statii ITP Brasov"
-          title="Statii ITP Brasov"
+          alt="Cabinete Brasov"
+          title="Cabinete Brasov"
         />
         <area
           href="/judet/bucuresti"
           shape="poly"
           coords="238,237,246,226,255,232,247,239"
-          alt="Statii ITP Bucuresti"
-          title="Statii ITP Bucuresti"
+          alt="Cabinete Bucuresti"
+          title="Cabinete Bucuresti"
         />
         <area
           href="/judet/ilfov"
           shape="poly"
           coords="237,234,248,242,254,240,256,236,261,230,257,227,257,215,254,212,241,212,238,224,238,228,237,232,237,234"
-          alt="Statii ITP Ilfov"
-          title="Statii ITP Ilfov"
+          alt="Cabinete Ilfov"
+          title="Cabinete Ilfov"
         />
         <area
           href="/judet/buzau"
           shape="poly"
           coords="271,207,289,208,289,210,291,210,296,207,297,200,297,196,293,193,291,187,290,183,295,182,302,175,302,172,282,164,277,164,272,159,266,159,261,149,259,149,256,157,253,159,252,157,246,162,246,167,248,174,252,178,251,182,255,186,260,185,266,196,266,203,271,207"
-          alt="Statii ITP Buzau"
-          title="Statii ITP Buzau"
+          alt="Cabinete Buzau"
+          title="Cabinete Buzau"
         />
         <area
           href="/judet/calarasi"
           shape="poly"
           coords="255,240,261,246,260,250,259,255,280,249,296,248,307,246,311,243,318,242,322,240,327,239,330,234,310,229,310,226,308,225,307,227,287,227,285,225,280,226,272,223,270,222,267,225,264,222,261,225,259,226,258,228,262,230,255,238,255,240"
-          alt="Statii ITP Calarasi"
-          title="Statii ITP Calarasi"
+          alt="Cabinete Calarasi"
+          title="Cabinete Calarasi"
         />
         <area
           href="/judet/caras-severin"
           shape="poly"
           coords="70,218,73,218,75,219,76,217,76,211,78,209,78,205,80,204,84,206,86,207,94,195,96,194,97,190,98,189,97,186,95,184,95,182,99,178,99,172,100,170,101,166,99,161,98,160,90,154,84,154,82,156,75,156,75,161,72,163,69,160,62,160,57,157,56,158,55,160,54,162,50,162,49,169,49,170,51,174,51,177,48,180,50,183,44,189,44,192,45,194,49,194,50,197,50,199,42,201,42,204,44,206,51,206,54,211,60,212,64,212,67,213,70,218"
-          alt="Statii ITP Caras Severin"
-          title="Statii ITP Caras Severin"
+          alt="Cabinete Caras Severin"
+          title="Cabinete Caras Severin"
         />
         <area
           href="/judet/cluj"
           shape="poly"
           coords="105,74,121,82,127,78,131,78,138,65,144,63,144,60,150,58,151,55,160,53,155,58,155,64,163,70,163,76,167,81,167,88,160,92,161,95,156,108,143,108,142,110,139,105,130,102,117,105,115,102,109,101,102,87,108,82,108,79,103,77,105,74"
-          alt="Statii ITP Cluj"
-          title="Statii ITP Cluj"
+          alt="Cabinete Cluj"
+          title="Cabinete Cluj"
         />
         <area
           href="/judet/constanta"
           shape="poly"
           coords="298,250,303,254,313,254,320,258,326,256,331,265,342,270,354,270,359,256,357,243,356,236,366,222,365,219,363,220,363,213,352,216,346,216,334,208,323,209,324,212,330,216,330,222,334,225,334,229,330,234,327,239,318,243,312,243,307,246,298,250"
-          alt="Statii ITP Constanta"
-          title="Statii ITP Constanta"
+          alt="Cabinete Constanta"
+          title="Cabinete Constanta"
         />
         <area
           href="/judet/covasna"
           shape="poly"
           coords="219,132,219,127,221,124,225,123,228,119,233,128,242,128,253,121,260,133,259,140,260,147,256,152,257,155,253,157,246,160,232,149,228,151,223,146,222,134,219,132"
-          alt="Statii ITP Covasna"
-          title="Statii ITP Covasna"
+          alt="Cabinete Covasna"
+          title="Cabinete Covasna"
         />
         <area
           href="/judet/dambovita"
           shape="poly"
           coords="240,212,238,223,226,223,224,222,218,225,214,225,212,229,209,229,211,224,207,217,208,215,205,186,208,186,213,172,218,169,217,175,220,179,220,185,228,195,226,198,232,201,231,206,236,207,240,212"
-          alt="Statii ITP Dambovita"
-          title="Statii ITP Dambovita"
+          alt="Cabinete Dambovita"
+          title="Cabinete Dambovita"
         />
         <area
           href="/judet/dolj"
           shape="poly"
           coords="159,274,159,269,163,265,163,262,164,249,165,245,151,230,150,227,152,223,151,219,146,215,144,218,141,219,131,220,131,222,123,226,120,231,117,237,117,245,112,245,111,250,113,252,104,259,104,262,106,265,118,266,124,264,127,264,136,267,144,267,147,269,159,274"
-          alt="Statii ITP Dolj"
-          title="Statii ITP Dolj"
+          alt="Cabinete Dolj"
+          title="Cabinete Dolj"
         />
         <area
           href="/judet/galati"
           shape="poly"
           coords="331,129,325,129,322,126,320,129,314,129,312,127,309,127,309,134,305,129,302,129,294,134,299,148,305,157,307,164,314,169,329,170,334,169,336,166,335,163,331,159,334,155,333,150,329,135,331,129"
-          alt="Statii ITP Galati"
-          title="Statii ITP Galati"
+          alt="Cabinete Galati"
+          title="Cabinete Galati"
         />
         <area
           href="/judet/giurgiu"
           shape="poly"
           coords="228,275,232,275,239,270,249,257,259,255,259,251,260,247,254,241,251,241,251,242,248,243,236,234,236,230,238,224,232,224,227,225,224,223,219,226,219,236,227,239,229,250,225,254,226,263,227,269,228,275"
-          alt="Statii ITP Giurgiu"
-          title="Statii ITP Giurgiu"
+          alt="Cabinete Giurgiu"
+          title="Cabinete Giurgiu"
         />
         <area
           href="/judet/gorj"
           shape="poly"
           coords="99,179,123,177,126,175,139,175,148,176,147,181,147,193,144,197,144,203,145,215,143,218,131,219,119,212,116,211,109,201,109,195,102,189,98,190,97,185,95,183,99,179"
-          alt="Statii ITP Gorj"
-          title="Statii ITP Gorj"
+          alt="Cabinete Gorj"
+          title="Cabinete Gorj"
         />
         <area
           href="/judet/harghita"
           shape="poly"
           coords="194,115,194,117,197,121,203,122,204,126,211,126,218,129,219,124,224,122,228,118,234,128,243,127,252,120,253,116,248,116,242,111,240,95,237,98,233,94,233,79,228,71,222,71,216,66,212,66,210,71,211,95,207,101,201,103,194,115"
-          alt="Statii ITP Harghita"
-          title="Statii ITP Harghita"
+          alt="Cabinete Harghita"
+          title="Cabinete Harghita"
         />
         <area
           href="/judet/hunedoara"
           shape="poly"
           coords="90,153,101,163,101,168,100,178,124,176,139,174,140,167,131,157,128,142,122,133,118,132,118,121,113,121,113,116,103,114,102,119,95,121,92,124,92,132,90,136,90,142,94,146,90,153"
-          alt="Statii ITP Hunedoara"
-          title="Statii ITP Hunedoara"
+          alt="Cabinete Hunedoara"
+          title="Cabinete Hunedoara"
         />
         <area
           href="/judet/hunedoara"
           shape="poly"
           coords="90,153,101,163,101,168,100,178,124,176,139,174,140,167,131,157,128,142,122,133,118,132,118,121,113,121,113,116,103,114,102,119,95,121,92,124,92,132,90,136,90,142,94,146,90,153"
-          alt="Statii ITP Hunedoara"
-          title="Statii ITP Hunedoara"
+          alt="Cabinete Hunedoara"
+          title="Cabinete Hunedoara"
         />
         <area
           href="/judet/ialomita"
           shape="poly"
           coords="287,226,306,226,309,224,311,228,329,233,333,229,333,226,330,223,329,217,323,211,319,207,317,207,299,207,297,209,295,208,292,211,290,211,287,208,271,207,268,204,263,207,258,208,257,213,259,215,259,225,263,222,266,223,271,222,280,225,285,225,286,226"
-          alt="Statii ITP Ialomita"
-          title="Statii ITP Ialomita"
+          alt="Cabinete Ialomita"
+          title="Cabinete Ialomita"
         />
         <area
           href="/judet/iasi"
           shape="poly"
           coords="264,53,264,58,268,63,267,68,275,69,277,72,281,71,284,70,287,68,293,74,293,77,290,79,290,81,295,82,297,80,308,80,308,77,311,76,313,79,317,79,318,82,321,85,324,82,330,83,330,81,325,73,322,73,315,66,314,57,307,57,305,48,297,40,287,43,286,47,283,47,280,46,271,45,270,51,264,53"
-          alt="Statii ITP Iasi"
-          title="Statii ITP Iasi"
+          alt="Cabinete Iasi"
+          title="Cabinete Iasi"
         />
         <area
           href="/judet/ilfov"
           shape="poly"
           coords="264,53,264,58,268,63,267,68,275,69,277,72,281,71,284,70,287,68,293,74,293,77,290,79,290,81,295,82,297,80,308,80,308,77,311,76,313,79,317,79,318,82,321,85,324,82,330,83,330,81,325,73,322,73,315,66,314,57,307,57,305,48,297,40,287,43,286,47,283,47,280,46,271,45,270,51,264,53"
-          alt="Statii ITP Ilfov"
-          title="Statii ITP Ilfov"
+          alt="Cabinete Ilfov"
+          title="Cabinete Ilfov"
         />
         <area
           href="/judet/maramures"
           shape="poly"
           coords="141,15,144,14,152,15,154,19,158,19,160,17,164,19,175,20,179,17,184,18,194,28,197,32,199,33,200,36,196,39,172,39,160,52,147,52,144,50,133,49,125,46,121,47,117,45,119,43,124,39,130,40,134,33,129,30,129,28,138,28,144,22,142,18,141,15"
-          alt="Statii ITP Maramures"
-          title="Statii ITP Maramures"
+          alt="Cabinete Maramures"
+          title="Cabinete Maramures"
         />
         <area
           href="/judet/mehedinti"
           shape="poly"
           coords="71,218,73,224,74,224,77,222,84,213,88,212,102,220,101,222,95,222,88,225,91,233,98,237,98,242,111,250,111,245,117,245,116,236,120,232,120,229,123,224,130,222,131,220,120,213,116,212,109,203,108,195,102,190,99,190,86,206,83,206,79,206,79,208,77,211,77,217,71,218"
-          alt="Statii ITP Mehedinti"
-          title="Statii ITP Mehedinti"
+          alt="Cabinete Mehedinti"
+          title="Cabinete Mehedinti"
         />
         <area
           href="/judet/mures"
           shape="poly"
           coords="186,121,187,129,197,130,203,126,203,123,197,122,193,117,193,114,196,112,200,103,206,101,210,94,210,76,207,68,201,68,187,79,183,80,178,89,168,89,161,92,161,95,157,107,158,114,166,121,186,121"
-          alt="Statii ITP Mures"
-          title="Statii ITP Mures"
+          alt="Cabinete Mures"
+          title="Cabinete Mures"
         />
         <area
           href="/judet/neamt"
           shape="poly"
           coords="229,70,233,79,233,88,234,94,236,97,243,93,255,95,266,94,270,90,278,87,282,89,291,89,293,83,290,81,293,76,286,69,280,72,276,73,274,70,267,69,267,65,263,56,250,59,237,60,232,56,231,57,232,60,229,70"
-          alt="Statii ITP Neamt"
-          title="Statii ITP Neamt"
+          alt="Cabinete Neamt"
+          title="Cabinete Neamt"
         />
         <area
           href="/judet/olt"
           shape="poly"
           coords="160,274,171,275,174,271,179,271,182,274,185,270,188,268,181,257,189,250,191,249,190,244,191,240,192,234,188,231,184,212,180,207,178,205,176,208,174,207,173,204,169,209,169,217,170,220,162,224,153,224,151,228,157,235,165,244,163,265,159,270,159,275"
-          alt="Statii ITP Olt"
-          title="Statii ITP Olt"
+          alt="Cabinete Olt"
+          title="Cabinete Olt"
         />
         <area
           href="/judet/prahova"
           shape="poly"
           coords="218,170,229,166,234,169,240,165,246,167,247,170,247,175,251,178,252,183,256,187,258,186,263,194,266,196,265,200,267,203,264,206,258,206,254,210,240,210,234,206,233,201,228,198,229,196,221,184,221,178,218,170"
-          alt="Statii ITP Prahova"
-          title="Statii ITP Prahova"
+          alt="Cabinete Prahova"
+          title="Cabinete Prahova"
         />
         <area
           href="/judet/salaj"
           shape="poly"
           coords="98,61,98,66,105,72,111,75,118,79,123,82,126,78,130,78,135,71,138,64,142,63,143,59,149,58,151,54,143,51,134,51,124,47,122,50,116,52,111,48,102,51,98,61"
-          alt="Statii ITP Salaj"
-          title="Statii ITP Salaj"
+          alt="Cabinete Salaj"
+          title="Cabinete Salaj"
         />
         <area
           href="/judet/satu-mare"
           shape="poly"
           coords="87,34,92,44,96,47,101,50,106,49,112,48,115,50,120,51,121,49,117,47,117,45,120,41,123,37,126,39,129,39,133,35,133,32,127,29,128,26,131,27,139,27,143,21,141,19,140,15,137,15,130,8,126,8,124,12,123,14,121,16,117,15,109,24,107,25,104,28,101,28,97,25,95,28,93,29,90,28,87,33"
-          alt="Statii ITP Satu Mare"
-          title="Statii ITP Satu Mare"
+          alt="Cabinete Satu Mare"
+          title="Cabinete Satu Mare"
         />
         <area
           href="/judet/sibiu"
           shape="poly"
           coords="167,122,185,122,186,130,195,131,188,139,187,145,184,149,185,158,178,160,171,161,163,165,141,165,140,150,146,145,153,134,158,133,167,122"
-          alt="Statii ITP Sibiu"
-          title="Statii ITP Sibiu"
+          alt="Cabinete Sibiu"
+          title="Cabinete Sibiu"
         />
         <area
           href="/judet/suceava"
           shape="poly"
           coords="198,39,201,36,201,32,214,20,219,19,236,18,245,17,261,33,264,48,269,51,268,53,263,52,262,56,259,56,257,55,253,58,248,57,236,59,232,56,230,57,232,60,228,71,222,70,216,65,213,65,209,68,201,66,202,49,203,48,203,42,198,39"
-          alt="Statii ITP Suceava"
-          title="Statii ITP Suceava"
+          alt="Cabinete Suceava"
+          title="Cabinete Suceava"
         />
         <area
           href="/judet/teleorman"
           shape="poly"
           coords="185,275,190,275,197,273,202,275,207,275,212,280,222,279,226,275,227,270,225,261,224,253,228,249,227,245,227,240,223,238,219,238,217,231,218,228,215,226,212,231,209,231,193,234,191,244,193,249,182,256,188,267,184,274"
-          alt="Statii ITP Teleorman"
-          title="Statii ITP Teleorman"
+          alt="Cabinete Teleorman"
+          title="Cabinete Teleorman"
         />
         <area
           href="/judet/timis"
           shape="poly"
           coords="3,120,5,119,7,120,10,118,12,118,15,120,17,121,19,119,20,121,22,124,33,129,47,131,50,128,52,128,57,134,68,134,71,132,80,138,84,138,89,135,89,142,94,145,89,154,85,154,82,156,75,156,75,160,73,162,68,159,66,160,62,160,57,157,56,157,54,160,50,162,48,170,51,174,51,177,47,180,39,177,35,174,31,173,23,166,23,163,20,160,22,158,20,155,22,146,22,144,20,143,18,146,17,143,16,138,4,129,3,124,0,122,3,120"
-          alt="Statii ITP Timis"
-          title="Statii ITP Timis"
+          alt="Cabinete Timis"
+          title="Cabinete Timis"
         />
         <area
           href="/judet/tulcea"
           shape="poly"
           coords="331,205,334,202,335,185,333,183,332,179,327,178,328,172,332,170,334,171,337,168,340,170,340,174,355,179,358,179,359,175,363,173,365,177,378,168,390,167,395,169,398,173,397,195,396,196,397,201,394,204,378,206,365,216,365,213,371,207,374,207,375,204,372,198,374,195,371,193,366,197,366,202,368,202,367,209,362,212,352,215,346,214,333,207"
-          alt="Statii ITP Tulcea"
-          title="Statii ITP Tulcea"
+          alt="Cabinete Tulcea"
+          title="Cabinete Tulcea"
         />
         <area
           href="/judet/valcea"
           shape="poly"
           coords="149,175,149,194,146,196,146,215,153,222,161,224,168,219,169,209,173,203,177,200,178,185,177,171,178,161,170,161,164,165,143,165,141,167,140,174,149,175"
-          alt="Statii ITP Valcea"
-          title="Statii ITP Valcea"
+          alt="Cabinete Valcea"
+          title="Cabinete Valcea"
         />
         <area
           href="/judet/vaslui"
           shape="poly"
           coords="293,84,294,90,297,94,296,97,305,115,305,127,309,133,309,129,309,126,313,126,315,128,319,127,321,124,324,125,326,127,332,127,332,124,331,120,334,116,334,112,336,110,336,105,334,104,336,99,335,94,332,92,329,84,324,83,320,86,316,80,313,80,310,77,308,80,298,81,293,84"
-          alt="Statii ITP Vaslui"
-          title="Statii ITP Vaslui"
+          alt="Cabinete Vaslui"
+          title="Cabinete Vaslui"
         />
         <area
           href="/judet/vrancea"
           shape="poly"
           coords="304,124,300,124,297,126,295,124,281,130,267,131,266,135,261,134,261,147,264,151,267,158,272,158,277,163,282,163,296,168,297,170,302,171,307,166,305,159,294,138,295,134,301,128,304,128,304,124"
-          alt="Statii ITP Vrancea"
-          title="Statii ITP Vrancea"
+          alt="Cabinete Vrancea"
+          title="Cabinete Vrancea"
         />
       </map>
     </div>
