@@ -44,20 +44,29 @@ const index = () => {
           <div className="row posr mb25">
             <div className="col-lg-12">
               <div className="home_content home4">
-              <div class="home-text w-100 w-md-75">
-                <h2 className="fz50 txt-color-primary text-center mb10">Medicul potrivit pentru nevoile tale!</h2>
-                <p className="fz18 txt-color-third w-75 mx-auto mx-sm-auto text-center mb-2">
-                  Articole medicale și liste cu top clinici din fiecare oraș. Găsește ușor clinica cea mai potrivită (și apropiată de tine) pentru nevoile tale medicale.
-                </p>
-                <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 w-100 mb-10">
-  <Button style={{ minWidth: 'calc(30% - 10px)' }}>Caută medic <span className="flaticon-right-arrow ml-10"/></Button>
-  <Button className="btnSecondary" style={{ minWidth: 'calc(30% - 10px)' }}>Înscrie o clinică <span className="flaticon-right-arrow ml-10"/></Button>
-</div>
-
-</div>
-
-         
-
+                <div class="home-text w-100 w-md-75">
+                  <h2 className="fz50 txt-color-primary text-center mb10">
+                    Medicul potrivit pentru nevoile tale!
+                  </h2>
+                  <p className="fz18 txt-color-third w-75 mx-auto mx-sm-auto text-center mb-2">
+                    Articole medicale și liste cu top clinici din fiecare oraș.
+                    Găsește ușor clinica cea mai potrivită (și apropiată de
+                    tine) pentru nevoile tale medicale.
+                  </p>
+                  <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 w-100 mb-10">
+                    <Button style={{ minWidth: "calc(30% - 10px)" }}>
+                      Caută medic{" "}
+                      <span className="flaticon-right-arrow ml-10" />
+                    </Button>
+                    <Button
+                      className="btnSecondary"
+                      style={{ minWidth: "calc(30% - 10px)" }}
+                    >
+                      Înscrie o clinică{" "}
+                      <span className="flaticon-right-arrow ml-10" />
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -70,7 +79,7 @@ const index = () => {
                 <LookingItem />
               </ul>
               <h4 className="fz18 txt-color-third w-75 mx-auto text-center mt10">
-              <span className="flaticon-upload mr10"/>
+                <span className="flaticon-upload mr10" />
                 Vezi mai multe specializări
               </h4>
             </div>
@@ -78,10 +87,10 @@ const index = () => {
         </div>
       </div>
 
-  {/* <!-- 2.	Pasi de urmat --> */}
+      {/* <!-- 2.	Pasi de urmat --> */}
 
       <section id="property-city" className="property-city pb30">
-      <div className="container-fluid pasi_urmat px-10">
+        <div className="container-fluid pasi_urmat px-10">
           <div className="row">
             <PasiDeUrmat />
           </div>
@@ -89,56 +98,70 @@ const index = () => {
         </div>
       </section>
 
-            {/* <!-- Our Hot Offier --> */}
-            <section className="our-hot-offer parallax">
-        <div className="container" style={{display:"flex", justifyContent:"start"}}>
+      {/* <!-- Our Hot Offier --> */}
+      <section className="our-hot-offer parallax">
+        <div
+          className="container"
+          style={{ display: "flex", justifyContent: "start" }}
+        >
           <div className="row mt40">
             <div className="col-md-6 col-lg-8 order-2 order-md-1">
               <div className="our_hotoffer">
-              <h2 className="fz30 txt-color-third"><span className="fz40 txt-color-primary">ÎMPREUNĂ,</span> Conectați pentru sănătate</h2>
+                <h2 className="fz30 txt-color-third">
+                  <span className="fz40 txt-color-primary">ÎMPREUNĂ,</span>{" "}
+                  Conectați pentru sănătate
+                </h2>
                 <p className="fz20 txt-color-third">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
                 </p>
-                      <div className="fp_footer">
-              <ul className="">
-          
-                <li>
-                <p className="fz20 txt-color-third">
-                <span className="flaticon-tick mr10"></span>
-             Ne dorim ca pacienții să găsească medicul perfect și să facă o programare în cel mai ușor mod
-              </p>
-                </li>
-                <li>
-                <p className="fz20 txt-color-third">
-                <span className="flaticon-tick mr10"></span>
-                Cea mai bună îngrijire, la un click distanță!
-              </p>
-                </li>
-                <li>
-                <p className="fz20 txt-color-third">
-                <span className="flaticon-tick mr10"></span>
-             Oricând, oriunde în România
-              </p>
-                </li>
-              </ul>
-
-            </div>
-            <div className="d-flex flex-column flex-sm-row justify-content-start gap-3 w-100 mb-10">
-            <Button className="w-75 w-md-75">Despre noi</Button>
-  <Button className="w-75 w-md-75">Contact</Button>
-</div>
-
+                <div className="fp_footer">
+                  <ul className="">
+                    <li>
+                      <p className="fz20 txt-color-third">
+                        <span className="flaticon-tick mr10"></span>
+                        Ne dorim ca pacienții să găsească medicul perfect și să
+                        facă o programare în cel mai ușor mod
+                      </p>
+                    </li>
+                    <li>
+                      <p className="fz20 txt-color-third">
+                        <span className="flaticon-tick mr10"></span>
+                        Cea mai bună îngrijire, la un click distanță!
+                      </p>
+                    </li>
+                    <li>
+                      <p className="fz20 txt-color-third">
+                        <span className="flaticon-tick mr10"></span>
+                        Oricând, oriunde în România
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div className="d-flex flex-column flex-sm-row justify-content-start gap-3 w-100 mb-10">
+                  <Button className="w-50 w-md-50">
+                    Găsește o clinica în apropiere
+                  </Button>
+                </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 order-1 order-md-2">
               <div className="our_hotoffer">
-              <Image
-              src="/assets/images/pasurmat.svg" // Calea relativă la directorul public
-              alt="Tooth Icon" // Adaugă un text alternativ pentru accesibilitate
-              width={400} // Specifică lățimea dorită
-              height={400} // Specifică înălțimea dorită
-              className="img-whp"
-            />
+                <Image
+                  src="/assets/images/pasurmat.svg" // Calea relativă la directorul public
+                  alt="Tooth Icon" // Adaugă un text alternativ pentru accesibilitate
+                  width={400} // Specifică lățimea dorită
+                  height={400} // Specifică înălțimea dorită
+                  className="img-whp"
+                />
               </div>
             </div>
             {/* End .col */}
@@ -150,50 +173,57 @@ const index = () => {
         <div className="container">
           <div className="row">
             {/* End .col */}
-            <div className="col-md-6 col-lg-6 ">
-              <div
-                className="our_hotoffer"
-              >
-            <Image
-              src="/assets/images/pasurmat.svg" // Calea relativă la directorul public
-              alt="Tooth Icon" // Adaugă un text alternativ pentru accesibilitate
-              width={400} // Specifică lățimea dorită
-              height={400} // Specifică înălțimea dorită
-              className="img-whp"
-            />
+            <div className="col-md-6 col-lg-4">
+              <div className="our_hotoffer">
+                <Image
+                  src="/assets/images/pasurmat.svg" // Calea relativă la directorul public
+                  alt="Tooth Icon" // Adaugă un text alternativ pentru accesibilitate
+                  width={400} // Specifică lățimea dorită
+                  height={400} // Specifică înălțimea dorită
+                  className="img-whp"
+                />
               </div>
             </div>
-            <div className="col-md-6 col-lg-6">
+            <div className="col-md-6 col-lg-8">
               <div className="our_hotoffer">
-              <h2 className="fz30 txt-color-third"><span className="fz40 txt-color-primary">ÎMPREUNĂ,</span> Conectați pentru sănătate</h2>
-              <p className="fz20 txt-color-third">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
+                <h2 className="fz30 txt-color-third">
+                  <span className="fz40 txt-color-primary">ÎMPREUNĂ,</span>{" "}
+                  Conectați pentru sănătate
+                </h2>
+                <p className="fz20 txt-color-third">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
                 </p>
 
-                <ul >
-          
-          <li>
-          <p className="fz20 txt-color-third">
-          <span className="flaticon-tick mr10"></span>
-          Ne dorim ca pacienții să găsească medicul perfect și să facă o programare în cel mai ușor mod
-        </p>
-          </li>
-          <li>
-          <p className="fz20 txt-color-third">
-          <span className="flaticon-tick mr10"></span>
-          Cea mai bună îngrijire, la un click distanță!
-        </p>
-          </li>
-          <li>
-          <p className="fz20 txt-color-third">
-          <span className="flaticon-tick mr10"></span>
-          Oricând, oriunde în România
-        </p>
-          </li>
-        </ul>
-
-
+                <ul>
+                  <li>
+                    <p className="fz20 txt-color-third">
+                      <span className="flaticon-tick mr10"></span>
+                      Ne dorim ca pacienții să găsească medicul perfect și să
+                      facă o programare în cel mai ușor mod
+                    </p>
+                  </li>
+                  <li>
+                    <p className="fz20 txt-color-third">
+                      <span className="flaticon-tick mr10"></span>
+                      Cea mai bună îngrijire, la un click distanță!
+                    </p>
+                  </li>
+                  <li>
+                    <p className="fz20 txt-color-third">
+                      <span className="flaticon-tick mr10"></span>
+                      Oricând, oriunde în România
+                    </p>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

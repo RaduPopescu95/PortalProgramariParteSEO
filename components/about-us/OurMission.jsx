@@ -31,7 +31,7 @@ const OurMission = () => {
 
   return (
     <>
-      <div className="col-lg-8 col-xl-7 order-2 order-md-1 mt-sm-0 mt-3">
+      <div className="pr30 col-lg-8 col-xl-7 order-2 order-md-1 mt-sm-0 mt-3">
         <div className="about_content">
           <p className="large">
             Conceptul de platforma online care grupeaza statii ITP si informatii

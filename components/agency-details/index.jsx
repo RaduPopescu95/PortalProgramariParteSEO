@@ -28,41 +28,58 @@ const index = () => {
             <div className="col-md-12 col-lg-12">
               <div className="row">
                 <div className="col-lg-12">
-                  <BreadCrumb2 />
-                </div>
-                {/* End .col-12 */}
-
-                <div className="col-lg-12">
                   <div className="feat_property list agency">
-
-
                     <div className="details ">
-                      <div className="tc_content">
-                     <h3>Fa-ti programare!</h3>
+                      <div className="tc_content pt10 d-flex flex-column justify-content-center align-items-center">
+                        <Image
+                          width={100}
+                          height={100}
+                          className="logo1 img-fluid"
+                          src="/assets/logoexample.png"
+                          alt="Logo"
+                          layout="intrinsic" // Schimbă la layout="intrinsic" pentru a permite redimensionarea bazată pe maxWidth
+                        />
 
-                     <div className="d-flex justify-content-start align-items-center w-100">
-                     <span className="flaticon-placeholder"></span>
-                     <p className="m0">0787813831</p>
-                     </div>
-
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                          <p className="m0">Nume agentie</p>
+                        </div>
                       </div>
-
                     </div>
-
-                    <div className="details">
+                    <a
+                      href="tel:0787813831"
+                      className="details"
+                      style={{ cursor: "pointer" }}
+                    >
                       <div className="tc_content">
-                     <h3>Contactează-ne pe WhatsApp</h3>
+                        <h3>Fa-ti programare!</h3>
 
+                        <div className="d-flex justify-content-start align-items-center w-100">
+                          <span className="flaticon-placeholder"></span>
+                          <p className="m0">0787813831</p>
+                        </div>
                       </div>
+                    </a>
 
-                    </div>
-                    <div className="details">
+                    <a
+                      href="https://wa.me/40787813831"
+                      className="details"
+                      style={{ cursor: "pointer" }}
+                      target="_blank" // Opțional: deschide linkul într-o nouă fereastră/tab
+                      rel="noopener noreferrer" // Pentru securitate, când folosești target="_blank"
+                    >
                       <div className="tc_content">
-                     <h3>Formulare</h3>
-
+                        <h3>Contactează-ne pe WhatsApp</h3>
                       </div>
-
-                    </div>
+                    </a>
+                    <a
+                      href="#contact-form"
+                      className="details"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <div className="tc_content">
+                        <h3>Formular contact</h3>
+                      </div>
+                    </a>
                   </div>
                   {/* End .feat_property */}
 
@@ -70,26 +87,22 @@ const index = () => {
                     <TabDetailsContent />
                   </div>
                   <div className="style2 mt30">
-                <SidebarListings />
-                </div>
+                    <SidebarListings />
+                  </div>
                   <div className="style2 mt30">
-                  <ListingGallery />
-                </div>
+                    <ListingGallery />
+                  </div>
                 </div>
                 {/* End .col-12 */}
-
               </div>
             </div>
             {/* End .col-md-12 col-lg-12 content left side */}
 
-
             <div className="col-lg-12 col-xl-12">
-                  {/* <!-- Listing Single Property --> */}
-      <section className="listing-title-area md-mt0">
-        <div className="container">
- 
-        </div>
-      </section>
+              {/* <!-- Listing Single Property --> */}
+              <section className="listing-title-area md-mt0">
+                <div className="container"></div>
+              </section>
             </div>
             {/* End .col-lg-4 col-xl-4 content left side */}
           </div>

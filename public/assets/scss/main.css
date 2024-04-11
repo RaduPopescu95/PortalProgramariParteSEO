@@ -3510,13 +3510,12 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
 .home_adv_srch_opt {
   margin-top: 145px;
   position: relative;
-  
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .home_adv_srch_opt .nav-pills {
@@ -3563,7 +3562,6 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   color: #ffffff;
-
 }
 
 .home_adv_srch_opt .nav-pills li.nav-item a.nav-link.active:before {
@@ -3574,7 +3572,6 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
   position: absolute;
   top: 35px;
   width: auto;
-
 }
 
 .home_adv_srch_opt.home4 .nav-pills li.nav-item a.nav-link {
@@ -5338,7 +5335,6 @@ form.home5_advanced_search_form
   text-align: center;
   width: 130px;
   margin-bottom: 10px;
-
 }
 
 .home4_iconbox .icon {
@@ -6705,8 +6701,6 @@ form.home5_advanced_search_form
 }
 
 .feat_property.home7.style3 .thumb,
-
-
 .feat_property.home7.style4 .thumb {
   /* margin: 10px; */
   max-height: 215px;
@@ -8324,7 +8318,7 @@ form.home5_advanced_search_form
 }
 
 .our_hotoffer button.btn.ht_offer {
- background-color: var(--color-primary);
+  background-color: var(--color-primary);
   color: #ffffff;
   font-size: 16px;
   font-family: "Nunito";
@@ -8335,8 +8329,7 @@ form.home5_advanced_search_form
 }
 
 .our_hotoffer button.btn.ht_offer:hover {
- background-color: var(--color-secondary);
-
+  background-color: var(--color-secondary);
 }
 
 .View_All {
@@ -8543,11 +8536,10 @@ form.home5_advanced_search_form
 }
 
 .parner_reg_btn.home7 a.btn {
-background-color: var(--color-secondary);
+  background-color: var(--color-secondary);
 
   color: var(--color-primary); /* White text */
 }
-
 
 .container-fluid.style2 {
   max-width: 1720px;
@@ -9338,8 +9330,6 @@ background-color: var(--color-secondary);
 
 .footer_mailchimp_form {
   position: relative;
-
-
 }
 
 .footer_mailchimp_form .col-auto input.form-control {
@@ -9931,20 +9921,17 @@ background-color: var(--color-secondary);
 
 /*== Inner Pages Breadcrumb ==*/
 .inner_page_breadcrumb {
-  background-color: var(--bg-secondary);
-  background-repeat: no-repeat;
-  height: 370px;
+  height: auto;
   margin-top: 88px;
   position: relative;
 }
 @media (max-width: 576px) {
   .inner_page_breadcrumb {
-    height: 350px;
+    height: auto;
   }
 }
 
 .inner_page_breadcrumb:before {
-  background-color: rgb(29, 41, 62);
   bottom: 0;
   content: "";
   left: 0;
@@ -9955,7 +9942,7 @@ background-color: var(--color-secondary);
 }
 
 .inner_page_breadcrumb .breadcrumb_content {
-  margin-top: 85px;
+  margin: 45px 45px 45px 0px;
   position: relative;
 }
 @media (max-width: 767px) {
@@ -9978,7 +9965,7 @@ background-color: var(--color-secondary);
 .inner_page_breadcrumb .breadcrumb_title {
   font-size: 40px;
   font-family: "Nunito";
-  color: #ffffff;
+  color: #484848;
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 0;
@@ -9995,7 +9982,7 @@ background-color: var(--color-secondary);
 .inner_page_breadcrumb .breadcrumb-item a,
 .inner_page_breadcrumb .breadcrumb-item.active,
 .inner_page_breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-  color: #ffffff;
+  color: #484848;
   text-transform: capitalize;
 }
 

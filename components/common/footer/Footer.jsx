@@ -10,7 +10,13 @@ const Footer = () => {
         <div className="footer_about_widget">
           <h4>Misiunea noastra</h4>
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </div>
       </div>
@@ -48,7 +54,13 @@ const Footer = () => {
               <Link href="/categorie">Cauta clinic</Link>
             </li>
             <li>
+              <Link href="/categorie">Clinici</Link>
+            </li>
+            <li>
               <Link href="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link href="/despre-noi">Despre noi</Link>
             </li>
             <li>
               <Link href="/contact">Contact</Link>
@@ -83,14 +95,13 @@ const Footer = () => {
       {/* End .col */}
 
       <div className="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      <div className="footer_social_widget d-flex flex-column align-items-center text-center mt30">
-  {/* <h4>Urmărește-ne</h4> */}
-  <ul className="mb30 list-unstyled">
-    <Social />
-  </ul>
-  <LinkInstitutii />
-</div>
-
+        <div className="footer_social_widget d-flex flex-column align-items-center text-center mt30">
+          {/* <h4>Urmărește-ne</h4> */}
+          <ul className="mb30 list-unstyled">
+            <Social />
+          </ul>
+          <LinkInstitutii />
+        </div>
       </div>
     </>
   );

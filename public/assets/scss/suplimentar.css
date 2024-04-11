@@ -1,4 +1,3 @@
-
 .bgc-primary {
   background-color: #f1f5f9;
 }
@@ -6,22 +5,24 @@
   background-color: #2867fb;
 }
 .bgc-accent {
-  background-color: #2969ff
+  background-color: #2969ff;
 }
 .bgc-white {
   background-color: #ffffff; /* Menține fundalul butonului alb */
-  color: var(--color-primary); /* Ajustează culoarea textului dacă este necesar */
+  color: var(
+    --color-primary
+  ); /* Ajustează culoarea textului dacă este necesar */
 }
-.txt-color{
+.txt-color {
   color: #484848 !important;
 }
-.txt-color-primary{
+.txt-color-primary {
   color: var(--txt-primary) !important;
 }
-.txt-color-secondary{
+.txt-color-secondary {
   color: var(--txt-secondary) !important;
 }
-.txt-color-third{
+.txt-color-third {
   color: var(--txt-third) !important;
 }
 
@@ -254,7 +255,6 @@
   border: none; /* Înlătură border-ul implicit al iframe-ului */
 }
 
-
 .btn.btnGeneral {
   border-radius: 25px;
   background-color: var(--btn-primary);
@@ -268,7 +268,7 @@
   width: auto;
   border: 2px solid transparent; /* Adaugă o bordură transparentă pentru un efect mai consistent la hover */
   transition: all 0.3s ease; /* Suavizează tranziția culorilor și a bordurii */
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); /* Adaugă o umbră ușoară pentru un efect de profunzime */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); /* Adaugă o umbră ușoară pentru un efect de profunzime */
   cursor: pointer; /* Schimbă cursorul pentru a indica că butonul este clicabil */
 }
 
@@ -277,38 +277,33 @@
   color: var(--btn-primary);
   border-color: var(--btn-primary);
   /* transform: scale(1.05);  */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Întunecă și mărește umbră pentru a adăuga un efect vizual mai puternic */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Întunecă și mărește umbră pentru a adăuga un efect vizual mai puternic */
 }
 
-
-
-.btn.btnGeneral.btnSecondary{
+.btn.btnGeneral.btnSecondary {
   color: var(--btn-primary);
   background-color: var(--btn-third);
 }
-.btn.btnGeneral.btnSecondary:hover{
+.btn.btnGeneral.btnSecondary:hover {
   color: var(--btn-primary);
   border-color: var(--btn-primary);
   /* transform: scale(1.05);  */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Întunecă și mărește umbră pentru a adăuga un efect vizual mai puternic */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Întunecă și mărește umbră pentru a adăuga un efect vizual mai puternic */
 }
 
-
-.properti_city.pasi_urmat{
+.properti_city.pasi_urmat {
   height: 150px;
   overflow: hidden; /* Ascunde conținutul care depășește max-height */
 }
 
-.container.pasi_urmat{
+.container.pasi_urmat {
   width: 100%;
 }
 
-
-
-.image-cta{
+.image-cta {
   position: absolute;
   bottom: 3.7rem;
-  right:15rem
+  right: 15rem;
 }
 
 .roundedDiv {
@@ -328,4 +323,9 @@
   font-size: medium;
 }
 
-
+.details:hover h3 {
+  color: var(--txt-secondary); /* Sau orice culoare dorești */
+}
+.details:hover p {
+  color: var(--txt-secondary); /* Sau orice culoare dorești */
+}

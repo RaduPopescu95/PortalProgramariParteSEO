@@ -27,7 +27,7 @@ const index = () => {
       <BreadCrumbBanner />
 
       {/* <!-- About Text Content --> */}
-      <section className="about-section">
+      <section className="about-section pt-0">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
@@ -46,7 +46,7 @@ const index = () => {
       </section>
 
       {/* <!-- Start Call to Action --> */}
-      <CallToAction className={"pt40 bgc-white"}/>
+      <CallToAction className={"pt40 bgc-white"} />
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one">

@@ -4,7 +4,9 @@ import BreadCrumb from "../common/BreadCrumb";
 const BreadCrumbBlog = () => {
   return (
     <div className="breadcrumb_content style2 d-flex align-items-center">
-      <div style={{ maxWidth: '150px' }}> {/* Elimină maxHeight pentru a permite div-ului să se ajusteze la conținut */}
+      <div style={{ maxWidth: "150px" }}>
+        {" "}
+        {/* Elimină maxHeight pentru a permite div-ului să se ajusteze la conținut */}
         <Image
           width={500}
           height={300}

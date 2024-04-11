@@ -40,196 +40,6 @@ const HeaderMenuContent = ({ float = "" }) => {
     },
   ];
 
-  const listing = [
-    {
-      id: 1,
-      title: "Listing Grid",
-      items: [
-        {
-          name: "Grid v1",
-          routerPath: "/listing-grid-v1",
-        },
-        {
-          name: "Grid v2",
-          routerPath: "/listing-grid-v2",
-        },
-        {
-          name: "Grid v3",
-          routerPath: "/listing-grid-v3",
-        },
-        {
-          name: "Grid v4",
-          routerPath: "/listing-grid-v4",
-        },
-        {
-          name: "Grid v5",
-          routerPath: "/listing-grid-v5",
-        },
-        {
-          name: "Grid v6",
-          routerPath: "/listing-grid-v6",
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: "Listing List",
-      items: [
-        {
-          name: "List V1",
-          routerPath: "/listing-list-v1",
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: "Listing Style",
-      items: [
-        {
-          name: "Parallax Style",
-          routerPath: "/parallax-style",
-        },
-        {
-          name: "Slider Style",
-          routerPath: "/slider-style",
-        },
-        {
-          name: "Map Header",
-          routerPath: "/map-header",
-        },
-      ],
-    },
-    {
-      id: 4,
-      title: "Listing Half",
-      items: [
-        {
-          name: "Map V1",
-          routerPath: "/listing-map-v1",
-        },
-        {
-          name: "Map V2",
-          routerPath: "/listing-map-v2",
-        },
-        {
-          name: "Map V3",
-          routerPath: "/listing-map-v3",
-        },
-        {
-          name: "Map V4",
-          routerPath: "/listing-map-v4",
-        },
-      ],
-    },
-    {
-      id: 5,
-      title: "Agent View",
-      items: [
-        {
-          name: "Agent V1",
-          routerPath: "/agent-v1",
-        },
-        {
-          name: "Agent V2",
-          routerPath: "/agent-v2",
-        },
-        {
-          name: "Agent Details",
-          routerPath: "/agent-details",
-        },
-      ],
-    },
-    {
-      id: 6,
-      title: "Agencies View",
-      items: [
-        {
-          name: "Agencies V1",
-          routerPath: "/agency-v1",
-        },
-        {
-          name: "Agencies V2",
-          routerPath: "/agency-v2",
-        },
-        {
-          name: "Agencies Details",
-          routerPath: "/agentie",
-        },
-      ],
-    },
-  ];
-
-  const property = [
-    {
-      id: 1,
-      title: "User Admin",
-      items: [
-        {
-          name: "Dashboard",
-          routerPath: "/my-dashboard",
-        },
-        {
-          name: "My Properties",
-          routerPath: "/my-properties",
-        },
-        {
-          name: "My Message",
-          routerPath: "/my-message",
-        },
-        {
-          name: "My Review",
-          routerPath: "/my-review",
-        },
-        {
-          name: "My Favourites",
-          routerPath: "/my-favourites",
-        },
-        {
-          name: "My Profile",
-          routerPath: "/my-profile",
-        },
-        {
-          name: "My Package",
-          routerPath: "/my-package",
-        },
-        {
-          name: "My Saved Search",
-          routerPath: "/my-saved-search",
-        },
-        {
-          name: "Add Property",
-          routerPath: "/create-listing",
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: "Listing Single",
-      items: [
-        {
-          name: "Single V1",
-          routerPath: "/listing-details-v1",
-        },
-        {
-          name: "Single V2",
-          routerPath: "/listing-details-v2",
-        },
-        {
-          name: "Single V3",
-          routerPath: "/listing-details-v3",
-        },
-        {
-          name: "Single V4",
-          routerPath: "/listing-details-v4",
-        },
-      ],
-    },
-  ];
-
-  const blog = [
-    { id: 1, name: "Blog List 1", routerPath: "/blog-list-1" },
-  ];
-
   const pages = [
     { id: 1, name: "About Us", routerPath: "/about-us" },
     { id: 2, name: "Gallery", routerPath: "/gallery" },
@@ -278,6 +88,16 @@ const HeaderMenuContent = ({ float = "" }) => {
       </li>
       {/* End .dropitem */}
 
+      <li className="last">
+        <Link
+          href="/categorie"
+          className={pathname === "/categorie" ? "ui-active" : undefined}
+        >
+          Clinici
+        </Link>
+      </li>
+      {/* End .dropitem */}
+
       {/* <li className="dropitem">
         <a
           href="listing-grid-v5"
@@ -317,7 +137,7 @@ const HeaderMenuContent = ({ float = "" }) => {
         </a>
       </li> */}
       {/* End .dropitem */}
-
+      {/* 
       <li className="dropitem">
         <a
           href="#"
@@ -350,17 +170,17 @@ const HeaderMenuContent = ({ float = "" }) => {
             </li>
           ))}
         </ul>
-      </li>
+      </li> */}
       {/* End .dropitem */}
 
-      <li className="last">
+      {/* <li className="last">
         <Link
           href="/blog"
           className={pathname === "/blog" ? "ui-active" : undefined}
         >
           Blog
         </Link>
-      </li>
+      </li> */}
       {/* End .dropitem */}
       <li className="last">
         <Link

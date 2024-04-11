@@ -3,7 +3,7 @@ const BreadCrumb = ({ title = "", subTitle = "" }) => {
     <>
       <ol className="breadcrumb">
         <li className="breadcrumb-item">
-          <a href="#">{title}</a>
+          <a href="/">{title}</a>
         </li>
         <li className="breadcrumb-item active" aria-current="page">
           {subTitle}
