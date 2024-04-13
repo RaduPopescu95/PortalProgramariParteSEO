@@ -12,7 +12,6 @@ export async function getServerData() {
   try {
     // Interoghează Firestore (sau orice altă bază de date) folosind 'locationPart'
     data = await handleGetFirestore("Judete");
-    console.log("data...", data);
   } catch (error) {
     console.error("Failed to fetch locations:", error);
     return {

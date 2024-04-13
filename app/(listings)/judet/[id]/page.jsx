@@ -10,11 +10,9 @@ export const metadata = {
 export async function getServerData(params) {
   let data = [];
   try {
-    console.log("params....", params);
     let judet = params.id;
     let locationPart =
       judet.charAt(0).toUpperCase() + judet.slice(1).toLowerCase();
-    console.log("locationPart...", locationPart);
 
     // Interoghează Firestore (sau orice altă bază de date) folosind 'locationPart'
     data = await handleQueryFirestoreSubcollection(
@@ -22,7 +20,6 @@ export async function getServerData(params) {
       "judet",
       locationPart
     );
-    console.log("data...", data);
   } catch (error) {
     console.error("Failed to fetch locations:", error);
     return {
@@ -36,7 +33,6 @@ export async function getServerData(params) {
 
 const index = async ({ params: id }) => {
   const localitati = await getServerData(id);
-  console.log("test....", localitati);
   return (
     <>
       <Judete localitati={localitati} />

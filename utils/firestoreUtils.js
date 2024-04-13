@@ -89,13 +89,15 @@ export const handleUploadFirestore = async (data, location) => {
 };
 
 //ADD A DOCUMENT IN THE SUBCOLLECTION
-export const handleUploadFirestoreSubcollection = async (data, location, collectionId, subcollectionLocation) => {
+export const handleUploadFirestoreSubcollection = async (
+  data,
+  location,
+  collectionId,
+  subcollectionLocation
+) => {
   console.log("create subcollection history...", data);
   try {
-
-   
-      const localitati = await handleGetSubcollections(subcollectionLocation); // Presupunem că returnează un array de obiecte
-
+    const localitati = await handleGetSubcollections(subcollectionLocation); // Presupunem că returnează un array de obiecte
 
     let id = localitati.length + 1;
     // Adăugarea documentului în subcolecție
@@ -104,8 +106,14 @@ export const handleUploadFirestoreSubcollection = async (data, location, collect
     const dateTime = getCurrentDateTime();
 
     // Actualizarea datelor cu ID-ul documentului generat
-    const newData = { ...data, documentId: docRef.id, id,    firstUploadDate: dateTime.date,
-      firstUploadTime: dateTime.time, collectionId };
+    const newData = {
+      ...data,
+      documentId: docRef.id,
+      id,
+      firstUploadDate: dateTime.date,
+      firstUploadTime: dateTime.time,
+      collectionId,
+    };
     await setDoc(docRef, newData); // Actualizează documentul cu noul set de date, dacă este necesar
 
     console.log(`Document adăugat în subcolecție cu ID-ul: ${docRef.id}`);
@@ -164,7 +172,6 @@ export const handleGetFirestore = async (location) => {
   });
   // Sortează array-ul după id
   arr.sort((a, b) => {
-    console.log("sort...", a);
     // Presupunând că id-urile sunt numerice
     return a.id - b.id;
 
@@ -241,21 +248,23 @@ export const handleDeleteFirestoreSubcollectionData = async (
       // Sortează datele în ordinea crescătoare a ID-urilor
       data.sort((a, b) => a.id - b.id);
 
-      console.log("test...", data)
+      console.log("test...", data);
 
       let updatedData = []; // Inițializează un array gol pentru a stoca datele actualizate
 
       // Actualizează ID-urile documentelor rămase pentru a fi consecutive
       for (let i = 0; i < data.length; i++) {
         const newId = i + 1; // Calculul noului ID
-        
-        
-        const ref = doc(db, `Judete/${data[i].collectionId}/Localitati/${data[i].documentId}`);
+
+        const ref = doc(
+          db,
+          `Judete/${data[i].collectionId}/Localitati/${data[i].documentId}`
+        );
 
         const newData = {
           id: newId, // Actualizează ID-ul pentru a fi consecutiv
         };
-    
+
         await updateDoc(ref, newData);
 
         // Adaugă documentul actualizat în array-ul updatedData cu noul ID
@@ -295,14 +304,12 @@ export const handleGetSubcollections = async (subcollection) => {
     });
 
     docs.sort((a, b) => {
-      console.log("sort...", a);
       // Presupunând că id-urile sunt numerice
       return a.id - b.id;
-  
+
       // Dacă id-urile sunt string-uri și vrei să le sortezi lexicografic, folosește:
       // return a.id.localeCompare(b.id);
     });
-   
 
     // Returnează array-ul de localități
     return docs;
@@ -361,24 +368,29 @@ export const handleQueryFirestore = async (
   return arr;
 };
 
-export const handleQueryFirestoreSubcollection = async (  location,
+export const handleQueryFirestoreSubcollection = async (
+  location,
   queryParam,
   elementOne = null,
-  elementTwo = null) => {
-    console.log("Strt....", location)
-    console.log("Strt....", queryParam)
-    console.log("Strt....", elementOne)
-    let arr = []
+  elementTwo = null
+) => {
+  console.log("Strt....", location);
+  console.log("Strt....", queryParam);
+  console.log("Strt....", elementOne);
+  let arr = [];
   // Pasul 1: Interoghează subcolecția Localitati
-  const localitatiRef = query(collectionGroup(db, location), where(queryParam, '==', elementOne));
-  console.log("test....")
+  const localitatiRef = query(
+    collectionGroup(db, location),
+    where(queryParam, "==", elementOne)
+  );
+  console.log("test....");
   const querySnapshot = await getDocs(localitatiRef);
   querySnapshot.forEach((doc) => {
-      console.log(doc.id, 'localitate...=>', doc.data());
-      arr.push(doc.data())
+    console.log(doc.id, "localitate...=>", doc.data());
+    arr.push(doc.data());
   });
-  return arr
-}
+  return arr;
+};
 
 export const handleQueryRandom = async (location, id) => {
   console.log("start query firestore location...", location);
