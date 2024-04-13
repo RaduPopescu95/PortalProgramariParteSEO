@@ -64,12 +64,12 @@ const ListSearchInputs = ({ className = "", judete }) => {
                 value={selectedJudet}
               >
                 <option value="">Judete</option>
-                {judete &&
+                {/* {judete &&
                   judete.map((judet, index) => (
                     <option key={index} value={judet.siteName}>
                       {judet.siteName}
                     </option>
-                  ))}
+                  ))} */}
               </select>
             </div>
           </div>
@@ -80,12 +80,12 @@ const ListSearchInputs = ({ className = "", judete }) => {
             <div className="candidate_revew_select">
               <select className="selectpicker w100 form-select show-tick ">
                 <option>Localitati</option>
-                {localitati &&
+                {/* {localitati &&
                   localitati.map((location, index) => (
                     <option key={index} value={location}>
                       {location.siteName}
                     </option>
-                  ))}
+                  ))} */}
               </select>
             </div>
           </div>

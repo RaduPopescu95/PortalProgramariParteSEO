@@ -96,9 +96,7 @@ const index = () => {
                 </div>
                 {/* End .offcanvas-heade */}
 
-                <div className="offcanvas-body">
-                  <SidebarListing />
-                </div>
+                <div className="offcanvas-body">{/* <SidebarListing /> */}</div>
               </div>
               {/* End mobile sidebar listing  */}
             </div>
