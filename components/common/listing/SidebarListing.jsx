@@ -3,7 +3,7 @@ import FeaturedListings from "./FeaturedListings";
 import FeatureProperties from "./FeatureProperties";
 import FilteringItem from "./FilteringItem";
 
-const SidebarListing = ({ localitati }) => {
+const SidebarListing = ({ localitati, judet }) => {
   return (
     <div className="sidebar_listing_grid1">
       {/* <div className="sidebar_listing_list">
@@ -17,7 +17,7 @@ const SidebarListing = ({ localitati }) => {
         <h4 className="title">Clinici pe localitati</h4>
         <div className="widget_list">
           <ul className="list_details">
-            <Categorie localitati={localitati} />
+            <Categorie localitati={localitati} judet={judet} />
           </ul>
         </div>
       </div>

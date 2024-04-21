@@ -1,3 +1,8 @@
+"use client";
+
+import { jd } from "@/data/judete";
+import { uploadJudete } from "@/utils/firestoreUtils";
+
 const SearchData = () => {
   return (
     <table className="table">
@@ -61,6 +66,7 @@ const SearchData = () => {
                 <a href="#">
                   <span className="flaticon-garbage"></span>
                 </a>
+                {/* <button onClick={() => uploadJudete(jd)}></button> */}
               </li>
             </ul>
           </td>

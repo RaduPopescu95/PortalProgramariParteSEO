@@ -1,21 +1,28 @@
 "use client";
 
-import {
-  addKeyword,
-  addLocation,
-} from "../../features/properties/propertiesSlice";
-import PricingRangeSlider from "./PricingRangeSlider";
-import CheckBoxFilter from "./CheckBoxFilter";
-import GlobalSelectBox from "./GlobalSelectBox";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { handleQueryFirestoreSubcollection } from "@/utils/firestoreUtils";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-const ListSearchInputs = ({ className = "", localitati }) => {
+const ListSearchInputs = ({ className = "", localitati, judet }) => {
   const [locations, setLocations] = useState([...localitati]); // State pentru opțiunile din dropdown
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [firmName, setFirmName] = useState("");
+  const [isSubmittedWithoutLocation, setIsSubmittedWithoutLocation] =
+    useState(false);
+  const router = useRouter();
 
   const submitHandler = () => {
-    // Logica pentru submit
+    console.log("submit...");
+    if (!selectedLocation) {
+      setIsSubmittedWithoutLocation(true); // Setăm starea la true dacă locația nu este selectată
+    } else {
+      setIsSubmittedWithoutLocation(false); // Resetăm starea dacă locația este selectată
+      if (firmName.length > 0) {
+        router.push(`/judet/${judet}-${selectedLocation}-${firmName}`); // Logica pentru submit
+      } else {
+        router.push(`/judet/${judet}-${selectedLocation}`); // Logica pentru submit
+      }
+    }
   };
 
   return (
@@ -24,32 +31,39 @@ const ListSearchInputs = ({ className = "", localitati }) => {
         <li className="list-inline-item">
           <div className="search_option_two">
             <div className="candidate_revew_select">
-              <select className="selectpicker w100 form-select show-tick ">
-                <option>Localitati</option>
-                {locations &&
-                  locations.map((location, index) => (
-                    <option key={index} value={location}>
-                      {location.siteName}
-                    </option>
-                  ))}
+              <select
+                className={`selectpicker w100 form-select show-tick ${
+                  isSubmittedWithoutLocation ? "border-danger" : ""
+                }`}
+                value={selectedLocation}
+                onChange={(e) => {
+                  setSelectedLocation(e.target.value);
+                  if (e.target.value) {
+                    setIsSubmittedWithoutLocation(false); // Resetăm starea de atenționare la schimbarea selecției
+                  }
+                }}
+              >
+                <option value="">Localitati</option>
+                {locations.map((location, index) => (
+                  <option key={index} value={location.siteName}>
+                    {location.siteName}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
         </li>
-        {/* End li */}
-        {/* End li */}
         <li className="list-inline-item">
           <div className="form-group">
             <input
               type="text"
               className="form-control"
               placeholder="Nume firma..."
-              // onChange={(e) => dispatch(addKeyword(e.target.value))}
+              onChange={(e) => setFirmName(e.target.value)}
+              value={firmName}
             />
           </div>
         </li>
-        {/* End li */}
-
         <li className="list-inline-item">
           <div className="search_option_button">
             <button
@@ -61,7 +75,6 @@ const ListSearchInputs = ({ className = "", localitati }) => {
             </button>
           </div>
         </li>
-        {/* End li */}
       </ul>
     </div>
   );

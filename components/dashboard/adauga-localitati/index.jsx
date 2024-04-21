@@ -35,9 +35,7 @@ const Index = () => {
   const params = useParams();
   const router = useRouter();
 
- 
-  const id = params.id
-
+  const id = params.id;
 
   let isEdit = id && id.length > 0 ? true : false;
 
@@ -75,17 +73,16 @@ const Index = () => {
 
       console.log("judet..doc...", judetDoc.documentId);
 
-
       if (isEdit) {
-        console.log("is edit...", formValues)
-        console.log("is edit...", documentId)
-        console.log("is edit...", judetDoc)
+        console.log("is edit...", formValues);
+        console.log("is edit...", documentId);
+        console.log("is edit...", judetDoc);
         await handleUpdateFirestoreSubcollection(
           formValues,
-          `Judete/${judetDoc.documentId}/Localitati/${documentId}`,
+          `Judete/${judetDoc.documentId}/Localitati/${documentId}`
         );
       } else {
-        console.log("else..")
+        console.log("else..");
         await handleUploadFirestoreSubcollection(
           formValues,
           `Judete/${judetDoc.documentId}/Localitati`,
@@ -130,11 +127,13 @@ const Index = () => {
   };
 
   const handleQuery = async () => {
-   
-
     try {
-      const c = await handleQueryFirestoreSubcollection("Localitati", "documentId", id);
-   
+      const c = await handleQueryFirestoreSubcollection(
+        "Localitati",
+        "documentId",
+        id
+      );
+
       console.log("course...found..", c);
 
       // Presupunând că `c` este un obiect care conține datele necesare,
@@ -158,7 +157,7 @@ const Index = () => {
   useEffect(() => {
     handleGetData();
     if (id) {
-      console.log("id....", id)
+      console.log("id....", id);
       if (id.length > 0) {
         handleQuery();
       }

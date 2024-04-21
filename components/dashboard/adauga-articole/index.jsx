@@ -99,13 +99,13 @@ const Index = () => {
     console.log("Submitting form with values:", formValues);
     console.log("propertySelectedImgs:", propertySelectedImgs);
     if (propertySelectedImgs.length === 0) {
-      console.log("No image length...")
+      console.log("No image length...");
       setSuccessMessage("Nu este adaugata imagine");
       setIsLoading(false);
       return;
     }
-    
-    console.log("continue.....")
+
+    console.log("continue.....");
     try {
       if (isEdit) {
         console.log("oldImageFileName...", typeof oldImageFileName);
@@ -127,6 +127,7 @@ const Index = () => {
           );
 
           formValues.image = newImage;
+          console.log("new image....", formValues);
         }
         await handleUpdateFirestore(`Articole/${documentId}`, formValues).then(
           () => {
@@ -143,6 +144,7 @@ const Index = () => {
             "Articole"
           );
           formValues.image = image;
+          console.log("form values....", formValues);
         }
         await handleUploadFirestore(formValues, "Articole").then(() => {
           setIsLoading(false);

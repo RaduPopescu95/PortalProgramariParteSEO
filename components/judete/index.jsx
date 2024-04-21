@@ -18,7 +18,7 @@ import CallToAction from "../common/CallToAction";
 import SidebarListing from "../common/listing/SidebarListing";
 import { handleQueryFirestoreSubcollection } from "@/utils/firestoreUtils";
 
-const index = ({ localitati }) => {
+const index = ({ localitati, firme, judet }) => {
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -56,7 +56,11 @@ const index = ({ localitati }) => {
                   </h2>
                 </div>
                 {/* End home-text */}
-                <ListSearchJudete className="mt40" localitati={localitati} />
+                <ListSearchJudete
+                  className="mt40"
+                  localitati={localitati}
+                  judet={judet}
+                />
               </div>
             </div>
           </div>
@@ -70,7 +74,7 @@ const index = ({ localitati }) => {
           <div className="row pt30">
             <div className="col-md-8 col-lg-8">
               <div className="row">
-                <FeaturedItem />
+                <FeaturedItem firme={firme} />
               </div>
               {/* End .row */}
 
@@ -87,7 +91,7 @@ const index = ({ localitati }) => {
             {/* End  .col */}
             <div className="col-md-4 col-lg-4">
               <div className="sidebar-listing-wrapper">
-                <SidebarListing localitati={localitati} />
+                <SidebarListing localitati={localitati} judet={judet} />
               </div>
             </div>
             {/* End  .col */}

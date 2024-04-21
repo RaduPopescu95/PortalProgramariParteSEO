@@ -17,7 +17,7 @@ const SearchData = ({ location }) => {
   const [loading, setLoading] = useState(false);
 
   const handleGetData = async () => {
-    setLoading(true)
+    setLoading(true);
     let data = await handleGetFirestore(location);
     console.log("Data....", data);
 
@@ -39,7 +39,7 @@ const SearchData = ({ location }) => {
 
     // Utilizează updatedData pentru a actualiza starea, nu data inițială
     setData(updatedData);
-    setLoading(false)
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -72,8 +72,7 @@ const SearchData = ({ location }) => {
 
   return (
     <>
-       
-            {loading && <CommonLoader/>}            
+      {loading && <CommonLoader />}
       <table className="table">
         <thead className="thead-light">
           <tr>
@@ -155,11 +154,10 @@ const SearchData = ({ location }) => {
 
           {/* End tr */}
         </tbody>
-      
+
         {/* End tbody */}
-    
       </table>
-   
+
       {/* Modalul de confirmare ștergere */}
       {showModal && (
         <DeleteDialog

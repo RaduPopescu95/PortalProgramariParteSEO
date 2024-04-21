@@ -1,5 +1,4 @@
-
-'use client'
+"use client";
 
 import Link from "next/link";
 import { useEffect } from "react";
@@ -8,7 +7,7 @@ import { addLength } from "../../features/properties/propertiesSlice";
 import properties from "../../data/properties";
 import Image from "next/image";
 
-const FeaturedItem = () => {
+const FeaturedItem = ({ firme }) => {
   const {
     keyword,
     location,
@@ -30,29 +29,29 @@ const FeaturedItem = () => {
 
   // keyword filter
   const keywordHandler = (item) =>
-    item.title.toLowerCase().includes(keyword?.toLowerCase());
+    item?.title.toLowerCase().includes(keyword?.toLowerCase());
 
   // location handler
   const locationHandler = (item) => {
-    return item.location.toLowerCase().includes(location.toLowerCase());
+    return item?.location.toLowerCase().includes(location.toLowerCase());
   };
 
   // status handler
   const statusHandler = (item) =>
-    item.type.toLowerCase().includes(status.toLowerCase());
+    item?.type.toLowerCase().includes(status.toLowerCase());
 
   // properties handler
   const propertiesHandler = (item) =>
-    item.type.toLowerCase().includes(propertyType.toLowerCase());
+    item?.type.toLowerCase().includes(propertyType.toLowerCase());
 
   // price handler
   const priceHandler = (item) =>
-    item.price < price?.max && item.price > price?.min;
+    item?.price < price?.max && item?.price > price?.min;
 
   // bathroom handler
   const bathroomHandler = (item) => {
     if (bathrooms !== "") {
-      return item.itemDetails[1].number == bathrooms;
+      return item?.itemDetails[1].number == bathrooms;
     }
     return true;
   };
@@ -60,7 +59,7 @@ const FeaturedItem = () => {
   // bedroom handler
   const bedroomHandler = (item) => {
     if (bedrooms !== "") {
-      return item.itemDetails[0].number == bedrooms;
+      return item?.itemDetails[0].number == bedrooms;
     }
     return true;
   };
@@ -68,7 +67,7 @@ const FeaturedItem = () => {
   // garages handler
   const garagesHandler = (item) =>
     garages !== ""
-      ? item.garages?.toLowerCase().includes(garages.toLowerCase())
+      ? item?.garages?.toLowerCase().includes(garages.toLowerCase())
       : true;
 
   // built years handler
@@ -80,8 +79,8 @@ const FeaturedItem = () => {
     if (area.min !== 0 && area.max !== 0) {
       if (area.min !== "" && area.max !== "") {
         return (
-          parseInt(item.itemDetails[2].number) > area.min &&
-          parseInt(item.itemDetails[2].number) < area.max
+          parseInt(item?.itemDetails[2].number) > area.min &&
+          parseInt(item?.itemDetails[2].number) < area.max
         );
       }
     }
@@ -92,7 +91,7 @@ const FeaturedItem = () => {
   const advanceHandler = (item) => {
     if (amenities.length !== 0) {
       return amenities.find((item2) =>
-        item2.toLowerCase().includes(item.amenities.toLowerCase())
+        item2.toLowerCase().includes(item?.amenities.toLowerCase())
       );
     }
     return true;
@@ -112,46 +111,44 @@ const FeaturedItem = () => {
   // featured handler
   const featuredHandler = (item) => {
     if (featured !== "") {
-      return item.featured === featured;
+      return item?.featured === featured;
     }
     return true;
   };
 
   // status handler
-  let content = properties
-    ?.slice(0, 4)
-    .map((item) => (
+  let content = firme?.map((item) => (
+    <div
+      className={`${
+        isGridOrList ? "col-12 feature-list" : "col-md-6 col-lg-6"
+      } `}
+      key={item?.id}
+    >
       <div
-        className={`${
-          isGridOrList ? "col-12 feature-list" : "col-md-6 col-lg-6"
-        } `}
-        key={item.id}
+        className={`feat_property home7 style4 ${
+          isGridOrList ? "d-flex align-items-center" : undefined
+        }`}
       >
-        <div
-          className={`feat_property home7 style4 ${
-            isGridOrList ? "d-flex align-items-center" : undefined
-          }`}
-        >
-          <div className="thumb">
-            <Image
-              width={342}
-              height={220}
-              className="img-whp w-100 h-100 cover"
-              src={item.img}
-              alt="fp1.jpg"
-            />
-            <div className="thmb_cntnt">
-              <ul className="tag mb0">
-                <li className="list-inline-item">
-                  <a href="#">Promovat</a>
-                </li>
-                {/* <li className="list-inline-item">
+        <div className="thumb">
+          <Image
+            width={342}
+            height={220}
+            className="img-whp w-100 h-100 cover"
+            src={item?.imagini?.imgs[0]?.finalUri}
+            alt="fp1.jpg"
+          />
+          <div className="thmb_cntnt">
+            <ul className="tag mb0">
+              <li className="list-inline-item">
+                <a href="#">Promovat</a>
+              </li>
+              {/* <li className="list-inline-item">
                   <a href="#" className="text-capitalize">
-                    {item.featured}
+                    {item?.featured}
                   </a>
                 </li> */}
-              </ul>
-              {/* <ul className="icon mb0">
+            </ul>
+            {/* <ul className="icon mb0">
                 <li className="list-inline-item">
                   <a href="#">
                     <span className="flaticon-transfer-1"></span>
@@ -164,28 +161,32 @@ const FeaturedItem = () => {
                 </li>
               </ul> */}
 
-              {/* <Link
-                href={`/listing-details-v1/${item.id}`}
+            {/* <Link
+                href={`/listing-details-v1/${item?.id}`}
                 className="fp_price"
               >
-                ${item.price}
+                ${item?.price}
                 <small>/mo</small>
               </Link> */}
-            </div>
           </div>
-          <div className="details">
-            <div className="tc_content p10">
-              {/* <p className="text-thm">{item.type}</p> */}
-              <h4>
-                <Link href={`/listing-details-v1/${item.id}`}>
-                  {item.title}
-                </Link>
-              </h4>
-              <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit turpis cursus in hac. Risus ultricies tristique nulla aliquet enim.</p>
+        </div>
+        <div className="details">
+          <div className="tc_content p10">
+            {/* <p className="text-thm">{item?.type}</p> */}
+            <h4>
+              <Link href={`/listing-details-v1/${item?.id}-${item?.siteName}`}>
+                {item?.siteName}
+              </Link>
+            </h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Blandit turpis cursus in hac. Risus ultricies tristique nulla
+              aliquet enim.
+            </p>
 
-              {/* <ul className="prop_details mb0">
-                {item.itemDetails.map((val, i) => (
+            {/* <ul className="prop_details mb0">
+                {item?.itemDetails.map((val, i) => (
                   <li className="list-inline-item" key={i}>
                     <a href="#">
                       {val.name}: {val.number}
@@ -193,26 +194,24 @@ const FeaturedItem = () => {
                   </li>
                 ))}
               </ul> */}
-            </div>
-            {/* End .tc_content */}
-
-            <div className="fp_footer p10">
-              <ul className="fp_meta float-start mb0">
-          
-                <li className="list-inline-item">
-                <p>
-                <span className="flaticon-placeholder"></span>
-                {item.location}
-              </p>
-                </li>
-              </ul>
-
-            </div>
-            {/* End .fp_footer */}
           </div>
+          {/* End .tc_content */}
+
+          <div className="fp_footer p10">
+            <ul className="fp_meta float-start mb0">
+              <li className="list-inline-item">
+                <p>
+                  <span className="flaticon-placeholder"></span>
+                  {item?.adresa}
+                </p>
+              </li>
+            </ul>
+          </div>
+          {/* End .fp_footer */}
         </div>
       </div>
-    ));
+    </div>
+  ));
 
   // add length of filter items
   useEffect(() => {

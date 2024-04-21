@@ -14,13 +14,17 @@ import { handleQueryFirestoreSubcollection } from "@/utils/firestoreUtils";
 const ListSearchInputs = ({ className = "", judete }) => {
   const router = useRouter();
   const [selectedJudet, setSelectedJudet] = useState("");
+  const [selectedLocalitate, setSelectedLocalitate] = useState("");
   const [localitati, setLocalitati] = useState([]);
+  const [isJudetSelected, setIsJudetSelected] = useState(true);
+  const [isLocalitateSelected, setIsLocalitateSelected] = useState(true);
 
   // Handler pentru schimbarea selectiei de judete
   const handleJudetChange = async (e) => {
     const judetSelectedName = e.target.value; // Numele județului selectat, un string
     console.log("judetSelectedName...", judetSelectedName);
     setSelectedJudet(judetSelectedName);
+    setIsJudetSelected(!!judetSelectedName);
 
     // Găsește obiectul județului selectat bazat pe `siteName`
     const judetSelected = judete.find(
@@ -47,11 +51,24 @@ const ListSearchInputs = ({ className = "", judete }) => {
     }
   };
 
-  // submit handler
-  const submitHandler = () => {
-    router.push("/listing-grid-v1");
+  const handleLocalitateChange = (e) => {
+    console.log("Localitate selected: ", e.target.value); // Acesta ar trebui să arate numele localității ca string
+    setSelectedLocalitate(e.target.value);
+    setIsLocalitateSelected(!!e.target.value);
   };
 
+  // submit handler
+  const submitHandler = () => {
+    console.log("submit...", selectedJudet);
+    console.log("submit...", selectedLocalitate);
+    if (!selectedJudet) {
+      setIsJudetSelected(!!selectedJudet);
+    } else if (selectedJudet) {
+      router.push(`/judet/${selectedJudet}`);
+    } else if (selectedJudet && selectedLocalitate) {
+      router.push(`/judet/${selectedJudet}-${selectedLocalitate}`);
+    }
+  };
   return (
     <div className={`home1-advnc-search ${className}`}>
       <ul className="h1ads_1st_list mb0">
@@ -59,7 +76,9 @@ const ListSearchInputs = ({ className = "", judete }) => {
           <div className="search_option_two">
             <div className="candidate_revew_select">
               <select
-                className="selectpicker w100 form-select show-tick"
+                className={`selectpicker w100 form-select show-tick ${
+                  !isJudetSelected ? "border-danger" : ""
+                }`}
                 onChange={handleJudetChange}
                 value={selectedJudet}
               >
@@ -78,14 +97,19 @@ const ListSearchInputs = ({ className = "", judete }) => {
         <li className="list-inline-item">
           <div className="search_option_two">
             <div className="candidate_revew_select">
-              <select className="selectpicker w100 form-select show-tick ">
-                <option>Localitati</option>
-                {localitati &&
-                  localitati.map((location, index) => (
-                    <option key={index} value={location}>
-                      {location.siteName}
-                    </option>
-                  ))}
+              <select
+                className={`selectpicker w100 form-select show-tick ${
+                  !isLocalitateSelected ? "border-danger" : ""
+                }`}
+                onChange={handleLocalitateChange}
+                value={selectedLocalitate}
+              >
+                <option value="">Localitati</option>
+                {localitati.map((location, index) => (
+                  <option key={index} value={location.siteName}>
+                    {location.siteName}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -106,11 +130,11 @@ const ListSearchInputs = ({ className = "", judete }) => {
         <li className="list-inline-item">
           <div className="search_option_button">
             <button
-              // onClick={submitHandler}
+              onClick={submitHandler}
               type="submit"
               className="bgc-accent btn btn-thm "
             >
-              Search
+              Cauta
             </button>
           </div>
         </li>

@@ -49,16 +49,18 @@ const GalerieFotoSection = ({
             ? propertySelectedImgs?.map((item, index) => (
                 <li key={index} className="list-inline-item">
                   <div className="portfolio_item">
-             
-              
-                      <Image
-                        width={200}
-                        height={200}
-                        className="img-fluid cover"
-                        src={item instanceof File  ? URL.createObjectURL(item) : item.finalUri}
-                        alt="fp1.jpg"
-                      />
-                   
+                    <Image
+                      width={200}
+                      height={200}
+                      className="img-fluid cover"
+                      src={
+                        item instanceof File
+                          ? URL.createObjectURL(item)
+                          : item.finalUri
+                      }
+                      alt="fp1.jpg"
+                    />
+
                     <div
                       className="edu_stats_list"
                       data-bs-toggle="tooltip"

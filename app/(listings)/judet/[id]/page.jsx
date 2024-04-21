@@ -1,6 +1,9 @@
 import dynamic from "next/dynamic";
 import Judete from "../../../../components/judete";
-import { handleQueryFirestoreSubcollection } from "@/utils/firestoreUtils";
+import {
+  handleQueryFirestore,
+  handleQueryFirestoreSubcollection,
+} from "@/utils/firestoreUtils";
 
 export const metadata = {
   title: "Judete",
@@ -8,34 +11,56 @@ export const metadata = {
 };
 
 export async function getServerData(params) {
-  let data = [];
+  let data = {};
+  let localitati = [];
+  let firme = [];
   try {
-    let judet = params.id;
-    let locationPart =
+    let parts = params.id.split("-"); // Împărțim ID-ul în părți bazat pe separatorul '-'
+    let judet = parts[0]; // Folosim prima parte pentru interogări
+    let judetParam =
       judet.charAt(0).toUpperCase() + judet.slice(1).toLowerCase();
 
-    // Interoghează Firestore (sau orice altă bază de date) folosind 'locationPart'
-    data = await handleQueryFirestoreSubcollection(
+    // Interoghează Firestore (sau orice altă bază de date) folosind 'judetParam'
+    localitati = await handleQueryFirestoreSubcollection(
       "Localitati",
       "judet",
-      locationPart
+      judetParam
     );
+
+    // query zone
+    if (parts[1]) {
+      let localitateParam =
+        parts[1].charAt(0).toUpperCase() + parts[1].slice(1).toLowerCase();
+      firme = await handleQueryFirestore(
+        "Firme",
+        "localitate",
+        localitateParam
+      );
+    } else {
+      firme = await handleQueryFirestore("Firme", "judet", judetParam);
+    }
+    // query zone
+
+    data = { localitati, firme };
   } catch (error) {
-    console.error("Failed to fetch locations:", error);
+    console.error("Failed to fetch data....:", error);
     return {
       props: {
         error: "Failed to load data.",
       },
     };
   }
-  return data; // Data will be available as props in your component
+  console.log("data returned...", data.firme);
+  return data; // Datele vor fi disponibile ca props în componentă
 }
 
-const index = async ({ params: id }) => {
-  const localitati = await getServerData(id);
+const index = async ({ params }) => {
+  let parts = params.id.split("-"); // Împărțim ID-ul în părți bazat pe separatorul '-'
+  let judet = parts[0]; // Folosim prima parte pentru interogări
+  const data = await getServerData(params);
   return (
     <>
-      <Judete localitati={localitati} />
+      <Judete localitati={data.localitati} firme={data.firme} judet={judet} />
     </>
   );
 };

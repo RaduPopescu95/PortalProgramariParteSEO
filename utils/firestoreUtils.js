@@ -338,8 +338,9 @@ export const handleGetFirestoreSingleArrayData = async (location) => {
 
 export const handleQueryFirestore = async (
   location,
-  queryParam,
+  queryParamOne,
   elementOne = null,
+  QueryParamTwo = null,
   elementTwo = null
 ) => {
   console.log("start query firestore pentru elementOne...", elementOne);
@@ -350,11 +351,11 @@ export const handleQueryFirestore = async (
   conditions.push(collection(db, location));
 
   if (elementOne) {
-    conditions.push(where(queryParam, "==", elementOne));
+    conditions.push(where(queryParamOne, "==", elementOne));
   }
 
   if (elementTwo) {
-    conditions.push(where(queryParam, "==", elementTwo));
+    conditions.push(where(QueryParamTwo, "==", elementTwo));
   }
 
   const q = query(...conditions);
@@ -412,4 +413,28 @@ export const handlePaginateFirestore = (location) => {
   const auth = authentication;
   const citiesRef = collection(db, "Users", auth.currentUser.uid, location);
   const q = query(citiesRef, startAt(1000000));
+};
+
+export const uploadJudete = async (jd) => {
+  console.log("Start upload judete...");
+  for (let i = 0; i < jd.length; i++) {
+    const judetDoc = doc(collection(db, "Judete"));
+    const judetData = {
+      id: i + 1, // Numărul județului
+      siteName: jd[i].judet,
+      documentId: judetDoc.id, // Adăugăm ID-ul documentului
+    };
+    await setDoc(judetDoc, judetData);
+
+    for (let j = 0; j < jd[i].localitati.length; j++) {
+      const localitateDoc = doc(collection(judetDoc, "Localitati"));
+      const localitateData = {
+        id: j + 1, // Numărul localității în cadrul județului
+        siteName: jd[i].localitati[j],
+        judet: jd[i].judet,
+        documentId: localitateDoc.id, // Adăugăm ID-ul documentului
+      };
+      await setDoc(localitateDoc, localitateData);
+    }
+  }
 };

@@ -17,8 +17,7 @@ const SidebarMenu = () => {
   const { currentUser } = useAuth();
   const router = useRouter();
   React.useEffect(() => {
-    // handleAddToFirestore();
-
+    console.log("currentUser...", currentUser);
     if (!currentUser) {
       router.push("signin");
     }

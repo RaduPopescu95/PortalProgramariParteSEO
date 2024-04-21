@@ -91,38 +91,39 @@ const Index = () => {
     }
   };
 
-    // delete logo
-    const deleteLogo = (name) => {
-      if (isEdit) {
-        setLogoImg([]); // Clear the selection when deleting
-        setDeletedLogo(logoImg[0].fileName)
-      } else {
-        setLogoImg([]); // Clear the selection when deleting
-      }
-    };
+  // delete logo
+  const deleteLogo = (name) => {
+    if (isEdit) {
+      setLogoImg([]); // Clear the selection when deleting
+      setDeletedLogo(logoImg[0].fileName);
+    } else {
+      setLogoImg([]); // Clear the selection when deleting
+    }
+  };
 
   // delete image
   const deleteImage = (item) => {
-    console.log("itemmm....", item)
+    console.log("itemmm....", item);
     console.log(item);
     // Filtrăm imaginile rămase
-    const deleted = propertySelectedImgs?.filter((file) => 
-        file instanceof File ? file.name !== item.name : file !== item
+    const deleted = propertySelectedImgs?.filter((file) =>
+      file instanceof File ? file.name !== item.name : file !== item
     );
 
     // Setăm imaginile rămase
     setPropertySelectedImgs(deleted);
 
     // Verificăm dacă elementul șters nu este o instanță a clasei File și, în caz afirmativ, îl adăugăm la setDeletedImages
-    const isDeletedNotFile = propertySelectedImgs?.find((file) => 
-        (file instanceof File ? file.name === item.name : file === item) && !(item instanceof File)
+    const isDeletedNotFile = propertySelectedImgs?.find(
+      (file) =>
+        (file instanceof File ? file.name === item.name : file === item) &&
+        !(item instanceof File)
     );
 
     if (isDeletedNotFile) {
-        setDeletedImages((prevDeletedImages) => [...prevDeletedImages, item]);
+      setDeletedImages((prevDeletedImages) => [...prevDeletedImages, item]);
     }
-};
-
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -133,13 +134,17 @@ const Index = () => {
     }));
     console.log(formValues);
   };
-  const handleJudetChange =  async (e) => {
+  const handleJudetChange = async (e) => {
     const { name, value } = e.target;
     console.log("name...", name);
     console.log("value...", value);
-    const loc = await handleQueryFirestoreSubcollection("Localitati", "judet", value);
-    setLocalitati(loc)
-    console.log("loc...", loc)
+    const loc = await handleQueryFirestoreSubcollection(
+      "Localitati",
+      "judet",
+      value
+    );
+    setLocalitati(loc);
+    console.log("loc...", loc);
     setFormValues((prevState) => ({
       ...prevState,
       [name]: value,
@@ -164,22 +169,20 @@ const Index = () => {
     setIsLoading(true);
     console.log("Submitting form with values:", formValues);
     if (propertySelectedImgs.length === 0) {
-      console.log("No image length...")
+      console.log("No image length...");
       setSuccessMessage("Nu sunt adaugate imagini");
       setIsLoading(false);
       return;
     }
     if (logoImg.length === 0) {
-      console.log("No logo length...")
+      console.log("No logo length...");
       setSuccessMessage("Nu este logo adaugat");
       setIsLoading(false);
       return;
     }
-    
+
     try {
       if (isEdit) {
-
-
         const logo = await uploadImage(
           logoImg,
           isEdit,
@@ -187,35 +190,27 @@ const Index = () => {
           deletedLogo
         );
 
-
         formValues.logo = logo;
 
         if (propertySelectedImgs.length !== 0) {
-         
-        const imagini = await uploadMultipleImages(
-          propertySelectedImgs,
-          isEdit,
-          "ImaginiFirme",
-          deletedImages
-        );
+          const imagini = await uploadMultipleImages(
+            propertySelectedImgs,
+            isEdit,
+            "ImaginiFirme",
+            deletedImages
+          );
 
-
-        formValues.imagini = imagini;
+          formValues.imagini = imagini;
         }
-        console.log("formValues....", formValues)
+        console.log("formValues....", formValues);
 
-     
-        await handleUpdateFirestore(`Firme/${documentId}`, formValues).then(() =>{
-          setIsLoading(false)
-        })
-      
-      } else {
-
-        const logo = await uploadImage(
-          logoImg,
-          false,
-          "LogoFirme",
+        await handleUpdateFirestore(`Firme/${documentId}`, formValues).then(
+          () => {
+            setIsLoading(false);
+          }
         );
+      } else {
+        const logo = await uploadImage(logoImg, false, "LogoFirme");
 
         formValues.logo = logo;
 
@@ -228,9 +223,9 @@ const Index = () => {
 
         formValues.imagini = images;
 
-        await handleUploadFirestore(formValues, "Firme").then(() =>{
-          setIsLoading(false)
-        })
+        await handleUploadFirestore(formValues, "Firme").then(() => {
+          setIsLoading(false);
+        });
       }
       // Setarea mesajului de succes după finalizarea cu succes
       setSuccessMessage("Scriere realizată cu succes!");
@@ -308,10 +303,7 @@ const Index = () => {
     const numericId = parseInt(id, 10); // Convertește `id` din string în număr întreg.
     console.log("id....", typeof numericId);
 
-    
     try {
-  
-
       const c = await handleQueryFirestore("Firme", "id", numericId);
       console.log("course...found..", c);
 
@@ -351,14 +343,16 @@ const Index = () => {
         }));
 
         setDocumentId(c[0].documentId);
-   
+
         setLogoImg([c[0].logo || c[0].logo]);
         setPropertySelectedImgs(c[0].imagini.imgs || c[0].imagini.imgs);
-        const loc = await handleQueryFirestoreSubcollection("Localitati", "judet", c[0].judet);
-        console.log("aici...", loc)
-        setLocalitati(loc)
-  
-
+        const loc = await handleQueryFirestoreSubcollection(
+          "Localitati",
+          "judet",
+          c[0].judet
+        );
+        console.log("aici...", loc);
+        setLocalitati(loc);
       }
     } catch (error) {
       console.error("Error fetching document:", error);
@@ -372,11 +366,10 @@ const Index = () => {
     let judete = await handleGetFirestore("Judete");
     console.log("judete....", judete);
     setJudete([...judete]);
- 
-  }
+  };
 
   useEffect(() => {
-    handleGetAdiacentData()
+    handleGetAdiacentData();
     console.log("test......", propertySelectedImgs);
     if (id) {
       if (id.length > 0) {
@@ -385,12 +378,10 @@ const Index = () => {
     }
   }, []);
 
-
-
   // Handle single image selection
   const singleImage = (e) => {
     const file = e.target.files[0]; // Get the selected file
-    console.log("test..here...",file.name )
+    console.log("test..here...", file.name);
     if (file) {
       // Check if the file is already selected
       const isExist = logoImg.some(
@@ -405,10 +396,6 @@ const Index = () => {
       }
     }
   };
-
-
-  
-
 
   return (
     <>
@@ -481,8 +468,6 @@ const Index = () => {
                     </div>
                   </div>
 
-              
-
                   <div className="my_dashboard_review mt30">
                     <div className="row">
                       <div className="col-lg-12">
@@ -527,14 +512,13 @@ const Index = () => {
                           className="btn btn2 float-end"
                           onClick={handleSubmit}
                         >
-                       {isLoading ? "Se încarcă..." : "Actualizeaza"}
+                          {isLoading ? "Se încarcă..." : "Actualizeaza"}
                         </button>
                       ) : (
                         <button
                           className="btn btn2 float-end"
                           onClick={handleSubmit}
                         >
-                  
                           {isLoading ? "Se încarcă..." : "Adaugare"}
                         </button>
                       )}
