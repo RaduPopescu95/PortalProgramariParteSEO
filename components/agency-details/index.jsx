@@ -35,18 +35,18 @@ const index = ({ firma }) => {
                           width={100}
                           height={100}
                           className="logo1 img-fluid"
-                          src={firma.logo.finalUri}
+                          src={firma?.logo?.finalUri}
                           alt="Logo"
                           layout="intrinsic" // Schimbă la layout="intrinsic" pentru a permite redimensionarea bazată pe maxWidth
                         />
 
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                          <p className="m0">{firma.siteName}</p>
+                          <p className="m0">{firma?.siteName}</p>
                         </div>
                       </div>
                     </div>
                     <a
-                      href={`tel:${firma.telefonUnu}`}
+                      href={`tel:${firma?.telefonUnu}`}
                       className="details"
                       style={{ cursor: "pointer" }}
                     >
@@ -55,13 +55,13 @@ const index = ({ firma }) => {
 
                         <div className="d-flex justify-content-start align-items-center w-100">
                           <span className="flaticon-smartphone-call"></span>
-                          <p className="m0">{firma.telefonUnu}</p>
+                          <p className="m0">{firma?.telefonUnu}</p>
                         </div>
                       </div>
                     </a>
 
                     <a
-                      href={`https://wa.me/${firma.telefonUnu}`}
+                      href={`https://wa.me/${firma?.telefonUnu}`}
                       className="details"
                       style={{ cursor: "pointer" }}
                       target="_blank" // Opțional: deschide linkul într-o nouă fereastră/tab
