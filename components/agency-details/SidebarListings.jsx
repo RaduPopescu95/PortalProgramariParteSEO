@@ -3,17 +3,16 @@ import Categorie from "../../components/common/listing/Categorie";
 import FeaturedListings from "../../components/common/listing/FeaturedListings";
 import FeatureProperties from "../../components/common/listing/FeatureProperties";
 
-const SidebarListings = () => {
+const SidebarListings = ({ firma }) => {
   return (
     <div className="sidebar_listing_grid1">
       <div className="sidebar_listing_list">
         <div className="sidebar_advanced_search_widget">
           <h4 className="fz40 ml5">Contact</h4>
-          <ContactWithAgent />
+          <ContactWithAgent firma={firma} />
         </div>
       </div>
       {/* End filter and search area */}
-
     </div>
   );
 };

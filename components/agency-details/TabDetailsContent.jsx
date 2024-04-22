@@ -5,10 +5,9 @@ import ReviewBox from "../blog-details/ReviewBox";
 import DescriptionsText from "./DescriptionsText";
 import Listings from "./Listings";
 
-const TabDetailsContent = () => {
+const TabDetailsContent = ({ firma }) => {
   return (
     <>
-
       <div className="tab-content" id="myTabContent2">
         <div
           className="tab-pane fade show active"
@@ -19,14 +18,13 @@ const TabDetailsContent = () => {
             <div className="mbp_pagination_comments">
               <div className="mbp_first media">
                 <div className="media-body agent-desc">
-                  <DescriptionsText />
+                  <DescriptionsText firma={firma} />
                 </div>
               </div>
             </div>
           </div>
         </div>
         {/* End Description details content*/}
-
       </div>
       {/* End tab-content */}
     </>

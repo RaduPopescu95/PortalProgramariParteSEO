@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import BreadCrumb from "@/components/common/BreadCrumb";
 import Header from "../../common/header/dashboard/Header";
@@ -80,7 +80,7 @@ const index = () => {
     console.log("Submitting form with values:", formValues);
     console.log("propertySelectedImgs:", propertySelectedImgs);
     if (propertySelectedImgs.length === 0) {
-      console.log("no image....")
+      console.log("no image....");
       setSuccessMessage("Nu este adaugata imagine");
       setIsLoading(false);
       return;
@@ -267,10 +267,10 @@ const index = () => {
                         isEdit={isEdit}
                         isNewImage={isNewImage}
                       />
-                       {/* End .col */}
-        <div className="col-lg-12">
-          <h3>{successMessage}</h3>
-        </div>
+                      {/* End .col */}
+                      <div className="col-lg-12">
+                        <h3>{successMessage}</h3>
+                      </div>
                     </div>
                   </div>
                   <div className="col-xl-12 mt-3">

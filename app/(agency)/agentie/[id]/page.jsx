@@ -1,18 +1,32 @@
-
-
 import agenceis from "@/data/agency";
 import AgencyDetails from "@/components/agency-details";
+import { handleQueryFirestore } from "@/utils/firestoreUtils";
 
-const AgencyDetailsDynamic = ({params}) => {
- 
-    const id = params.id;
-    const agency = agenceis.find((item) => item.id == id) || agenceis[0]
+export async function getServerData(id) {
+  let data = [];
+  try {
+    // Interoghează Firestore (sau orice altă bază de date) folosind 'locationPart'
+    data = await handleQueryFirestore("Firme", "id", id);
+  } catch (error) {
+    console.error("Failed to fetch firma:", error);
+    return {
+      props: {
+        error: "Failed to load data.",
+      },
+    };
+  }
+  return data[0]; // Data will be available as props in your component
+}
 
-  
+const AgencyDetailsDynamic = async ({ params }) => {
+  const id = params.id;
+  const parts = id.split("-");
+  const number = parseFloat(parts[0]);
 
+  const firma = await getServerData(number);
   return (
     <>
-      <AgencyDetails />
+      <AgencyDetails firma={firma} />
     </>
   );
 };

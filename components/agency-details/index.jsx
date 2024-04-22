@@ -9,7 +9,7 @@ import SidebarListings from "./SidebarListings";
 import TabDetailsContent from "./TabDetailsContent";
 import ListingGallery from "./ListingGallery";
 
-const index = () => {
+const index = ({ firma }) => {
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -35,18 +35,18 @@ const index = () => {
                           width={100}
                           height={100}
                           className="logo1 img-fluid"
-                          src="/assets/logoexample.png"
+                          src={firma.logo.finalUri}
                           alt="Logo"
                           layout="intrinsic" // Schimbă la layout="intrinsic" pentru a permite redimensionarea bazată pe maxWidth
                         />
 
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                          <p className="m0">Nume agentie</p>
+                          <p className="m0">{firma.siteName}</p>
                         </div>
                       </div>
                     </div>
                     <a
-                      href="tel:0787813831"
+                      href={`tel:${firma.telefonUnu}`}
                       className="details"
                       style={{ cursor: "pointer" }}
                     >
@@ -54,14 +54,14 @@ const index = () => {
                         <h3>Fa-ti programare!</h3>
 
                         <div className="d-flex justify-content-start align-items-center w-100">
-                          <span className="flaticon-placeholder"></span>
-                          <p className="m0">0787813831</p>
+                          <span className="flaticon-smartphone-call"></span>
+                          <p className="m0">{firma.telefonUnu}</p>
                         </div>
                       </div>
                     </a>
 
                     <a
-                      href="https://wa.me/40787813831"
+                      href={`https://wa.me/${firma.telefonUnu}`}
                       className="details"
                       style={{ cursor: "pointer" }}
                       target="_blank" // Opțional: deschide linkul într-o nouă fereastră/tab
@@ -84,13 +84,13 @@ const index = () => {
                   {/* End .feat_property */}
 
                   <div className="shop_single_tab_content style2 mt30">
-                    <TabDetailsContent />
+                    <TabDetailsContent firma={firma} />
                   </div>
                   <div className="style2 mt30">
-                    <SidebarListings />
+                    <SidebarListings firma={firma} />
                   </div>
                   <div className="style2 mt30">
-                    <ListingGallery />
+                    <ListingGallery firma={firma} />
                   </div>
                 </div>
                 {/* End .col-12 */}

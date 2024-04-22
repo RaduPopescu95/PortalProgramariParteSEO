@@ -1,29 +1,19 @@
-const DescriptionsText = () => {
+const DescriptionsText = ({ firma }) => {
+  // Ensure the parameter is destructured if called as a prop
+  const createMarkup = () => {
+    return { __html: firma?.articleContentFirst || "" }; // Adding a fallback and optional chaining
+  };
+  const createMarkupSecond = () => {
+    return { __html: firma?.articleContentSecond || "" }; // Adding a fallback and optional chaining
+  };
+
   return (
     <>
-    <h3 className="title mb-3">Elegantly appointed condominium</h3>
-    <p className="mb25">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-    <p className="mb25">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <h3 className="title mb-3">The master suite is surrounded</h3>
-    <p className="mb25">
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-    </p>
-    <p className="mb25">
-      Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-    </p>
-    <h3 className="title mb-3">Mint condition with new hardwood</h3>
-    <p className="mb25">
-      Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-    </p>
-    <p className="mt10 mb0">
-      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-    </p>
-  </>
-  
+      <div dangerouslySetInnerHTML={createMarkup()}></div>
+      {firma?.articleContentSecond?.length > 0 && (
+        <div dangerouslySetInnerHTML={createMarkupSecond()}></div>
+      )}
+    </>
   );
 };
 

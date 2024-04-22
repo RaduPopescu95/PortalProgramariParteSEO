@@ -1,4 +1,4 @@
-const ContactWithAgent = () => {
+const ContactWithAgent = ({ firma }) => {
   return (
     <div className="container py-sm-5 py-2" id="contact-form">
       <div className="row">
@@ -66,14 +66,12 @@ const ContactWithAgent = () => {
           {/* Componenta pentru informații de contact suplimentare */}
           <div className="contact-info">
             <h5 className="mt0">CALL US</h5>
-            <p>1 (234) 567-891</p>
-            <p>1 (234) 987-654</p>
+            <p>{firma?.telefonUnu}</p>
+            <p>{firma?.telefonDoi}</p>
             <h5>LOCATION</h5>
-            <p>121 Rock Street, 21 Avenue, New York, NY 92103-9000</p>
+            <p>{firma?.adresa}</p>
             <h5>OUR TOP SERVICES</h5>
-            <p>Local transfers</p>
-            <p>Airport Transfers</p>
-            <p>Excursions and Tours</p>
+            <p>{firma?.categorie}</p>
           </div>
         </div>
         <div className="col-md-4 order-1 order-md-3">
