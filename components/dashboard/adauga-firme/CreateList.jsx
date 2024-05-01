@@ -1,6 +1,13 @@
 import ArticleEditor from "./QuillForm";
 
-const CreateList = ({ handleInputChange, formValues, categorii, judete, handleJudetChange, localitati }) => {
+const CreateList = ({
+  handleInputChange,
+  formValues,
+  categorii,
+  judete,
+  handleJudetChange,
+  localitati,
+}) => {
   return (
     <>
       <div className="col-lg-6 col-xl-6">
@@ -34,11 +41,7 @@ const CreateList = ({ handleInputChange, formValues, categorii, judete, handleJu
           >
             <option data-tokens="Selecteaza">Selecteaza</option>
             {categorii.map((cat, index) => (
-
-            <option data-tokens={cat.siteName}>
-              {cat.siteName}
-            </option>
-
+              <option data-tokens={cat.siteName}>{cat.siteName}</option>
             ))}
           </select>
         </div>
@@ -57,12 +60,8 @@ const CreateList = ({ handleInputChange, formValues, categorii, judete, handleJu
           >
             <option data-tokens="Selecteaza">Selecteaza</option>
             {judete.map((jud, index) => (
-
-<option data-tokens={jud.siteName}>
-  {jud.siteName}
-</option>
-
-))}
+              <option data-tokens={jud.siteName}>{jud.siteName}</option>
+            ))}
           </select>
         </div>
       </div>
@@ -80,12 +79,8 @@ const CreateList = ({ handleInputChange, formValues, categorii, judete, handleJu
           >
             <option data-tokens="Selecteaza">Selecteaza</option>
             {localitati.map((loc, index) => (
-
-<option data-tokens={loc.siteName}>
-  {loc.siteName}
-</option>
-
-))}
+              <option data-tokens={loc.siteName}>{loc.siteName}</option>
+            ))}
           </select>
         </div>
       </div>

@@ -8,10 +8,13 @@ export const metadata = {
 };
 
 export async function getServerData() {
-  let data = [];
+  let data = {};
   try {
     // Interoghează Firestore (sau orice altă bază de date) folosind 'locationPart'
-    data = await handleGetFirestore("Judete");
+    let judete = await handleGetFirestore("Judete");
+    let categorii = await handleGetFirestore("Categorii");
+    data = { judete, categorii };
+    return data;
   } catch (error) {
     console.error("Failed to fetch locations:", error);
     return {
@@ -24,10 +27,10 @@ export async function getServerData() {
 }
 
 const index = async () => {
-  const judete = await getServerData();
+  const data = await getServerData();
   return (
     <>
-      <SliderStyle judete={judete} />
+      <SliderStyle judete={data.judete} categorii={data.categorii} />
     </>
   );
 };

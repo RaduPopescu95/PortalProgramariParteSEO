@@ -18,7 +18,7 @@ import CallToAction from "../common/CallToAction";
 import SidebarListing from "../common/listing/SidebarListing";
 import { handleQueryFirestoreSubcollection } from "@/utils/firestoreUtils";
 
-const index = ({ localitati, firme, judet }) => {
+const index = ({ localitati, firme, judet, params }) => {
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -74,7 +74,7 @@ const index = ({ localitati, firme, judet }) => {
           <div className="row pt30">
             <div className="col-md-8 col-lg-8">
               <div className="row">
-                <FeaturedItem firme={firme} />
+                <FeaturedItem firme={firme} params={params} />
               </div>
               {/* End .row */}
 

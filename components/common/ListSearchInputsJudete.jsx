@@ -9,19 +9,47 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
   const [firmName, setFirmName] = useState("");
   const [isSubmittedWithoutLocation, setIsSubmittedWithoutLocation] =
     useState(false);
+  const [selectedJudet, setSelectedJudet] = useState("");
+  const [selectedLocalitate, setSelectedLocalitate] = useState("");
+  const [selectedCategorie, setSelectedCategorie] = useState("");
+
+  const [isJudetSelected, setIsJudetSelected] = useState(true);
+  const [isLocalitateSelected, setIsLocalitateSelected] = useState(true);
+  const [isCateogireSelected, setIsCategorieSelected] = useState(true);
   const router = useRouter();
 
   const submitHandler = () => {
-    console.log("submit...");
-    if (!selectedLocation) {
-      setIsSubmittedWithoutLocation(true); // Setăm starea la true dacă locația nu este selectată
-    } else {
-      setIsSubmittedWithoutLocation(false); // Resetăm starea dacă locația este selectată
-      if (firmName.length > 0) {
-        router.push(`/judet/${judet}-${selectedLocation}-${firmName}`); // Logica pentru submit
-      } else {
-        router.push(`/judet/${judet}-${selectedLocation}`); // Logica pentru submit
-      }
+    console.log("submit...", selectedJudet);
+    console.log("submit...", selectedLocalitate);
+
+    if (!selectedCategorie && !selectedLocalitate && !selectedJudet) {
+      router.push(`/clinici`);
+      return;
+    }
+
+    if (selectedLocalitate) {
+      router.push(`/clinici/${selectedLocalitate.toLocaleLowerCase()}`);
+      return;
+    }
+
+    if (selectedJudet) {
+      router.push(`/judet/${selectedJudet}`);
+      return;
+    }
+
+    if (selectedLocalitate && selectedCategorie) {
+      router.push(
+        `/${selectedCategorie.toLocaleLowerCase()}/${selectedLocalitate.toLocaleLowerCase()}`
+      );
+      // router.push(
+      //   `/${selectedCategorie.toLocaleLowerCase()}/${selectedCategorie.toLocaleLowerCase()}-${selectedLocalitate.toLocaleLowerCase()}`
+      // );
+      return;
+    }
+
+    if (selectedCategorie) {
+      router.push(`/${selectedCategorie.toLocaleLowerCase()}`);
+      return;
     }
   };
 
@@ -37,7 +65,7 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
                 }`}
                 value={selectedLocation}
                 onChange={(e) => {
-                  setSelectedLocation(e.target.value);
+                  setSelectedLocalitate(e.target.value);
                   if (e.target.value) {
                     setIsSubmittedWithoutLocation(false); // Resetăm starea de atenționare la schimbarea selecției
                   }

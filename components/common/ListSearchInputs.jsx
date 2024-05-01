@@ -11,13 +11,15 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { handleQueryFirestoreSubcollection } from "@/utils/firestoreUtils";
 
-const ListSearchInputs = ({ className = "", judete }) => {
+const ListSearchInputs = ({ className = "", judete, categorii }) => {
   const router = useRouter();
   const [selectedJudet, setSelectedJudet] = useState("");
   const [selectedLocalitate, setSelectedLocalitate] = useState("");
+  const [selectedCategorie, setSelectedCategorie] = useState("");
   const [localitati, setLocalitati] = useState([]);
   const [isJudetSelected, setIsJudetSelected] = useState(true);
   const [isLocalitateSelected, setIsLocalitateSelected] = useState(true);
+  const [isCateogireSelected, setIsCategorieSelected] = useState(true);
 
   // Handler pentru schimbarea selectiei de judete
   const handleJudetChange = async (e) => {
@@ -61,17 +63,63 @@ const ListSearchInputs = ({ className = "", judete }) => {
   const submitHandler = () => {
     console.log("submit...", selectedJudet);
     console.log("submit...", selectedLocalitate);
-    if (!selectedJudet) {
-      setIsJudetSelected(!!selectedJudet);
-    } else if (selectedJudet) {
-      router.push(`/judet/${selectedJudet}`);
-    } else if (selectedJudet && selectedLocalitate) {
-      router.push(`/judet/${selectedJudet}-${selectedLocalitate}`);
+
+    if (!selectedCategorie && !selectedLocalitate && !selectedJudet) {
+      router.push(`/clinici`);
+      return;
+    }
+
+    if (selectedLocalitate && selectedCategorie) {
+      console.log("asdadadsada");
+      router.push(
+        `/${selectedCategorie.toLocaleLowerCase()}/${selectedLocalitate.toLocaleLowerCase()}`
+      );
+      // router.push(
+      //   `/${selectedCategorie.toLocaleLowerCase()}/${selectedCategorie.toLocaleLowerCase()}-${selectedLocalitate.toLocaleLowerCase()}`
+      // );
+      return;
+    }
+
+    if (selectedLocalitate) {
+      router.push(`/clinici/${selectedLocalitate.toLocaleLowerCase()}`);
+      return;
+    }
+
+    if (selectedJudet) {
+      router.push(`/judet/${selectedJudet.toLocaleLowerCase()}`);
+      return;
+    }
+
+    if (selectedCategorie) {
+      router.push(`/${selectedCategorie.toLocaleLowerCase()}`);
+      return;
     }
   };
   return (
     <div className={`home1-advnc-search ${className}`}>
       <ul className="h1ads_1st_list mb0">
+        <li className="list-inline-item">
+          <div className="search_option_two">
+            <div className="candidate_revew_select">
+              <select
+                className={`selectpicker w100 form-select show-tick ${
+                  !isJudetSelected ? "border-danger" : ""
+                }`}
+                onChange={(e) => setSelectedCategorie(e.target.value)}
+                value={selectedCategorie}
+              >
+                <option value="">Alege categorie</option>
+                {categorii &&
+                  categorii.map((categorie, index) => (
+                    <option key={index} value={categorie.siteName}>
+                      {categorie.siteName}
+                    </option>
+                  ))}
+              </select>
+            </div>
+          </div>
+        </li>
+        {/* End li */}
         <li className="list-inline-item">
           <div className="search_option_two">
             <div className="candidate_revew_select">

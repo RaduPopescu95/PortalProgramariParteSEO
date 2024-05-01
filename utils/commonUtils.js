@@ -12,6 +12,25 @@ export function validateEmail(email) {
   return re.test(String(email).toLowerCase());
 }
 
+export const calculateDistance = (lat1, lon1, lat2, lon2) => {
+  console.log(lat1);
+  console.log(lon1);
+  console.log(lat2);
+  console.log(lon2);
+  const R = 6371e3; // Raza Pământului în metri
+  const φ1 = (lat1 * Math.PI) / 180; // φ, λ în radiani
+  const φ2 = (lat2 * Math.PI) / 180;
+  const Δφ = ((lat2 - lat1) * Math.PI) / 180;
+  const Δλ = ((lon2 - lon1) * Math.PI) / 180;
+
+  const a =
+    Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+    Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return R * c; // Distanța în metri
+};
+
 export const formatPathname = (pathname) => {
   // Îndepărtează primul `/` dacă există
   const trimmedPathname = pathname.startsWith("/")

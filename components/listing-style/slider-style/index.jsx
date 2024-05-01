@@ -18,7 +18,7 @@ import Image from "next/image";
 import Button from "@/components/common/CommonButton";
 import CallToAction from "@/components/common/CallToAction";
 
-const index = ({ judete }) => {
+const index = ({ judete, categorii, params }) => {
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -56,7 +56,11 @@ const index = ({ judete }) => {
                   </h2>
                 </div>
                 {/* End home-text */}
-                <ListSearch className="mt40" judete={judete} />
+                <ListSearch
+                  className="mt40"
+                  judete={judete}
+                  categorii={categorii}
+                />
               </div>
             </div>
           </div>
@@ -70,7 +74,7 @@ const index = ({ judete }) => {
           <div className="row pt30">
             <div className="col-md-12 col-lg-12">
               <div className="row">
-                <FeaturedItem />
+                <FeaturedItem params={params} />
               </div>
               {/* End .row */}
 

@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import Categorii from "../../../../components/categorii";
+import Categorii from "../../components/categorii";
 import SliderStyle from "@/components/listing-style/slider-style";
 import {
   handleGetFirestore,
@@ -84,7 +84,7 @@ const index = async ({ params }) => {
       <SliderStyle
         judete={data.judete}
         categorii={data.categorii}
-        params={params.id}
+        params={params.clinici}
       />
       {/* <Categorii
         localitati={data.localitati}

@@ -67,6 +67,7 @@ const Index = () => {
     harta: "",
     idGalerieFoto: "",
     cuvinteCheieImaginiGalerie: "",
+    coordonate: {},
   });
 
   const params = useParams();
@@ -123,6 +124,19 @@ const Index = () => {
     if (isDeletedNotFile) {
       setDeletedImages((prevDeletedImages) => [...prevDeletedImages, item]);
     }
+  };
+
+  const handleLocationSelect = (lat, lng, adresa, urlMaps) => {
+    console.log(`Selected location - Lat: ${lat}, Lng: ${lng}`);
+    setFormValues((prevState) => ({
+      ...prevState,
+      adresa: adresa,
+      harta: urlMaps,
+      coordonate: { lat, lng },
+    }));
+    console.log(
+      `Adresa setata: ${adresa}, Link harta: ${urlMaps}, Coordonate: Lat: ${lat}, Lng: ${lng}`
+    );
   };
 
   const handleInputChange = (e) => {
@@ -464,6 +478,7 @@ const Index = () => {
                       <DateContact
                         handleInputChange={handleInputChange}
                         formValues={formValues}
+                        handleLocationSelect={handleLocationSelect}
                       />
                     </div>
                   </div>

@@ -1,6 +1,11 @@
+import AutocompleteInput from "@/components/common/AutocompleteInput";
 import CheckBoxFilter from "../../common/CheckBoxFilter";
 
-const DateContact = ({ handleInputChange, formValues }) => {
+const DateContact = ({
+  handleInputChange,
+  formValues,
+  handleLocationSelect,
+}) => {
   return (
     <div className="row">
       <div className="col-lg-6 col-xl-6">
@@ -149,7 +154,7 @@ const DateContact = ({ handleInputChange, formValues }) => {
         </div>
       </div>
       {/* End .col */}
-      <div className="col-lg-6 col-xl-6">
+      {/* <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
           <label htmlFor="adresa">Adresa</label>
           <input
@@ -161,7 +166,17 @@ const DateContact = ({ handleInputChange, formValues }) => {
             onChange={handleInputChange}
           />
         </div>
+      </div> */}
+      <div className="col-lg-6 col-xl-6">
+        <div className="my_profile_setting_input form-group">
+          <label htmlFor="adresa">Adresa</label>
+          <AutocompleteInput
+            onPlaceChanged={handleLocationSelect}
+            adresa={formValues.adresa}
+          />
+        </div>
       </div>
+
       {/* End .col */}
       <div className="col-xl-12">
         <div className="my_profile_setting_input form-group">
