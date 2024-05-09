@@ -8278,7 +8278,8 @@ form.home5_advanced_search_form
 
 .our-hot-offer {
   background-image: url("../serviceparalax.png");
-  height: 581px;
+  height: "auto";
+  /* height: 581px; */
 }
 
 .our-hot-offer:before {

@@ -243,7 +243,7 @@ export const handleDeleteFirestoreSubcollectionData = async (
 
     // Dacă getNewData este true, procedează la obținerea și actualizarea datelor
     if (getNewData) {
-      const data = await handleGetSubcollections(locationToGet); // Presupunem că returnează un array de obiecte
+      const data = await handleGetFirestore(locationToGet); // Presupunem că returnează un array de obiecte
 
       // Sortează datele în ordinea crescătoare a ID-urilor
       data.sort((a, b) => a.id - b.id);

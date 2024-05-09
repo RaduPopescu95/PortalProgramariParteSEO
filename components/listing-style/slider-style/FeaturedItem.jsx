@@ -87,17 +87,15 @@ const FeaturedItem = ({ params }) => {
                 decodedCategorie.charAt(0).toUpperCase() +
                 decodedCategorie.slice(1);
 
-              let localitateDorita =
-                params[1].charAt(0).toUpperCase() + params[1].slice(1);
+              // let localitateDorita =
+              //   params[1].charAt(0).toUpperCase() + params[1].slice(1);
 
-              console.log("Test here localitate....", localitateDorita);
+              // console.log("Test here localitate....", localitateDorita);
 
               parteneriFiltrati = await handleQueryFirestore(
                 "Firme",
                 "categorie",
-                categorieDatorita,
-                "localitate",
-                localitateDorita
+                categorieDatorita
               );
               console.log("Test here localitate....", parteneriFiltrati);
               setParteneri([...parteneriFiltrati]);

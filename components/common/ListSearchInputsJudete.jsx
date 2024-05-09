@@ -63,12 +63,13 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
                 className={`selectpicker w100 form-select show-tick ${
                   isSubmittedWithoutLocation ? "border-danger" : ""
                 }`}
-                value={selectedLocation}
+                value={selectedLocalitate}
                 onChange={(e) => {
+                  console.log("test...", e.target.value);
                   setSelectedLocalitate(e.target.value);
-                  if (e.target.value) {
-                    setIsSubmittedWithoutLocation(false); // Resetăm starea de atenționare la schimbarea selecției
-                  }
+                  // if (e.target.value) {
+                  //   setIsSubmittedWithoutLocation(false); // Resetăm starea de atenționare la schimbarea selecției
+                  // }
                 }}
               >
                 <option value="">Localitati</option>

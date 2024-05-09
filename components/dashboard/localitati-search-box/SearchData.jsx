@@ -16,7 +16,7 @@ const SearchData = ({ location }) => {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleGetData = async () => {
-    console.log("Start....")
+    console.log("Start....");
     let data = await handleGetSubcollections("Localitati");
     console.log("Data....here...", data);
     setData([...data]);
@@ -40,7 +40,6 @@ const SearchData = ({ location }) => {
   // Logica de ștergere a elementului
   const handleConfirmDelete = async () => {
     console.log("Deleting item with ID:", selectedItem);
-    console.log("location.....:", location);
     let updatedData = await handleDeleteFirestoreSubcollectionData(
       `Judete/${selectedItem.collectionId}/Localitati/${selectedItem.documentId}`,
       true,
@@ -48,6 +47,7 @@ const SearchData = ({ location }) => {
       selectedItem
     );
     // // Aici adaugi logica pentru a șterge elementul din sursa ta de date
+    console.log("updatedData.....:", updatedData);
     setData(updatedData);
     setShowModal(false); // Închide modalul după ștergere
   };
@@ -80,8 +80,14 @@ const SearchData = ({ location }) => {
                 <td className="para">{item.judet && item.judet}</td>
                 <td className="para">{item.siteName && item.siteName}</td>
 
-                <td className="para">{item.firstUploadDate && item.firstUploadDate} {item.firstUploadTime && item.firstUploadTime}</td>
-                <td className="para">{item.EditDate && item.EditDate} {item.Edittime && item.Edittime} </td>
+                <td className="para">
+                  {item.firstUploadDate && item.firstUploadDate}{" "}
+                  {item.firstUploadTime && item.firstUploadTime}
+                </td>
+                <td className="para">
+                  {item.EditDate && item.EditDate}{" "}
+                  {item.Edittime && item.Edittime}{" "}
+                </td>
                 <td>
                   <ul className="view_edit_delete_list mb0">
                     <li
@@ -96,7 +102,9 @@ const SearchData = ({ location }) => {
                     </li>
                     <Link
                       href={{
-                        pathname: `adauga-${location.toLowerCase()}/${item.documentId}`,
+                        pathname: `adauga-${location.toLowerCase()}/${
+                          item.documentId
+                        }`,
                         query: {
                           id: item.id,
                         },
