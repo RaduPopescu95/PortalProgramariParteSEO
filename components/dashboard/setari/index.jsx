@@ -86,7 +86,7 @@ const index = () => {
                   </div>
                   <div className="my_dashboard_review mt30">
                     <div className="col-lg-12">
-                      <h3 className="mb30">Setari Google</h3>
+                      <h3 className="mb30">Setari</h3>
                     </div>
                     <PropertyMediaUploader />
                   </div>
