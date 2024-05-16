@@ -54,13 +54,17 @@ const index = () => {
                     tine) pentru nevoile tale medicale.
                   </p>
                   <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 w-100 mb-10">
-                    <Button style={{ minWidth: "calc(30% - 10px)" }}>
+                    <Button
+                      style={{ minWidth: "calc(30% - 10px)" }}
+                      navigare={"cauta"}
+                    >
                       Caută medic{" "}
                       <span className="flaticon-right-arrow ml-10" />
                     </Button>
                     <Button
                       className="btnSecondary"
                       style={{ minWidth: "calc(30% - 10px)" }}
+                      navigare={"inscrie-clinica"}
                     >
                       Înscrie o clinică{" "}
                       <span className="flaticon-right-arrow ml-10" />
@@ -144,7 +148,7 @@ const index = () => {
                   </ul>
                 </div>
                 <div className="d-flex flex-column flex-sm-row justify-content-start gap-3 w-100 mb-10">
-                  <Button className="w-50 w-md-50">
+                  <Button className="w-50 w-md-50" navigare={"cauta"}>
                     Găsește o clinica în apropiere
                   </Button>
                 </div>
@@ -246,9 +250,6 @@ const index = () => {
                   revii periodic pe platforma pentru ca adaugam constant noi
                   informatii care te vor ajuta cu siguranta.
                 </p>
-                <div className="d-flex flex-column flex-sm-row justify-content-start gap-3 w-100 mb-10">
-                  <Button className="w-50 w-md-50">Află mai multe</Button>
-                </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 order-1 order-md-2">

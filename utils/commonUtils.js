@@ -42,8 +42,11 @@ export const formatPathname = (pathname) => {
 
   // Formatează fiecare segment
   const formattedSegments = segments.map((segment) => {
+    // Decodifică componenta URL
+    const decodedSegment = decodeURIComponent(segment);
+
     // Înlocuiește `-` cu spațiu și capitalizează fiecare cuvânt
-    return segment
+    return decodedSegment
       .split("-")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");

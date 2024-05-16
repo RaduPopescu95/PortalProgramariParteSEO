@@ -46,12 +46,12 @@ const index = ({ firma }) => {
             </div>
             {/* End .col-md-12 col-lg-12 content left side */}
 
-            <div className="col-lg-12 col-xl-12">
-              {/* <!-- Listing Single Property --> */}
+            {/* <!-- Listing Single Property --> */}
+            {/* <div className="col-lg-12 col-xl-12">
               <section className="listing-title-area md-mt0">
                 <div className="container"></div>
               </section>
-            </div>
+            </div> */}
             {/* End .col-lg-4 col-xl-4 content left side */}
           </div>
           {/* End .row */}
@@ -60,20 +60,20 @@ const index = ({ firma }) => {
       </section>
 
       {/* <!-- Our Footer --> */}
-      <section className="footer_one">
+      {/* <section className="footer_one">
         <div className="container">
           <div className="row">
             <Footer />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <!-- Our Footer Bottom Area --> */}
-      <section className="footer_middle_area pt40 pb40">
+      {/* <section className="footer_middle_area pt40 pb40">
         <div className="container">
           <CopyrightFooter />
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

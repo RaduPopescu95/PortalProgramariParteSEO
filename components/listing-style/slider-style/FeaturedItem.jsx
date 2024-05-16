@@ -8,11 +8,13 @@ import properties from "../../../data/properties";
 import Image from "next/image";
 import { fetchLocation } from "@/app/services/geocoding";
 import { handleDiacrtice } from "@/utils/strintText";
+import AgencyDetails from "@/components/agency-details";
 import {
   handleQueryDoubleParam,
   handleQueryFirestore,
 } from "@/utils/firestoreUtils";
 import { calculateDistance } from "@/utils/commonUtils";
+import PromotionSection from "./PromotionSection";
 
 const FeaturedItem = ({ params }) => {
   const {
@@ -75,29 +77,46 @@ const FeaturedItem = ({ params }) => {
             console.log("here...hee....", params);
             if (Array.isArray(params)) {
               console.log("testing...here....test", params);
-              let categorie = params[0]; // presupunem că params[0] este un string
-              // const parts = categorie.split("-");
+              const parts = params[0].split("-");
+              if (parts[0] === "clinici") {
+                let localitate = parts[1];
 
-              // Decodifică partea pentru a elimina codificările URL (de exemplu, transformă "%20" înapoi în spații)
-              let decodedCategorie = decodeURIComponent(categorie);
+                let decodedLocalitate = decodeURIComponent(localitate);
 
-              console.log("Partea nu conține 'sector'");
+                let localitateDatorita =
+                  decodedLocalitate.charAt(0).toUpperCase() +
+                  decodedLocalitate.slice(1);
 
-              let categorieDatorita =
-                decodedCategorie.charAt(0).toUpperCase() +
-                decodedCategorie.slice(1);
+                parteneriFiltrati = await handleQueryFirestore(
+                  "Firme",
+                  "localitate",
+                  localitateDatorita
+                );
+                console.log("Test here localitate....", parteneriFiltrati);
+              } else {
+                let categorie = parts[0];
+                let localitate = parts[1];
 
-              // let localitateDorita =
-              //   params[1].charAt(0).toUpperCase() + params[1].slice(1);
+                let decodedCategorie = decodeURIComponent(categorie);
+                let decodedLocalitate = decodeURIComponent(localitate);
 
-              // console.log("Test here localitate....", localitateDorita);
+                let categorieDatorita =
+                  decodedCategorie.charAt(0).toUpperCase() +
+                  decodedCategorie.slice(1);
+                let localitateDatorita =
+                  decodedLocalitate.charAt(0).toUpperCase() +
+                  decodedLocalitate.slice(1);
 
-              parteneriFiltrati = await handleQueryFirestore(
-                "Firme",
-                "categorie",
-                categorieDatorita
-              );
-              console.log("Test here localitate....", parteneriFiltrati);
+                parteneriFiltrati = await handleQueryDoubleParam(
+                  "Firme",
+                  "categorie",
+                  categorieDatorita,
+                  "localitate",
+                  localitateDatorita
+                );
+                console.log("Test here localitate....", parteneriFiltrati);
+              }
+
               setParteneri([...parteneriFiltrati]);
               // Verifică dacă stringul decodificat conține cuvântul "sector"
               if (decodedPart.includes("sector")) {
@@ -206,112 +225,18 @@ const FeaturedItem = ({ params }) => {
     );
   }, []);
 
-  // keyword filter
-  const keywordHandler = (item) =>
-    item.title.toLowerCase().includes(keyword?.toLowerCase());
-
-  // location handler
-  const locationHandler = (item) => {
-    return item.location.toLowerCase().includes(location.toLowerCase());
-  };
-
   // status handler
-  const statusHandler = (item) =>
-    item.type.toLowerCase().includes(status.toLowerCase());
-
-  // properties handler
-  const propertiesHandler = (item) =>
-    item.type.toLowerCase().includes(propertyType.toLowerCase());
-
-  // price handler
-  const priceHandler = (item) =>
-    item.price < price?.max && item.price > price?.min;
-
-  // bathroom handler
-  const bathroomHandler = (item) => {
-    if (bathrooms !== "") {
-      return item.itemDetails[1].number == bathrooms;
-    }
-    return true;
-  };
-
-  // bedroom handler
-  const bedroomHandler = (item) => {
-    if (bedrooms !== "") {
-      return item.itemDetails[0].number == bedrooms;
-    }
-    return true;
-  };
-
-  // garages handler
-  const garagesHandler = (item) =>
-    garages !== ""
-      ? item.garages?.toLowerCase().includes(garages.toLowerCase())
-      : true;
-
-  // built years handler
-  const builtYearsHandler = (item) =>
-    yearBuilt !== "" ? item?.built == yearBuilt : true;
-
-  // area handler
-  const areaHandler = (item) => {
-    if (area.min !== 0 && area.max !== 0) {
-      if (area.min !== "" && area.max !== "") {
-        return (
-          parseInt(item.itemDetails[2].number) > area.min &&
-          parseInt(item.itemDetails[2].number) < area.max
-        );
-      }
-    }
-    return true;
-  };
-
-  // advanced option handler
-  const advanceHandler = (item) => {
-    if (amenities.length !== 0) {
-      return amenities.find((item2) =>
-        item2.toLowerCase().includes(item.amenities.toLowerCase())
-      );
-    }
-    return true;
-  };
-
-  // status filter
-  const statusTypeHandler = (a, b) => {
-    if (statusType === "recent") {
-      return a.created_at + b.created_at;
-    } else if (statusType === "old") {
-      return a.created_at - b.created_at;
-    } else if (statusType === "") {
-      return a.created_at + b.created_at;
-    }
-  };
-
-  // featured handler
-  const featuredHandler = (item) => {
-    if (featured !== "") {
-      return item.featured === featured;
-    }
-    return true;
-  };
-
-  // status handler
-  let content = parteneri
-    // ?.slice(0, 10)
-    // ?.filter(keywordHandler)
-    // ?.filter(locationHandler)
-    // ?.filter(statusHandler)
-    // ?.filter(propertiesHandler)
-    // ?.filter(priceHandler)
-    // ?.filter(bathroomHandler)
-    // ?.filter(bedroomHandler)
-    // ?.filter(garagesHandler)
-    // ?.filter(builtYearsHandler)
-    // ?.filter(areaHandler)
-    // ?.filter(advanceHandler)
-    // ?.sort(statusTypeHandler)
-    // ?.filter(featuredHandler)
-    .map((item) => (
+  let content;
+  if (params && parteneri.length === 0) {
+    return <PromotionSection params={params} />;
+  }
+  // if (parteneri.length === 0) {
+  //   return;
+  // }
+  if (params) {
+    content = parteneri.map((item) => <AgencyDetails firma={item} />);
+  } else {
+    content = parteneri.map((item) => (
       <div
         className={`${
           isGridOrList ? "col-12 feature-list" : "col-md-3 col-lg-3"
@@ -410,11 +335,9 @@ const FeaturedItem = ({ params }) => {
         </div>
       </div>
     ));
+  }
 
   // add length of filter items
-  useEffect(() => {
-    dispatch(addLength(content.length));
-  }, [dispatch, content]);
 
   return <>{content}</>;
 };

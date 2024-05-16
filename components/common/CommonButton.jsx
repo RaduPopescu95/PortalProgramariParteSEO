@@ -1,16 +1,27 @@
-// Button.js
+"use client";
+
+import { useRouter } from "next/navigation";
+
 const Button = ({ children, onClick, className = "", ...props }) => {
-    return (
-      <button
-        type="submit"
-        className={`btn btnGeneral ${className}`}
-        onClick={onClick}
-        {...props}
-      >
-        {children}
-      </button>
-    );
+  const router = useRouter();
+
+  const handleClick = () => {
+    if (props.navigare) {
+      router.push(props.navigare);
+    } else {
+      onClick;
+    }
   };
-  
-  export default Button;
-  
+  return (
+    <button
+      type="submit"
+      className={`btn btnGeneral ${className}`}
+      onClick={handleClick}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default Button;

@@ -72,7 +72,7 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
     if (selectedLocalitate && selectedCategorie) {
       console.log("asdadadsada");
       router.push(
-        `/${selectedCategorie.toLocaleLowerCase()}/${selectedLocalitate.toLocaleLowerCase()}`
+        `/${selectedCategorie.toLocaleLowerCase()}-${selectedLocalitate.toLocaleLowerCase()}`
       );
       // router.push(
       //   `/${selectedCategorie.toLocaleLowerCase()}/${selectedCategorie.toLocaleLowerCase()}-${selectedLocalitate.toLocaleLowerCase()}`
@@ -81,7 +81,7 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
     }
 
     if (selectedLocalitate) {
-      router.push(`/clinici/${selectedLocalitate.toLocaleLowerCase()}`);
+      router.push(`/clinici-${selectedLocalitate.toLocaleLowerCase()}`);
       return;
     }
 

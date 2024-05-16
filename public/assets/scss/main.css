@@ -9968,6 +9968,7 @@ form.home5_advanced_search_form
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 0;
+  width: auto;
 }
 
 .inner_page_breadcrumb .breadcrumb_title li:first-child {
@@ -17001,7 +17002,7 @@ legend span {
 }
 
 .bgc-f7 {
-  background-color: #f7f7f7;
+  background-color: #f1f5f9;
 }
 
 .bgc-f8 {

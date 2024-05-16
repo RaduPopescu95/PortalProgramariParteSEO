@@ -341,3 +341,8 @@
     padding-right: 15px; /* Ajustează această valoare conform nevoilor */
   }
 }
+
+.custom-button-width {
+  width: 50%; /* Sau orice lățime specifică dorești */
+  max-width: 300px; /* Poți seta și o lățime maximă */
+}
