@@ -31,6 +31,8 @@ const index = ({ judete, categorii, params }) => {
       {/* <!-- Modal --> */}
       <PopupSignInUp />
 
+      {params && <BreadCrumbBanner />}
+
       {/* <!-- 6th Home Design --> */}
       {!params && (
         <section className="home-listing-slider hight-fx p0">
