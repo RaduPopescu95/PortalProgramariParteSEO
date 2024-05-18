@@ -26,11 +26,17 @@ import {
 } from "@/utils/firestoreUtils";
 import { fetchFirme } from "@/utils/localProjectlUtils";
 
+import { notFound } from "next/navigation";
+
 export async function getServerData(params) {
   let data = {};
 
   try {
-    console.log("params...", params);
+    console.log("params..start.....", params);
+    // if (params[1] === "favicon.ico") {
+    //   return null; // Returnează null sau orice alt component care indică că pagina nu trebuie să proceseze acest id.
+    // }
+    console.log("params..start.....passed", params);
     // Interoghează Firestore (sau orice altă bază de date) folosind 'locationPart'
     let judete = await handleGetFirestore("Judete");
     let categorii = await handleGetFirestore("Categorii");
@@ -51,7 +57,11 @@ export async function getServerData(params) {
 
 const index = async ({ params }) => {
   noStore();
+
   const data = await getServerData(params);
+  if (!data.firme) {
+    notFound();
+  }
   return (
     <>
       {/* <!-- Main Header Nav --> */}

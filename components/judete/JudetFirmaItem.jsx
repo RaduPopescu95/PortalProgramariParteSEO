@@ -7,6 +7,8 @@ import { addLength } from "../../features/properties/propertiesSlice";
 import properties from "../../data/properties";
 import Image from "next/image";
 
+// COMPONENTA ASTA FUNCTIONEAZA CA ASPECT DACA EXISTA SI SIDEBAR SI A FOST INLOCUITA CU FIRMAITEM DE LA CAUTA SI CLINICI CA SA AIBA ASPECT OK
+
 const FeaturedItem = ({ firme }) => {
   const {
     keyword,

@@ -11,14 +11,72 @@ import ShowFilter from "../common/listing/ShowFilter";
 import SidebarListing3 from "../common/listing/SidebarListing3";
 import PopupSignInUp from "../common/PopupSignInUp";
 import BreadCrumb from "./BreadCrumb2";
-import FeaturedItem from "./FeaturedItem";
+// import FeaturedItem from "./JudetFirmaItem";
 import HeroSlider from "./HeroSlider";
 import Image from "next/image";
 import CallToAction from "../common/CallToAction";
 import SidebarListing from "../common/listing/SidebarListing";
-import { handleQueryFirestoreSubcollection } from "@/utils/firestoreUtils";
+import {
+  handleGetFirestore,
+  handleQueryFirestore,
+  handleQueryFirestoreSubcollection,
+} from "@/utils/firestoreUtils";
+import BreadCrumbBanner from "./BreadCrumbBanner";
+import FirmaItem from "./FirmaItem";
+import { unstable_noStore as noStore } from "next/cache";
+import { fetchFirme } from "@/utils/localProjectlUtils";
 
-const index = ({ localitati, firme, judet }) => {
+export async function getServerData(params) {
+  let data = {};
+  let localitati = [];
+  let firme = [];
+  try {
+    let parts = params.id.split("-"); // Împărțim ID-ul în părți bazat pe separatorul '-'
+    let judet = parts[0]; // Folosim prima parte pentru interogări
+    let judetParam =
+      judet.charAt(0).toUpperCase() + judet?.slice(1).toLowerCase();
+
+    // Interoghează Firestore (sau orice altă bază de date) folosind 'judetParam'
+    localitati = await handleQueryFirestoreSubcollection(
+      "Localitati",
+      "judet",
+      judetParam
+    );
+
+    // query zone
+    if (parts[1]) {
+      let localitateParam =
+        parts[1].charAt(0).toUpperCase() + parts[1].slice(1).toLowerCase();
+      firme = await handleQueryFirestore(
+        "Firme",
+        "localitate",
+        localitateParam
+      );
+    } else {
+      firme = await handleQueryFirestore("Firme", "judet", judetParam);
+    }
+    // query zone
+
+    data = { localitati, firme };
+  } catch (error) {
+    console.error("Failed to fetch data....:", error);
+    return {
+      props: {
+        error: "Failed to load data.",
+      },
+    };
+  }
+  console.log("data returned...", data.firme);
+  return data; // Datele vor fi disponibile ca props în componentă
+}
+
+const index = async ({ judet, params }) => {
+  noStore();
+
+  const data = await getServerData(params);
+  // if (!data.firme) {
+  //   notFound();
+  // }
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -29,6 +87,8 @@ const index = ({ localitati, firme, judet }) => {
 
       {/* <!-- Modal --> */}
       {/* <PopupSignInUp /> */}
+
+      {<BreadCrumbBanner />}
 
       {/* <!-- 6th Home Design --> */}
       <section className="home-listing-slider hight-fx p0">
@@ -58,8 +118,8 @@ const index = ({ localitati, firme, judet }) => {
                 {/* End home-text */}
                 <ListSearchJudete
                   className="mt40"
-                  localitati={localitati}
-                  judet={judet}
+                  judete={judet}
+                  localitati={data.localitati}
                 />
               </div>
             </div>
@@ -72,9 +132,9 @@ const index = ({ localitati, firme, judet }) => {
       <section className="our-listing bgc-primary pt-0 pb30-991 md-mt0 categorii-container-section">
         <div className="container">
           <div className="row pt30">
-            <div className="col-md-8 col-lg-8">
+            <div className="col-md-12 col-lg-12">
               <div className="row">
-                <FeaturedItem firme={firme} />
+                <FirmaItem params={params} firme={data.firme} />
               </div>
               {/* End .row */}
 
@@ -89,11 +149,11 @@ const index = ({ localitati, firme, judet }) => {
               {/* End .row */}
             </div>
             {/* End  .col */}
-            <div className="col-md-4 col-lg-4">
+            {/* <div className="col-md-4 col-lg-4">
               <div className="sidebar-listing-wrapper">
                 <SidebarListing localitati={localitati} judet={judet} />
               </div>
-            </div>
+            </div> */}
             {/* End  .col */}
           </div>
           {/* End .row */}

@@ -28,7 +28,7 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
     }
 
     if (selectedLocalitate) {
-      router.push(`/clinici/${selectedLocalitate.toLocaleLowerCase()}`);
+      router.push(`/clinici-${selectedLocalitate.toLocaleLowerCase()}`);
       return;
     }
 

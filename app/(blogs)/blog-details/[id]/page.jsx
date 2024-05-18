@@ -15,6 +15,7 @@ import MobileMenu from "@/components/common/header/MobileMenu";
 import PopupSignInUp from "@/components/common/PopupSignInUp";
 import blogs from "@/data/blogs";
 import Image from "next/image";
+import { unstable_noStore as noStore } from "next/cache";
 import {
   handleGetFirestore,
   handleQueryFirestore,
@@ -26,6 +27,7 @@ import {
 // };
 
 const BlogDetailsDynamic = async ({ params }) => {
+  noStore();
   const id = Number(params.id);
   if (id === "favicon.ico") {
     return null; // Returnează null sau orice alt component care indică că pagina nu trebuie să proceseze acest id.

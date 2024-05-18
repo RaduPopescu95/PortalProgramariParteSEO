@@ -99,7 +99,7 @@ const index = async ({ params }) => {
   // // let judet = parts[0]; // Folosim prima parte pentru interogări
   // // const data = await getServerData(params);
   // const data = await getServerData();
-  console.log("params...", params);
+
   return (
     <>
       <SliderStyle params={params.clinici} />

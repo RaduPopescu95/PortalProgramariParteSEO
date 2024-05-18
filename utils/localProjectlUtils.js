@@ -5,12 +5,16 @@ import {
 } from "@/utils/firestoreUtils";
 
 export async function fetchFirme(params) {
+  console.log("params..start.....passed..here...", params);
   let firme = [];
 
   if (params) {
     console.log("here...hee....", params);
 
     if (Array.isArray(params)) {
+      if (params.length > 1) {
+        return null; // Indică faptul că trebuie să facem redirect
+      }
       console.log("testing...here....test", params);
       const parts = params[0].split("-");
       const decodedPart = decodeURIComponent(parts[1]);
