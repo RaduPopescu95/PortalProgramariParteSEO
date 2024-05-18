@@ -18,7 +18,7 @@ export async function getServerData(params) {
     let parts = params.id.split("-"); // Împărțim ID-ul în părți bazat pe separatorul '-'
     let judet = parts[0]; // Folosim prima parte pentru interogări
     let judetParam =
-      judet.charAt(0).toUpperCase() + judet.slice(1).toLowerCase();
+      judet.charAt(0).toUpperCase() + judet?.slice(1).toLowerCase();
 
     // Interoghează Firestore (sau orice altă bază de date) folosind 'judetParam'
     localitati = await handleQueryFirestoreSubcollection(

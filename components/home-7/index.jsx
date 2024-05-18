@@ -19,16 +19,16 @@ const index = () => {
   return (
     <>
       {/* <!-- Main Header Nav --> */}
-      <Header />
+      {/* <Header /> */}
 
       {/* <!--  Mobile Menu --> */}
-      <MobileMenu />
+      {/* <MobileMenu /> */}
 
       {/* <!-- Modal --> */}
-      <PopupSignInUp />
+      {/* <PopupSignInUp /> */}
 
       {/* <!-- Home Design --> */}
-      <Hero />
+      {/* <Hero /> */}
 
       {/* <!-- Why Chose Us --> */}
       <section id="why-chose" className="whychose_us pb30">
@@ -45,9 +45,7 @@ const index = () => {
               </div>
             </div>
           </div>
-          <div className="row">
-            <WhyChoose />
-          </div>
+          <div className="row">{/* <WhyChoose /> */}</div>
         </div>
       </section>
 
@@ -73,9 +71,7 @@ const index = () => {
               </div>
             </div>
             <div className="col-md-6 col-lg-4">
-              <div className="our_hotoffer">
-                <Map />
-              </div>
+              <div className="our_hotoffer">{/* <Map /> */}</div>
             </div>
             {/* End .col */}
           </div>
@@ -137,9 +133,7 @@ const index = () => {
           </div>
           {/* End .row */}
 
-          <div className="row">
-            <FeaturedProperties />
-          </div>
+          <div className="row">{/* <FeaturedProperties /> */}</div>
           {/* End .row */}
         </div>
       </section>
@@ -157,7 +151,7 @@ const index = () => {
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="testimonial_grid_slider style2 gutter-x15">
-                <Testimonial />
+                {/* <Testimonial /> */}
               </div>
             </div>
           </div>
@@ -181,9 +175,7 @@ const index = () => {
               </div>
             </div>
           </div>
-          <div className="row">
-            <Blogs />
-          </div>
+          <div className="row">{/* <Blogs /> */}</div>
         </div>
       </section>
 
@@ -200,9 +192,7 @@ const index = () => {
                 </h3>
                 <h2>si beneficiezi de reduceri pentru:</h2>
               </div>
-              <div className="row mt-5">
-                <Partners />
-              </div>
+              <div className="row mt-5">{/* <Partners /> */}</div>
             </div>
             {/* End .col */}
 
@@ -220,17 +210,13 @@ const index = () => {
       {/* <!-- Our Footer --> */}
       <section className="footer_one home5">
         <div className="container">
-          <div className="row">
-            <Footer />
-          </div>
+          <div className="row">{/* <Footer /> */}</div>
         </div>
       </section>
 
       {/* <!-- Our Footer Bottom Area --> */}
       <section className="footer_middle_area home5 pt30 pb30">
-        <div className="container">
-          <CopyrightFooter />
-        </div>
+        <div className="container">{/* <CopyrightFooter /> */}</div>
       </section>
     </>
   );
