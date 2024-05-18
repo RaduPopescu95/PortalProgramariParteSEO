@@ -10,41 +10,42 @@ import { Suspense, useEffect, useState } from "react";
 import DeleteDialog from "../dialogs/DeleteDialog";
 import CommonLoader from "@/components/common/CommonLoader";
 
-const SearchData = ({ location }) => {
+const SearchData = ({ judete }) => {
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState(null);
   const [loading, setLoading] = useState(false);
+  let location = "Judete";
 
-  const handleGetData = async () => {
-    setLoading(true);
-    let data = await handleGetFirestore(location);
-    console.log("Data....", data);
+  // const handleGetData = async () => {
+  //   setLoading(true);
+  //   let data = await handleGetFirestore(location);
+  //   console.log("Data....", data);
 
-    // Inițializează updatedData ca un array gol
-    let updatedData = [];
+  //   // Inițializează updatedData ca un array gol
+  //   let updatedData = [];
 
-    for (let item of data) {
-      const subcollectionPath = `Judete/${item.documentId}/Localitati`;
+  //   for (let item of data) {
+  //     const subcollectionPath = `Judete/${item.documentId}/Localitati`;
 
-      const collectionLength = await getFirestoreCollectionLength(
-        subcollectionPath
-      );
-      console.log("here...");
+  //     const collectionLength = await getFirestoreCollectionLength(
+  //       subcollectionPath
+  //     );
+  //     console.log("here...");
 
-      // Creează un nou obiect cu informațiile existente și adaugă numărul de localități
-      const updatedItem = { ...item, localitatiCount: collectionLength };
-      updatedData.push(updatedItem);
-    }
+  //     // Creează un nou obiect cu informațiile existente și adaugă numărul de localități
+  //     const updatedItem = { ...item, localitatiCount: collectionLength };
+  //     updatedData.push(updatedItem);
+  //   }
 
-    // Utilizează updatedData pentru a actualiza starea, nu data inițială
-    setData(updatedData);
-    setLoading(false);
-  };
+  //   // Utilizează updatedData pentru a actualiza starea, nu data inițială
+  //   setData(updatedData);
+  //   setLoading(false);
+  // };
 
-  useEffect(() => {
-    handleGetData();
-  }, []);
+  // useEffect(() => {
+  //   handleGetData();
+  // }, []);
 
   const handleDeleteClick = (itemId) => {
     setSelectedItemId(itemId); // Salvează ID-ul elementului selectat
@@ -87,8 +88,8 @@ const SearchData = ({ location }) => {
         {/* End thead */}
 
         <tbody>
-          {data &&
-            data.map((item, index) => (
+          {judete &&
+            judete.map((item, index) => (
               <tr key={index}>
                 <th className="title" scope="row">
                   #{item.id && item.id}

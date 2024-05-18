@@ -15,8 +15,11 @@ import Image from "next/image";
 import Map from "../map/Map";
 import Button from "../common/CommonButton";
 import SectiuneIncredere from "../common/SectiuneIncredere";
+import { handleGetFirestore } from "@/utils/firestoreUtils";
 
-const index = () => {
+const index = async () => {
+  const articole = await handleGetFirestore("Articole");
+  const categorii = await handleGetFirestore("Categorii");
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -80,7 +83,7 @@ const index = () => {
                 SPECIALIZĂRI MEDICALE POPULARE
               </h4>
               <ul className="home4_iconbox mb0">
-                <LookingItem />
+                <LookingItem categorii={categorii} />
               </ul>
               <h4 className="fz18 txt-color-third w-75 mx-auto text-center mt10">
                 <span className="flaticon-upload mr10" />
@@ -283,7 +286,7 @@ const index = () => {
             </div>
           </div>
           <div className="row">
-            <Blogs />
+            <Blogs articole={articole} />
           </div>
         </div>
       </section>

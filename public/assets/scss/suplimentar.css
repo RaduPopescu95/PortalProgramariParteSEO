@@ -346,3 +346,9 @@
   width: 50%; /* Sau orice lățime specifică dorești */
   max-width: 300px; /* Poți seta și o lățime maximă */
 }
+
+.custom-alert {
+  width: 50%; /* Setează lățimea dorită, de exemplu 50% din lățimea viewport-ului */
+  left: 25%; /* Centrarea se face ajustând left la jumătate din diferența până la 100% */
+  right: 25%; /* Asigură-te că marginile dreapta și stânga sunt egale */
+}

@@ -4,8 +4,10 @@ import SidebarMenu from "../../common/header/dashboard/SidebarMenu";
 import MobileMenu from "../../common/header/MobileMenu";
 import SearchData from "../mesaje/SearchData";
 import SearchBox from "./SearchBox";
+import { handleGetFirestore } from "@/utils/firestoreUtils";
 
-const index = () => {
+const index = async () => {
+  const mesaje = await handleGetFirestore("Mesaje");
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -75,7 +77,7 @@ const index = () => {
                     <div className="col-lg-12">
                       <div className="savesearched_table">
                         <div className="table-responsive mt0">
-                          <SearchData />
+                          <SearchData mesaje={mesaje} />
                         </div>
                       </div>
                       {/* End .packages_table */}

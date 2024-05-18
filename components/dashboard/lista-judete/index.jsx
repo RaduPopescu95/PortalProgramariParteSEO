@@ -6,8 +6,38 @@ import SearchData from "../judete-search-box/SearchData";
 import SearchBox from "./SearchBox";
 import { Suspense } from "react";
 import CommonLoader from "@/components/common/CommonLoader";
+import {
+  getFirestoreCollectionLength,
+  handleGetFirestore,
+} from "@/utils/firestoreUtils";
 
-const index = () => {
+const handleGetData = async () => {
+  let data = await handleGetFirestore("Judete");
+  console.log("Data....", data);
+
+  // Inițializează updatedData ca un array gol
+  let updatedData = [];
+
+  for (let item of data) {
+    const subcollectionPath = `Judete/${item.documentId}/Localitati`;
+
+    const collectionLength = await getFirestoreCollectionLength(
+      subcollectionPath
+    );
+    console.log("here...");
+
+    // Creează un nou obiect cu informațiile existente și adaugă numărul de localități
+    const updatedItem = { ...item, localitatiCount: collectionLength };
+    updatedData.push(updatedItem);
+  }
+
+  // Utilizează updatedData pentru a actualiza starea, nu data inițială
+  return updatedData;
+};
+
+const index = async () => {
+  const judete = await handleGetData();
+
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -77,8 +107,7 @@ const index = () => {
                     <div className="col-lg-12">
                       <div className="savesearched_table">
                         <div className="table-responsive mt0">
-                      
-                          <SearchData location={"Judete"} />
+                          <SearchData judete={judete} />
                         </div>
                       </div>
                       {/* End .packages_table */}

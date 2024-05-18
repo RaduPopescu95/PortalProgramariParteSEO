@@ -348,24 +348,30 @@ export const handleQueryFirestore = async (
   let arr = []; // Specificați tipul de obiecte pe care îl conține matricea, de exemplu: let arr = [{}];
   let conditions = [];
 
-  conditions.push(collection(db, location));
+  try {
+    conditions.push(collection(db, location));
 
-  if (elementOne) {
-    conditions.push(where(queryParamOne, "==", elementOne));
+    if (elementOne) {
+      conditions.push(where(queryParamOne, "==", elementOne));
+    }
+
+    if (elementTwo) {
+      conditions.push(where(QueryParamTwo, "==", elementTwo));
+    }
+
+    const q = query(...conditions);
+
+    const querySnapshot = await getDocs(q);
+    console.log("start query firestore pentru queryParamOne...", queryParamOne);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+      arr.push(doc.data()); // Dacă dorești să adaugi un anumit câmp, specifică, de exemplu: doc.data().numeCamp
+    });
+  } catch (error) {
+    console.error("Failed to fetch data from Firestore: ", error);
   }
 
-  if (elementTwo) {
-    conditions.push(where(QueryParamTwo, "==", elementTwo));
-  }
-
-  const q = query(...conditions);
-
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
-    arr.push(doc.data()); // Dacă dorești să adaugi un anumit câmp, specifică, de exemplu: doc.data().numeCamp
-  });
   return arr;
 };
 

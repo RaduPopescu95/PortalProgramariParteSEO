@@ -5,6 +5,7 @@ import Footer from "../../common/footer/Footer";
 import GlobalHeroFilter from "../../common/GlobalHeroFilter";
 import Header from "../../common/header/DefaultHeader";
 import MobileMenu from "../../common/header/MobileMenu";
+import { unstable_noStore as noStore } from "next/cache";
 import FilterTopBar from "../../common/listing/FilterTopBar";
 import GridListButton from "../../common/listing/GridListButton";
 import ShowFilter from "../../common/listing/ShowFilter";
@@ -18,8 +19,39 @@ import Image from "next/image";
 import Button from "@/components/common/CommonButton";
 import CallToAction from "@/components/common/CallToAction";
 import BreadCrumb from "@/components/common/BreadCrumb";
+import {
+  handleGetFirestore,
+  handleQueryDoubleParam,
+  handleQueryFirestore,
+} from "@/utils/firestoreUtils";
+import { fetchFirme } from "@/utils/localProjectlUtils";
 
-const index = ({ judete, categorii, params }) => {
+export async function getServerData(params) {
+  let data = {};
+
+  try {
+    console.log("params...", params);
+    // Interoghează Firestore (sau orice altă bază de date) folosind 'locationPart'
+    let judete = await handleGetFirestore("Judete");
+    let categorii = await handleGetFirestore("Categorii");
+    let firme = await fetchFirme(params);
+    console.log("here...firme...", firme);
+
+    data = { judete, categorii, firme };
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch locations:", error);
+    return {
+      props: {
+        error: "Failed to load data.",
+      },
+    };
+  }
+}
+
+const index = async ({ params }) => {
+  noStore();
+  const data = await getServerData(params);
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -61,8 +93,8 @@ const index = ({ judete, categorii, params }) => {
                   {/* End home-text */}
                   <ListSearch
                     className="mt40"
-                    judete={judete}
-                    categorii={categorii}
+                    judete={data.judete}
+                    categorii={data.categorii}
                   />
                 </div>
               </div>
@@ -78,7 +110,7 @@ const index = ({ judete, categorii, params }) => {
           <div className="row pt30">
             <div className="col-md-12 col-lg-12">
               <div className="row">
-                <FeaturedItem params={params} />
+                <FeaturedItem params={params} firme={data.firme} />
               </div>
               {/* End .row */}
 

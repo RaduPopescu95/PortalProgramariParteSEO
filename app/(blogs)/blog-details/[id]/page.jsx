@@ -15,22 +15,29 @@ import MobileMenu from "@/components/common/header/MobileMenu";
 import PopupSignInUp from "@/components/common/PopupSignInUp";
 import blogs from "@/data/blogs";
 import Image from "next/image";
+import {
+  handleGetFirestore,
+  handleQueryFirestore,
+} from "@/utils/firestoreUtils";
 
-export const metadata = {
-  title: 'Blog',
-  description:
-    'Blog',
-}
+// export const metadata = {
+//   title: "Blog",
+//   description: "Blog",
+// };
 
-const BlogDetailsDynamic = ({params}) => {
-  
-  const id = params.id;
-  const blog = blogs.find((item) => item.id == id) ||  blogs[0]
-
+const BlogDetailsDynamic = async ({ params }) => {
+  const id = Number(params.id);
+  if (id === "favicon.ico") {
+    return null; // Returnează null sau orice alt component care indică că pagina nu trebuie să proceseze acest id.
+  }
+  console.log("id is here...", id);
+  const blogArr = await handleQueryFirestore("Articole", "id", id);
+  const articole = await handleGetFirestore("Articole");
+  const blog = blogArr[0];
+  console.log("blog is here...", blog);
 
   return (
     <>
-
       {/* <!-- Main Header Nav --> */}
       <Header />
 
@@ -57,7 +64,7 @@ const BlogDetailsDynamic = ({params}) => {
                   {/* <div className="blog_sp_tag">
                     <a href="#">{blog?.postMeta}</a>
                   </div> */}
-                  <h3 className="blog_sp_title">{blog?.title}</h3>
+                  <h3 className="blog_sp_title">{blog?.siteName}</h3>
                   <ul className="blog_sp_post_meta">
                     {/* <li className="list-inline-item">
                       <a href="#">
@@ -77,7 +84,7 @@ const BlogDetailsDynamic = ({params}) => {
                       <span className="flaticon-calendar"></span>
                     </li>
                     <li className="list-inline-item">
-                      <a href="#">Ianuarie 16, 2020</a>
+                      <a href="#">{blog?.firstUploadDate}</a>
                     </li>
                     {/* <li className="list-inline-item">
                       <span className="flaticon-view"></span>
@@ -97,74 +104,30 @@ const BlogDetailsDynamic = ({params}) => {
                       width={692}
                       height={414}
                       className="w-100 h-100 cover"
-                      src={blog?.img}
-                      alt={blog?.img}
+                      src={blog?.image?.finalUri}
+                      alt={blog?.image?.finalUri}
                     />
                   </div>
 
                   <div className="details">
-                    <p className="mb30">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Duis mollis et sem sed sollicitudin. Donec non odio neque.
-                      Aliquam hendrerit sollicitudin purus, quis rutrum mi
-                      accumsan nec. Quisque bibendum orci ac nibh facilisis, at
-                      malesuada orci congue. Nullam tempus sollicitudin cursus.
-                      Ut et adipiscing erat. Curabitur this is a text link
-                      libero tempus congue.
-                    </p>
-                    <p className="mb30">
-                      Duis mattis laoreet neque, et ornare neque sollicitudin
-                      at. Proin sagittis dolor sed mi elementum pretium. Donec
-                      et justo ante. Vivamus egestas sodales est, eu rhoncus
-                      urna semper eu. Cum sociis natoque penatibus et magnis dis
-                      parturient montes, nascetur ridiculus mus. Integer
-                      tristique elit lobortis purus bibendum, quis dictum metus
-                      mattis. Phasellus posuere felis sed eros porttitor mattis.
-                      Curabitur massa magna, tempor in blandit id, porta in
-                      ligula. Aliquam laoreet nisl massa, at interdum mauris
-                      sollicitudin et.
-                    </p>
-                    <h4 className="mb15">
-                    Lorem ipsum dolor sit amet
-                    </h4>
-                    <p>
-                      Nullam tempus sollicitudin cursus. Nulla elit mauris,
-                      volutpat eu varius malesuada, pulvinar eu ligula. Ut et
-                      adipiscing erat. Curabitur adipiscing erat vel libero
-                      tempus congue. Nam pharetra interdum vestibulum. Aenean
-                      gravida mi non aliquet porttitor. Praesent dapibus, nisi a
-                      faucibus tincidunt, quam dolor condimentum metus, in
-                      convallis libero ligula ut eros.
-                    </p>
-                    {/* <div className="mbp_blockquote">
-                      <div className="blockquote">
-                        <span className="font-italic">
-                          <i className="fa fa-quote-left"></i>
-                        </span>
-                        <br />
-                        <em className="mb-0">
-                          Duis mollis et sem sed sollicitudin. Donec non odio
-                          neque. Aliquam hendrerit sollicitudin purus, quis
-                          rutrum mi accumsan nec.
-                        </em>
-                      </div>
-                    </div> */}
-                    <p className="mb25">
-                      Curabitur massa magna, tempor in blandit id, porta in
-                      ligula. Aliquam laoreet nisl massa, at interdum mauris
-                      sollicitudin et. Mauris risus lectus, tristique at nisl
-                      at, pharetra tristique enim.
-                    </p>
-                    <p className="mb25">
-                      Nullam this is a link nibh facilisis, at malesuada orci
-                      congue. Nullam tempus sollicitudin cursus. Nulla elit
-                      mauris, volutpat eu varius malesuada, pulvinar eu ligula.
-                      Ut et adipiscing erat. Curabitur adipiscing erat vel
-                      libero tempus congue. Nam pharetra interdum vestibulum.
-                      Aenean gravida mi non aliquet porttitor. Praesent dapibus,
-                      nisi a faucibus tincidunt, quam dolor condimentum metus,
-                      in convallis libero ligula ut eros.
-                    </p>
+                    {blog?.articleContentFirst && (
+                      <div
+                        className="mb25"
+                        dangerouslySetInnerHTML={{
+                          __html: blog.articleContentFirst,
+                        }}
+                      ></div>
+                    )}
+                  </div>
+                  <div className="details">
+                    {blog?.articleContentSecond && (
+                      <div
+                        className="mb25"
+                        dangerouslySetInnerHTML={{
+                          __html: blog.articleContentSecond,
+                        }}
+                      ></div>
+                    )}
                   </div>
                   <ul className="blog_post_share">
                     <li>
@@ -180,7 +143,7 @@ const BlogDetailsDynamic = ({params}) => {
                   <Pagination />
                 </div> */}
                 {/* End mbp_pagination_tab */}
-{/* 
+                {/* 
                 <div className="product_single_content mb30">
                   <div className="mbp_pagination_comments">
                     <div className="total_review">
@@ -228,7 +191,7 @@ const BlogDetailsDynamic = ({params}) => {
                 <div className="col-lg-12 mb20 mt20">
                   <h4>Related Posts</h4>
                 </div>
-                <RelatedPost />
+                <RelatedPost articole={articole} />
               </div>
             </div>
             {/* End .col */}

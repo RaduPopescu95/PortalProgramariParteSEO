@@ -7,6 +7,7 @@ import {
   updateMetadata, // Import this module
 } from "firebase/storage";
 import { getBlobFromUri } from "./getBlobFromUri";
+import imageCompression from "browser-image-compression";
 // import { writeImg } from "./realtimeUtils";
 
 export const uploadImage = async (
@@ -48,6 +49,17 @@ export const uploadImage = async (
 
     if (imageUpload instanceof File) {
       console.log("TEst....");
+
+      // Options for image compression
+      const options = {
+        maxSizeMB: 0.2, // (Max file size in MB)
+        maxWidthOrHeight: 1920, // (Compressed files are scaled to these dimensions)
+        useWebWorker: true, // (Use a web worker to perform the compression in a separate thread)
+      };
+
+      // Compress the image file
+      const compressedFile = await imageCompression(imageUpload, options);
+
       const imageRef = ref(storage, `images/${firstLocation}/${fileName}`);
 
       // Set the content type to image/jpeg
@@ -56,7 +68,7 @@ export const uploadImage = async (
       };
 
       // Upload the image with metadata
-      const snapshot = await uploadBytes(imageRef, imageUpload, metadata);
+      const snapshot = await uploadBytes(imageRef, compressedFile, metadata);
 
       // Get the download URL for the uploaded image
       finalUri = await getDownloadURL(snapshot.ref);
@@ -141,7 +153,16 @@ export const uploadMultipleImages = async (
           contentType: "image/jpeg",
         };
 
-        const snapshot = await uploadBytes(imageRef, imageUpload, metadata);
+        const options = {
+          maxSizeMB: 0.2, // (Max file size in MB)
+          maxWidthOrHeight: 1920, // (Compressed files are scaled to these dimensions)
+          useWebWorker: true, // (Use a web worker to perform the compression in a separate thread)
+        };
+
+        // Compress the image file
+        const compressedFile = await imageCompression(imageUpload, options);
+
+        const snapshot = await uploadBytes(imageRef, compressedFile, metadata);
         const finalUri = await getDownloadURL(snapshot.ref);
         console.log("Image uploaded successfully. Download URL:", finalUri);
 
