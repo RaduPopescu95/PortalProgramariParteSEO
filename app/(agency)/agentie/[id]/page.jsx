@@ -1,6 +1,7 @@
 import agenceis from "@/data/agency";
 import AgencyDetails from "@/components/agency-details";
 import { handleQueryFirestore } from "@/utils/firestoreUtils";
+import { unstable_noStore as noStore } from "next/cache";
 
 export async function getServerData(id) {
   let data = [];
@@ -19,6 +20,7 @@ export async function getServerData(id) {
 }
 
 const AgencyDetailsDynamic = async ({ params }) => {
+  noStore();
   const id = params.id;
   const parts = id.split("-");
   const number = parseFloat(parts[0]);

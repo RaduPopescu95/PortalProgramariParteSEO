@@ -15,9 +15,11 @@ import Image from "next/image";
 import Map from "../map/Map";
 import Button from "../common/CommonButton";
 import SectiuneIncredere from "../common/SectiuneIncredere";
+import { unstable_noStore as noStore } from "next/cache";
 import { handleGetFirestore } from "@/utils/firestoreUtils";
 
 const index = async () => {
+  noStore();
   const articole = await handleGetFirestore("Articole");
   const categorii = await handleGetFirestore("Categorii");
   return (

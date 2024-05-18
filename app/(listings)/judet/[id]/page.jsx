@@ -4,6 +4,7 @@ import {
   handleQueryFirestore,
   handleQueryFirestoreSubcollection,
 } from "@/utils/firestoreUtils";
+import { unstable_noStore as noStore } from "next/cache";
 
 export const metadata = {
   title: "Judete",
@@ -55,6 +56,7 @@ export async function getServerData(params) {
 }
 
 const index = async ({ params }) => {
+  noStore();
   let parts = params.id.split("-"); // Împărțim ID-ul în părți bazat pe separatorul '-'
   let judet = parts[0]; // Folosim prima parte pentru interogări
   const data = await getServerData(params);
