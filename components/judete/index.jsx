@@ -10,7 +10,7 @@ import GridListButton from "../common/listing/GridListButton";
 import ShowFilter from "../common/listing/ShowFilter";
 import SidebarListing3 from "../common/listing/SidebarListing3";
 import PopupSignInUp from "../common/PopupSignInUp";
-import BreadCrumb from "./BreadCrumb2";
+import BreadCrumb from "@/components/common/BreadCrumb";
 // import FeaturedItem from "./JudetFirmaItem";
 import HeroSlider from "./HeroSlider";
 import Image from "next/image";
@@ -88,7 +88,7 @@ const index = async ({ judet, params }) => {
       {/* <!-- Modal --> */}
       {/* <PopupSignInUp /> */}
 
-      {<BreadCrumbBanner />}
+      {/* {<BreadCrumbBanner />} */}
 
       {/* <!-- 6th Home Design --> */}
       <section className="home-listing-slider hight-fx p0">
@@ -111,6 +111,7 @@ const index = async ({ judet, params }) => {
             <div className="col-lg-12">
               <div className="home_content listing slider_style pt30">
                 <div className="home-text home6 text-center">
+                  <BreadCrumb csName={"color-white"} />
                   <h2 className="fz50 color-white">
                     Descopera funizori de servicii autorizati
                   </h2>

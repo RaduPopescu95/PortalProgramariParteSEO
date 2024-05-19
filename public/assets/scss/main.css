@@ -4882,6 +4882,13 @@ form.home5_advanced_search_form
 .home-seven,
 .home-nine {
   padding: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(62, 62, 165) 0%,
+    var(--color-primary) 100%
+  );
+  margin-top: 1px !important;
+  height: 100vh;
 }
 
 .home-six {
@@ -9923,6 +9930,7 @@ form.home5_advanced_search_form
   height: auto;
   margin-top: 88px;
   position: relative;
+  background-color: var(--color-primary);
 }
 @media (max-width: 576px) {
   .inner_page_breadcrumb {

@@ -10,6 +10,7 @@ import GlobalSelectBox from "./GlobalSelectBox";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { handleQueryFirestoreSubcollection } from "@/utils/firestoreUtils";
+import { replaceSpacesWithDashes } from "@/utils/strintText";
 
 const ListSearchInputs = ({ className = "", judete, categorii }) => {
   const router = useRouter();
@@ -72,7 +73,9 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
     if (selectedLocalitate && selectedCategorie) {
       console.log("asdadadsada");
       router.push(
-        `/${selectedCategorie.toLocaleLowerCase()}-${selectedLocalitate.toLocaleLowerCase()}`
+        `/${replaceSpacesWithDashes(
+          selectedCategorie.toLocaleLowerCase()
+        )}-${selectedLocalitate.toLocaleLowerCase()}`
       );
       // router.push(
       //   `/${selectedCategorie.toLocaleLowerCase()}/${selectedCategorie.toLocaleLowerCase()}-${selectedLocalitate.toLocaleLowerCase()}`
@@ -91,7 +94,9 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
     }
 
     if (selectedCategorie) {
-      router.push(`/${selectedCategorie.toLocaleLowerCase()}`);
+      router.push(
+        `/${replaceSpacesWithDashes(selectedCategorie.toLocaleLowerCase())}`
+      );
       return;
     }
   };

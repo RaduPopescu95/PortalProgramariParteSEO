@@ -20,7 +20,7 @@ const FeaturedItem = ({ firme, params }) => {
   }
 
   if (params) {
-    content = firme.map((item) => <AgencyDetails firma={item} />);
+    content = firme.slice(0, 1).map((item) => <AgencyDetails firma={item} />);
   } else {
     content = firme.map((item) => (
       <div className={`${"col-md-3 col-lg-3"} `} key={item.id}>

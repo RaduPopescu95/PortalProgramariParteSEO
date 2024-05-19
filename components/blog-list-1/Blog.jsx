@@ -8,7 +8,7 @@ const Blog = () => {
       {blogContent.map((item) => (
         <div className="for_blog feat_property" key={item.id}>
           <div className="thumb">
-            <Link href={`/blog-details/${item.id}`}>
+            <Link href={`/blog/${item.id}`}>
               <Image
                 width={731}
                 height={438}
@@ -25,7 +25,7 @@ const Blog = () => {
           <div className="details">
             <div className="tc_content p10">
               <h4 className="mb15">
-                <Link href={`/blog-details/${item.id}`}>{item.title}</Link>
+                <Link href={`/blog/${item.id}`}>{item.title}</Link>
               </h4>
               <p>{item.postDescriptions.slice(0, 285)}</p>
             </div>

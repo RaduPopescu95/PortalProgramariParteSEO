@@ -1,6 +1,7 @@
 import Link from "next/link";
 import blogs from "../../data/blogs";
 import Image from "next/image";
+import { replaceSpacesWithDashes } from "@/utils/strintText";
 
 const Blogs = ({ articole }) => {
   return (
@@ -9,7 +10,11 @@ const Blogs = ({ articole }) => {
         <div className="col-md-6 col-lg-4 col-xl-4" key={item.id}>
           <div className="for_blog feat_property">
             <div className="thumb">
-              <Link href={`/blog-details/${item.id}`}>
+              <Link
+                href={`/blog/${item.id}-${replaceSpacesWithDashes(
+                  item.siteName
+                )}`}
+              >
                 <Image
                   width={343}
                   height={220}
@@ -22,7 +27,13 @@ const Blogs = ({ articole }) => {
             <div className="details">
               <div className="tc_content p10">
                 <h4>
-                  <Link href={`/blog-details/${item.id}`}>Test title</Link>
+                  <Link
+                    href={`/blog/${item.id}-${replaceSpacesWithDashes(
+                      item.siteName
+                    )}`}
+                  >
+                    {item.siteName}
+                  </Link>
                 </h4>
                 <p className="text-thm">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -34,7 +45,9 @@ const Blogs = ({ articole }) => {
                   <li className="list-inline-item">
                     <Link
                       className="fp_pdate float-end text-thm"
-                      href={`/blog-details/${item.id}`}
+                      href={`/blog/${item.id}-${replaceSpacesWithDashes(
+                        item.siteName
+                      )}`}
                     >
                       {item.siteName} <span className="flaticon-next ml10" />
                     </Link>

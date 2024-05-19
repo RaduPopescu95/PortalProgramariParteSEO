@@ -8,12 +8,13 @@ const BreadCrumbBanner = () => {
   const pathname = usePathname();
   const formattedPathname = formatPathname(pathname);
   return (
-    <section className="inner_page_breadcrumb py-3">
+    <section className="inner_page_breadcrumb py-3 color-primary">
       <div className="container">
         <div className="row">
           <div className="col-xl-6">
             <div className="breadcrumb_content">
               <BreadCrumb
+                csName={"color-white"}
                 title="Acasă"
                 subTitle={
                   Array.isArray(formattedPathname)
@@ -21,7 +22,7 @@ const BreadCrumbBanner = () => {
                     : formattedPathname
                 }
               />
-              <h4 className="mt10 fz30">
+              <h4 className="mt10 fz30 color-white">
                 {Array.isArray(formattedPathname)
                   ? formattedPathname.join(" > ")
                   : formattedPathname}

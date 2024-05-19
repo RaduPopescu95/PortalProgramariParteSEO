@@ -352,3 +352,10 @@
   left: 25%; /* Centrarea se face ajustând left la jumătate din diferența până la 100% */
   right: 25%; /* Asigură-te că marginile dreapta și stânga sunt egale */
 }
+
+/* Media query for mobile devices */
+/* @media (max-width: 768px) {
+  .home-four .banner-style-one .slide:before {
+    height: 50rem;
+  }
+} */

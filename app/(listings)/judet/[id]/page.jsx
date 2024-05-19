@@ -6,10 +6,17 @@ import {
 } from "@/utils/firestoreUtils";
 import { unstable_noStore as noStore } from "next/cache";
 
-export const metadata = {
-  title: "Judete",
-  description: "Judete",
-};
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  let parts = params.id.split("-"); // Împărțim ID-ul în părți bazat pe separatorul '-'
+  let judet = parts[0]; // Folosim prima parte pentru interogări
+  let judetParam =
+    judet.charAt(0).toUpperCase() + judet?.slice(1).toLowerCase();
+  return {
+    title: `Clinici din ${judetParam}`,
+    description: `Clinici din ${judetParam}`,
+  };
+}
 
 const index = async ({ params }) => {
   noStore();

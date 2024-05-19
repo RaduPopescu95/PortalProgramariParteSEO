@@ -1,10 +1,11 @@
 import React from "react";
 import Button from "@/components/common/CommonButton";
+import { replaceDashesWithSpaces } from "@/utils/strintText";
 
 const PromotionSection = ({ params }) => {
   const parts = params[0].split("-");
   let localitate = parts[1];
-  let decodedLocalitate = decodeURIComponent(localitate);
+  let decodedLocalitate = replaceDashesWithSpaces(localitate);
 
   let localitateDatorita =
     decodedLocalitate.charAt(0).toUpperCase() + decodedLocalitate.slice(1);

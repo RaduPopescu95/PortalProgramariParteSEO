@@ -34,14 +34,14 @@ const index = async () => {
       {/* <PopupSignInUp /> */}
 
       {/* <!-- 4th Home Slider --> */}
+
       <div className="home-four">
         <div className="container-fluid p0">
           <div className="main-banner-wrapper">
-            <div className="arrow-style-2 banner-style-one ">
-              <HeroSlider />
+            <div className="arrow-style-2 banner-style-one">
+              {/* <HeroSlider /> */}
             </div>
           </div>
-          {/* <!-- /.main-banner-wrapper --> */}
         </div>
         {/* End .container-fluid */}
 
@@ -103,7 +103,6 @@ const index = async () => {
           <div className="row">
             <PasiDeUrmat />
           </div>
-          {/* End .row */}
         </div>
       </section>
 
@@ -153,7 +152,10 @@ const index = async () => {
                   </ul>
                 </div>
                 <div className="d-flex flex-column flex-sm-row justify-content-start gap-3 w-100 mb-10">
-                  <Button className="w-50 w-md-50" navigare={"cauta"}>
+                  <Button
+                    className="w-lg-75 w-md-75 w-sm-75"
+                    navigare={"cauta"}
+                  >
                     Găsește o clinica în apropiere
                   </Button>
                 </div>

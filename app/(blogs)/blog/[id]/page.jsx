@@ -21,14 +21,28 @@ import {
   handleQueryFirestore,
 } from "@/utils/firestoreUtils";
 
-// export const metadata = {
-//   title: "Blog",
-//   description: "Blog",
-// };
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  const id = Number(params.id);
+  if (id === "favicon.ico") {
+    return null; // Returnează null sau orice alt component care indică că pagina nu trebuie să proceseze acest id.
+  }
+  console.log("id is here...", id);
+  const blogArr = await handleQueryFirestore("Articole", "id", id);
+
+  return {
+    title: `${blogArr[0].metaTitle}`,
+    description: `${blogArr[0].metaDescription}`,
+  };
+
+  // optionally access and extend (rather than replace) parent metadata
+  // const previousImages = (await parent).openGraph?.images || [];
+}
 
 const BlogDetailsDynamic = async ({ params }) => {
   noStore();
-  const id = Number(params.id);
+  const parts = params.id.split("-");
+  const id = Number(parts[0]);
   if (id === "favicon.ico") {
     return null; // Returnează null sau orice alt component care indică că pagina nu trebuie să proceseze acest id.
   }

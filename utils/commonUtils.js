@@ -1,3 +1,5 @@
+import { replaceDashesWithSpaces } from "./strintText";
+
 export const toUrlSlug = (string) => {
   return string
     .toLowerCase()
@@ -43,7 +45,7 @@ export const formatPathname = (pathname) => {
   // Formatează fiecare segment
   const formattedSegments = segments.map((segment) => {
     // Decodifică componenta URL
-    const decodedSegment = decodeURIComponent(segment);
+    const decodedSegment = replaceDashesWithSpaces(segment);
 
     // Înlocuiește `-` cu spațiu și capitalizează fiecare cuvânt
     return decodedSegment

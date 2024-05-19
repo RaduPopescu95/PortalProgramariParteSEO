@@ -1,6 +1,7 @@
 "use client";
 
 import { formatPathname } from "@/utils/commonUtils";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const BreadCrumb = ({ title = "", subTitle = "", csName }) => {
@@ -10,9 +11,9 @@ const BreadCrumb = ({ title = "", subTitle = "", csName }) => {
     <>
       <ol className="breadcrumb">
         <li className="breadcrumb-item">
-          <a href="/" className={csName}>
+          <Link href="/" className={csName}>
             Acasă
-          </a>
+          </Link>
         </li>
         <li className={`breadcrumb-item active ${csName}`} aria-current="page">
           {Array.isArray(formattedPathname)

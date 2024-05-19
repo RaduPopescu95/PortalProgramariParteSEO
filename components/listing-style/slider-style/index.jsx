@@ -40,6 +40,7 @@ export async function getServerData(params) {
     // Interoghează Firestore (sau orice altă bază de date) folosind 'locationPart'
     let judete = await handleGetFirestore("Judete");
     let categorii = await handleGetFirestore("Categorii");
+    console.log("here...params...", params);
     let firme = await fetchFirme(params);
     console.log("here...firme...", firme);
 
@@ -57,11 +58,11 @@ export async function getServerData(params) {
 
 const index = async ({ params }) => {
   noStore();
-
+  console.log("asdaddaad", params);
   const data = await getServerData(params);
-  if (!data.firme) {
-    notFound();
-  }
+  // if (!data.firme) {
+  //   notFound();
+  // }
   return (
     <>
       {/* <!-- Main Header Nav --> */}

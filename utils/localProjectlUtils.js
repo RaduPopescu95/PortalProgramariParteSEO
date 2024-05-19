@@ -3,26 +3,27 @@ import {
   handleQueryDoubleParam,
   handleQueryFirestore,
 } from "@/utils/firestoreUtils";
+import { replaceDashesWithSpaces } from "./strintText";
 
-export async function fetchFirme(params) {
-  console.log("params..start.....passed..here...", params);
+export async function fetchFirme(parametri) {
+  console.log("parametri..start.....passed..here...", parametri);
   let firme = [];
 
-  if (params) {
-    console.log("here...hee....", params);
+  if (parametri) {
+    console.log("here...hee....", parametri);
 
-    if (Array.isArray(params)) {
-      if (params.length > 1) {
-        return null; // Indică faptul că trebuie să facem redirect
-      }
-      console.log("testing...here....test", params);
-      const parts = params[0].split("-");
-      const decodedPart = decodeURIComponent(parts[1]);
+    if (parametri.clinici) {
+      //   if (parametri.length > 1) {
+      //     return null; // Indică faptul că trebuie să facem redirect
+      //   }
+      console.log("testing...here....test....s", parametri.clinici);
+      const parts = parametri.clinici.split("-");
+      const decodedPart = replaceDashesWithSpaces(parts[1]);
 
       if (parts[0] === "clinici") {
-        console.log("testing...is....clinici", params);
+        console.log("testing...is....clinici", parametri.clinici);
         let localitate = parts[1];
-        let decodedLocalitate = decodeURIComponent(localitate);
+        let decodedLocalitate = replaceDashesWithSpaces(localitate);
         let localitateDatorita =
           decodedLocalitate.charAt(0).toUpperCase() +
           decodedLocalitate.slice(1);
@@ -37,8 +38,8 @@ export async function fetchFirme(params) {
         let categorie = parts[0];
         let localitate = parts[1];
 
-        let decodedCategorie = decodeURIComponent(categorie);
-        let decodedLocalitate = decodeURIComponent(localitate);
+        let decodedCategorie = replaceDashesWithSpaces(categorie);
+        let decodedLocalitate = replaceDashesWithSpaces(localitate);
 
         let categorieDatorita =
           decodedCategorie.charAt(0).toUpperCase() + decodedCategorie.slice(1);
@@ -68,7 +69,10 @@ export async function fetchFirme(params) {
         console.log("Test here localitate....", firme);
       }
     } else {
-      console.log("here...hee....is not array...", params);
+      console.log(
+        "here...hee....is not clinici in parametri.clinici...",
+        parametri
+      );
 
       firme = await handleGetFirestore("Firme");
     }

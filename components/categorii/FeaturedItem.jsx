@@ -12,6 +12,7 @@ import {
 } from "@/utils/firestoreUtils";
 import { fetchLocation } from "@/app/services/geocoding";
 import { calculateDistance } from "@/utils/commonUtils";
+import { replaceDashesWithSpaces } from "@/utils/strintText";
 
 const FeaturedItem = ({ firme, params }) => {
   const {
@@ -79,7 +80,7 @@ const FeaturedItem = ({ firme, params }) => {
               const parts = localitate.split("-");
 
               // Decodifică partea pentru a elimina codificările URL (de exemplu, transformă "%20" înapoi în spații)
-              let decodedPart = decodeURIComponent(parts[1]);
+              let decodedPart = replaceDashesWithSpaces(parts[1]);
               // Verifică dacă stringul decodificat conține cuvântul "sector"
               if (decodedPart.includes("sector")) {
                 console.log("Partea conține 'sector'", decodedPart);
@@ -130,7 +131,7 @@ const FeaturedItem = ({ firme, params }) => {
                   string.charAt(0).toUpperCase() + string.slice(1);
                 let localitate = params[1]; // presupunem că params[0] este un string
                 const parts = localitate.split("-");
-                let decodedPart = decodeURIComponent(parts[1]);
+                let decodedPart = replaceDashesWithSpaces(parts[1]);
                 console.log("it tests....", decodedPart);
                 if (decodedPart.includes("sector")) {
                   let sectorDorit =

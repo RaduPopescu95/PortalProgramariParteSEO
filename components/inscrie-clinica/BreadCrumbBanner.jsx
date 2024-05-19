@@ -14,6 +14,7 @@ const BreadCrumbBanner = () => {
           <div className="col-xl-6">
             <div className="breadcrumb_content">
               <BreadCrumb
+                csName={"color-white"}
                 title="Acasă"
                 subTitle={
                   Array.isArray(formattedPathname)
@@ -21,7 +22,7 @@ const BreadCrumbBanner = () => {
                     : formattedPathname
                 }
               />
-              <h4 className="breadcrumb_title">Inscrie Clinica</h4>
+              <h4 className="breadcrumb_title color-white">Inscrie Clinica</h4>
             </div>
           </div>
           {/* End .col */}
