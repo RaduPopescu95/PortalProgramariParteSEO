@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const LinkInstitutii = () => {
+  const router = useRouter();
   return (
     <div className="footer_mailchimp_form">
       <div className="row">
@@ -12,6 +16,7 @@ const LinkInstitutii = () => {
             className="img-fluid"
             src="/assets/anpc-sal.webp"
             alt="ANPC Sal"
+            onClick={() => router.push("https://anpc.ro/ce-este-sal/")}
           />
         </div>
 
@@ -23,6 +28,11 @@ const LinkInstitutii = () => {
             className="img-fluid"
             src="/assets/anpc-sol.png"
             alt="ANPC Sol"
+            onClick={() =>
+              router.push(
+                "https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home.chooseLanguage"
+              )
+            }
           />
         </div>
       </div>
