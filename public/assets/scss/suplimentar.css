@@ -353,9 +353,28 @@
   right: 25%; /* Asigură-te că marginile dreapta și stânga sunt egale */
 }
 
-/* Media query for mobile devices */
-/* @media (max-width: 768px) {
-  .home-four .banner-style-one .slide:before {
-    height: 50rem;
+.custom-alignment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Media queries pentru alinierea pe stânga pe dispozitive mobile */
+@media (max-width: 768px) {
+  .custom-alignment {
+    align-items: flex-start;
   }
-} */
+
+  .text-container {
+    align-items: flex-start;
+  }
+}
+

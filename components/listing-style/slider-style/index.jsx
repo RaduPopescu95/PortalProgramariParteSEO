@@ -145,7 +145,7 @@ const index = async ({ params }) => {
 
       {/* <!-- Start Call to Action --> */}
 
-      <CallToAction />
+      <CallToAction/>
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one">

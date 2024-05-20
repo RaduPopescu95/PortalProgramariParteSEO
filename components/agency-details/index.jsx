@@ -28,7 +28,7 @@ const index = ({ firma }) => {
           <div className="row">
             <div className="col-md-12 col-lg-12">
               <div className="row">
-                <div className="col-lg-12">
+                <div className="col-lg-12 p-0">
                   <PropertyHeader firma={firma} />
 
                   <div className="shop_single_tab_content style2 mt30">

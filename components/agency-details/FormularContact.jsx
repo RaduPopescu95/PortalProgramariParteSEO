@@ -3,7 +3,8 @@ import React from "react";
 
 export default function FormularContact() {
   return (
-    <a className="details d-flex justify-content-center align-items-center">
+    <a className="details custom-alignment">
+        <div className="tc_content">
       <button
         className="btn btn-thm btn-lg"
         onClick={() => {
@@ -15,6 +16,7 @@ export default function FormularContact() {
       >
         Formular contact
       </button>
+      </div>
     </a>
   );
 }
