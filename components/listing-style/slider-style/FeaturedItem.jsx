@@ -4,7 +4,7 @@ import { addLength } from "../../../features/properties/propertiesSlice";
 import properties from "../../../data/properties";
 import Image from "next/image";
 import { fetchLocation } from "@/app/services/geocoding";
-import { handleDiacrtice } from "@/utils/strintText";
+import { handleDiacrtice, replaceSpacesWithDashes } from "@/utils/strintText";
 import AgencyDetails from "@/components/agency-details";
 import {
   handleQueryDoubleParam,
@@ -70,7 +70,7 @@ const FeaturedItem = ({ firme, params }) => {
             <div className="tc_content p10">
               {/* <p className="text-thm">{item?.type}</p> */}
               <h4>
-                <Link href={`/${item?.categorie}-${item?.localitate}`}>
+                <Link href={`/${replaceSpacesWithDashes(item?.categorie)}-${item?.localitate}`}>
                   {item?.siteName}
                 </Link>
               </h4>

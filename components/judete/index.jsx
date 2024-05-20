@@ -83,7 +83,7 @@ const index = async ({ judet, params }) => {
       <Header />
 
       {/* <!--  Mobile Menu --> */}
-      <MobileMenu />
+      {/* <MobileMenu /> */}
 
       {/* <!-- Modal --> */}
       {/* <PopupSignInUp /> */}
