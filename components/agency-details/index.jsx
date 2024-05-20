@@ -17,10 +17,10 @@ const index = ({ firma }) => {
       <Header />
 
       {/* <!--  Mobile Menu --> */}
-      <MobileMenu />
+      {/* <MobileMenu /> */}
 
       {/* <!-- Modal --> */}
-      <PopupSignInUp />
+      {/* <PopupSignInUp /> */}
 
       {/* <!-- Agent Single Grid View --> */}
       <section className="our-agent-single bgc-f7 pb30-991 pt0 md-mt0">
