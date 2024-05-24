@@ -8,7 +8,7 @@ const BreadCrumbBanner = () => {
   const pathname = usePathname();
   const formattedPathname = formatPathname(pathname);
   return (
-    <section className="inner_page_breadcrumb py-3 color-primary">
+    <section className="inner_page_breadcrumb py-3">
       <div className="container">
         <div className="row">
           <div className="col-xl-6">

@@ -21,6 +21,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"
         />
         <link rel="icon" href="./favicon.ico" />
+        <meta name="robots" content="noindex, nofollow" />
       </head>
       <body>
         <LoadScript
