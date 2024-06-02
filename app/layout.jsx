@@ -1,15 +1,20 @@
-"use client";
+// "use client";
 
 import { Provider } from "react-redux";
 import { store } from "../store/store";
-import ScrollToTop from "@/components/common/ScrollTop";
+// import ScrollToTop from "@/components/common/ScrollTop";
 import "../public/assets/scss/index.scss";
-import { AuthProvider } from "@/context/AuthContext";
-import { LoadScript } from "@react-google-maps/api";
+import { Inter } from "next/font/google";
+// import { AuthProvider } from "@/context/AuthContext";
+// import { LoadScript } from "@react-google-maps/api";
 
-if (typeof window !== "undefined") {
-  require("bootstrap/dist/js/bootstrap");
-}
+export const metadata = {
+  title: {
+    default: "Portal clinici",
+    template: "%s - Portal Clinici",
+  },
+  description: "Descriere din root layout",
+};
 
 export default function RootLayout({ children }) {
   const libraries = ["places"];
@@ -24,15 +29,15 @@ export default function RootLayout({ children }) {
         <meta name="robots" content="noindex, nofollow" />
       </head>
       <body>
-        <LoadScript
+        {/* <LoadScript
           googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
           libraries={libraries}
-        >
-          <AuthProvider>
-            <Provider store={store}>{children}</Provider>
-          </AuthProvider>
-        </LoadScript>
-        <ScrollToTop />
+        > */}
+        {/* <AuthProvider> */}
+        {children}
+        {/* </AuthProvider> */}
+        {/* </LoadScript> */}
+        {/* <ScrollToTop /> */}
       </body>
     </html>
   );

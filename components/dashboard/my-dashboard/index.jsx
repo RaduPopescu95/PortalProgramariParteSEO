@@ -8,7 +8,7 @@ import Activities from "./Activities";
 import AllStatistics from "./AllStatistics";
 import StatisticsChart from "./StatisticsChart";
 import React from "react";
-import { useAuth } from "@/context/AuthContext";
+// import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 
 const index = () => {

@@ -9,18 +9,18 @@ import {
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { handleLogout } from "@/utils/authUtils";
-import { useAuth } from "@/context/AuthContext";
+// import { useAuth } from "@/context/AuthContext";
 import React from "react";
 import CommonLoader from "../../CommonLoader";
 
 const SidebarMenu = () => {
-  const { currentUser } = useAuth();
+  // const { currentUser } = useAuth();
   const router = useRouter();
   React.useEffect(() => {
-    console.log("currentUser...", currentUser);
-    if (!currentUser) {
-      router.push("signin");
-    }
+    // console.log("currentUser...", currentUser);
+    // if (!currentUser) {
+    //   router.push("signin");
+    // }
   }, []);
 
   const pathname = usePathname();
@@ -72,9 +72,9 @@ const SidebarMenu = () => {
     { id: 1, name: "Lista imagini", route: "/lista-imagini" },
     { id: 2, name: "Adauga imagini", route: "/adauga-imagini" },
   ];
-  if (!currentUser) {
-    return <CommonLoader />;
-  }
+  // if (!currentUser) {
+  //   return <CommonLoader />;
+  // }
 
   return (
     <>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuth } from "@/context/AuthContext";
+// import { useAuth } from "@/context/AuthContext";
 import { handleSignIn } from "@/utils/authUtils";
 import { useRouter } from "next/navigation"; // Aici ar trebui să fie "next/router", nu "next/navigation"
 import React, { useState } from "react"; // Importăm useState din React
@@ -10,7 +10,7 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(""); // Stare pentru a stoca mesaje de eroare
-  const { setCurrentUser } = useAuth();
+  // const { setCurrentUser } = useAuth();
   const router = useRouter();
 
   // Functie pentru a gestiona trimiterea formularului
@@ -20,7 +20,7 @@ const Form = () => {
     handleSignIn(email, password)
       .then((userCredentials) => {
         console.log("user credentials...", userCredentials);
-        setCurrentUser(userCredentials); // Aici trebuie să asiguri că userCredentials este gestionat corect
+        // setCurrentUser(userCredentials); // Aici trebuie să asiguri că userCredentials este gestionat corect
         router.push("/dashboard");
       })
       .catch((error) => {
