@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
 import { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 import {
   addCategory,
   addCity,
@@ -11,14 +11,10 @@ import {
 } from "../../../features/agent/agentSlice";
 
 const FilterSearch = () => {
-  const { name, category, city } = useSelector((state) => state.agent) || {};
-
   const [getName, setName] = useState(name);
   const [getCategory, setCategory] = useState(category);
   const [getCity, setCity] = useState(city);
   const [isSelected, setSelected] = useState(false);
-
-  const dispatch = useDispatch();
 
   // name
   useEffect(() => {

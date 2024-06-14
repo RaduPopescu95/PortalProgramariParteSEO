@@ -75,7 +75,7 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
       router.push(
         `/${replaceSpacesWithDashes(
           selectedCategorie.toLocaleLowerCase()
-        )}-${selectedLocalitate.toLocaleLowerCase()}`
+        )}-${replaceSpacesWithDashes(selectedLocalitate.toLocaleLowerCase())}`
       );
       // router.push(
       //   `/${selectedCategorie.toLocaleLowerCase()}/${selectedCategorie.toLocaleLowerCase()}-${selectedLocalitate.toLocaleLowerCase()}`
@@ -84,12 +84,18 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
     }
 
     if (selectedLocalitate) {
-      router.push(`/clinici-${selectedLocalitate.toLocaleLowerCase()}`);
+      router.push(
+        `/clinici-${replaceSpacesWithDashes(
+          selectedLocalitate.toLocaleLowerCase()
+        )}`
+      );
       return;
     }
 
     if (selectedJudet) {
-      router.push(`/judet/${selectedJudet.toLocaleLowerCase()}`);
+      router.push(
+        `/judet/${replaceSpacesWithDashes(selectedJudet.toLocaleLowerCase())}`
+      );
       return;
     }
 
@@ -107,6 +113,7 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
           <div className="search_option_two">
             <div className="candidate_revew_select">
               <select
+                aria-label="Alege categorie"
                 className={`selectpicker w100 form-select show-tick ${
                   !isJudetSelected ? "border-danger" : ""
                 }`}
@@ -129,6 +136,7 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
           <div className="search_option_two">
             <div className="candidate_revew_select">
               <select
+                aria-label="Alege judet"
                 className={`selectpicker w100 form-select show-tick ${
                   !isJudetSelected ? "border-danger" : ""
                 }`}
@@ -151,6 +159,7 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
           <div className="search_option_two">
             <div className="candidate_revew_select">
               <select
+                aria-label="Alege localitate"
                 className={`selectpicker w100 form-select show-tick ${
                   !isLocalitateSelected ? "border-danger" : ""
                 }`}

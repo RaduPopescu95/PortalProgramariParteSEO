@@ -1,36 +1,17 @@
-'use client'
+"use client";
 
 import { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 import {
   addFeatured,
   addStatusType,
 } from "../../../features/filter/filterSlice";
 
 const FilterTopBar2 = () => {
-  const { length } = useSelector((state) => state.properties);
   const { statusType, featured } = useSelector((state) => state.filter);
   const [getStatus, setStatus] = useState(statusType);
   const [getFeatured, setFeatured] = useState(featured);
-
-  const dispatch = useDispatch();
-
-  // add status
-  useEffect(() => {
-    dispatch(addStatusType(getStatus));
-  }, [dispatch, getStatus]);
-
-  // add featured
-  useEffect(() => {
-    dispatch(addFeatured(getFeatured));
-  }, [dispatch, getFeatured]);
-
-  // clear filter
-  useEffect(() => {
-    statusType === "" && setStatus("");
-    featured === "" && setFeatured("");
-  }, [statusType, setStatus, featured, setFeatured]);
 
   return (
     <>

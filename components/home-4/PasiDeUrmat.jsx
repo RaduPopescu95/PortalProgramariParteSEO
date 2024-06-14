@@ -11,12 +11,12 @@ const PasiDeUrmat = () => {
           <div className="properti_city pasi_urmat style2 d-flex">
             {/* Folosește `col-6` pentru a împărți spațiul egal */}
             <div className="col-4 d-flex justify-content-center align-items-center">
-            <RoundDiv number={item.id} />
+              <RoundDiv number={item.id} />
               <Image
-                src="/assets/images/pasurmat.svg" 
-                alt="Tooth Icon" 
+                src="/assets/images/pasurmat.svg"
+                alt="Tooth Icon"
                 width={100} // Poti regla dimensiunea dacă este necesar
-                height={100} 
+                height={100}
                 objectFit="cover"
                 layout="intrinsic" // Această proprietate asigură că dimensiunile specificate sunt respectate
               />
@@ -27,9 +27,6 @@ const PasiDeUrmat = () => {
                 <p>{item.body}</p>
               </div>
             </div>
-          
-  
-  
           </div>
         </div>
       ))}

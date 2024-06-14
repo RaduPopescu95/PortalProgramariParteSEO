@@ -18,10 +18,10 @@ const SectiuneIncredere = () => {
             </div>
             <div className="details">
               <div className="tc_content p10">
-                <h4>
+                <h2 className="fz30">
                   {/* <Link href={`/blog/${item.id}`}>Test title</Link> */}
                   <Link href={`/`}>Test title</Link>
-                </h4>
+                </h2>
                 <p className="text-thm">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.

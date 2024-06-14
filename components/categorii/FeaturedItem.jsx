@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { addLength } from "../../features/properties/propertiesSlice";
 import properties from "../../data/properties";
 import Image from "next/image";
@@ -15,26 +14,9 @@ import { calculateDistance } from "@/utils/commonUtils";
 import { replaceDashesWithSpaces } from "@/utils/strintText";
 
 const FeaturedItem = ({ firme, params }) => {
-  const {
-    keyword,
-    location,
-    status,
-    propertyType,
-    price,
-    bathrooms,
-    bedrooms,
-    garages,
-    yearBuilt,
-    area,
-    amenities,
-  } = useSelector((state) => state.properties);
-  const { statusType, featured, isGridOrList } = useSelector(
-    (state) => state.filter
-  );
+  const isGridOrList = true;
 
   const [parteneri, setParteneri] = useState();
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     console.log("params...", params);

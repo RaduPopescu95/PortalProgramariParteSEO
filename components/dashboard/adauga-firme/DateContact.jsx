@@ -1,11 +1,13 @@
 import AutocompleteInput from "@/components/common/AutocompleteInput";
 import CheckBoxFilter from "../../common/CheckBoxFilter";
+import { LoadScript } from "@react-google-maps/api";
 
 const DateContact = ({
   handleInputChange,
   formValues,
   handleLocationSelect,
 }) => {
+  const libraries = ["places"];
   return (
     <div className="row">
       <div className="col-lg-6 col-xl-6">
@@ -167,16 +169,20 @@ const DateContact = ({
           />
         </div>
       </div> */}
-      <div className="col-lg-6 col-xl-6">
-        <div className="my_profile_setting_input form-group">
-          <label htmlFor="adresa">Adresa</label>
-          <AutocompleteInput
-            onPlaceChanged={handleLocationSelect}
-            adresa={formValues.adresa}
-          />
+      <LoadScript
+        googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+        libraries={libraries}
+      >
+        <div className="col-lg-6 col-xl-6">
+          <div className="my_profile_setting_input form-group">
+            <label htmlFor="adresa">Adresa</label>
+            <AutocompleteInput
+              onPlaceChanged={handleLocationSelect}
+              adresa={formValues.adresa}
+            />
+          </div>
         </div>
-      </div>
-
+      </LoadScript>
       {/* End .col */}
       <div className="col-xl-12">
         <div className="my_profile_setting_input form-group">

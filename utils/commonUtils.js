@@ -60,3 +60,11 @@ export const formatPathname = (pathname) => {
     ? formattedSegments
     : formattedSegments[0];
 };
+
+export const getEmbedUrl = (url) => {
+  const params = new URLSearchParams(new URL(url).search);
+  const q = params.get("q");
+  return `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(
+    q
+  )}`;
+};

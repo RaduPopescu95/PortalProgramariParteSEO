@@ -5,28 +5,6 @@ import { usePathname } from "next/navigation";
 const HeaderMenuContent = ({ float = "" }) => {
   const pathname = usePathname();
 
-  // const homeR = [
-  //   {
-  //     id: 1,
-  //     name: "Despre platforma",
-  //     routerPath: "/about-us",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Cum functioneaza?",
-  //     routerPath: "/home-7",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Politica de cookie",
-  //     routerPath: "/home-7",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Politica de confidentialitate",
-  //     routerPath: "/home-7",
-  //   },
-  // ];
   const home = [
     {
       id: 1,
@@ -38,20 +16,6 @@ const HeaderMenuContent = ({ float = "" }) => {
       name: "Politica de confidentialitate",
       routerPath: "/terms",
     },
-  ];
-
-  const pages = [
-    { id: 1, name: "About Us", routerPath: "/about-us" },
-    { id: 2, name: "Gallery", routerPath: "/gallery" },
-    { id: 3, name: "Faq", routerPath: "/faq" },
-    { id: 4, name: "LogIn", routerPath: "/login" },
-    { id: 5, name: "Compare", routerPath: "/compare" },
-    { id: 6, name: "Membership", routerPath: "/membership" },
-
-    { id: 7, name: "Register", routerPath: "/register" },
-    { id: 8, name: "Service", routerPath: "/service" },
-    { id: 9, name: "404 Page", routerPath: "/404" },
-    { id: 10, name: "Terms & Conditions", routerPath: "/terms" },
   ];
 
   return (
@@ -207,7 +171,7 @@ const HeaderMenuContent = ({ float = "" }) => {
       <li className={`list-inline-item add_listing ${float}`}>
         <Link href="/inscrie-clinica">
           <span className="flaticon-plus"></span>
-          <span className="dn-lg"> Adauga clinica</span>
+          Adauga clinica
         </Link>
       </li>
       {/* End .dropitem */}

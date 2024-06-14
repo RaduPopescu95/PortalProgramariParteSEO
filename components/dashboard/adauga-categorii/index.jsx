@@ -25,6 +25,8 @@ const Index = () => {
     metaDescription: "",
     articleContentFirst: "",
     articleContentSecond: "",
+    iconCategorie: "",
+    iconPath: "",
   });
 
   // Adăugarea unui nou state pentru mesajul de succes
@@ -81,6 +83,8 @@ const Index = () => {
         metaDescription: "",
         articleContentFirst: "",
         articleContentSecond: "",
+        iconCategorie: "",
+        iconPath: "",
       });
     } catch (error) {
       console.error("Eroare la încărcare submit:", error);
@@ -101,6 +105,8 @@ const Index = () => {
       metaDescription: "",
       articleContentFirst: "",
       articleContentSecond: "",
+      iconCategorie: "",
+      iconPath: "",
     });
   };
 
@@ -126,6 +132,8 @@ const Index = () => {
             c[0].articleContentFirst || prevState.articleContentFirst,
           articleContentSecond:
             c[0].articleContentSecond || prevState.articleContentSecond,
+          iconCategorie: c[0].iconCategorie || prevState.iconCategorie,
+          iconPath: c[0].iconPath || prevState.iconPath,
         }));
 
         setDocumentId(c[0].documentId);

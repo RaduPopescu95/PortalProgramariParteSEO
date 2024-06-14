@@ -8,7 +8,7 @@ const Footer = () => {
     <>
       <div className="col-sm-6 col-md-6 col-lg-6 col-xl-6 pr0 pl0">
         <div className="footer_about_widget">
-          <h4>Misiunea noastra</h4>
+          <h3>Misiunea noastra</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -24,7 +24,7 @@ const Footer = () => {
 
       <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
         <div className="footer_qlink_widget">
-          <h4>Despre noi</h4>
+          <h3>Despre noi</h3>
           <ul className="list-unstyled">
             <li>
               <Link href="/">Despre platforma</Link>
@@ -45,7 +45,7 @@ const Footer = () => {
 
       <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
         <div className="footer_qlink_widget">
-          <h4>Link-uri utile</h4>
+          <h3>Link-uri utile</h3>
           <ul className="list-unstyled">
             <li>
               <Link href="/">Acasa</Link>
@@ -72,7 +72,7 @@ const Footer = () => {
 
       {/* <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
         <div className="footer_contact_widget">
-          <h4>Contact Us</h4>
+          <h3>Contact Us</h3>
           <ul className="list-unstyled">
             <li>
               <a href="mailto:info@email.com">info@email.com</a>
@@ -96,7 +96,7 @@ const Footer = () => {
 
       <div className="col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div className="footer_social_widget d-flex flex-column align-items-center text-center mt30">
-          {/* <h4>Urmărește-ne</h4> */}
+          {/* <h3>Urmărește-ne</h3> */}
           <ul className="mb30 list-unstyled">
             <Social />
           </ul>

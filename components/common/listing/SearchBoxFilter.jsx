@@ -1,15 +1,12 @@
-'use client'
+"use client";
 
 import { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 import { addKeyword } from "../../../features/properties/propertiesSlice";
 import { v4 as uuidv4 } from "uuid";
 
-
 const SearchBoxFilter = () => {
-  const { keyword } = useSelector((state) => state.properties);
-
   // input state
   const [getKeyword, setKeyword] = useState(keyword);
 
@@ -31,14 +28,6 @@ const SearchBoxFilter = () => {
     { id: uuidv4(), name: "Outdoor Shower" },
     { id: uuidv4(), name: "Window Coverings" },
   ]);
-
-  const dispath = useDispatch();
-
-
-  // keyword
-  useEffect(() => {
-    dispath(addKeyword(getKeyword));
-  }, [dispath, getKeyword]);
 
   // clear filter
   const clearHandler = () => {

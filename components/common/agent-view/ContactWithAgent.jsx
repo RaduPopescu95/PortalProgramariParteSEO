@@ -3,6 +3,8 @@
 import { handleUploadFirestore } from "@/utils/firestoreUtils";
 import React, { useState } from "react";
 import { AlertModal } from "../AlertModal";
+import { getEmbedUrl } from "@/utils/commonUtils";
+import LazyLoadGoogleMap from "@/components/lazyLoadMap/LazyLoadGoogleMap";
 
 const ContactWithAgent = ({ firma }) => {
   // Definește stările pentru fiecare câmp de input
@@ -48,6 +50,12 @@ const ContactWithAgent = ({ firma }) => {
     setEmail("");
     setMessage("");
   };
+
+  const mapSrc = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d${
+    firma?.coordonate?.lng
+  }!3d${
+    firma?.coordonate?.lat
+  }!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2z44Cw55'48.0%22N+25Cw26'51.2%22E!5e0!3m2!1sen!2sro!4v${Date.now()}!5m2!1sen!2sro`;
 
   return (
     <>
@@ -131,16 +139,7 @@ const ContactWithAgent = ({ firma }) => {
             </div>
           </div>
           <div className="col-md-4 order-1 order-md-3">
-            <div className="map-container" style={{ height: "100%" }}>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.902327372338!2d-74.00165848459483!3d40.730610079328676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ae15b2ad3b%3A0x7955420634fd7b9d!2s121%20Rock%20St%2C%20Brooklyn%2C%20NY%2011217%2C%20USA!5e0!3m2!1sen!2s!4v1654350488566!5m2!1sen!2s"
-                width="100%"
-                height="100%"
-                style={{ height: "100%" }}
-                allowFullScreen=""
-                loading="lazy"
-              ></iframe>
-            </div>
+            <LazyLoadGoogleMap firma={firma} />
           </div>
         </div>
       </div>

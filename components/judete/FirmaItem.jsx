@@ -68,7 +68,11 @@ const FirmaItem = ({ firme, params }) => {
           <div className="tc_content p10">
             {/* <p className="text-thm">{item?.type}</p> */}
             <h4>
-              <Link href={`/${replaceSpacesWithDashes(item?.categorie)}-${item?.localitate}`}>
+              <Link
+                href={`/${replaceSpacesWithDashes(
+                  item?.categorie
+                )}-${replaceSpacesWithDashes(item?.localitate)}`}
+              >
                 {item?.siteName}
               </Link>
             </h4>

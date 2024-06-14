@@ -1,17 +1,12 @@
-
-'use client'
+"use client";
 
 import Link from "next/link";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import agencyContent from "../../../data/agency";
 import { addAgentItemLength } from "../../../features/agent/agentSlice";
 import Image from "next/image";
 
 const Agency = () => {
-  const { listen } = useSelector((state) => state.agent) || {};
-  const dispath = useDispatch();
-
   let content = agencyContent
     .slice(0, 6)
     .filter((item) =>

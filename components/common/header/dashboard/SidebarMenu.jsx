@@ -10,20 +10,33 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { handleLogout } from "@/utils/authUtils";
 // import { useAuth } from "@/context/AuthContext";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CommonLoader from "../../CommonLoader";
+import { authentication } from "@/firebase";
+
+if (typeof window !== "undefined") {
+  require("bootstrap/dist/js/bootstrap");
+}
 
 const SidebarMenu = () => {
-  // const { currentUser } = useAuth();
+  const [loading, setLoading] = useState(true);
+
   const router = useRouter();
-  React.useEffect(() => {
-    // console.log("currentUser...", currentUser);
-    // if (!currentUser) {
-    //   router.push("signin");
-    // }
-  }, []);
 
   const pathname = usePathname();
+
+  useEffect(() => {
+    setLoading(true);
+    const unsubscribe = authentication.onAuthStateChanged((user) => {
+      if (!user) {
+        router.push("/signin"); // Redirecționează dacă utilizatorul nu este autentificat
+      } else {
+        setLoading(false); // Continuă să afișezi componenta dacă utilizatorul este autentificat
+      }
+    });
+
+    return () => unsubscribe(); // Dezabonează-te la schimbările de autentificare atunci când componenta este demontată
+  }, [router]);
 
   const logOut = () => {
     handleLogout()
@@ -72,9 +85,9 @@ const SidebarMenu = () => {
     { id: 1, name: "Lista imagini", route: "/lista-imagini" },
     { id: 2, name: "Adauga imagini", route: "/adauga-imagini" },
   ];
-  // if (!currentUser) {
-  //   return <CommonLoader />;
-  // }
+  if (loading) {
+    return <CommonLoader />;
+  }
 
   return (
     <>

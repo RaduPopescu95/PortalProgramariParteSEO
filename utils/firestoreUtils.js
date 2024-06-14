@@ -29,7 +29,6 @@ export const userLocation = `Users/${
 export const getFirestoreCollectionLength = async (location) => {
   const coll = collection(db, location);
   const snapshot = await getCountFromServer(coll);
-  console.log("count: ", snapshot.data().count);
 
   return snapshot.data().count;
 };
@@ -343,8 +342,6 @@ export const handleQueryFirestore = async (
   QueryParamTwo = null,
   elementTwo = null
 ) => {
-  console.log("start query firestore pentru elementOne...", elementOne);
-  console.log("start query firestore pentru elementTwo...", elementTwo);
   let arr = []; // Specificați tipul de obiecte pe care îl conține matricea, de exemplu: let arr = [{}];
   let conditions = [];
 
@@ -362,7 +359,6 @@ export const handleQueryFirestore = async (
     const q = query(...conditions);
 
     const querySnapshot = await getDocs(q);
-    console.log("start query firestore pentru queryParamOne...", queryParamOne);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       console.log(doc.id, " => ", doc.data());
@@ -381,19 +377,15 @@ export const handleQueryFirestoreSubcollection = async (
   elementOne = null,
   elementTwo = null
 ) => {
-  console.log("Strt....", location);
-  console.log("Strt....", queryParam);
-  console.log("Strt....", elementOne);
   let arr = [];
   // Pasul 1: Interoghează subcolecția Localitati
   const localitatiRef = query(
     collectionGroup(db, location),
     where(queryParam, "==", elementOne)
   );
-  console.log("test....");
+
   const querySnapshot = await getDocs(localitatiRef);
   querySnapshot.forEach((doc) => {
-    console.log(doc.id, "localitate...=>", doc.data());
     arr.push(doc.data());
   });
   return arr;

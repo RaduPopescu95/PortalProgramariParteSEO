@@ -1,41 +1,59 @@
-const Pagination = () => {
+"use client";
+
+import React from "react";
+
+const Pagination = ({
+  currentPage = 1,
+  totalPages = 3,
+  setCurrentPage = 1,
+}) => {
+  const handleClick = (page, event) => {
+    event.preventDefault(); // prevenirea comportamentului default al link-ului
+    setCurrentPage(page);
+  };
+
+  const pageNumbers = [1, 2, 3];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
+
   return (
     <ul className="page_navigation">
-      <li className="page-item disabled">
-        <a className="page-link" href="#" tabIndex="-1" aria-disabled="true">
-          {" "}
+      <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+        <button
+          aria-label="page back"
+          className="page-link"
+          onClick={(e) => handleClick(currentPage - 1, e)}
+          disabled={currentPage === 1}
+        >
           <span className="flaticon-left-arrow"></span>
-        </a>
+        </button>
       </li>
-      <li className="page-item">
-        <a className="page-link" href="#">
-          1
-        </a>
-      </li>
-      <li className="page-item active" aria-current="page">
-        <a className="page-link" href="#">
-          2 <span className="sr-only">(current)</span>
-        </a>
-      </li>
-      <li className="page-item">
-        <a className="page-link" href="#">
-          3
-        </a>
-      </li>
-      <li className="page-item">
-        <a className="page-link" href="#">
-          ...
-        </a>
-      </li>
-      <li className="page-item">
-        <a className="page-link" href="#">
-          29
-        </a>
-      </li>
-      <li className="page-item">
-        <a className="page-link" href="#">
+      {pageNumbers.map((number) => (
+        <li
+          key={number}
+          className={`page-item ${number === currentPage ? "active" : ""}`}
+        >
+          <a
+            className="page-link"
+            href="#"
+            onClick={(e) => handleClick(number, e)}
+          >
+            {number}
+          </a>
+        </li>
+      ))}
+      <li
+        className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}
+      >
+        <button
+          aria-label="page forward"
+          className="page-link"
+          onClick={(e) => handleClick(currentPage + 1, e)}
+          disabled={currentPage === totalPages}
+        >
           <span className="flaticon-right-arrow"></span>
-        </a>
+        </button>
       </li>
     </ul>
   );

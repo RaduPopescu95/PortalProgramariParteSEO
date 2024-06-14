@@ -10,7 +10,12 @@ const Social = () => {
     <>
       {socialContent.map((item) => (
         <li className="list-inline-item ml-sm-0 ml10" key={item.id}>
-          <a href={item.liveLink} target="_blank" rel="noopener noreferrer">
+          <a
+            href={item.liveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={item.icon}
+          >
             <i className={`fa ${item.icon} fz40 p-1`}></i>
           </a>
         </li>

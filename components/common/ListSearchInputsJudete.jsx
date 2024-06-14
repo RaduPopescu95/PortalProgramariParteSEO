@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { replaceSpacesWithDashes } from "@/utils/strintText";
 
 const ListSearchInputs = ({ className = "", localitati, judet }) => {
   const [locations, setLocations] = useState([...localitati]); // State pentru opțiunile din dropdown
@@ -33,7 +34,9 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
     }
 
     if (selectedJudet) {
-      router.push(`/judet/${selectedJudet}`);
+      router.push(
+        `/judet/${replaceSpacesWithDashes(selectedJudet.toLocaleLowerCase())}`
+      );
       return;
     }
 

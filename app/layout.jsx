@@ -4,7 +4,8 @@ import { Provider } from "react-redux";
 import { store } from "../store/store";
 // import ScrollToTop from "@/components/common/ScrollTop";
 import "../public/assets/scss/index.scss";
-import { Inter } from "next/font/google";
+import { Nunito } from "next/font/google";
+import CookieBanner from "@/components/Cookies/CookieBanner";
 // import { AuthProvider } from "@/context/AuthContext";
 // import { LoadScript } from "@react-google-maps/api";
 
@@ -16,19 +17,21 @@ export const metadata = {
   description: "Descriere din root layout",
 };
 
+// If loading a variable font, you don't need to specify the font weight
+const nunito = Nunito({
+  weight: ["200", "300", "400", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
+
 export default function RootLayout({ children }) {
   const libraries = ["places"];
   return (
     <html lang="en">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"
-        />
         <link rel="icon" href="./favicon.ico" />
-        <meta name="robots" content="noindex, nofollow" />
+        {/* <meta name="robots" content="noindex, nofollow" /> */}
       </head>
-      <body>
+      <body className={nunito.className}>
         {/* <LoadScript
           googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
           libraries={libraries}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { replaceSpacesWithDashes } from "@/utils/strintText";
 
 const Blogs = ({ articole }) => {
+  console.log("blog....test...", articole);
   return (
     <>
       {articole.slice(0, 3).map((item) => (
@@ -26,7 +27,7 @@ const Blogs = ({ articole }) => {
             </div>
             <div className="details">
               <div className="tc_content p10">
-                <h4>
+                <h2 className="fz30">
                   <Link
                     href={`/blog/${item.id}-${replaceSpacesWithDashes(
                       item.siteName
@@ -34,7 +35,7 @@ const Blogs = ({ articole }) => {
                   >
                     {item.siteName}
                   </Link>
-                </h4>
+                </h2>
                 <p className="text-thm">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.

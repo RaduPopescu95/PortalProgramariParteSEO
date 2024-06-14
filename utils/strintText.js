@@ -22,9 +22,11 @@ export const handleDiacrtice = (text) => {
 };
 
 export function replaceSpacesWithDashes(str) {
+  console.log("Str...in....replaceSpacesWithDashes...", str);
   return str.replace(/ /g, "-");
 }
 
 export function replaceDashesWithSpaces(str) {
+  console.log("Str...in....replaceDashesWithSpaces...", str);
   return str.replace(/-/g, " ");
 }

@@ -1,18 +1,12 @@
-
-'use client'
+"use client";
 
 import Link from "next/link";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import agents from "../../../data/agents";
 import { addAgentItemLength } from "../../../features/agent/agentSlice";
 import Image from "next/image";
 
 const Team = () => {
-  const { name, category, city, listen } =
-    useSelector((state) => state.agent) || {};
-  const dispatch = useDispatch();
-
   // name
   const nameHandler = (item) =>
     item.name.toLowerCase().includes(name.toLowerCase());

@@ -182,7 +182,7 @@ const Index = () => {
   const handleSubmit = async () => {
     setIsLoading(true);
     console.log("Submitting form with values:", formValues);
-    if (propertySelectedImgs.length === 0) {
+    if (propertySelectedImgs.length === 0 && !formValues.idGalerieFoto) {
       console.log("No image length...");
       setSuccessMessage("Nu sunt adaugate imagini");
       setIsLoading(false);
@@ -227,13 +227,18 @@ const Index = () => {
         const logo = await uploadImage(logoImg, false, "LogoFirme");
 
         formValues.logo = logo;
-
-        const images = await uploadMultipleImages(
-          propertySelectedImgs,
-          false,
-          "ImaginiFirme",
-          deletedImages
-        );
+        let images;
+        if (propertySelectedImgs.length !== 0) {
+          images = await uploadMultipleImages(
+            propertySelectedImgs,
+            false,
+            "ImaginiFirme",
+            deletedImages
+          );
+        } else {
+          const imgs = [];
+          images = { imgs };
+        }
 
         formValues.imagini = images;
 

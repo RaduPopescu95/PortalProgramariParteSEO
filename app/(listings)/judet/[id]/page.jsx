@@ -4,7 +4,17 @@ import {
   handleQueryFirestore,
   handleQueryFirestoreSubcollection,
 } from "@/utils/firestoreUtils";
-import { unstable_noStore as noStore } from "next/cache";
+import { fetchJudeteParams } from "@/utils/localProjectlUtils";
+
+export const revalidate = 60; // revalidate at most every minute , hour at 3600
+
+export async function generateStaticParams() {
+  let combinatii = await fetchJudeteParams();
+  console.log("combinatii...", combinatii);
+  return combinatii.map((judet) => ({
+    id: judet,
+  }));
+}
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
@@ -12,6 +22,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   let judet = parts[0]; // Folosim prima parte pentru interogări
   let judetParam =
     judet.charAt(0).toUpperCase() + judet?.slice(1).toLowerCase();
+  console.log("judetparam...", judetParam);
   return {
     title: `Clinici din ${judetParam}`,
     description: `Clinici din ${judetParam}`,
@@ -19,10 +30,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 const index = async ({ params }) => {
-  noStore();
   let parts = params.id.split("-"); // Împărțim ID-ul în părți bazat pe separatorul '-'
   let judet = parts[0]; // Folosim prima parte pentru interogări
-
+  console.log("judet...", judet);
   return (
     <>
       <Judete judet={judet} params={params} />

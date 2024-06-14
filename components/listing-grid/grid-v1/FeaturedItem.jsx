@@ -1,9 +1,8 @@
-
-'use client'
+"use client";
 
 import Link from "next/link";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 import { addLength } from "../../../features/properties/propertiesSlice";
 import properties from "../../../data/properties";
 import Image from "next/image";
@@ -22,11 +21,8 @@ const FeaturedItem = () => {
     area,
     amenities,
   } = useSelector((state) => state.properties);
-  const { statusType, featured, isGridOrList } = useSelector(
-    (state) => state.filter
-  );
 
-  const dispatch = useDispatch();
+  const isGridOrList = true;
 
   // keyword filter
   const keywordHandler = (item) =>

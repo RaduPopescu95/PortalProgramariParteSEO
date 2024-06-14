@@ -24,7 +24,6 @@ const handleGetData = async () => {
     const collectionLength = await getFirestoreCollectionLength(
       subcollectionPath
     );
-    console.log("here...");
 
     // Creează un nou obiect cu informațiile existente și adaugă numărul de localități
     const updatedItem = { ...item, localitatiCount: collectionLength };

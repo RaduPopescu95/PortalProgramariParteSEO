@@ -1,14 +1,11 @@
-'use client'
+"use client";
 
 import { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { addListen } from "../../../features/agent/agentSlice";
 
 const TopFilterBar = () => {
-  const { length, listen } = useSelector((state) => state.agent) || {};
   const [getListen, setListen] = useState(listen);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(addListen(getListen));

@@ -15,13 +15,15 @@ import Image from "next/image";
 import Map from "../map/Map";
 import Button from "../common/CommonButton";
 import SectiuneIncredere from "../common/SectiuneIncredere";
-import { unstable_noStore as noStore } from "next/cache";
+// import { unstable_noStore as noStore } from "next/cache";
 import { handleGetFirestore } from "@/utils/firestoreUtils";
+import CookieBanner from "../Cookies/CookieBanner";
 
 const index = async () => {
-  noStore();
+  // noStore();
   const articole = await handleGetFirestore("Articole");
   const categorii = await handleGetFirestore("Categorii");
+
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -34,68 +36,68 @@ const index = async () => {
       {/* <PopupSignInUp /> */}
 
       {/* <!-- 4th Home Slider --> */}
-
-      <div className="home-four">
-        <div className="container-fluid p0">
+      <section className="pt0">
+        <div className="home-four">
+          {/* <div className="container-fluid p0">
           <div className="main-banner-wrapper">
             <div className="arrow-style-2 banner-style-one">
-              {/* <HeroSlider /> */}
+              <HeroSlider />
             </div>
           </div>
-        </div>
-        {/* End .container-fluid */}
+        </div> */}
+          {/* End .container-fluid */}
 
-        <div className="container home_iconbox_container">
-          <div className="row posr mb25">
-            <div className="col-lg-12">
-              <div className="home_content home4">
-                <div class="home-text w-100 w-md-75">
-                  <h2 className="fz50 txt-color-primary text-center mb10">
-                    Medicul potrivit pentru nevoile tale!
-                  </h2>
-                  <p className="fz18 txt-color-third w-75 mx-auto mx-sm-auto text-center mb-2">
-                    Articole medicale și liste cu top clinici din fiecare oraș.
-                    Găsește ușor clinica cea mai potrivită (și apropiată de
-                    tine) pentru nevoile tale medicale.
-                  </p>
-                  <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 w-100 mb-10">
-                    <Button
-                      style={{ minWidth: "calc(30% - 10px)" }}
-                      navigare={"cauta"}
-                    >
-                      Caută medic{" "}
-                      <span className="flaticon-right-arrow ml-10" />
-                    </Button>
-                    <Button
-                      className="btnSecondary"
-                      style={{ minWidth: "calc(30% - 10px)" }}
-                      navigare={"inscrie-clinica"}
-                    >
-                      Înscrie o clinică{" "}
-                      <span className="flaticon-right-arrow ml-10" />
-                    </Button>
+          <div className="container home_iconbox_container">
+            <div className="row posr mb25">
+              <div className="col-lg-12">
+                <div className="home_content home4">
+                  <div class="home-text w-100 w-md-75">
+                    <h1 className="fz50 txt-color-primary text-center mb10">
+                      Medicul potrivit pentru nevoile tale!
+                    </h1>
+                    <p className="fz18 txt-color-third w-75 mx-auto mx-sm-auto text-center mb-2">
+                      Articole medicale și liste cu top clinici din fiecare
+                      oraș. Găsește ușor clinica cea mai potrivită (și apropiată
+                      de tine) pentru nevoile tale medicale.
+                    </p>
+                    <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 w-100 mb-10">
+                      <Button
+                        style={{ minWidth: "calc(30% - 10px)" }}
+                        navigare={"cauta"}
+                      >
+                        Caută medic{" "}
+                        <span className="flaticon-right-arrow ml-10" />
+                      </Button>
+                      <Button
+                        className="btnSecondary"
+                        style={{ minWidth: "calc(30% - 10px)" }}
+                        navigare={"inscrie-clinica"}
+                      >
+                        Înscrie o clinică{" "}
+                        <span className="flaticon-right-arrow ml-10" />
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-12">
-              <h4 className="fz18 txt-color-third w-75 mx-auto text-center mb20">
-                SPECIALIZĂRI MEDICALE POPULARE
-              </h4>
-              <ul className="home4_iconbox mb0">
-                <LookingItem categorii={categorii} />
-              </ul>
-              <h4 className="fz18 txt-color-third w-75 mx-auto text-center mt10">
-                <span className="flaticon-upload mr10" />
-                Vezi mai multe specializări
-              </h4>
+            <div className="row">
+              <div className="col-lg-12">
+                <h2 className="fz18 txt-color-third w-75 mx-auto text-center mb20">
+                  SPECIALIZĂRI MEDICALE POPULARE
+                </h2>
+                <ul className="home4_iconbox mb0">
+                  <LookingItem categorii={categorii} />
+                </ul>
+                <h3 className="fz18 txt-color-third w-75 mx-auto text-center mt10">
+                  <span className="flaticon-upload mr10" />
+                  Vezi mai multe specializări
+                </h3>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
+      </section>
       {/* <!-- 2.	Pasi de urmat --> */}
 
       <section id="property-city" className="property-city pb30">
@@ -285,7 +287,6 @@ const index = async () => {
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2>Articole</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               </div>
             </div>
           </div>
@@ -309,6 +310,7 @@ const index = async () => {
           <CopyrightFooter />
         </div>
       </section>
+      <CookieBanner />
     </>
   );
 };

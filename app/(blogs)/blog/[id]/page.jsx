@@ -15,11 +15,13 @@ import MobileMenu from "@/components/common/header/MobileMenu";
 import PopupSignInUp from "@/components/common/PopupSignInUp";
 import blogs from "@/data/blogs";
 import Image from "next/image";
-import { unstable_noStore as noStore } from "next/cache";
+
 import {
   handleGetFirestore,
   handleQueryFirestore,
 } from "@/utils/firestoreUtils";
+
+export const revalidate = 60; // revalidate at most every minute , hour at 3600
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
@@ -40,7 +42,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 const BlogDetailsDynamic = async ({ params }) => {
-  noStore();
   const parts = params.id.split("-");
   const id = Number(parts[0]);
   if (id === "favicon.ico") {

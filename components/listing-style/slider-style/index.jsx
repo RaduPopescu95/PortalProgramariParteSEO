@@ -5,7 +5,7 @@ import Footer from "../../common/footer/Footer";
 import GlobalHeroFilter from "../../common/GlobalHeroFilter";
 import Header from "../../common/header/DefaultHeader";
 import MobileMenu from "../../common/header/MobileMenu";
-import { unstable_noStore as noStore } from "next/cache";
+
 import FilterTopBar from "../../common/listing/FilterTopBar";
 import GridListButton from "../../common/listing/GridListButton";
 import ShowFilter from "../../common/listing/ShowFilter";
@@ -28,38 +28,7 @@ import { fetchFirme } from "@/utils/localProjectlUtils";
 
 import { notFound } from "next/navigation";
 
-export async function getServerData(params) {
-  let data = {};
-
-  try {
-    console.log("params..start.....", params);
-    // if (params[1] === "favicon.ico") {
-    //   return null; // Returnează null sau orice alt component care indică că pagina nu trebuie să proceseze acest id.
-    // }
-    console.log("params..start.....passed", params);
-    // Interoghează Firestore (sau orice altă bază de date) folosind 'locationPart'
-    let judete = await handleGetFirestore("Judete");
-    let categorii = await handleGetFirestore("Categorii");
-    console.log("here...params...", params);
-    let firme = await fetchFirme(params);
-    console.log("here...firme...", firme);
-
-    data = { judete, categorii, firme };
-    return data;
-  } catch (error) {
-    console.error("Failed to fetch locations:", error);
-    return {
-      props: {
-        error: "Failed to load data.",
-      },
-    };
-  }
-}
-
-const index = async ({ params }) => {
-  noStore();
-  console.log("asdaddaad", params);
-  const data = await getServerData(params);
+const index = async ({ params, categorii, firme, judete }) => {
   // if (!data.firme) {
   //   notFound();
   // }
@@ -104,8 +73,8 @@ const index = async ({ params }) => {
                   {/* End home-text */}
                   <ListSearch
                     className="mt40"
-                    judete={data.judete}
-                    categorii={data.categorii}
+                    judete={judete}
+                    categorii={categorii}
                   />
                 </div>
               </div>
@@ -121,7 +90,7 @@ const index = async ({ params }) => {
           <div className="row pt30">
             <div className="col-md-12 col-lg-12">
               <div className="row">
-                <FeaturedItem params={params} firme={data.firme} />
+                <FeaturedItem params={params} firme={firme} />
               </div>
               {/* End .row */}
 
@@ -145,7 +114,7 @@ const index = async ({ params }) => {
 
       {/* <!-- Start Call to Action --> */}
 
-      <CallToAction/>
+      <CallToAction />
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one">

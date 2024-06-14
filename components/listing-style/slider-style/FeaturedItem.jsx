@@ -69,17 +69,18 @@ const FeaturedItem = ({ firme, params }) => {
           <div className="details">
             <div className="tc_content p10">
               {/* <p className="text-thm">{item?.type}</p> */}
-              <h4>
-                <Link href={`/${replaceSpacesWithDashes(item?.categorie)}-${item?.localitate}`}>
+              <h2 className="fz30">
+                <Link
+                  href={`/${replaceSpacesWithDashes(
+                    item?.categorie.toLowerCase()
+                  )}-${replaceSpacesWithDashes(
+                    item?.localitate.toLowerCase()
+                  )}`}
+                >
                   {item?.siteName}
                 </Link>
-              </h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Blandit turpis cursus in hac. Risus ultricies tristique nulla
-                aliquet enim.
-              </p>
+              </h2>
+              <p>{item?.metaDescription}</p>
 
               {/* <ul className="prop_details mb0">
                 {item?.itemDetails.map((val, i) => (

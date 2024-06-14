@@ -23,7 +23,7 @@ import {
 } from "@/utils/firestoreUtils";
 import BreadCrumbBanner from "./BreadCrumbBanner";
 import FirmaItem from "./FirmaItem";
-import { unstable_noStore as noStore } from "next/cache";
+
 import { fetchFirme } from "@/utils/localProjectlUtils";
 
 export async function getServerData(params) {
@@ -66,13 +66,10 @@ export async function getServerData(params) {
       },
     };
   }
-  console.log("data returned...", data.firme);
   return data; // Datele vor fi disponibile ca props în componentă
 }
 
 const index = async ({ judet, params }) => {
-  noStore();
-
   const data = await getServerData(params);
   // if (!data.firme) {
   //   notFound();

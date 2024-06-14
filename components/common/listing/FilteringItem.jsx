@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 import {
   addFeatured,
   addStatusType,
@@ -26,19 +26,6 @@ import PricingRangeSlider from "../../common/PricingRangeSlider";
 import { v4 as uuidv4 } from "uuid";
 
 const FilteringItem = () => {
-  const {
-    keyword,
-    location,
-    status,
-    propertyType,
-    bathrooms,
-    bedrooms,
-    garages,
-    yearBuilt,
-    area,
-    amenities,
-  } = useSelector((state) => state.properties);
-
   // input state
   const [getKeyword, setKeyword] = useState(keyword);
   const [getLocation, setLocation] = useState(location);
@@ -69,8 +56,6 @@ const FilteringItem = () => {
     { id: uuidv4(), name: "Outdoor Shower" },
     { id: uuidv4(), name: "Window Coverings" },
   ]);
-
-  const dispath = useDispatch();
 
   // keyword
   useEffect(() => {
