@@ -36,7 +36,7 @@ const index = async () => {
       {/* <PopupSignInUp /> */}
 
       {/* <!-- 4th Home Slider --> */}
-      <section className="pt0">
+      <section className="pt0 pb0">
         <div className="home-four">
           {/* <div className="container-fluid p0">
           <div className="main-banner-wrapper">
