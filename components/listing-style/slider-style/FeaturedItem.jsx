@@ -69,7 +69,7 @@ const FeaturedItem = ({ firme, params }) => {
           <div className="details">
             <div className="tc_content p10">
               {/* <p className="text-thm">{item?.type}</p> */}
-              <h2 className="fz30">
+              <h2 className="fz20" style={{ color: "#484848" }}>
                 <Link
                   href={`/${replaceSpacesWithDashes(
                     item?.categorie.toLowerCase()
