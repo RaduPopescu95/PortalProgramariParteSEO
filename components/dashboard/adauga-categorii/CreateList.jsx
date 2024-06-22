@@ -1,16 +1,22 @@
 import ArticleEditor from "./QuillForm";
-import dentisti from "../../../public/assets/categorii/dentisti.svg";
-import cardiologie from "../../../public/assets/categorii/cardiologie.svg";
-import gastroenterologie from "../../../public/assets/categorii/gastroenterologie.svg";
+// import dentisti from "../../../public/assets/categorii/dentisti.svg";
+// import cardiologie from "../../../public/assets/categorii/cardiologie.svg";
+// import gastroenterologie from "../../../public/assets/categorii/gastroenterologie.svg";
 import ortopedie from "../../../public/assets/categorii/ortopedie.svg";
 import Image from "next/image";
 
 const CreateList = ({ handleInputChange, formValues }) => {
+  // const categorii = [
+  //   { name: "Dentisti", icon: dentisti },
+  //   { name: "Cardiologie", icon: cardiologie },
+  //   { name: "Gastroenterologie", icon: gastroenterologie },
+  //   { name: "Ortopedie", icon: ortopedie },
+  // ];
   const categorii = [
-    { name: "Dentisti", icon: dentisti },
-    { name: "Cardiologie", icon: cardiologie },
-    { name: "Gastroenterologie", icon: gastroenterologie },
-    { name: "Ortopedie", icon: ortopedie },
+    { name: "Dentisti" },
+    { name: "Cardiologie" },
+    { name: "Gastroenterologie" },
+    { name: "Ortopedie" },
   ];
 
   const handleIconChange = (e) => {
@@ -34,7 +40,7 @@ const CreateList = ({ handleInputChange, formValues }) => {
 
   return (
     <>
-      <div className="col-lg-12">
+      {/* <div className="col-lg-12">
         <div className="my_profile_setting_input ui_kit_select_search form-group">
           <label>Selecteaza Icon</label>
           <div className="icon-grid">
@@ -57,7 +63,7 @@ const CreateList = ({ handleInputChange, formValues }) => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="col-lg-12">
         <div className="my_profile_setting_input form-group">
           <label htmlFor="siteName">Nume</label>
