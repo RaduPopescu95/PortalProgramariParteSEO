@@ -33,31 +33,32 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
-  const id = params.id;
+  const id = params.clinici;
 
   // fetch data
   let firme = await getFirme(params);
 
-  if (Array.isArray(params.clinici)) {
-    console.log("firme....just one...", firme);
-    return {
-      title: `${firme[0].metaTitle}`,
-      description: `${firme[0].metaDescription}`,
-      openGraph: {
-        images: [
-          {
-            url: firme[0].imagini.imgs[0].finalUri,
-          },
-        ],
-      },
-    };
-  } else {
-    console.log("firme....just one...many...", firme);
-    return {
-      title: `titlu test`,
-      description: `descriere test`,
-    };
-  }
+  console.log("firme....just one...", firme);
+  return {
+    title: `${firme[0].metaTitle}`,
+    description: `${firme[0].metaDescription}`,
+    openGraph: {
+      images: [
+        {
+          url: firme[0].imagini.imgs[0].finalUri,
+        },
+      ],
+    },
+    alternates: {
+      canonical: `https://www.portal.ro/${id}`,
+    },
+    manifest: "https://portal.ro/manifest.json",
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+
   // optionally access and extend (rather than replace) parent metadata
   // const previousImages = (await parent).openGraph?.images || [];
 }

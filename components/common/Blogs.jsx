@@ -27,7 +27,7 @@ const Blogs = ({ articole }) => {
             </div>
             <div className="details">
               <div className="tc_content p10">
-                <h2 className="fz30">
+                <h2 className="fz24">
                   <Link
                     href={`/blog/${item.id}-${replaceSpacesWithDashes(
                       item.siteName
@@ -50,7 +50,7 @@ const Blogs = ({ articole }) => {
                         item.siteName
                       )}`}
                     >
-                      {item.siteName} <span className="flaticon-next ml10" />
+                      Citește mai mult <span className="flaticon-next ml10" />
                     </Link>
                   </li>
                 </ul>

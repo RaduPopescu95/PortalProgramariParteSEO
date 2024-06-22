@@ -287,6 +287,41 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Întunecă și mărește umbră pentru a adăuga un efect vizual mai puternic */
 }
 
+.btn.btnGeneralFooter {
+  border-radius: 25px;
+  background-color: var(--btn-primary);
+  color: var(--btn-secondary);
+  font-size: 13px;
+  font-weight: bold;
+  height: 40px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  width: auto;
+  border: 2px solid transparent; /* Adaugă o bordură transparentă pentru un efect mai consistent la hover */
+  transition: all 0.3s ease; /* Suavizează tranziția culorilor și a bordurii */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); /* Adaugă o umbră ușoară pentru un efect de profunzime */
+  cursor: pointer; /* Schimbă cursorul pentru a indica că butonul este clicabil */
+}
+
+.btn.btnGeneralFooter:hover {
+  background-color: transparent;
+  color: var(--btn-primary);
+  border-color: var(--btn-primary);
+  /* transform: scale(1.05);  */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Întunecă și mărește umbră pentru a adăuga un efect vizual mai puternic */
+}
+
+.btn.btnGeneralFooter.btnSecondary {
+  color: var(--btn-primary);
+  background-color: var(--btn-third);
+}
+.btn.btnGeneralFooter.btnSecondary:hover {
+  color: var(--btn-primary);
+  border-color: var(--btn-primary);
+  /* transform: scale(1.05);  */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Întunecă și mărește umbră pentru a adăuga un efect vizual mai puternic */
+}
+
 .properti_city.pasi_urmat {
   height: 150px;
   overflow: hidden; /* Ascunde conținutul care depășește max-height */
@@ -393,4 +428,8 @@
   border-radius: 10%;
   padding-top: 5%;
   padding-bottom: 5%;
+}
+
+.sectiune-incredere {
+  height: 420px !important;
 }

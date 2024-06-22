@@ -110,7 +110,8 @@ const index = async ({ judet, params }) => {
                 <div className="home-text home6 text-center">
                   <BreadCrumb csName={"color-white"} />
                   <h2 className="fz50 color-white">
-                    Descopera funizori de servicii autorizati
+                    Firme pregatite sa proiecteze, amenajeze si sa intretina
+                    spatiul tau verde În {judet}
                   </h2>
                 </div>
                 {/* End home-text */}

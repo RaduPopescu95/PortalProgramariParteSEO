@@ -32,7 +32,7 @@ const index = () => {
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
-                <h2 className="mt0">Despre platforma</h2>
+                <h1 className="mt0 fz40">Despre platforma</h1>
               </div>
             </div>
           </div>

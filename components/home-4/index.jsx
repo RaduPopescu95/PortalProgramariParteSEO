@@ -53,19 +53,19 @@ const index = async () => {
                 <div className="home_content home4">
                   <div class="home-text w-100 w-md-75">
                     <h1 className="fz50 txt-color-primary text-center mb10">
-                      Medicul potrivit pentru nevoile tale!
+                      Alege un specialist in amenajari gradini si spatii verzi!
                     </h1>
                     <p className="fz18 txt-color-third w-75 mx-auto mx-sm-auto text-center mb-2">
-                      Articole medicale și liste cu top clinici din fiecare
-                      oraș. Găsește ușor clinica cea mai potrivită (și apropiată
-                      de tine) pentru nevoile tale medicale.
+                      Doresti amenajarea unei gradini rezidentiale sau a unei
+                      spatiu verde ce apartine companiei tale? Gaseste un
+                      colaborator acum!
                     </p>
                     <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 w-100 mb-10">
                       <Button
                         style={{ minWidth: "calc(30% - 10px)" }}
                         navigare={"cauta"}
                       >
-                        Caută medic{" "}
+                        Cauta amenajari gradini{" "}
                         <span className="flaticon-right-arrow ml-10" />
                       </Button>
                       <Button
@@ -73,7 +73,7 @@ const index = async () => {
                         style={{ minWidth: "calc(30% - 10px)" }}
                         navigare={"inscrie-clinica"}
                       >
-                        Înscrie o clinică{" "}
+                        Inscrie o firma{" "}
                         <span className="flaticon-right-arrow ml-10" />
                       </Button>
                     </div>
@@ -84,7 +84,7 @@ const index = async () => {
             <div className="row">
               <div className="col-lg-12">
                 <h2 className="fz18 txt-color-third w-75 mx-auto text-center mb20">
-                  SPECIALIZĂRI MEDICALE POPULARE
+                  SERVICII OFERITE DE FIRMELE DE PE PORTAL
                 </h2>
                 <ul className="home4_iconbox mb0">
                   <LookingItem categorii={categorii} />
@@ -115,22 +115,28 @@ const index = async () => {
             <div className="col-md-6 col-lg-8 order-2 order-md-1">
               <div className="our_hotoffer">
                 <h2 className="fz30 txt-color-third">
-                  <span className="fz40 txt-color-primary">ÎMPREUNĂ,</span>{" "}
-                  Conectați pentru sănătate
+                  {/* <span className="fz40 txt-color-primary">ÎMPREUNĂ,</span>{" "} */}
+                  Alege acum firma care sa-ti amenajeze spatiul verde
                 </h2>
                 <p className="fz20 txt-color-third">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
+                  De-a lungul timpului, am muncit din greu pentru a imbunatati
+                  toate aspectele serviciului portalului nostrum cu firme de
+                  amenajari gradini si spatii verzi. Specialistii prezenti pe
+                  platforma se pot ocupa de toate, proiectare, amenajare spatiu
+                  verde cu rulori gazon, plante ornamentale, sisteme de irigatii
+                  si iazuri si cascade, pana la tunsul precis al gazonului, la
+                  plivitul meticulos, la tunderea gardurilor vii, la toaletarea
+                  experta a copacilor. Rezerva acum o sesiune de consultanta
+                  gratuita prin cateva clickuri! Fie ca iti doresti o
+                  transformare completa a gradinii, fie ca ai nevoie de ajutor
+                  cu indepartarea iederii si curatarea gradinii, aici vei gasi
+                  firme gata sa te ajute. Intelegem importanta serviciilor de
+                  intretinere a gradinii la un pret accesibil, fara a compromite
+                  calitatea. De aceea la noi vei gasi firme care ofera preturi
+                  competitive, fara a sacrifica calitatea, gata sa construiasca
+                  un peisaj memorabil in gradina ta.
                 </p>
-                <div className="fp_footer">
+                {/* <div className="fp_footer">
                   <ul className="">
                     <li>
                       <p className="fz20 txt-color-third">
@@ -152,7 +158,7 @@ const index = async () => {
                       </p>
                     </li>
                   </ul>
-                </div>
+                </div> */}
                 <div className="d-flex flex-column flex-sm-row justify-content-start gap-3 w-100 mb-10">
                   <Button
                     className="w-lg-75 w-md-75 w-sm-75"
@@ -166,7 +172,7 @@ const index = async () => {
             <div className="col-md-6 col-lg-4 order-1 order-md-2">
               <div className="our_hotoffer">
                 <Image
-                  src="/assets/images/pasurmat.svg" // Calea relativă la directorul public
+                  src="/assets/alege-firma.svg" // Calea relativă la directorul public
                   alt="Tooth Icon" // Adaugă un text alternativ pentru accesibilitate
                   width={400} // Specifică lățimea dorită
                   height={400} // Specifică înălțimea dorită
@@ -186,7 +192,7 @@ const index = async () => {
             <div className="col-md-6 col-lg-4">
               <div className="our_hotoffer">
                 <Image
-                  src="/assets/images/pasurmat.svg" // Calea relativă la directorul public
+                  src="/assets/programare.svg" // Calea relativă la directorul public
                   alt="Tooth Icon" // Adaugă un text alternativ pentru accesibilitate
                   width={400} // Specifică lățimea dorită
                   height={400} // Specifică înălțimea dorită
@@ -197,10 +203,10 @@ const index = async () => {
             <div className="col-md-6 col-lg-8">
               <div className="our_hotoffer">
                 <h2 className="fz30 txt-color-third">
-                  <span className="fz40 txt-color-primary">ÎMPREUNĂ,</span>{" "}
-                  Conectați pentru sănătate
+                  {/* <span className="fz40 txt-color-primary">ÎMPREUNĂ,</span>{" "} */}
+                  Servicii oferite
                 </h2>
-                <p className="fz20 txt-color-third">
+                {/* <p className="fz20 txt-color-third">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
@@ -211,26 +217,61 @@ const index = async () => {
                   the release of Letraset sheets containing Lorem Ipsum
                   passages, and more recently with desktop publishing software
                   like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
+                </p> */}
 
                 <ul>
                   <li>
                     <p className="fz20 txt-color-third">
                       <span className="flaticon-tick mr10"></span>
-                      Ne dorim ca pacienții să găsească medicul perfect și să
-                      facă o programare în cel mai ușor mod
+                      Gazon - indiferent daca ai nevoie de gazon natural sau
+                      artificial, va fi exact cum ti l-ai imaginat
                     </p>
                   </li>
                   <li>
                     <p className="fz20 txt-color-third">
                       <span className="flaticon-tick mr10"></span>
-                      Cea mai bună îngrijire, la un click distanță!
+                      Garduri – montaj si reparatii garduri din lemn, caramida,
+                      metal sau alte material.
                     </p>
                   </li>
                   <li>
                     <p className="fz20 txt-color-third">
                       <span className="flaticon-tick mr10"></span>
-                      Oricând, oriunde în România
+                      Terase – construieste terasa ta din rasinoase, lemn masiv
+                      sau compozit. Pe langa materialele dorite, vei primi si
+                      idei de design.
+                    </p>
+                  </li>
+                  <li>
+                    <p className="fz20 txt-color-third">
+                      <span className="flaticon-tick mr10"></span>
+                      Plante ornamentale si copaci - vrei plante ornamentale,
+                      copaci, gard viu in gradina ta? Nu-ti face griji, te
+                      ajutam cu furnizori dedicati!
+                    </p>
+                  </li>
+                  <li>
+                    <p className="fz20 txt-color-third">
+                      <span className="flaticon-tick mr10"></span>
+                      Pavaje si piatra naturala - doresti o terasa sau o alee
+                      noua? Toti peisagistii au experienta cu diverse tipuri de
+                      pavele, alei din paitra naturala si modele de terase.
+                    </p>
+                  </li>
+                  <li>
+                    <p className="fz20 txt-color-third">
+                      <span className="flaticon-tick mr10"></span>
+                      Montare si reparatii de foisoare - montam foisoare din
+                      magazin sau le construim de la zero. De asemenea, reparam
+                      orice parte a foisorului tau.
+                    </p>
+                  </li>
+                  <li>
+                    <p className="fz20 txt-color-third">
+                      <span className="flaticon-tick mr10"></span>
+                      Montaj sisteme de irigatii – montaj si programare sisteme
+                      de irigatii care iti vor mentine gradina verde si
+                      sanatoasa
                     </p>
                   </li>
                 </ul>
@@ -246,18 +287,20 @@ const index = async () => {
             <div className="col-md-6 col-lg-8 order-2 order-md-1">
               <div className="our_hotoffer">
                 <h2 className="fz30 txt-color-third">
-                  Cum se foloseste platforma ?
+                  Alege o firma de amenajari gradini in apropiere
                 </h2>
                 <p className="fz20 txt-color-third">
-                  Daca urmeaza sa iti faci inspectia tehnica perioada si nu stii
-                  ce statie ITP sa alegi sau vrei sa vezi ultimele modificari
-                  aparute in legislatie, nu iti face griji, noi suntem mereu
-                  aici pentru tine, acolo unde esti si tu: pe telefon, laptop
-                  sau pe tableta. Trebuie doar sa selectezi judetul si orasul in
-                  care vrei sa faci ITP-ul, folosind harta interactiva sau
-                  folosind functia cauta si notand locatia dorita. Si nu uita sa
-                  revii periodic pe platforma pentru ca adaugam constant noi
-                  informatii care te vor ajuta cu siguranta.
+                  Specialistii de pe xdx va ofera servicii de amenajarea
+                  gradini, parcuri si spatii verzi care includ: proiectare,
+                  montaj rulouri gazon, sisteme de irigatii, amenajare alei cu
+                  pietris sau piatra naturala, amenajare iazuri si fantani,
+                  constructii lemn, iluminat decorativ pentru gradina, fantani
+                  arteziene, plante ornamentale, plante decorative si flori de
+                  exterior, intretinere gradini, amenajari gradini verticale.
+                </p>
+                <p className="fz20 txt-color-third">
+                  Alege firma care iti va construe gradina de vis folosind harta
+                  interactiva!
                 </p>
               </div>
             </div>
@@ -274,6 +317,13 @@ const index = async () => {
       {/* <!-- 5.	Icons de incredere --> */}
       <section className="our-blog bgc-f7 pb30">
         <div className="container">
+          <div className="row">
+            <div className="col-lg-6 offset-lg-3">
+              <div className="main-title text-center">
+                <h2>Unde lucreaza specialistii de pe portal?</h2>
+              </div>
+            </div>
+          </div>
           <div className="row">
             <SectiuneIncredere />
           </div>
@@ -305,11 +355,11 @@ const index = async () => {
       </section>
 
       {/* <!-- Our Footer Bottom Area --> */}
-      <section className="footer_middle_area pt40 pb40">
+      {/* <section className="footer_middle_area pt40 pb40">
         <div className="container">
           <CopyrightFooter />
         </div>
-      </section>
+      </section> */}
       <CookieBanner />
     </>
   );

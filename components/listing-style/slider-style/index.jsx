@@ -66,9 +66,9 @@ const index = async ({ params, categorii, firme, judete }) => {
                 <div className="home_content listing slider_style pt30">
                   <BreadCrumb csName={"color-white"} />
                   <div className="home-text home6 text-center">
-                    <h2 className="fz50 color-white">
-                      Descopera funizori de servicii autorizati
-                    </h2>
+                    <h1 className="fz50 color-white">
+                      Firme de proiectare, amenajare si intretinere spatii verzi
+                    </h1>
                   </div>
                   {/* End home-text */}
                   <ListSearch

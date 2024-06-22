@@ -206,7 +206,7 @@ const BlogDetailsDynamic = async ({ params }) => {
 
               <div className="row">
                 <div className="col-lg-12 mb20 mt20">
-                  <h4>Related Posts</h4>
+                  <h4>Alte articole</h4>
                 </div>
                 <RelatedPost articole={articole} />
               </div>

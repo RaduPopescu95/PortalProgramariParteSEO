@@ -11,8 +11,22 @@ import { fetchFirme } from "@/utils/localProjectlUtils";
 import { cache } from "react";
 
 export const metadata = {
-  title: "Judete",
-  description: "Judete",
+  title: "Firma Amenajari Spatii Verzi",
+  description:
+    "Cauta un furnizor de servicii de amenajari spatii verzi in apropiere si solicita o oferta personalizata.",
+  openGraph: {
+    title: "Firma Amenajari Spatii Verzi",
+    description:
+      "Cauta un furnizor de servicii de amenajari spatii verzi in apropiere si solicita o oferta personalizata.",
+  },
+  alternates: {
+    canonical: `https://www.portal.ro/cauta`,
+  },
+  manifest: "https://portal.ro/manifest.json",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 const getFirme = cache(async (params, categorii) => {

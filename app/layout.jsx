@@ -15,6 +15,33 @@ export const metadata = {
     template: "%s - Portal Clinici",
   },
   description: "Descriere din root layout",
+  openGraph: {
+    title: "Portal clinici",
+    description: "%s - Portal Clinici",
+    url: "https://nextjs.org/",
+    siteName: "Nume site",
+    images: [
+      {
+        url: "https://nextjs.org/og.png",
+        width: 800,
+        height: 600,
+      },
+    ],
+    type: "website",
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
+  applicationName: "Portalul tau",
+  authors: [{ name: "Pro Web" }],
+  generator: "Next.js",
+  keywords: ["Portal", "Clinici"],
+  referrer: "origin-when-cross-origin",
+  creator: "Pro web",
+  publisher: "Pro web",
+  metadataBase: new URL("https://www.portal.ro/"),
+  manifest: "https://portal.ro/manifest.json",
 };
 
 // If loading a variable font, you don't need to specify the font weight

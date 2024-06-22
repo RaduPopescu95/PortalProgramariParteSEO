@@ -7,9 +7,13 @@ const Button = ({ children, onClick, className = "", ...props }) => {
 
   const handleClick = () => {
     if (props.navigare) {
-      router.push(props.navigare);
+      if (props.navigare.startsWith("mailto:")) {
+        window.location.href = props.navigare;
+      } else {
+        router.push(props.navigare);
+      }
     } else {
-      onClick;
+      onClick();
     }
   };
   return (

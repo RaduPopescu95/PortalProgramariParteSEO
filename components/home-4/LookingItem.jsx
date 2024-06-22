@@ -1,7 +1,35 @@
 import Image from "next/image";
 import find from "../../data/find";
 
-const LookingItem = ({ categorii }) => {
+const categorii = [
+  {
+    id: 1,
+    iconPath: "/assets/categorii/proiectare-gradini-si-spatii-verzi.svg",
+    siteName: "Proiectare gradini si spatii verzi",
+  },
+  {
+    id: 2,
+    iconPath: "/assets/categorii/amenajari-gradini-si-spatii-verzi.svg",
+    siteName: "Amenajari gradini si spatii verzi",
+  },
+  {
+    id: 3,
+    iconPath: "/assets/categorii/intretinere-gradini-si-spatii-verzi.svg",
+    siteName: "Intretinere gradini si spatii verzi",
+  },
+  {
+    id: 4,
+    iconPath: "/assets/categorii/furnizare-si-montaj-sisteme-de-irigatii.svg",
+    siteName: "Furnizare si montaj sisteme de irigatii",
+  },
+  {
+    id: 5,
+    iconPath: "/assets/categorii/comercializare-plante-ornamentale.svg",
+    siteName: "Comercializare plante ornamentale",
+  },
+];
+
+const LookingItem = () => {
   return (
     <ul className="list-unstyled w-100 d-flex flex-row align-items-center">
       {categorii.map((item) => (
@@ -12,7 +40,7 @@ const LookingItem = ({ categorii }) => {
           <div className="icon icon-container py-2 d-flex align-items-center justify-content-center">
             <Image
               src={item.iconPath} // Calea relativă la directorul public
-              alt="Tooth Icon" // Adaugă un text alternativ pentru accesibilitate
+              alt={item.siteName} // Adaugă un text alternativ pentru accesibilitate
               width={50} // Specifică lățimea dorită
               height={50} // Specifică înălțimea dorită
             />

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import relatedPostContent from "../../data/blogs";
 import Image from "next/image";
+import { replaceSpacesWithDashes } from "@/utils/strintText";
 
 const RelatedPost = ({ articole }) => {
   return (
@@ -22,7 +23,11 @@ const RelatedPost = ({ articole }) => {
             <div className="details">
               <div className="tc_content p15">
                 <h4>
-                  <Link href={`/blog-details/${item?.id}`}>
+                  <Link
+                    href={`/blog/${item.id}-${replaceSpacesWithDashes(
+                      item.siteName
+                    )}`}
+                  >
                     {item?.siteName}
                   </Link>
                 </h4>
@@ -42,9 +47,14 @@ const RelatedPost = ({ articole }) => {
 
               <div className="fp_footer">
                 <ul className="fp_meta float-start mb0"></ul>
-                <a className="fp_pdate float-end text-thm" href="#">
-                  Citește mai mult <span className="flaticon-next pr10" />
-                </a>
+                <Link
+                  className="fp_pdate float-end text-thm"
+                  href={`/blog/${item.id}-${replaceSpacesWithDashes(
+                    item.siteName
+                  )}`}
+                >
+                  Citește mai mullt <span className="flaticon-next ml10" />
+                </Link>
               </div>
             </div>
           </div>

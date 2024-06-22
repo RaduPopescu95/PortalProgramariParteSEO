@@ -24,8 +24,20 @@ export async function generateMetadata({ params, searchParams }, parent) {
     judet.charAt(0).toUpperCase() + judet?.slice(1).toLowerCase();
   console.log("judetparam...", judetParam);
   return {
-    title: `Clinici din ${judetParam}`,
-    description: `Clinici din ${judetParam}`,
+    title: `Specialisti In Peisagistica Si Gradinarit  ${judetParam}`,
+    description: `Aici vei gasi firme seriose, care iti vor amenaja spatiul verde rezidential sau comercial asa cum ti l-ai dorit intotdeauna. Vezi firme acum!`,
+    openGraph: {
+      title: `Specialisti In Peisagistica Si Gradinarit  ${judetParam}`,
+      description: `Aici vei gasi firme seriose, care iti vor amenaja spatiul verde rezidential sau comercial asa cum ti l-ai dorit intotdeauna. Vezi firme acum!`,
+    },
+    alternates: {
+      canonical: `https://www.portal.ro/judet/${judet}`,
+    },
+    manifest: "https://portal.ro/manifest.json",
+    robots: {
+      index: false,
+      follow: false,
+    },
   };
 }
 

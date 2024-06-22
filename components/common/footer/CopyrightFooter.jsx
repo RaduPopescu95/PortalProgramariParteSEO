@@ -25,14 +25,14 @@ const CopyrightFooter = () => {
       </div> */}
       {/* End .col */}
 
-      <div className="col-lg-12 col-xl-12 d-flex flex-column align-items-center text-center">
+      {/* <div className="col-lg-12 col-xl-12 d-flex flex-column align-items-center text-center">
         <div className="copyright-widget text-end">
           <p>
             &copy; {new Date().getFullYear()} by <span>titlu</span>. Toate
             drepturile rezervate.
           </p>
         </div>
-      </div>
+      </div> */}
       {/* End .col */}
     </div>
   );

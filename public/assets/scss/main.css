@@ -4864,7 +4864,7 @@ form.home5_advanced_search_form
   padding: 0;
   background-image: linear-gradient(
     to right,
-    rgba(62, 62, 165) 0%,
+    var(--color-primary) 0%,
     var(--color-primary) 100%
   );
   margin-top: 1px !important;
@@ -5077,7 +5077,7 @@ form.home5_advanced_search_form
 .home-four .banner-style-one .slide:before {
   background-image: linear-gradient(
     to right,
-    rgba(62, 62, 165) 0%,
+    var(--color-primary) 0%,
     var(--color-primary) 100%
   );
   left: 0;
@@ -5343,10 +5343,16 @@ form.home5_advanced_search_form
 
 .home4_iconbox .icon p {
   font-size: 16px;
-
   color: #ffffff;
-  line-height: 3;
+  line-height: 1.5;
   margin-bottom: 0;
+  max-width: 200px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
 }
 
 /*== Home Five Overlay Slider ==*/
@@ -8261,7 +8267,7 @@ form.home5_advanced_search_form
 .our-hot-offer:before {
   background-image: linear-gradient(
     to right,
-    rgba(62, 62, 165) 0%,
+    var(--color-primary) 0%,
     var(--color-primary) 100%
   );
   bottom: 0;
@@ -9434,7 +9440,7 @@ form.home5_advanced_search_form
 }
 
 .footer_one {
-  background-color: #24324a;
+  background-color: var(--color-primary);
 }
 
 .footer_middle_area {
@@ -9451,6 +9457,7 @@ form.home5_advanced_search_form
   color: #ffffff;
   line-height: 2.143;
   margin-bottom: 0;
+  padding-left: 70px;
 }
 
 .home3 .copyright-widget p,

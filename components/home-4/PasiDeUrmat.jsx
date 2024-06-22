@@ -13,8 +13,8 @@ const PasiDeUrmat = () => {
             <div className="col-4 d-flex justify-content-center align-items-center">
               <RoundDiv number={item.id} />
               <Image
-                src="/assets/images/pasurmat.svg"
-                alt="Tooth Icon"
+                src={item.iconPath}
+                alt={item.name}
                 width={100} // Poti regla dimensiunea dacă este necesar
                 height={100}
                 objectFit="cover"

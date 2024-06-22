@@ -6,8 +6,22 @@ import { fetchFirme } from "@/utils/localProjectlUtils";
 import { cache } from "react";
 
 export const metadata = {
-  title: "Judete",
-  description: "Judete",
+  title: "Firme de proiectare, amenajare si intretinere spatii verzi",
+  description:
+    "Cauti un partener de incredere pentru gradina ta rezidentiala sau comerciala? Vezi firmele de pe portalul nostrum!",
+  openGraph: {
+    title: "Firme de proiectare, amenajare si intretinere spatii verzi",
+    description:
+      "Cauti un partener de incredere pentru gradina ta rezidentiala sau comerciala? Vezi firmele de pe portalul nostrum!",
+  },
+  alternates: {
+    canonical: `https://www.portal.ro/clinici`,
+  },
+  manifest: "https://portal.ro/manifest.json",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export const revalidate = 60; // revalidate at most every minute , hour at 3600
