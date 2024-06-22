@@ -2,7 +2,7 @@ import ArticleEditor from "./QuillForm";
 // import dentisti from "../../../public/assets/categorii/dentisti.svg";
 // import cardiologie from "../../../public/assets/categorii/cardiologie.svg";
 // import gastroenterologie from "../../../public/assets/categorii/gastroenterologie.svg";
-import ortopedie from "../../../public/assets/categorii/ortopedie.svg";
+// import ortopedie from "../../../public/assets/categorii/ortopedie.svg";
 import Image from "next/image";
 
 const CreateList = ({ handleInputChange, formValues }) => {
