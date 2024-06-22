@@ -66,7 +66,7 @@ const index = async ({ params, categorii, firme, judete }) => {
                 <div className="home_content listing slider_style pt30">
                   <BreadCrumb csName={"color-white"} />
                   <div className="home-text home6 text-center">
-                    <h1 className="fz50 color-white">
+                    <h1 className="fz40 color-white">
                       Firme de proiectare, amenajare si intretinere spatii verzi
                     </h1>
                   </div>
@@ -126,11 +126,11 @@ const index = async ({ params, categorii, firme, judete }) => {
       </section>
 
       {/* <!-- Our Footer Bottom Area --> */}
-      <section className="footer_middle_area pt40 pb40">
+      {/* <section className="footer_middle_area pt40 pb40">
         <div className="container">
           <CopyrightFooter />
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

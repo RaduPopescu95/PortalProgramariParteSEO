@@ -30,23 +30,18 @@ const index = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-xl-12 p0">
-            <SidebarListings />
+              <SidebarListings />
             </div>
             {/* End .col */}
-
-         
           </div>
           {/* End .row */}
         </div>
         {/* End .container */}
-
- 
       </section>
 
       {/* <!-- Start Call to Action --> */}
-      
-          <CallToAction className={"pt-20 pt-sm-120"}/>
-        
+
+      <CallToAction className={"pt-20 pt-sm-120"} />
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one">
@@ -58,11 +53,11 @@ const index = () => {
       </section>
 
       {/* <!-- Our Footer Bottom Area --> */}
-      <section className="footer_middle_area pt40 pb40">
+      {/* <section className="footer_middle_area pt40 pb40">
         <div className="container">
           <CopyrightFooter />
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

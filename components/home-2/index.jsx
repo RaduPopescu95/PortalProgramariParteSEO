@@ -28,21 +28,20 @@ const index = () => {
 
       {/* <!-- Map --> */}
       <div className="container-fluid p0">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="main-banner-wrapper">
-                <div className="banner-style-one arrow-style-2">
-                  <HeroSlider />
-                </div>
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="main-banner-wrapper">
+              <div className="banner-style-one arrow-style-2">
+                <HeroSlider />
               </div>
-              {/* <!-- /.main-banner-wrapper --> */}
             </div>
+            {/* <!-- /.main-banner-wrapper --> */}
           </div>
         </div>
+      </div>
 
       {/* <!-- Latest Properties For Sell --> */}
       <Hero />
-
 
       {/* <!-- Start Call to Action --> */}
       <section className="start-partners bgc-thm pt50 pb50">
@@ -61,11 +60,11 @@ const index = () => {
       </section>
 
       {/* <!-- Our Footer Bottom Area --> */}
-      <section className="footer_middle_area pt40 pb40">
+      {/* <section className="footer_middle_area pt40 pb40">
         <div className="container">
           <CopyrightFooter />
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
