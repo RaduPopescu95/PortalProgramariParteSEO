@@ -40,8 +40,8 @@ export const metadata = {
   referrer: "origin-when-cross-origin",
   creator: "Pro web",
   publisher: "Pro web",
-  metadataBase: new URL("https://www.portal.ro/"),
-  manifest: "https://portal.ro/manifest.json",
+  metadataBase: new URL("https://portal1-shik-projects.vercel.app/"),
+  manifest: "https://portal1-shik-projects.vercel.app/manifest.json",
 };
 
 // If loading a variable font, you don't need to specify the font weight
