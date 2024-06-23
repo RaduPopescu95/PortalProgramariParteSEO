@@ -49,7 +49,6 @@ const Index = () => {
   };
 
   const handleContentChangeFirst = (content) => {
-    let cont = DOMPurify.sanitize(content);
     setFormValues((prevState) => ({
       ...prevState,
       articleContentFirst: cont,
@@ -57,7 +56,6 @@ const Index = () => {
   };
 
   const handleContentChangeSecond = (content) => {
-    let cont = DOMPurify.sanitize(content);
     setFormValues((prevState) => ({
       ...prevState,
       articleContentSecond: cont,
