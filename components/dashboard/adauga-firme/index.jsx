@@ -242,9 +242,11 @@ const Index = () => {
 
         formValues.imagini = images;
 
-        await handleUploadFirestore(formValues, "Firme").then(() => {
-          setIsLoading(false);
-        });
+        await handleUploadFirestore(formValues, "Firme");
+
+        // Așteaptă finalizarea încărcării pentru "Imagini" și apoi dezactivează indicatorul de încărcare
+        await handleUploadFirestore(formValues, "Imagini");
+        setIsLoading(false);
       }
       // Setarea mesajului de succes după finalizarea cu succes
       setSuccessMessage("Scriere realizată cu succes!");
@@ -279,6 +281,7 @@ const Index = () => {
         cuvinteCheieImaginiGalerie: "",
       });
     } catch (error) {
+      setIsLoading(false);
       console.error("Eroare la încărcare submit:", error);
       // Setarea mesajului de eroare, care va fi afișat în același loc cu mesajul de succes
       setSuccessMessage("Eroare la încărcare: " + error.message);
