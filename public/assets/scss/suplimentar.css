@@ -433,3 +433,16 @@
 .sectiune-incredere {
   height: 420px !important;
 }
+
+.input-group {
+  position: relative; /* Poziționează relativ grupul pentru a permite poziționarea absolută a butonului */
+}
+
+.input-group .form-control {
+  padding-right: 2.5rem; /* Adaugă un padding la dreapta pentru a preveni suprapunerea textului cu butonul */
+}
+
+.input-group button {
+  border-radius: 0; /* Elimină rotunjirile butonului pentru un aspect integrat */
+  border: none; /* Elimină bordurile butonului pentru a se fuziona cu inputul */
+}

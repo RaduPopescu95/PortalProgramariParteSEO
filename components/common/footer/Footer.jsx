@@ -87,15 +87,6 @@ const Footer = () => {
             <li>
               <Link href="/">Politica de confidentialitate</Link>
             </li>
-          </ul>
-        </div>
-      </div>
-      {/* End .col */}
-
-      <div className="col-sm-7 col-md-7 col-lg-4 col-xl-4">
-        <div className="footer_qlink_widget">
-          <h3>Link-uri utile</h3>
-          <ul className="list-unstyled">
             <li>
               <Link href="/">Acasa</Link>
             </li>
@@ -116,7 +107,35 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="copyright-widget mt70">
+      </div>
+      {/* End .col */}
+
+      <div className="col-sm-7 col-md-7 col-lg-4 col-xl-4">
+        <div className="footer_qlink_widget">
+          <h3>Caută și Contactează Firma Apropiată</h3>
+          <p>
+            Gaseste cea mai apropiata firma in functie de orasul in care te
+            afli. Noteaza-l in caseta de cautare de mai jos si intra in contact.
+          </p>
+          <div className="form-group mb25">
+            <div className="input-group">
+              <input
+                type="text"
+                className="form-control pr-5"
+                placeholder="Nume firma..."
+                // onChange={(e) => dispatch(addKeyword(e.target.value))}
+              />
+              <button
+                className="btn btn-outline-secondary position-absolute"
+                style={{ right: 0, top: 0, height: "100%", zIndex: 10 }}
+                type="button"
+              >
+                <i className="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="copyright-widget mb25">
           <p>
             &copy; {new Date().getFullYear()} by <span>titlu</span>. Toate
             drepturile rezervate.

@@ -10,7 +10,11 @@ const RelatedPost = ({ articole }) => {
         <div className="col-md-4 col-lg-4" key={item?.id}>
           <div className="for_blog feat_property">
             <div className="thumb">
-              <Link href={`/blog-details/${item?.id}`}>
+              <Link
+                href={`/blog/${item.id}-${replaceSpacesWithDashes(
+                  item.siteName
+                )}`}
+              >
                 <Image
                   width={343}
                   height={220}

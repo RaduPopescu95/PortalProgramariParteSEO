@@ -9568,6 +9568,12 @@ form.home5_advanced_search_form
   margin-bottom: 25px;
 }
 
+.footer_qlink_widget p {
+  color: #ffffff;
+
+  margin-bottom: 25px;
+}
+
 .home3 .footer_about_widget h4,
 .home3 .footer_qlink_widget h4,
 .home3 .footer_contact_widget h4,
@@ -9944,7 +9950,7 @@ form.home5_advanced_search_form
 .inner_page_breadcrumb .breadcrumb_title {
   font-size: 40px;
 
-  color: #484848;
+  color: white;
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 0;
@@ -9962,7 +9968,7 @@ form.home5_advanced_search_form
 .inner_page_breadcrumb .breadcrumb-item a,
 .inner_page_breadcrumb .breadcrumb-item.active,
 .inner_page_breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-  color: #484848;
+  color: white;
   text-transform: capitalize;
 }
 

@@ -26,34 +26,40 @@ const Blogs = ({ articole }) => {
               </Link>
             </div>
             <div className="details">
-              <div className="tc_content p10">
-                <h2 className="fz24">
+              <div className="tc_content p15">
+                <h4>
                   <Link
                     href={`/blog/${item.id}-${replaceSpacesWithDashes(
                       item.siteName
                     )}`}
                   >
-                    {item.siteName}
+                    {item?.siteName}
                   </Link>
-                </h2>
-                <p className="text-thm">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-              <div className="fp_footer">
-                <ul className="fp_meta float-end pr10">
+                </h4>
+                <ul className="bpg_meta">
                   <li className="list-inline-item">
-                    <Link
-                      className="fp_pdate float-end text-thm"
-                      href={`/blog/${item.id}-${replaceSpacesWithDashes(
-                        item.siteName
-                      )}`}
-                    >
-                      Citește mai mult <span className="flaticon-next ml10" />
-                    </Link>
+                    <a href="#">
+                      <i className="flaticon-calendar"></i>
+                    </a>
+                  </li>
+                  <li className="list-inline-item">
+                    <a href="#">{item?.firstUploadDate}</a>
                   </li>
                 </ul>
+                <p>{item?.metaDescription.slice(0, 65)}</p>
+              </div>
+              {/* End . tc_content */}
+
+              <div className="fp_footer">
+                <ul className="fp_meta float-start mb0"></ul>
+                <Link
+                  className="fp_pdate float-end text-thm"
+                  href={`/blog/${item.id}-${replaceSpacesWithDashes(
+                    item.siteName
+                  )}`}
+                >
+                  Citește mai mullt <span className="flaticon-next ml10" />
+                </Link>
               </div>
             </div>
           </div>
