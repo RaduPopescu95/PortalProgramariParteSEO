@@ -50,14 +50,14 @@ const Index = () => {
   const handleContentChangeFirst = (content) => {
     setFormValues((prevState) => ({
       ...prevState,
-      articleContentFirst: cont,
+      articleContentFirst: content,
     }));
   };
 
   const handleContentChangeSecond = (content) => {
     setFormValues((prevState) => ({
       ...prevState,
-      articleContentSecond: cont,
+      articleContentSecond: content,
     }));
   };
 
