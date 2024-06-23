@@ -16,6 +16,7 @@ import {
   handleUploadFirestore,
 } from "@/utils/firestoreUtils";
 import { useParams, useRouter } from "next/navigation";
+import DOMPurify from "isomorphic-dompurify";
 
 const Index = () => {
   const [formValues, setFormValues] = useState({
@@ -42,16 +43,18 @@ const Index = () => {
   };
 
   const handleContentChangeFirst = (content) => {
+    let cont = DOMPurify.sanitize(content);
     setFormValues((prevState) => ({
       ...prevState,
-      articleContentFirst: content,
+      articleContentFirst: cont,
     }));
   };
 
   const handleContentChangeSecond = (content) => {
+    let cont = DOMPurify.sanitize(content);
     setFormValues((prevState) => ({
       ...prevState,
-      articleContentSecond: content,
+      articleContentSecond: cont,
     }));
   };
 

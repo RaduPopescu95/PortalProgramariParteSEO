@@ -24,6 +24,7 @@ import selectedFiles from "@/utils/selectedFiles";
 import { useParams, useRouter } from "next/navigation";
 import CommonLoader from "@/components/common/CommonLoader";
 import { uploadImage, uploadMultipleImages } from "@/utils/storageUtils";
+import DOMPurify from "isomorphic-dompurify";
 
 const Index = () => {
   // Adăugarea unui nou state pentru mesajul de succes
@@ -166,16 +167,18 @@ const Index = () => {
     console.log(formValues);
   };
   const handleContentChangeFirst = (content) => {
+    let cont = DOMPurify.sanitize(content);
     setFormValues((prevState) => ({
       ...prevState,
-      articleContentFirst: content,
+      articleContentFirst: cont,
     }));
   };
 
   const handleContentChangeSecond = (content) => {
+    let cont = DOMPurify.sanitize(content);
     setFormValues((prevState) => ({
       ...prevState,
-      articleContentSecond: content,
+      articleContentSecond: cont,
     }));
   };
 

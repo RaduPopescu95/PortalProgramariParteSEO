@@ -19,6 +19,9 @@ const TabDetailsContent = ({ firma }) => {
               <div className="mbp_first media">
                 <div className="media-body agent-desc">
                   <DescriptionsText firma={firma} />
+                  <p>
+                    asdaddadsdddadasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                  </p>
                 </div>
               </div>
             </div>
