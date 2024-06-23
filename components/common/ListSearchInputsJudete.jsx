@@ -63,6 +63,7 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
           <div className="search_option_two">
             <div className="candidate_revew_select">
               <select
+                aria-label="Alege Localitate"
                 className={`selectpicker w100 form-select show-tick ${
                   isSubmittedWithoutLocation ? "border-danger" : ""
                 }`}

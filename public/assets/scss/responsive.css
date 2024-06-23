@@ -462,7 +462,7 @@
   .feat_property .details .fp_footer .fp_pdate {
     float: left !important;
     margin-left: 55px;
-    margin-top: -15px;
+    margin-top: 15px;
   }
   .feat_property.list .details .fp_footer .fp_pdate {
     float: right !important;

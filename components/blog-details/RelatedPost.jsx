@@ -12,7 +12,7 @@ const RelatedPost = ({ articole }) => {
             <div className="thumb">
               <Link
                 href={`/blog/${item.id}-${replaceSpacesWithDashes(
-                  item.siteName
+                  item.siteName.toLowerCase()
                 )}`}
               >
                 <Image
@@ -26,20 +26,18 @@ const RelatedPost = ({ articole }) => {
             </div>
             <div className="details">
               <div className="tc_content p15">
-                <h4>
+                <h3>
                   <Link
                     href={`/blog/${item.id}-${replaceSpacesWithDashes(
-                      item.siteName
+                      item.siteName.toLowerCase()
                     )}`}
                   >
                     {item?.siteName}
                   </Link>
-                </h4>
+                </h3>
                 <ul className="bpg_meta">
                   <li className="list-inline-item">
-                    <a href="#">
-                      <i className="flaticon-calendar"></i>
-                    </a>
+                    <i className="flaticon-calendar"></i>
                   </li>
                   <li className="list-inline-item">
                     <a href="#">{item?.firstUploadDate}</a>
@@ -50,11 +48,11 @@ const RelatedPost = ({ articole }) => {
               {/* End . tc_content */}
 
               <div className="fp_footer">
-                <ul className="fp_meta float-start mb0"></ul>
+                {/* <ul className="fp_meta float-start mb0"></ul> */}
                 <Link
-                  className="fp_pdate float-end text-thm"
+                  className="fp_pdate float-end text-thm mr10"
                   href={`/blog/${item.id}-${replaceSpacesWithDashes(
-                    item.siteName
+                    item.siteName.toLowerCase()
                   )}`}
                 >
                   Citește mai mullt <span className="flaticon-next ml10" />

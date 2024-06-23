@@ -67,15 +67,15 @@ const FirmaItem = ({ firme, params }) => {
         <div className="details">
           <div className="tc_content p10">
             {/* <p className="text-thm">{item?.type}</p> */}
-            <h4>
+            <h3>
               <Link
                 href={`/${replaceSpacesWithDashes(
-                  item?.categorie
-                )}-${replaceSpacesWithDashes(item?.localitate)}`}
+                  item?.categorie.toLowerCase()
+                )}-${replaceSpacesWithDashes(item?.localitate.toLowerCase())}`}
               >
                 {item?.siteName}
               </Link>
-            </h4>
+            </h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.

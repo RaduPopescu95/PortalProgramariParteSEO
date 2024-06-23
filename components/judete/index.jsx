@@ -24,7 +24,7 @@ import {
 import BreadCrumbBanner from "./BreadCrumbBanner";
 import FirmaItem from "./FirmaItem";
 
-import { fetchFirme } from "@/utils/localProjectlUtils";
+import { fetchFirme, transferaImagini } from "@/utils/localProjectlUtils";
 
 export async function getServerData(params) {
   let data = {};
@@ -57,7 +57,9 @@ export async function getServerData(params) {
     }
     // query zone
 
-    data = { localitati, firme };
+    let firms = await transferaImagini(firme);
+
+    data = { localitati, firms };
   } catch (error) {
     console.error("Failed to fetch data....:", error);
     return {
@@ -71,7 +73,7 @@ export async function getServerData(params) {
 
 const index = async ({ judet, params }) => {
   const data = await getServerData(params);
-  // if (!data.firme) {
+  // if (!data.firms) {
   //   notFound();
   // }
   return (
@@ -109,7 +111,7 @@ const index = async ({ judet, params }) => {
               <div className="home_content listing slider_style pt30">
                 <div className="home-text home6 text-center">
                   <BreadCrumb csName={"color-white"} />
-                  <h2 className="fz50 color-white">
+                  <h2 className="fz35 color-white">
                     Firme pregatite sa proiecteze, amenajeze si sa intretina
                     spatiul tau verde În {judet}
                   </h2>
@@ -133,7 +135,7 @@ const index = async ({ judet, params }) => {
           <div className="row pt30">
             <div className="col-md-12 col-lg-12">
               <div className="row">
-                <FirmaItem params={params} firme={data.firme} />
+                <FirmaItem params={params} firme={data.firms} />
               </div>
               {/* End .row */}
 

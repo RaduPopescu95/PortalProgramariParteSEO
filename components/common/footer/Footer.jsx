@@ -129,6 +129,7 @@ const Footer = () => {
                 className="btn btn-outline-secondary position-absolute"
                 style={{ right: 0, top: 0, height: "100%", zIndex: 10 }}
                 type="button"
+                aria-label="cauta firma"
               >
                 <i className="fa fa-search"></i>
               </button>

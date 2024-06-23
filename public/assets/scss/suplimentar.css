@@ -255,7 +255,7 @@
 .btn.btnGeneral {
   border-radius: 25px;
   background-color: var(--btn-primary);
-  color: var(--btn-secondary);
+  color: "black";
   font-size: 16px;
   font-weight: bold;
   height: 50px;
@@ -290,7 +290,7 @@
 .btn.btnGeneralFooter {
   border-radius: 25px;
   background-color: var(--btn-primary);
-  color: var(--btn-secondary);
+  color: var(--btn-third);
   font-size: 13px;
   font-weight: bold;
   height: 40px;
@@ -312,13 +312,14 @@
 }
 
 .btn.btnGeneralFooter.btnSecondary {
-  color: var(--btn-primary);
-  background-color: var(--btn-third);
+  color: white;
+  background-color: black;
 }
 .btn.btnGeneralFooter.btnSecondary:hover {
-  color: var(--btn-primary);
-  border-color: var(--btn-primary);
+  color: white;
+  border-color: white;
   /* transform: scale(1.05);  */
+  background-color: transparent;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Întunecă și mărește umbră pentru a adăuga un efect vizual mai puternic */
 }
 
