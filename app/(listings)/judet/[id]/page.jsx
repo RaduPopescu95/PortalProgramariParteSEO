@@ -31,9 +31,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
       description: `Aici vei gasi firme seriose, care iti vor amenaja spatiul verde rezidential sau comercial asa cum ti l-ai dorit intotdeauna. Vezi firme acum!`,
     },
     alternates: {
-      canonical: `https://www.portal.ro/judet/${judet}`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${judet}`,
     },
-    manifest: "https://portal.ro/manifest.json",
+    manifest: `${process.env.NEXT_PUBLIC_SITE_URL}/manifest.json`,
     robots: {
       index: false,
       follow: false,

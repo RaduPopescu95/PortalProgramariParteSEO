@@ -9,9 +9,9 @@ export const metadata = {
     description: "Pagina despre noi descriere",
   },
   alternates: {
-    canonical: `https://www.portal.ro/despre-noi`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/despre-noi`,
   },
-  manifest: "https://portal.ro/manifest.json",
+  manifest: `${process.env.NEXT_PUBLIC_SITE_URL}/manifest.json`,
   robots: {
     index: false,
     follow: false,

@@ -11,9 +11,9 @@ export const metadata = {
       "Cauti o firma de amenajari gradini care sa amenajeze spatiu tau residential sau sediul companiei tale? Vezi specialistii in amenajari spatii verzi de pe portal",
   },
   alternates: {
-    canonical: `https://www.portal.ro/`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/`,
   },
-  manifest: "https://portal.ro/manifest.json",
+  manifest: `${process.env.NEXT_PUBLIC_SITE_URL}/manifest.json`,
   robots: {
     index: false,
     follow: false,

@@ -50,9 +50,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
       ],
     },
     alternates: {
-      canonical: `https://www.portal.ro/${id}`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${id}`,
     },
-    manifest: "https://portal.ro/manifest.json",
+    manifest: `${process.env.NEXT_PUBLIC_SITE_URL}/manifest.json`,
     robots: {
       index: false,
       follow: false,

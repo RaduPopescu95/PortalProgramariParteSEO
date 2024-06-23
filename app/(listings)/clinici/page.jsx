@@ -15,9 +15,9 @@ export const metadata = {
       "Cauti un partener de incredere pentru gradina ta rezidentiala sau comerciala? Vezi firmele de pe portalul nostrum!",
   },
   alternates: {
-    canonical: `https://www.portal.ro/clinici`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/clinici`,
   },
-  manifest: "https://portal.ro/manifest.json",
+  manifest: `${process.env.NEXT_PUBLIC_SITE_URL}/manifest.json`,
   robots: {
     index: false,
     follow: false,

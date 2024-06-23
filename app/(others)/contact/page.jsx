@@ -9,9 +9,9 @@ export const metadata = {
     description: "Pagina contact descriere",
   },
   alternates: {
-    canonical: `https://www.portal.ro/contact`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
   },
-  manifest: "https://portal.ro/manifest.json",
+  manifest: `${process.env.NEXT_PUBLIC_SITE_URL}/manifest.json`,
   robots: {
     index: false,
     follow: false,

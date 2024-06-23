@@ -20,9 +20,9 @@ export const metadata = {
       "Cauta un furnizor de servicii de amenajari spatii verzi in apropiere si solicita o oferta personalizata.",
   },
   alternates: {
-    canonical: `https://www.portal.ro/cauta`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/cauta`,
   },
-  manifest: "https://portal.ro/manifest.json",
+  manifest: `${process.env.NEXT_PUBLIC_SITE_URL}/manifest.json`,
   robots: {
     index: false,
     follow: false,
