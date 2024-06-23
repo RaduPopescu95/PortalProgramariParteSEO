@@ -5,7 +5,7 @@ import {
 } from "@/utils/firestoreUtils";
 import { parseDateToISO } from "@/utils/timeUtils";
 
-const URL = `${NEXT_PUBLIC_SITE_URL}/`;
+const URL = `https://portal1-shik-projects.vercel.app/`;
 
 export default async function sitemap() {
   console.log("Fetching 'Judete' data from Firestore...");
