@@ -30,8 +30,8 @@ export const metadata = {
     type: "website",
   },
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
   applicationName: "Portalul tau",
   authors: [{ name: "Pro Web" }],

@@ -35,8 +35,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
     },
     manifest: `${process.env.NEXT_PUBLIC_SITE_URL}/manifest.json`,
     robots: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
     },
   };
 }
