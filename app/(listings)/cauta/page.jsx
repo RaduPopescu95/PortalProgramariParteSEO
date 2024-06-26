@@ -63,10 +63,6 @@ export async function getServerData(params) {
 
 const index = async ({ params }) => {
   noStore();
-  console.log("asdaddaad", params);
-
-  const data = await getServerData(params);
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -75,16 +71,16 @@ const index = async ({ params }) => {
     description:
       "Cauta un furnizor de servicii de amenajari spatii verzi in apropiere si solicita o oferta personalizata.",
   };
+
+  const data = await getServerData(params);
+
   return (
     <>
-      <section>
-        {/* Add JSON-LD to your page */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {/* ... */}
-      </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <SliderStyle
         params={params.clinici}
         judete={data.judete}
