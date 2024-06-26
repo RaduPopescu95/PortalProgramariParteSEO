@@ -29,6 +29,8 @@ export const metadata = {
   },
 };
 
+export const revalidate = 60; // revalidate at most every minute , hour at 3600
+
 const getFirme = cache(async (params, categorii) => {
   let firme = fetchFirme(params, categorii);
   return firme;
@@ -62,7 +64,6 @@ export async function getServerData(params) {
 }
 
 const index = async ({ params }) => {
-  noStore();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",

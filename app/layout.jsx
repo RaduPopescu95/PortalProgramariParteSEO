@@ -56,7 +56,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" href="./favicon.ico" />
-        {/* <meta name="robots" content="noindex, nofollow" /> */}
       </head>
       <body className={nunito.className}>
         {/* <LoadScript
