@@ -23,9 +23,27 @@ export const metadata = {
 export const revalidate = 60; // revalidate at most every minute , hour at 3600
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Amenajari Gradini – Amenajari Spatii Verzi – Peisagisti",
+    // image: product.image,
+    description:
+      "Cauti o firma de amenajari gradini care sa amenajeze spatiu tau residential sau sediul companiei tale? Vezi specialistii in amenajari spatii verzi de pe portal",
+  };
   return (
-    <Wrapper>
-      <HomeMain />
-    </Wrapper>
+    <>
+      <section>
+        {/* Add JSON-LD to your page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {/* ... */}
+      </section>
+      <Wrapper>
+        <HomeMain />
+      </Wrapper>
+    </>
   );
 }
