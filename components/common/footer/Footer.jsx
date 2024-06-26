@@ -76,32 +76,32 @@ const Footer = () => {
           <h3>Info portal</h3>
           <ul className="list-unstyled">
             <li>
-              <Link href="/">Info portal</Link>
+              <Link href="/despre-noi">Despre noi</Link>
             </li>
             <li>
-              <Link href="/">Cum functioneaza?</Link>
+              <Link href="/cum-functioneaza">Cum functioneaza?</Link>
             </li>
             <li>
-              <Link href="/">Politica de cookie</Link>
+              <Link href="/politica-cookie">Politica de cookie</Link>
             </li>
             <li>
-              <Link href="/">Politica de confidentialitate</Link>
+              <Link href="/politica-confidentialitate">
+                Politica de confidentialitate
+              </Link>
             </li>
             <li>
               <Link href="/">Acasa</Link>
             </li>
             <li>
-              <Link href="/categorie">Cauta clinic</Link>
+              <Link href="/cauta">Cauta clinic</Link>
             </li>
             <li>
-              <Link href="/categorie">Clinici</Link>
+              <Link href="/clinici">Clinici</Link>
             </li>
             <li>
               <Link href="/blog">Blog</Link>
             </li>
-            <li>
-              <Link href="/despre-noi">Despre noi</Link>
-            </li>
+
             <li>
               <Link href="/contact">Contact</Link>
             </li>

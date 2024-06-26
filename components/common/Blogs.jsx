@@ -4,7 +4,6 @@ import Image from "next/image";
 import { replaceSpacesWithDashes } from "@/utils/strintText";
 
 const Blogs = ({ articole }) => {
-  console.log("blog....test...", articole);
   return (
     <>
       {articole.slice(0, 3).map((item) => (

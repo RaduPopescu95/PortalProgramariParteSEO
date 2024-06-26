@@ -48,7 +48,6 @@ export async function getServerData(params) {
     let categorii = await handleGetFirestore("Categorii");
     console.log("here...params...", params);
     let firme = await getFirme(params, categorii);
-    console.log("here...firme...", firme);
 
     data = { judete, categorii, firme };
     return data;

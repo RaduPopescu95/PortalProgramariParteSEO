@@ -139,7 +139,7 @@ const ContactWithAgent = ({ firma }) => {
             </div>
           </div>
           <div className="col-md-4 order-1 order-md-3">
-            {/* <LazyLoadGoogleMap firma={firma} /> */}
+            <LazyLoadGoogleMap firma={firma} />
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
   const router = useRouter();
 
   const submitHandler = () => {
-    console.log("submit...", selectedJudet);
+    console.log("submit...", judet);
     console.log("submit...", selectedLocalitate);
 
     if (!selectedCategorie && !selectedLocalitate && !selectedJudet) {
@@ -29,13 +29,19 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
     }
 
     if (selectedLocalitate) {
-      router.push(`/clinici-${selectedLocalitate.toLocaleLowerCase()}`);
+      router.push(
+        `/clinici-${replaceSpacesWithDashes(
+          selectedLocalitate.toLocaleLowerCase()
+        )}`
+      );
       return;
     }
 
     if (selectedJudet) {
       router.push(
-        `/judet/${replaceSpacesWithDashes(selectedJudet.toLocaleLowerCase())}`
+        `/judet/${replaceSpacesWithDashes(
+          judet.toLocaleLowerCase()
+        )}-${replaceSpacesWithDashes(selectedJudet.toLocaleLowerCase())}`
       );
       return;
     }

@@ -40,7 +40,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
   console.log("firme....just one...", firme);
   return {
-    title: `${firme[0].metaTitle}`,
+    title: `${firme[0].metaTitle || ""}`,
     description: `${firme[0].metaDescription}`,
     openGraph: {
       images: [
@@ -76,7 +76,7 @@ export async function getServerData(params, searchParams) {
     let categorii = await handleGetFirestore("Categorii");
     console.log("here...params...", params);
     let firms = await getFirme(params, categorii);
-    console.log("here...firme...", firms);
+
     let firme = await transferaImagini(firms);
 
     data = { judete, categorii, firme };

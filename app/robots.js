@@ -1,11 +1,9 @@
-import { MetadataRoute } from "next";
-
 export default function robots() {
   return {
     rules: {
       userAgent: "*",
-      disallow: "/",
+      allow: "/",
     },
-    // sitemap: "https://portal.ro/sitemap.xml",
+    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
   };
 }

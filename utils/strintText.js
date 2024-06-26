@@ -30,3 +30,7 @@ export function replaceDashesWithSpaces(str) {
   console.log("Str...in....replaceDashesWithSpaces...", str);
   return str.replace(/-/g, " ");
 }
+
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}

@@ -25,6 +25,7 @@ import BreadCrumbBanner from "./BreadCrumbBanner";
 import FirmaItem from "./FirmaItem";
 
 import { fetchFirme, transferaImagini } from "@/utils/localProjectlUtils";
+import { capitalizeFirstLetter } from "@/utils/strintText";
 
 export async function getServerData(params) {
   let data = {};
@@ -113,13 +114,13 @@ const index = async ({ judet, params }) => {
                   <BreadCrumb csName={"color-white"} />
                   <h2 className="fz35 color-white">
                     Firme pregatite sa proiecteze, amenajeze si sa intretina
-                    spatiul tau verde În {judet}
+                    spatiul tau verde în {capitalizeFirstLetter(judet)}
                   </h2>
                 </div>
                 {/* End home-text */}
                 <ListSearchJudete
                   className="mt40"
-                  judete={judet}
+                  judet={judet}
                   localitati={data.localitati}
                 />
               </div>

@@ -77,9 +77,6 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
           selectedCategorie.toLocaleLowerCase()
         )}-${replaceSpacesWithDashes(selectedLocalitate.toLocaleLowerCase())}`
       );
-      // router.push(
-      //   `/${selectedCategorie.toLocaleLowerCase()}/${selectedCategorie.toLocaleLowerCase()}-${selectedLocalitate.toLocaleLowerCase()}`
-      // );
       return;
     }
 
