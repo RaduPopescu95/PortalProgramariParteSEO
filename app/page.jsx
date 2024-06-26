@@ -33,14 +33,13 @@ export default function Home() {
   };
   return (
     <>
-      <section>
-        {/* Add JSON-LD to your page */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {/* ... */}
-      </section>
+      {/* Add JSON-LD to your page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {/* ... */}
+
       <Wrapper>
         <HomeMain />
       </Wrapper>

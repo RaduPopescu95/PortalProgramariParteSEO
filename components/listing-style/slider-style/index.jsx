@@ -32,25 +32,9 @@ const index = async ({ params, categorii, firme, judete }) => {
   // if (!data.firme) {
   //   notFound();
   // }
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Firma Amenajari Spatii Verzi",
-    // image: product.image,
-    description:
-      "Cauta un furnizor de servicii de amenajari spatii verzi in apropiere si solicita o oferta personalizata.",
-  };
 
   return (
     <>
-      <section>
-        {/* Add JSON-LD to your page */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {/* ... */}
-      </section>
       {/* <!-- Main Header Nav --> */}
       <Header />
 
