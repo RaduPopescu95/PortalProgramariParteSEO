@@ -46,8 +46,10 @@ const LookingItem = () => {
             <Image
               src={item.iconPath}
               alt={item.altName}
+              layout="responsive"
               width={50}
               height={50}
+              sizes="(max-width: 768px) 50px, (max-width: 1200px) 50px, 50px"
             />
             <p className="ms-2 text-truncate w-100">{item.siteName}</p>
           </div>
