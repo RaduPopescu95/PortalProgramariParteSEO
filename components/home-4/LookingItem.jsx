@@ -48,7 +48,6 @@ const LookingItem = () => {
               alt={item.altName}
               width={50}
               height={50}
-              layout="responsive"
             />
             <p className="ms-2 text-truncate w-100">{item.siteName}</p>
           </div>

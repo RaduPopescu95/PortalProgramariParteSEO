@@ -100,9 +100,22 @@ const index = async ({ params, searchParams }) => {
   if (data.firme.length === 0) {
     notFound();
   }
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    name: data.firme[0]?.metaTitle,
+    // image: product.image,
+    description: data.firme[0]?.metaDescription,
+  };
   console.log("data....", data);
+
   return (
     <>
+      {/* Add JSON-LD to your page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SliderStyle
         params={params.clinici}
         judete={data.judete}

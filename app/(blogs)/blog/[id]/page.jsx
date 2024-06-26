@@ -51,8 +51,6 @@ const BlogDetailsDynamic = async ({ params }) => {
   const blogArr = await handleQueryFirestore("Articole", "id", id);
   const articole = await handleGetFirestore("Articole");
   const blog = blogArr[0];
-  console.log("blog is here...", blog);
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -60,17 +58,17 @@ const BlogDetailsDynamic = async ({ params }) => {
     // image: product.image,
     description: blog?.metaDescription,
   };
+  console.log("blog is here...", blog);
 
   return (
     <>
-      <section>
-        {/* Add JSON-LD to your page */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {/* ... */}
-      </section>
+      {/* Add JSON-LD to your page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {/* ... */}
+
       {/* <!-- Main Header Nav --> */}
       <Header />
 

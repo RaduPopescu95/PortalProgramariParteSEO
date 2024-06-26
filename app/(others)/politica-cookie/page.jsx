@@ -2,10 +2,9 @@ import dynamic from "next/dynamic";
 import AboutUs from "@/components/about-us";
 
 export const metadata = {
-  title: 'titlu',
-  description:
-    'titlu',
-}
+  title: "titlu",
+  description: "titlu",
+};
 
 const index = () => {
   return (
