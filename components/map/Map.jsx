@@ -2,25 +2,7 @@ import React from "react";
 
 export default function Map() {
   return (
-    <div
-      style={{
-        width: "100%",
-        float: "left",
-        boxSizing: "border-box",
-        color: "rgb(0, 0, 0)",
-        margin: "0px",
-        padding: "0px",
-        border: "0px none rgb(0, 0, 0)",
-        outline: "rgb(0, 0, 0) none 0px",
-        fontSize: "16px",
-        verticalAlign: "baseline",
-        background:
-          "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
-        fontWeight: 400,
-        textDecoration: "none solid rgb(0, 0, 0)",
-        fontFamily: '"Open Sans", sans-serif',
-      }}
-    >
+    <div className="map-container-class">
       <img
         src="/assets/harta.png"
         data-src="/assets/harta.png"
@@ -30,21 +12,7 @@ export default function Map() {
         width="398"
         height="280"
         srcSet="/assets/harta.png"
-        style={{
-          boxSizing: "border-box",
-          color: "rgb(0, 0, 0)",
-          margin: "0px",
-          padding: "0px",
-          border: "0px none rgb(0, 0, 0)",
-          outline: "rgb(0, 0, 0) none 0px",
-          fontSize: "16px",
-          verticalAlign: "baseline",
-          background:
-            "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
-          fontWeight: 400,
-          textDecoration: "none solid rgb(0, 0, 0)",
-          fontFamily: '"Open Sans", sans-serif',
-        }}
+        className="map-img-class"
       />
       <map name="m_harta" style={{ display: "inline" }}>
         <area

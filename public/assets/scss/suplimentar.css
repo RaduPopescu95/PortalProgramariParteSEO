@@ -447,3 +447,37 @@
   border-radius: 0; /* Elimină rotunjirile butonului pentru un aspect integrat */
   border: none; /* Elimină bordurile butonului pentru a se fuziona cu inputul */
 }
+
+.map-container-class {
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
+  border: 0 none rgb(0, 0, 0);
+  outline: none;
+  font-size: 16px;
+  vertical-align: baseline;
+  background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font-weight: 400;
+  text-decoration: none solid rgb(0, 0, 0);
+  font-family: "Open Sans", sans-serif;
+}
+
+.map-img-class {
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
+  border: 0 none rgb(0, 0, 0);
+  outline: none;
+  font-size: 16px;
+  vertical-align: baseline;
+  background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font-weight: 400;
+  text-decoration: none solid rgb(0, 0, 0);
+  font-family: "Open Sans", sans-serif;
+}
