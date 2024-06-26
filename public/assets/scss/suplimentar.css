@@ -481,3 +481,12 @@
   text-decoration: none solid rgb(0, 0, 0);
   font-family: "Open Sans", sans-serif;
 }
+
+.email-class {
+  color: white;
+}
+
+.inscrie-clinica-link {
+  width: 90%;
+  margin: 0 auto;
+}

@@ -29,7 +29,7 @@ const Footer = () => {
             <p className="fz20 txt-color-third">
               <i className="fa fa-envelope-o mr10"></i>
               <strong>Email</strong> -{" "}
-              <a href="mailto:contact@domain.ro" style={{ color: "white" }}>
+              <a href="mailto:contact@domain.ro" className="email-class">
                 contact@domain.ro
               </a>
             </p>

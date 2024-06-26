@@ -379,8 +379,7 @@ const MobileMenuContent = () => {
 
       <Link
         href="/inscrie-clinica"
-        className="btn btn-block btn-lg btn-thm circle"
-        style={{ width: "90%", margin: "0px auto" }}
+        className="btn btn-block btn-lg btn-thm circle inscrie-clinica-link"
       >
         <span className="flaticon-plus"></span> Adauga clinica
       </Link>
