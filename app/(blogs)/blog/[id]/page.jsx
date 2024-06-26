@@ -53,8 +53,24 @@ const BlogDetailsDynamic = async ({ params }) => {
   const blog = blogArr[0];
   console.log("blog is here...", blog);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    name: blog?.metaTitle,
+    // image: product.image,
+    description: blog?.metaDescription,
+  };
+
   return (
     <>
+      <section>
+        {/* Add JSON-LD to your page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {/* ... */}
+      </section>
       {/* <!-- Main Header Nav --> */}
       <Header />
 

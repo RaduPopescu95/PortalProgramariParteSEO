@@ -77,8 +77,25 @@ const index = async ({ judet, params }) => {
   // if (!data.firms) {
   //   notFound();
   // }
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `Specialisti In Peisagistica Si Gradinarit  ${judet}`,
+    // image: product.image,
+    description:
+      "Aici vei gasi firme seriose, care iti vor amenaja spatiul verde rezidential sau comercial asa cum ti l-ai dorit intotdeauna. Vezi firme acum!",
+  };
+
   return (
     <>
+      <section>
+        {/* Add JSON-LD to your page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {/* ... */}
+      </section>
       {/* <!-- Main Header Nav --> */}
       <Header />
 
