@@ -324,7 +324,7 @@
 }
 
 .properti_city.pasi_urmat {
-  height: 150px;
+  height: 200px;
   overflow: hidden; /* Ascunde conținutul care depășește max-height */
 }
 
@@ -489,4 +489,14 @@
 .inscrie-clinica-link {
   width: 90%;
   margin: 0 auto;
+}
+
+/* Media query pentru dispozitive cu lățimea ecranului de maxim 768px, adică pentru dispozitive mobile */
+@media (max-width: 768px) {
+  .heading-pagina-principala {
+    text-align: left !important; /* Alinează textul la stânga pe dispozitivele mobile */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
 }

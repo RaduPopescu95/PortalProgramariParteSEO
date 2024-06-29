@@ -1071,7 +1071,8 @@
       var(--color-primary) 100%
     );
     margin-top: 1px !important;
-    height: 100vh;
+    height: 950px;
+    padding-bottom: 30px;
   }
   .home-one {
     margin-top: 0;
@@ -3267,7 +3268,7 @@
     top: -55px;
   }
   .home_content.home4 {
-    padding: 160px 0 0px !important;
+    padding: 30px 0 0px !important;
   }
 
   .app_grid .apple_btn .icon,

@@ -52,10 +52,10 @@ const index = async () => {
               <div className="col-lg-12">
                 <div className="home_content home4">
                   <div class="home-text w-100 w-md-75">
-                    <h1 className="fz50 txt-color-primary text-center mb10">
+                    <h1 className="fz50 txt-color-primary text-center mb10 heading-pagina-principala">
                       Alege un specialist in amenajari gradini si spatii verzi!
                     </h1>
-                    <p className="fz18 txt-color-third w-75 mx-auto mx-sm-auto text-center mb-2">
+                    <p className="fz18 txt-color-third w-75 mx-auto mx-sm-auto text-center mb-2 heading-pagina-principala">
                       Doresti amenajarea unei gradini rezidentiale sau a unei
                       spatiu verde ce apartine companiei tale? Gaseste un
                       colaborator acum!

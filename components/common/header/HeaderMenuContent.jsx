@@ -47,7 +47,7 @@ const HeaderMenuContent = ({ float = "" }) => {
           href="/cauta"
           className={pathname === "/cauta" ? "ui-active" : undefined}
         >
-          Cauta clinica
+          Cauta firma
         </Link>
       </li>
       {/* End .dropitem */}
@@ -57,7 +57,7 @@ const HeaderMenuContent = ({ float = "" }) => {
           href="/clinici"
           className={pathname === "/clinici" ? "ui-active" : undefined}
         >
-          Clinici
+          Firme amenajari spatii verzi
         </Link>
       </li>
       {/* End .dropitem */}
