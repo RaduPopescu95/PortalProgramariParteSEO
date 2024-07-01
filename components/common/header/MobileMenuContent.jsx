@@ -381,7 +381,7 @@ const MobileMenuContent = () => {
         href="/inscrie-clinica"
         className="btn btn-block btn-lg btn-thm circle inscrie-clinica-link"
       >
-        <span className="flaticon-plus"></span> Adauga clinica
+        <span className="flaticon-plus"></span> Adauga firma
       </Link>
     </>
   );

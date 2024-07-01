@@ -12,17 +12,19 @@ import PropertyMediaUploader from "./PropertyMediaUploader";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { uploadImage } from "@/utils/storageUtils";
+import { uploadImage, uploadMultipleImages } from "@/utils/storageUtils";
+import selectedFiles from "@/utils/selectedFiles";
 import {
   handleQueryFirestore,
   handleUpdateFirestore,
   handleUploadFirestore,
 } from "@/utils/firestoreUtils";
+import GalerieFotoSection from "../adauga-firme/GalerieFotoSection";
 
 const index = () => {
-  const [formValues, setFormValues] = useState({
-    siteName: "",
-  });
+  // const [imaginiData, setFormValues] = useState({
+  //   siteName: "",
+  // });
 
   // Adăugarea unui nou state pentru mesajul de succes
   const [successMessage, setSuccessMessage] = useState("");
@@ -31,6 +33,8 @@ const index = () => {
   const [oldImageFileName, setOldImageFileName] = useState(null);
   const [isNewImage, setIsNewImage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [deletedImages, setDeletedImages] = useState([]);
+  const [imaginiData, setImaginiData] = useState({});
 
   const params = useParams();
   const router = useRouter();
@@ -57,19 +61,48 @@ const index = () => {
     }
   };
 
-  // delete image
-  const deleteImage = (name) => {
-    if (isEdit) {
-      setPropertySelectedImgs([]); // Clear the selection when deleting
-      setOldImageFileName(propertySelectedImgs[0].fileName);
+  // multiple image select
+  const multipleImage = (e) => {
+    // checking is same file matched with old stored array
+    const isExist = propertySelectedImgs?.some((file1) =>
+      selectedFiles(e)?.some((file2) => file1.name === file2.name)
+    );
+
+    if (!isExist) {
+      setPropertySelectedImgs((old) => [...old, ...selectedFiles(e)]);
+      setIsNewImage(true);
     } else {
-      setPropertySelectedImgs([]); // Clear the selection when deleting
+      alert("You have selected one image already!");
+    }
+  };
+
+  // delete image
+  const deleteImage = (item) => {
+    console.log("itemmm....", item);
+    console.log(item);
+    // Filtrăm imaginile rămase
+    const deleted = propertySelectedImgs?.filter((file) =>
+      file instanceof File ? file.name !== item.name : file !== item
+    );
+
+    // Setăm imaginile rămase
+    setPropertySelectedImgs(deleted);
+
+    // Verificăm dacă elementul șters nu este o instanță a clasei File și, în caz afirmativ, îl adăugăm la setDeletedImages
+    const isDeletedNotFile = propertySelectedImgs?.find(
+      (file) =>
+        (file instanceof File ? file.name === item.name : file === item) &&
+        !(item instanceof File)
+    );
+
+    if (isDeletedNotFile) {
+      setDeletedImages((prevDeletedImages) => [...prevDeletedImages, item]);
     }
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormValues((prevState) => ({
+    setImaginiData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
@@ -77,56 +110,64 @@ const index = () => {
 
   const handleSubmit = async () => {
     setIsLoading(true);
-    console.log("Submitting form with values:", formValues);
-    console.log("propertySelectedImgs:", propertySelectedImgs);
-    if (propertySelectedImgs.length === 0) {
-      console.log("no image....");
-      setSuccessMessage("Nu este adaugata imagine");
+    console.log("Submitting form with values:", imaginiData);
+    if (propertySelectedImgs.length === 0 && !imaginiData.idGalerieFoto) {
+      console.log("No image length...");
+      setSuccessMessage("Nu sunt adaugate imagini");
       setIsLoading(false);
       return;
     }
 
     try {
       if (isEdit) {
-        console.log("oldImageFileName...", typeof oldImageFileName);
-        console.log(
-          "propertySelectedImgs[0].fileName...",
-          propertySelectedImgs
-        );
-        let oldFileName = oldImageFileName
-          ? oldImageFileName
-          : propertySelectedImgs[0].fileName;
-
-        if (isNewImage) {
-          const newImage = await uploadImage(
+        let imagini;
+        if (propertySelectedImgs.length !== 0) {
+          imagini = await uploadMultipleImages(
             propertySelectedImgs,
             isEdit,
-            "Images",
-            "Imagini",
-            oldFileName
+            "ImaginiFirme",
+            deletedImages
           );
-
-          formValues.image = newImage;
         }
-        await handleUpdateFirestore(`Imagini/${documentId}`, formValues).then(
-          () => {
-            setIsLoading(false);
-          }
+        console.log("imaginiData....", imaginiData);
+
+        const imageData = {
+          idGalerieFoto: imaginiData.idGalerieFoto,
+          cuvinteCheieImaginiGalerie: imaginiData.cuvinteCheieImaginiGalerie,
+          imagini: imagini,
+        };
+
+        await handleUpdateFirestore(
+          `Imagini/${imaginiData.documentId}`,
+          imageData
         );
+
+        setIsLoading(false);
       } else {
-        console.log("propertySelectedImgs....", propertySelectedImgs);
-        if (isNewImage) {
-          const image = await uploadImage(
+        const logo = await uploadImage(logoImg, false, "LogoFirme");
+
+        imaginiData.logo = logo;
+        let imagini;
+        if (propertySelectedImgs.length !== 0) {
+          imagini = await uploadMultipleImages(
             propertySelectedImgs,
             false,
-            "Images",
-            "Imagini"
+            "ImaginiFirme",
+            deletedImages
           );
-          formValues.image = image;
+        } else {
+          const imgs = [];
+          imagini = { imgs };
         }
-        await handleUploadFirestore(formValues, "Imagini").then(() => {
-          setIsLoading(false);
-        });
+
+        // Așteaptă finalizarea încărcării pentru "Imagini" și apoi dezactivează indicatorul de încărcare
+        const imageData = {
+          idGalerieFoto: imaginiData.idGalerieFoto,
+          cuvinteCheieImaginiGalerie: imaginiData.cuvinteCheieImaginiGalerie,
+          imagini: imagini,
+        };
+        await handleUploadFirestore(imageData, "Imagini");
+        setIsLoading(false);
       }
       // Setarea mesajului de succes după finalizarea cu succes
       setSuccessMessage("Scriere realizată cu succes!");
@@ -135,11 +176,8 @@ const index = () => {
         setSuccessMessage("");
       }, 3000);
       // Resetarea formularului
-      setFormValues({
-        siteName: "",
-      });
-      setPropertySelectedImgs([]);
     } catch (error) {
+      setIsLoading(false);
       console.error("Eroare la încărcare submit:", error);
       // Setarea mesajului de eroare, care va fi afișat în același loc cu mesajul de succes
       setSuccessMessage("Eroare la încărcare: " + error.message);
@@ -173,19 +211,19 @@ const index = () => {
     try {
       const c = await handleQueryFirestore("Imagini", "id", numericId);
       console.log("course...found..", c);
-
+      setImaginiData(c[0]);
       // Presupunând că `c` este un obiect care conține datele necesare,
-      // actualizează state-ul `formValues` cu aceste date.
-      // Asigură-te că structura obiectului `c` corespunde cu cea a `formValues`.
+      // actualizează state-ul `imaginiData` cu aceste date.
+      // Asigură-te că structura obiectului `c` corespunde cu cea a `imaginiData`.
       if (c[0]) {
-        setFormValues((prevState) => ({
-          ...prevState,
-          // Aici exemplific cu câteva câmpuri, ajustează conform structurii obiectului `c[0]`.
-          siteName: c[0].siteName || prevState.siteName,
-        }));
+        // setFormValues((prevState) => ({
+        //   ...prevState,
+        //   // Aici exemplific cu câteva câmpuri, ajustează conform structurii obiectului `c[0]`.
+        //   siteName: c[0].siteName || prevState.siteName,
+        // }));
         console.log("test here...", [c[0].image]);
         setDocumentId(c[0].documentId);
-        setPropertySelectedImgs([c[0].image || c[0].image]);
+        setPropertySelectedImgs(c[0].imagini.imgs || c[0].imagini.imgs);
       }
     } catch (error) {
       console.error("Error fetching document:", error);
@@ -258,14 +296,14 @@ const index = () => {
                         <h3 className="mb30">Setari principale</h3>
                       </div>
 
-                      <CreateList
+                      <GalerieFotoSection
                         handleInputChange={handleInputChange}
-                        formValues={formValues}
                         deleteImage={deleteImage}
-                        singleImage={singleImage}
+                        multipleImage={multipleImage}
                         propertySelectedImgs={propertySelectedImgs}
                         isEdit={isEdit}
                         isNewImage={isNewImage}
+                        imaginiData={imaginiData}
                       />
                       {/* End .col */}
                       <div className="col-lg-12">

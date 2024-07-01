@@ -18,11 +18,11 @@ const SearchData = ({ location }) => {
   const [loading, setLoading] = useState(false);
 
   const handleGetData = async () => {
-    setLoading(true)
+    setLoading(true);
     let data = await handleGetFirestore(location);
     console.log("Data....", data);
     setData([...data]);
-    setLoading(false)
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const SearchData = ({ location }) => {
   }, []);
 
   const handleDeleteClick = (itemId, oldFileName) => {
-    console.log("asdaa")
+    console.log("asdaa");
     setSelectedItemId(itemId); // Salvează ID-ul elementului selectat
     setOldFileName(oldFileName);
     setShowModal(true); // Afișează modalul
@@ -62,8 +62,8 @@ const SearchData = ({ location }) => {
       <table className="table">
         <thead className="thead-light">
           <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nume</th>
+            <th scope="col">Nr.crt.</th>
+            <th scope="col">Id galerie</th>
 
             <th scope="col">Adaugat</th>
             <th scope="col">Editat</th>
@@ -72,16 +72,18 @@ const SearchData = ({ location }) => {
           </tr>
         </thead>
         {/* End thead */}
-      
+
         <tbody>
-          {data && !loading ?
+          {data && !loading ? (
             data.map((item, index) => (
               <tr key={index}>
                 <th className="title" scope="row">
                   #{item.id && item.id}
                 </th>
 
-                <td className="para">{item.siteName && item.siteName}</td>
+                <td className="para">
+                  {item.idGalerieFoto && item.idGalerieFoto}
+                </td>
 
                 <td className="para">
                   {item.firstUploadDate && item.firstUploadTime
@@ -108,12 +110,12 @@ const SearchData = ({ location }) => {
                     </li>
                     <Link
                       href={{
-                        pathname: `adauga-${location.toLowerCase()}/${item.id}`,
+                        pathname: `adauga-imagini/${item.id}`,
                         query: {
                           id: item.id,
                         },
                       }}
-                      as={`adauga-${location.toLowerCase()}/${item.id}`}
+                      as={`adauga-imagini/${item.id}`}
                       legacyBehavior
                     >
                       <li
@@ -134,7 +136,10 @@ const SearchData = ({ location }) => {
                       title="Delete"
                       onClick={(e) => {
                         e.preventDefault();
-                        handleDeleteClick(item?.documentId, item?.image?.fileName);
+                        handleDeleteClick(
+                          item?.documentId,
+                          item?.image?.fileName
+                        );
                       }}
                     >
                       <a
@@ -153,13 +158,9 @@ const SearchData = ({ location }) => {
                 </td>
               </tr>
             ))
-          :
-           <CommonLoader />
-        
-          
-          
-          }
-          
+          ) : (
+            <CommonLoader />
+          )}
 
           {/* End tr */}
         </tbody>

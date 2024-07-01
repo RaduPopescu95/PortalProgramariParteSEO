@@ -7,6 +7,7 @@ const CreateList = ({
   judete,
   handleJudetChange,
   localitati,
+  imaginiData,
 }) => {
   return (
     <>

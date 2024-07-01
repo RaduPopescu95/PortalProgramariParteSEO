@@ -2,8 +2,10 @@ import Link from "next/link";
 import Social from "./Social";
 import SubscribeForm from "./SubscribeForm";
 import LinkInstitutii from "./LinkInstitutii";
+import Ca from "./LinkInstitutii";
 import Image from "next/image";
 import Button from "../CommonButton";
+import CautaFirmaInput from "../cautaFirmaInput/cautaFirmaInput";
 
 const Footer = () => {
   return (
@@ -117,24 +119,7 @@ const Footer = () => {
             Gaseste cea mai apropiata firma in functie de orasul in care te
             afli. Noteaza-l in caseta de cautare de mai jos si intra in contact.
           </p>
-          <div className="form-group mb25">
-            <div className="input-group">
-              <input
-                type="text"
-                className="form-control pr-5"
-                placeholder="Nume firma..."
-                // onChange={(e) => dispatch(addKeyword(e.target.value))}
-              />
-              <button
-                className="btn btn-outline-secondary position-absolute"
-                style={{ right: 0, top: 0, height: "100%", zIndex: 10 }}
-                type="button"
-                aria-label="cauta firma"
-              >
-                <i className="fa fa-search"></i>
-              </button>
-            </div>
-          </div>
+          <CautaFirmaInput />
         </div>
         <div className="copyright-widget mb25">
           <p>

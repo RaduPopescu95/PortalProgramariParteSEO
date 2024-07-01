@@ -6546,6 +6546,10 @@ form.home5_advanced_search_form
   margin-bottom: 15px;
 }
 
+.feat_property .details .tc_content h3:hover {
+  color: var(--color-primary) !important;
+}
+
 .feat_property .details .tc_content .prop_details {
   margin-bottom: 0;
 }

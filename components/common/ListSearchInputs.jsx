@@ -20,6 +20,7 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
   const [localitati, setLocalitati] = useState([]);
   const [isJudetSelected, setIsJudetSelected] = useState(true);
   const [isLocalitateSelected, setIsLocalitateSelected] = useState(true);
+  const [searchKey, setSearchKey] = useState("");
   const [isCateogireSelected, setIsCategorieSelected] = useState(true);
 
   // Handler pentru schimbarea selectiei de judete
@@ -66,40 +67,75 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
     console.log("submit...", selectedLocalitate);
 
     if (!selectedCategorie && !selectedLocalitate && !selectedJudet) {
-      router.push(`/clinici`);
+      if (searchKey) {
+        router.push(`/clinici?slug=${searchKey}`);
+      } else {
+        router.push(`/clinici`);
+      }
       return;
     }
 
     if (selectedLocalitate && selectedCategorie) {
       console.log("asdadadsada");
-      router.push(
-        `/${replaceSpacesWithDashes(
-          selectedCategorie.toLocaleLowerCase()
-        )}-${replaceSpacesWithDashes(selectedLocalitate.toLocaleLowerCase())}`
-      );
+
+      if (searchKey) {
+        router.push(
+          `/${replaceSpacesWithDashes(
+            selectedCategorie.toLocaleLowerCase()
+          )}-${replaceSpacesWithDashes(
+            selectedLocalitate.toLocaleLowerCase()
+          )}?slug=${searchKey}`
+        );
+      } else {
+        router.push(
+          `/${replaceSpacesWithDashes(
+            selectedCategorie.toLocaleLowerCase()
+          )}-${replaceSpacesWithDashes(selectedLocalitate.toLocaleLowerCase())}`
+        );
+      }
       return;
     }
 
     if (selectedLocalitate) {
-      router.push(
-        `/clinici-${replaceSpacesWithDashes(
-          selectedLocalitate.toLocaleLowerCase()
-        )}`
-      );
+      if (searchKey) {
+        router.push(
+          `/clinici-${replaceSpacesWithDashes(
+            selectedLocalitate.toLocaleLowerCase()
+          )}?slug=${searchKey}`
+        );
+      } else {
+        router.push(
+          `/clinici-${replaceSpacesWithDashes(
+            selectedLocalitate.toLocaleLowerCase()
+          )}`
+        );
+      }
       return;
     }
 
     if (selectedJudet) {
-      router.push(
-        `/judet/${replaceSpacesWithDashes(selectedJudet.toLocaleLowerCase())}`
-      );
+      if (searchKey) {
+        router.push(
+          `/judet/${replaceSpacesWithDashes(selectedJudet)}?slug=${searchKey}`
+        );
+      } else {
+        router.push(`/judet/${replaceSpacesWithDashes(selectedJudet)}`);
+      }
       return;
     }
 
     if (selectedCategorie) {
-      router.push(
-        `/${replaceSpacesWithDashes(selectedCategorie.toLocaleLowerCase())}`
-      );
+      if (searchKey) {
+        router.push(
+          `/${replaceSpacesWithDashes(
+            selectedCategorie.toLocaleLowerCase()
+          )}?slug=${searchKey}`
+        );
+      } else {
+        router.push(
+          `/${replaceSpacesWithDashes(selectedCategorie.toLocaleLowerCase())}`
+        );
+      }
       return;
     }
   };
@@ -180,7 +216,7 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
               type="text"
               className="form-control"
               placeholder="Nume firma..."
-              // onChange={(e) => dispatch(addKeyword(e.target.value))}
+              onChange={(e) => setSearchKey(e.target.value)}
             />
           </div>
         </li>

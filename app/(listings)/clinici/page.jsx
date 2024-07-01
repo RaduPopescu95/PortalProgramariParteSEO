@@ -2,8 +2,9 @@ import dynamic from "next/dynamic";
 import SliderStyle from "@/components/listing-style/slider-style";
 import { handleGetFirestore } from "@/utils/firestoreUtils";
 
-import { fetchFirme } from "@/utils/localProjectlUtils";
+import { fetchFirme, transferaImagini } from "@/utils/localProjectlUtils";
 import { cache } from "react";
+import { filtrareOferte } from "@/utils/commonUtils";
 
 export const metadata = {
   title: "Firme de proiectare, amenajare si intretinere spatii verzi",
@@ -31,7 +32,7 @@ const getFirme = cache(async (params) => {
   return firme;
 });
 
-export async function getServerData(params) {
+export async function getServerData(params, searchParams) {
   let data = {};
 
   try {
@@ -44,9 +45,15 @@ export async function getServerData(params) {
     let judete = await handleGetFirestore("Judete");
     let categorii = await handleGetFirestore("Categorii");
     console.log("here...params...", params);
-    let firme = await getFirme(params);
-
-    data = { judete, categorii, firme };
+    let firms = await getFirme(params);
+    let firme = await transferaImagini(firms);
+    let firmeFinal = [];
+    if (searchParams) {
+      firmeFinal = await filtrareOferte(firme, searchParams);
+    } else {
+      firmeFinal = [...firme];
+    }
+    data = { judete, categorii, firme: firmeFinal };
     return data;
   } catch (error) {
     console.error("Failed to fetch locations:", error);
@@ -58,7 +65,7 @@ export async function getServerData(params) {
   }
 }
 
-const index = async ({ params }) => {
+const index = async ({ params, searchParams }) => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -67,8 +74,8 @@ const index = async ({ params }) => {
     description:
       "Cauta un furnizor de servicii de amenajari spatii verzi in apropiere si solicita o oferta personalizata.",
   };
-
-  const data = await getServerData(params);
+  console.log("searchParams...", searchParams);
+  const data = await getServerData(params, searchParams.slug);
 
   return (
     <>
@@ -82,6 +89,7 @@ const index = async ({ params }) => {
         judete={data.judete}
         categorii={data.categorii}
         firme={data.firme}
+        searchParams={searchParams.slug}
       />
     </>
   );

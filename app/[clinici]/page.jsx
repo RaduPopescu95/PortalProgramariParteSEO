@@ -14,6 +14,7 @@ import {
 } from "@/utils/localProjectlUtils";
 import { cache } from "react";
 import { notFound } from "next/navigation";
+import { filtrareOferte } from "@/utils/commonUtils";
 
 export const revalidate = 60; // revalidate at most every minute , hour at 3600
 
@@ -36,16 +37,26 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const id = params.clinici;
 
   // fetch data
-  let firme = await getFirme(params);
+
+  let firms = await getFirme(params);
+
+  let firme = await transferaImagini(firms);
+  let firmeFinal = [];
+  console.log("test here....", searchParams);
+  if (searchParams.slug) {
+    firmeFinal = await filtrareOferte(firme, searchParams.slug);
+  } else {
+    firmeFinal = [...firme];
+  }
 
   console.log("firme....just one...", firme);
   return {
-    title: `${firme[0].metaTitle || ""}`,
-    description: `${firme[0].metaDescription}`,
+    title: `${firme[0]?.metaTitle || ""}`,
+    description: `${firme[0]?.metaDescription || ""}`,
     openGraph: {
       images: [
         {
-          url: firme[0].imagini.imgs[0].finalUri,
+          url: firme[0]?.imagini?.imgs[0]?.finalUri || "",
         },
       ],
     },
@@ -78,8 +89,14 @@ export async function getServerData(params, searchParams) {
     let firms = await getFirme(params, categorii);
 
     let firme = await transferaImagini(firms);
+    let firmeFinal = [];
+    if (searchParams) {
+      firmeFinal = await filtrareOferte(firme, searchParams);
+    } else {
+      firmeFinal = [...firme];
+    }
 
-    data = { judete, categorii, firme };
+    data = { judete, categorii, firme: firmeFinal };
     return data;
   } catch (error) {
     console.error("Failed to fetch locations:", error);
@@ -96,7 +113,8 @@ const index = async ({ params, searchParams }) => {
   console.log("params...", params);
   console.log("searchParams....", searchParams);
 
-  const data = await getServerData(params, searchParams);
+  const data = await getServerData(params, searchParams.slug);
+  console.log("data....here..", data.firme);
   if (data.firme.length === 0) {
     notFound();
   }
@@ -107,7 +125,6 @@ const index = async ({ params, searchParams }) => {
     // image: product.image,
     description: data.firme[0]?.metaDescription,
   };
-  console.log("data....", data);
 
   return (
     <>

@@ -26,76 +26,11 @@ import FirmaItem from "./FirmaItem";
 
 import { fetchFirme, transferaImagini } from "@/utils/localProjectlUtils";
 import { capitalizeFirstLetter } from "@/utils/strintText";
+import { filtrareOferte } from "@/utils/commonUtils";
 
-export async function getServerData(params) {
-  let data = {};
-  let localitati = [];
-  let firme = [];
-  try {
-    let parts = params.id.split("-"); // Împărțim ID-ul în părți bazat pe separatorul '-'
-    let judet = parts[0]; // Folosim prima parte pentru interogări
-    let judetParam =
-      judet.charAt(0).toUpperCase() + judet?.slice(1).toLowerCase();
-
-    // Interoghează Firestore (sau orice altă bază de date) folosind 'judetParam'
-    localitati = await handleQueryFirestoreSubcollection(
-      "Localitati",
-      "judet",
-      judetParam
-    );
-
-    // query zone
-    if (parts[1]) {
-      let localitateParam =
-        parts[1].charAt(0).toUpperCase() + parts[1].slice(1).toLowerCase();
-      firme = await handleQueryFirestore(
-        "Firme",
-        "localitate",
-        localitateParam
-      );
-    } else {
-      firme = await handleQueryFirestore("Firme", "judet", judetParam);
-    }
-    // query zone
-
-    let firms = await transferaImagini(firme);
-
-    data = { localitati, firms };
-  } catch (error) {
-    console.error("Failed to fetch data....:", error);
-    return {
-      props: {
-        error: "Failed to load data.",
-      },
-    };
-  }
-  return data; // Datele vor fi disponibile ca props în componentă
-}
-
-const index = async ({ judet, params }) => {
-  const data = await getServerData(params);
-  // if (!data.firms) {
-  //   notFound();
-  // }
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: `Specialisti In Peisagistica Si Gradinarit  ${judet}`,
-    // image: product.image,
-    description:
-      "Aici vei gasi firme seriose, care iti vor amenaja spatiul verde rezidential sau comercial asa cum ti l-ai dorit intotdeauna. Vezi firme acum!",
-  };
-
+const index = async ({ data, judet, params, searchParams }) => {
   return (
     <>
-      <section>
-        {/* Add JSON-LD to your page */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {/* ... */}
-      </section>
       {/* <!-- Main Header Nav --> */}
       <Header />
 

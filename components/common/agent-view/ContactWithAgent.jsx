@@ -129,12 +129,12 @@ const ContactWithAgent = ({ firma }) => {
           </div>
           <div className="col-md-4 order-2 order-md-2 my-sm-0 my-2">
             <div className="contact-info">
-              <h5 className="mt0">CALL US</h5>
+              <h5 className="mt0">NUMAR TELEFON</h5>
               <p>{firma?.telefonUnu}</p>
               <p>{firma?.telefonDoi}</p>
-              <h5>LOCATION</h5>
+              <h5>ADRESA</h5>
               <p>{firma?.adresa}</p>
-              <h5>OUR TOP SERVICES</h5>
+              <h5>SERVICII</h5>
               <p>{firma?.categorie}</p>
             </div>
           </div>

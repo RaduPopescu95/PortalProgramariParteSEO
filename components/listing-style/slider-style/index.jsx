@@ -28,7 +28,7 @@ import { fetchFirme } from "@/utils/localProjectlUtils";
 
 import { notFound } from "next/navigation";
 
-const index = async ({ params, categorii, firme, judete }) => {
+const index = async ({ params, categorii, firme, judete, searchParams }) => {
   // if (!data.firme) {
   //   notFound();
   // }
@@ -91,11 +91,15 @@ const index = async ({ params, categorii, firme, judete }) => {
           <div className="row pt30">
             <div className="col-md-12 col-lg-12">
               <div className="row">
-                <FeaturedItem params={params} firme={firme} />
+                <FeaturedItem
+                  params={params}
+                  firme={firme}
+                  searchParams={searchParams}
+                />
               </div>
               {/* End .row */}
 
-              {!params && (
+              {/* {!params && (
                 <div className="row">
                   <div className="col-lg-12 mt20">
                     <div className="mbp_pagination">
@@ -103,7 +107,7 @@ const index = async ({ params, categorii, firme, judete }) => {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
 
               {/* End .row */}
             </div>

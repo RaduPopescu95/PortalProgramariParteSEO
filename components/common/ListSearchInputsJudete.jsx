@@ -17,6 +17,7 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
   const [isJudetSelected, setIsJudetSelected] = useState(true);
   const [isLocalitateSelected, setIsLocalitateSelected] = useState(true);
   const [isCateogireSelected, setIsCategorieSelected] = useState(true);
+  const [searchKey, setSearchKey] = useState("");
   const router = useRouter();
 
   const submitHandler = () => {
@@ -24,25 +25,39 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
     console.log("submit...", selectedLocalitate);
 
     if (!selectedCategorie && !selectedLocalitate && !selectedJudet) {
-      router.push(`/clinici`);
+      if (firmName) {
+        router.push(`/clinici?slug=${firmName}`);
+      } else {
+        router.push(`/clinici`);
+      }
       return;
     }
 
     if (selectedLocalitate) {
-      router.push(
-        `/clinici-${replaceSpacesWithDashes(
-          selectedLocalitate.toLocaleLowerCase()
-        )}`
-      );
+      if (firmName) {
+        router.push(
+          `/clinici-${replaceSpacesWithDashes(
+            selectedLocalitate.toLocaleLowerCase()
+          )}?slug=${firmName}`
+        );
+      } else {
+        router.push(
+          `/clinici-${replaceSpacesWithDashes(
+            selectedLocalitate.toLocaleLowerCase()
+          )}`
+        );
+      }
       return;
     }
 
     if (selectedJudet) {
-      router.push(
-        `/judet/${replaceSpacesWithDashes(
-          judet.toLocaleLowerCase()
-        )}-${replaceSpacesWithDashes(selectedJudet.toLocaleLowerCase())}`
-      );
+      if (firmName) {
+        router.push(
+          `/judet/${replaceSpacesWithDashes(selectedJudet)}?slug=${firmName}`
+        );
+      } else {
+        router.push(`/judet/${replaceSpacesWithDashes(selectedJudet)}`);
+      }
       return;
     }
 

@@ -68,3 +68,29 @@ export const getEmbedUrl = (url) => {
     q
   )}`;
 };
+
+export const filtrareOferte = (oferte, searchQueryParteneri) => {
+  // Împărțim query-ul de căutare în cuvinte individuale
+  const searchTerms = searchQueryParteneri
+    .split(/\s+/)
+    .map((term) => term.toLowerCase());
+
+  // Funcție care verifică dacă toate cuvintele de căutare apar în text
+  const matchesSearch = (text) => {
+    const lowercasedText = text.toLowerCase();
+    return searchTerms.every((term) => lowercasedText.includes(term));
+  };
+
+  // Filtrăm partenerii pe baza denumirii brandului, categoriilor, adresei, descrierii, telefonului și emailului
+  const oferteGasiti = oferte.filter(
+    (partener) =>
+      matchesSearch(partener.siteName) ||
+      matchesSearch(partener.metaTitle) ||
+      matchesSearch(partener.metaDescription) ||
+      matchesSearch(partener.categorie) ||
+      matchesSearch(partener.articleContentSecond) ||
+      matchesSearch(partener.articleContentFirst)
+  );
+
+  return oferteGasiti;
+};

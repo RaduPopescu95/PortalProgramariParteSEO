@@ -4,7 +4,12 @@ import {
   handleQueryFirestore,
   handleQueryFirestoreSubcollection,
 } from "@/utils/firestoreUtils";
-import { fetchJudeteParams } from "@/utils/localProjectlUtils";
+import {
+  fetchJudeteParams,
+  transferaImagini,
+} from "@/utils/localProjectlUtils";
+import { notFound } from "next/navigation";
+import { filtrareOferte } from "@/utils/commonUtils";
 
 export const revalidate = 60; // revalidate at most every minute , hour at 3600
 
@@ -41,18 +46,81 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
-const index = async ({ params }) => {
+export async function getServerData(params, searchParams) {
+  let data = {};
+  let localitati = [];
+  let firme = [];
+
+  try {
+    let parts = params.id; // Împărțim ID-ul în părți bazat pe separatorul '-'
+    let judet = parts; // Folosim prima parte pentru interogări
+    let judetParam =
+      judet.charAt(0).toUpperCase() + judet?.slice(1).toLowerCase();
+
+    // Interoghează Firestore (sau orice altă bază de date) folosind 'judetParam'
+    localitati = await handleQueryFirestoreSubcollection(
+      "Localitati",
+      "judet",
+      judetParam
+    );
+    console.log("judet...alta...", localitati);
+    // query zone
+    // if (parts[1]) {
+    //   let localitateParam =
+    //     parts[1].charAt(0).toUpperCase() + parts[1].slice(1).toLowerCase();
+    //   firme = await handleQueryFirestore(
+    //     "Firme",
+    //     "localitate",
+    //     localitateParam
+    //   );
+    // } else {
+    firme = await handleQueryFirestore("Firme", "judet", judetParam);
+    // }
+    // query zone
+
+    let firms = await transferaImagini(firme);
+    console.log("judetParam....", searchParams);
+    let firmeFinal = [];
+    if (searchParams) {
+      firmeFinal = await filtrareOferte(firms, searchParams);
+    } else {
+      firmeFinal = [...firms];
+    }
+
+    data = { localitati, firms: firmeFinal };
+  } catch (error) {
+    console.error("Failed to fetch data....:", error);
+    return {
+      props: {
+        error: "Failed to load data.",
+      },
+    };
+  }
+  return data; // Datele vor fi disponibile ca props în componentă
+}
+
+const index = async ({ params, searchParams }) => {
+  let parts = params.id;
+  let judet = parts; // Folosim prima parte pentru interogări
+  if (judet === "favicon.ico") {
+    return null; // Returnează null sau orice alt component care indică că pagina nu trebuie să proceseze acest id.
+  }
+  console.log("judet...", judet);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Firma Amenajari Spatii Verzi",
+    name: `Specialisti In Peisagistica Si Gradinarit  ${judet}`,
     // image: product.image,
     description:
-      "Cauta un furnizor de servicii de amenajari spatii verzi in apropiere si solicita o oferta personalizata.",
+      "Aici vei gasi firme seriose, care iti vor amenaja spatiul verde rezidential sau comercial asa cum ti l-ai dorit intotdeauna. Vezi firme acum!",
   };
-  let parts = params.id.split("-"); // Împărțim ID-ul în părți bazat pe separatorul '-'
-  let judet = parts[0]; // Folosim prima parte pentru interogări
-  console.log("judet...", judet);
+  const data = await getServerData(params, searchParams.slug);
+
+  console.log("judete....firms...", data.firms);
+
+  if (!data.firms) {
+    notFound();
+  }
 
   return (
     <>
@@ -63,7 +131,12 @@ const index = async ({ params }) => {
       />
       {/* ... */}
 
-      <Judete judet={judet} params={params} />
+      <Judete
+        data={data}
+        judet={judet}
+        params={params}
+        searchParams={searchParams.slug}
+      />
     </>
   );
 };

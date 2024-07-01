@@ -42,7 +42,9 @@ const Index = () => {
   const [isNewLogo, setIsNewLogo] = useState(false);
   const [isNewImage, setIsNewImage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingImages, setIsLoadingImages] = useState(false);
   const [logoImg, setLogoImg] = useState([]);
+  const [imaginiData, setImaginiData] = useState({});
 
   const [formValues, setFormValues] = useState({
     siteName: "",
@@ -149,6 +151,37 @@ const Index = () => {
     }));
     console.log(formValues);
   };
+  const handleImageDataChange = async (e) => {
+    const { name, value } = e.target;
+    console.log(name);
+    if (name === "idGalerieFoto") {
+      setIsLoadingImages(true);
+      console.log("is galerie foto id field...");
+      let imagini = await handleQueryFirestoreSubcollection(
+        "Imagini",
+        "idGalerieFoto",
+        value
+      );
+      setIsLoadingImages(false);
+      console.log("is galerie foto id field...", imagini);
+      if (imagini.length > 0) {
+        setImaginiData(imagini[0]);
+        setPropertySelectedImgs([...imagini[0].imagini.imgs]);
+      } else {
+        setImaginiData((prevState) => ({
+          [name]: value,
+        }));
+        setPropertySelectedImgs([]);
+      }
+    } else {
+      setImaginiData((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    }
+    console.log(imaginiData);
+  };
+
   const handleJudetChange = async (e) => {
     const { name, value } = e.target;
     console.log("name...", name);
@@ -206,31 +239,38 @@ const Index = () => {
         );
 
         formValues.logo = logo;
-
+        let imagini;
         if (propertySelectedImgs.length !== 0) {
-          const imagini = await uploadMultipleImages(
+          imagini = await uploadMultipleImages(
             propertySelectedImgs,
             isEdit,
             "ImaginiFirme",
             deletedImages
           );
-
-          formValues.imagini = imagini;
         }
         console.log("formValues....", formValues);
 
-        await handleUpdateFirestore(`Firme/${documentId}`, formValues).then(
-          () => {
-            setIsLoading(false);
-          }
+        await handleUpdateFirestore(`Firme/${documentId}`, formValues);
+
+        const imageData = {
+          idGalerieFoto: formValues.idGalerieFoto,
+          cuvinteCheieImaginiGalerie: formValues.cuvinteCheieImaginiGalerie,
+          imagini: imagini,
+        };
+
+        await handleUpdateFirestore(
+          `Imagini/${imaginiData.documentId}`,
+          imageData
         );
+
+        setIsLoading(false);
       } else {
         const logo = await uploadImage(logoImg, false, "LogoFirme");
 
         formValues.logo = logo;
-        let images;
-        if (propertySelectedImgs.length !== 0) {
-          images = await uploadMultipleImages(
+        let imagini;
+        if (propertySelectedImgs.length !== 0 && !imaginiData?.imagini?.imgs) {
+          imagini = await uploadMultipleImages(
             propertySelectedImgs,
             false,
             "ImaginiFirme",
@@ -238,15 +278,21 @@ const Index = () => {
           );
         } else {
           const imgs = [];
-          images = { imgs };
+          imagini = { imgs };
         }
-
-        formValues.imagini = images;
 
         await handleUploadFirestore(formValues, "Firme");
 
         // Așteaptă finalizarea încărcării pentru "Imagini" și apoi dezactivează indicatorul de încărcare
-        await handleUploadFirestore(formValues, "Imagini");
+        if (!imaginiData?.imagini?.imgs) {
+          const imageData = {
+            idGalerieFoto: articleData.idGalerieFoto,
+            cuvinteCheieImaginiGalerie: articleData.cuvinteCheieImaginiGalerie,
+            imagini: imagini,
+          };
+          await handleUploadFirestore(imageData, "Imagini");
+        }
+
         setIsLoading(false);
       }
       // Setarea mesajului de succes după finalizarea cu succes
@@ -328,8 +374,17 @@ const Index = () => {
 
     try {
       const c = await handleQueryFirestore("Firme", "id", numericId);
+      const imagini = await handleQueryFirestore(
+        "Imagini",
+        "idGalerieFoto",
+        c[0].idGalerieFoto
+      );
       console.log("course...found..", c);
-
+      console.log("imagini...found..", imagini);
+      setImaginiData(imagini[0]);
+      setPropertySelectedImgs(
+        imagini[0].imagini.imgs || imagini[0].imagini.imgs
+      );
       // Presupunând că `c` este un obiect care conține datele necesare,
       // actualizează state-ul `formValues` cu aceste date.
       // Asigură-te că structura obiectului `c` corespunde cu cea a `formValues`.
@@ -368,7 +423,7 @@ const Index = () => {
         setDocumentId(c[0].documentId);
 
         setLogoImg([c[0].logo || c[0].logo]);
-        setPropertySelectedImgs(c[0].imagini.imgs || c[0].imagini.imgs);
+
         const loc = await handleQueryFirestoreSubcollection(
           "Localitati",
           "judet",
@@ -474,6 +529,7 @@ const Index = () => {
                         categorii={categorii}
                         judete={judete}
                         localitati={localitati}
+                        imaginiData={imaginiData}
                       />
                     </div>
                   </div>
@@ -499,13 +555,14 @@ const Index = () => {
                       </div>
 
                       <GalerieFotoSection
-                        handleInputChange={handleInputChange}
-                        formValues={formValues}
+                        handleInputChange={handleImageDataChange}
                         deleteImage={deleteImage}
                         multipleImage={multipleImage}
                         propertySelectedImgs={propertySelectedImgs}
                         isEdit={isEdit}
                         isNewImage={isNewImage}
+                        imaginiData={imaginiData}
+                        isLoadingImages={isLoadingImages}
                       />
                     </div>
                   </div>

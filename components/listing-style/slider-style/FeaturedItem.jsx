@@ -13,7 +13,7 @@ import {
 import { calculateDistance } from "@/utils/commonUtils";
 import PromotionSection from "./PromotionSection";
 
-const FeaturedItem = ({ firme, params }) => {
+const FeaturedItem = ({ firme, params, searchParams }) => {
   let content;
   if (params && firme.length === 0) {
     return <PromotionSection params={params} />;
