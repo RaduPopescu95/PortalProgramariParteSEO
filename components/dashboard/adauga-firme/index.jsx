@@ -249,7 +249,7 @@ const Index = () => {
           );
         }
         console.log("formValues....", formValues);
-
+        formValues.idGalerieFoto = imaginiData.idGalerieFoto;
         await handleUpdateFirestore(`Firme/${documentId}`, formValues);
 
         const imageData = {
@@ -280,14 +280,14 @@ const Index = () => {
           const imgs = [];
           imagini = { imgs };
         }
-
+        formValues.idGalerieFoto = imaginiData.idGalerieFoto;
         await handleUploadFirestore(formValues, "Firme");
 
         // Așteaptă finalizarea încărcării pentru "Imagini" și apoi dezactivează indicatorul de încărcare
         if (!imaginiData?.imagini?.imgs) {
           const imageData = {
-            idGalerieFoto: articleData.idGalerieFoto,
-            cuvinteCheieImaginiGalerie: articleData.cuvinteCheieImaginiGalerie,
+            idGalerieFoto: imaginiData.idGalerieFoto,
+            cuvinteCheieImaginiGalerie: imaginiData.cuvinteCheieImaginiGalerie,
             imagini: imagini,
           };
           await handleUploadFirestore(imageData, "Imagini");

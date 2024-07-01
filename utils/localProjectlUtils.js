@@ -103,6 +103,7 @@ export async function fetchFirme(parametri) {
     throw error; // Throw the error to be handled by the caller or logging system
   }
   let firmeActualizate = await transferaImagini(firme);
+  console.log("firmeActualizate......", firmeActualizate);
   return firmeActualizate;
 }
 
@@ -158,30 +159,26 @@ export async function fetchJudeteParams() {
 }
 
 export async function transferaImagini(firme) {
+  console.log("Start........");
   for (const firma of firme) {
     // Verifică dacă lista de imagini este goală
-    if (firma.imagini.imgs.length === 0) {
-      // Găsește o firmă care are același idGalerieFoto și are imagini
-      const firmaCuImagini = firme.find(
-        (f) =>
-          f.idGalerieFoto === firma.idGalerieFoto && f.imagini.imgs.length > 0
-      );
 
-      if (firmaCuImagini) {
-        // Transferă array-ul de imagini la firma inițială
-        firma.imagini.imgs = [...firmaCuImagini.imagini.imgs];
-      } else {
-        // Dacă nu există o firmă cu imagini în memoria locală, interoghează baza de date
-        const firmWithImage = await handleQueryFirestore(
-          "Firme",
-          "idGalerieFoto",
-          firma.idGalerieFoto
-        );
-        if (firmWithImage && firmWithImage.length > 0) {
-          firma.imagini.imgs = [...firmWithImage[0].imagini.imgs];
-        }
-      }
-    }
+    // Găsește o firmă care are același idGalerieFoto și are imagini
+
+    console.log("firma cu imagini...", firma.idGalerieFoto);
+
+    // Dacă nu există o firmă cu imagini în memoria locală, interoghează baza de date
+    const firmWithImage = await handleQueryFirestore(
+      "Imagini",
+      "idGalerieFoto",
+      firma.idGalerieFoto
+    );
+    console.log("firma cu imagini.........", firmWithImage[0].imagini);
+
+    firma.imagini = firmWithImage[0].imagini;
+
+    console.log("firma cu imagini......s...", firma.imagini.imgs);
   }
+  console.log("finall....");
   return firme;
 }

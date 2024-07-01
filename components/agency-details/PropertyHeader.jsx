@@ -35,7 +35,7 @@ const PropertyHeader = ({ firma }) => {
       </a>
 
       <a
-        href={`https://wa.me/${firma?.telefonUnu}`}
+        href={`https://wa.me/4${firma?.telefonUnu}`}
         className="details"
         style={{ cursor: "pointer" }}
         target="_blank"

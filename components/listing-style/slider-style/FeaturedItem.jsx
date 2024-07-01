@@ -80,7 +80,7 @@ const FeaturedItem = ({ firme, params, searchParams }) => {
                   {item?.siteName}
                 </Link>
               </h2>
-              <p>{item?.metaDescription}</p>
+              {/* <p>{item?.metaDescription}</p> */}
 
               {/* <ul className="prop_details mb0">
                 {item?.itemDetails.map((val, i) => (
