@@ -1,5 +1,8 @@
 import Wrapper from "@/components/layout/Wrapper";
 import HomeMain from "./(homes)/home-page/page";
+import { handleGetFirestore } from "@/utils/firestoreUtils";
+import { fetchFirme } from "@/utils/localProjectlUtils";
+import { cache } from "react";
 
 export const metadata = {
   title: "Amenajari Gradini – Amenajari Spatii Verzi – Peisagisti",
@@ -19,10 +22,9 @@ export const metadata = {
     follow: true,
   },
 };
-
 export const revalidate = 60; // revalidate at most every minute , hour at 3600
 
-export default function Home() {
+export default async function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",

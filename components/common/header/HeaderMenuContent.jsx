@@ -54,8 +54,12 @@ const HeaderMenuContent = ({ float = "" }) => {
 
       <li className="last">
         <Link
-          href="/clinici"
-          className={pathname === "/clinici" ? "ui-active" : undefined}
+          href="/firme-amenajari-spatii-verzi"
+          className={
+            pathname === "/firme-amenajari-spatii-verzi"
+              ? "ui-active"
+              : undefined
+          }
         >
           Firme amenajari spatii verzi
         </Link>

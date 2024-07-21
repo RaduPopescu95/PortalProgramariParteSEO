@@ -18,11 +18,10 @@ import SectiuneIncredere from "../common/SectiuneIncredere";
 // import { unstable_noStore as noStore } from "next/cache";
 import { handleGetFirestore } from "@/utils/firestoreUtils";
 import CookieBanner from "../Cookies/CookieBanner";
+import FeaturedItem from "../listing-style/slider-style/FeaturedItem";
 
-const index = async () => {
+const index = async ({ firme, articole, categorii }) => {
   // noStore();
-  const articole = await handleGetFirestore("Articole");
-  const categorii = await handleGetFirestore("Categorii");
 
   return (
     <>
@@ -330,8 +329,43 @@ const index = async () => {
         </div>
       </section>
 
+      {/* ---- FIRME ----- */}
+      <section className="our-listing bgc-primary pb60-991 md-mt0 categorii-container-section">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6 offset-lg-3">
+              <div className="main-title text-center">
+                <h2>Firme</h2>
+              </div>
+            </div>
+          </div>
+          <div className="row pt0">
+            <div className="col-md-12 col-lg-12">
+              <div className="row">
+                <FeaturedItem params={null} firme={firme} searchParams={null} />
+              </div>
+              {/* End .row */}
+
+              {/* {!params && (
+                <div className="row">
+                  <div className="col-lg-12 mt20">
+                    <div className="mbp_pagination">
+                      <Pagination />
+                    </div>
+                  </div>
+                </div>
+              )} */}
+
+              {/* End .row */}
+            </div>
+            {/* End  .col */}
+          </div>
+          {/* End .row */}
+        </div>
+      </section>
+
       {/* <!-- Our Blog --> */}
-      <section className="our-blog bgc-f7 pb30 pt0">
+      {/* <section className="our-blog bgc-f7 pb30 pt0">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
@@ -344,7 +378,7 @@ const index = async () => {
             <Blogs articole={articole} />
           </div>
         </div>
-      </section>
+      </section> */}
       {/* <!-- Our Footer --> */}
       <section className="footer_one">
         <div className="container">

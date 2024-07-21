@@ -6654,10 +6654,12 @@ form.home5_advanced_search_form
 
 .feat_property.home7 {
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.09);
+  cursor: pointer;
 }
 
 .feat_property.home7:hover {
   box-shadow: 0px 0px 50px 0px rgba(19, 19, 28, 0.12);
+  cursor: pointer;
 }
 
 .feat_property .details .tc_content h3 a,

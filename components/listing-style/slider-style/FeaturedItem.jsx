@@ -24,27 +24,32 @@ const FeaturedItem = ({ firme, params, searchParams }) => {
   } else {
     content = firme.map((item) => (
       <div className={`${"col-md-3 col-lg-3"} `} key={item.id}>
-        <div className={`feat_property home7 style4 ${undefined}`}>
-          <div className="thumb">
-            <Image
-              width={342}
-              height={220}
-              className="img-whp w-100 h-100 cover"
-              src={item?.imagini?.imgs[0]?.finalUri}
-              alt="fp1.jpg"
-            />
-            <div className="thmb_cntnt">
-              <ul className="tag mb0">
-                <li className="list-inline-item">
-                  <a href="#">Promovat</a>
-                </li>
-                {/* <li className="list-inline-item">
+        <Link
+          href={`/${replaceSpacesWithDashes(
+            item?.categorie.toLowerCase()
+          )}-${replaceSpacesWithDashes(item?.localitate.toLowerCase())}`}
+        >
+          <div className={`feat_property home7 style4 ${undefined}`}>
+            <div className="thumb">
+              <Image
+                width={342}
+                height={220}
+                className="img-whp w-100 h-100 cover"
+                src={item?.imagini?.imgs[0]?.finalUri}
+                alt="fp1.jpg"
+              />
+              <div className="thmb_cntnt">
+                <ul className="tag mb0">
+                  <li className="list-inline-item">
+                    <a href="#">Promovat</a>
+                  </li>
+                  {/* <li className="list-inline-item">
                   <a href="#" className="text-capitalize">
                     {item?.featured}
                   </a>
                 </li> */}
-              </ul>
-              {/* <ul className="icon mb0">
+                </ul>
+                {/* <ul className="icon mb0">
                 <li className="list-inline-item">
                   <a href="#">
                     <span className="flaticon-transfer-1"></span>
@@ -57,32 +62,32 @@ const FeaturedItem = ({ firme, params, searchParams }) => {
                 </li>
               </ul> */}
 
-              {/* <Link
+                {/* <Link
                 href={`/agentie/${item?.id}`}
                 className="fp_price"
               >
                 ${item?.price}
                 <small>/mo</small>
               </Link> */}
+              </div>
             </div>
-          </div>
-          <div className="details">
-            <div className="tc_content p10">
-              {/* <p className="text-thm">{item?.type}</p> */}
-              <h2 className="fz20" style={{ color: "#484848" }}>
-                <Link
-                  href={`/${replaceSpacesWithDashes(
-                    item?.categorie.toLowerCase()
-                  )}-${replaceSpacesWithDashes(
-                    item?.localitate.toLowerCase()
-                  )}`}
-                >
+            <div className="details">
+              <div className="tc_content p10">
+                {/* <p className="text-thm">{item?.type}</p> */}
+                <h2 className="fz20">
+                  {/* <Link
+                    href={`/${replaceSpacesWithDashes(
+                      item?.categorie.toLowerCase()
+                    )}-${replaceSpacesWithDashes(
+                      item?.localitate.toLowerCase()
+                    )}`}
+                  > */}
                   {item?.siteName}
-                </Link>
-              </h2>
-              {/* <p>{item?.metaDescription}</p> */}
+                  {/* </Link> */}
+                </h2>
+                {/* <p>{item?.metaDescription}</p> */}
 
-              {/* <ul className="prop_details mb0">
+                {/* <ul className="prop_details mb0">
                 {item?.itemDetails.map((val, i) => (
                   <li className="list-inline-item" key={i}>
                     <a href="#">
@@ -91,26 +96,27 @@ const FeaturedItem = ({ firme, params, searchParams }) => {
                   </li>
                 ))}
               </ul> */}
-            </div>
-            {/* End .tc_content */}
+              </div>
+              {/* End .tc_content */}
 
-            <div className="fp_footer p10">
-              <ul className="fp_meta float-start mb0">
-                <li>
-                  <p>
-                    <span className="flaticon-placeholder"></span>
-                    {item?.adresa}
-                  </p>
-                </li>
-                {/* <li>
+              <div className="fp_footer p10">
+                <ul className="fp_meta float-start mb0">
+                  <li>
+                    <p>
+                      <span className="flaticon-placeholder"></span>
+                      {item?.adresa}
+                    </p>
+                  </li>
+                  {/* <li>
                   <p>{item?.distanta} metri</p>
                 </li> */}
-              </ul>
-            </div>
+                </ul>
+              </div>
 
-            {/* End .fp_footer */}
+              {/* End .fp_footer */}
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     ));
   }

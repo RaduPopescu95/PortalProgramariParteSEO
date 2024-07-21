@@ -46,7 +46,7 @@ export const formatPathname = (pathname) => {
   const formattedSegments = segments.map((segment) => {
     // Decodifică componenta URL
     const decodedSegment = replaceDashesWithSpaces(segment);
-
+    console.log("decodedSegment....", decodedSegment);
     // Înlocuiește `-` cu spațiu și capitalizează fiecare cuvânt
     return decodedSegment
       .split("-")

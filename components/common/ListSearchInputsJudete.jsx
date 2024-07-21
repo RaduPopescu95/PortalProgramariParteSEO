@@ -26,9 +26,9 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
 
     if (!selectedCategorie && !selectedLocalitate && !selectedJudet) {
       if (firmName) {
-        router.push(`/clinici?slug=${firmName}`);
+        router.push(`/firme-amenajari-spatii-verzi?slug=${firmName}`);
       } else {
-        router.push(`/clinici`);
+        router.push(`/firme-amenajari-spatii-verzi`);
       }
       return;
     }
@@ -36,13 +36,13 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
     if (selectedLocalitate) {
       if (firmName) {
         router.push(
-          `/clinici-${replaceSpacesWithDashes(
+          `/firme-amenajari-spatii-verzi-${replaceSpacesWithDashes(
             selectedLocalitate.toLocaleLowerCase()
           )}?slug=${firmName}`
         );
       } else {
         router.push(
-          `/clinici-${replaceSpacesWithDashes(
+          `/firme-amenajari-spatii-verzi-${replaceSpacesWithDashes(
             selectedLocalitate.toLocaleLowerCase()
           )}`
         );

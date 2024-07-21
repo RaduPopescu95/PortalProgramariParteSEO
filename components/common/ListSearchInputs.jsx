@@ -16,7 +16,9 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
   const router = useRouter();
   const [selectedJudet, setSelectedJudet] = useState("");
   const [selectedLocalitate, setSelectedLocalitate] = useState("");
-  const [selectedCategorie, setSelectedCategorie] = useState("");
+  const [selectedCategorie, setSelectedCategorie] = useState(
+    categorii.length === 1 ? categorii[0].siteName : ""
+  );
   const [localitati, setLocalitati] = useState([]);
   const [isJudetSelected, setIsJudetSelected] = useState(true);
   const [isLocalitateSelected, setIsLocalitateSelected] = useState(true);
@@ -143,7 +145,7 @@ const ListSearchInputs = ({ className = "", judete, categorii }) => {
     <div className={`home1-advnc-search ${className}`}>
       <ul className="h1ads_1st_list mb0">
         <li className="list-inline-item">
-          <div className="search_option_two">
+          <div className="search_option_two_suplimentar">
             <div className="candidate_revew_select">
               <select
                 aria-label="Alege categorie"

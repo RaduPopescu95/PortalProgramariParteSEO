@@ -22,7 +22,7 @@ const BreadCrumbBanner = () => {
                     : formattedPathname
                 }
               />
-              <h4 className="mt10 fz30 color-white">
+              <h4 className="mt10 fz30 color-white text-upper-letters">
                 {Array.isArray(formattedPathname)
                   ? formattedPathname.join(" > ")
                   : formattedPathname}

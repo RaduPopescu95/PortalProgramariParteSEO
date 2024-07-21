@@ -86,7 +86,7 @@ const index = async ({ params, categorii, firme, judete, searchParams }) => {
       )}
 
       {/* <!-- Listing Grid View --> */}
-      <section className="our-listing bgc-primary pt-0 pb30-991 md-mt0 categorii-container-section">
+      <section className="our-listing bgc-primary pb60-991 md-mt0 categorii-container-section">
         <div className="container">
           <div className="row pt30">
             <div className="col-md-12 col-lg-12">

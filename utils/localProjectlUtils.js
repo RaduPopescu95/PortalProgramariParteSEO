@@ -46,16 +46,16 @@ export async function fetchFirme(parametri) {
         console.log("before decoded....loc", localitate);
         let decodedLocalitate = replaceDashesWithSpaces(localitate);
         console.log("decoded....loc", decodedLocalitate);
-        let categorieDatorita =
-          decodedCategorie.charAt(0).toUpperCase() + decodedCategorie.slice(1);
-        let localitateDatorita =
-          decodedLocalitate.charAt(0).toUpperCase() +
-          decodedLocalitate.slice(1);
+        let categorieDatorita = decodedCategorie;
+        // decodedCategorie.charAt(0).toUpperCase() + decodedCategorie.slice(1);
+        let localitateDatorita = decodedLocalitate;
+        // decodedLocalitate.charAt(0).toUpperCase() +
+        // decodedLocalitate.slice(1);
 
         if (localitate.length === 0 && parts[0] !== "clinici") {
           firme = await handleQueryFirestore(
             "Firme",
-            "categorie",
+            "categorieQuery",
             categorieDatorita
           );
         }
@@ -64,16 +64,18 @@ export async function fetchFirme(parametri) {
         if (parts[0] === "clinici" && localitate.length !== 0) {
           firme = await handleQueryFirestore(
             "Firme",
-            "localitate",
+            "localitateQuery",
             localitateDatorita
           );
           console.log("Test here localitate....", firme.length);
         } else if (localitate.length !== 0 && parts[0] !== "clinici") {
+          console.log("Test here categorieDatorita....", categorieDatorita);
+          console.log("Test here localitateDatorita....", localitateDatorita);
           firme = await handleQueryDoubleParam(
             "Firme",
-            "categorie",
+            "categorieQuery",
             categorieDatorita,
-            "localitate",
+            "localitateQuery",
             localitateDatorita
           );
           console.log("Test here localitate....", firme);

@@ -355,10 +355,11 @@
   font-size: medium;
 }
 
-.details:hover h3 {
+.feat_property:hover .tc_content h2 {
   color: var(--txt-secondary); /* Sau orice culoare dorești */
 }
-.details:hover p {
+
+.feat_property:hover p {
   color: var(--txt-secondary); /* Sau orice culoare dorești */
 }
 
@@ -499,4 +500,13 @@
     margin-right: 0 !important;
     width: 100% !important;
   }
+}
+
+.pb60-991 {
+  padding-bottom: 60px;
+  padding-top: 0px;
+}
+
+.text-upper-letters {
+  text-transform: capitalize;
 }

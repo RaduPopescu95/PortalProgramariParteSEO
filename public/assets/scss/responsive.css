@@ -1179,6 +1179,10 @@
   .pb30-991 {
     padding-bottom: 30px;
   }
+  .pb60-991 {
+    padding-bottom: 0px;
+    padding-top: 60px;
+  }
   .tal-smd,
   .tal-991 {
     text-align: left !important;
@@ -1977,7 +1981,7 @@
     padding: 0 !important;
   }
   .home_content.listing.slider_style {
-    padding: 380px 0 0 !important;
+    padding: 290px 0 0 !important;
   }
   .home-listing-slider .main-banner-wrapper .carousel-btn-block {
     bottom: 14%;

@@ -214,6 +214,10 @@ const Index = () => {
   };
 
   const handleSubmit = async () => {
+    formValues.localitateQuery = formValues.localitate.toLowerCase();
+    formValues.judetQuery = formValues.judet.toLowerCase();
+    formValues.categorieQuery = formValues.categorie.toLowerCase();
+
     setIsLoading(true);
     console.log("Submitting form with values:", formValues);
     if (propertySelectedImgs.length === 0 && !formValues.idGalerieFoto) {
