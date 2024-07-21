@@ -5,7 +5,7 @@ import LinkInstitutii from "./LinkInstitutii";
 import Ca from "./LinkInstitutii";
 import Image from "next/image";
 import Button from "../CommonButton";
-import CautaFirmaInput from "../cautaFirmaInput/cautaFirmaInput";
+import CautaFirmaInput from "../cauta-firma-input/CautaFirmaInput";
 
 const Footer = () => {
   return (
