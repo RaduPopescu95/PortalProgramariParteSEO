@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-export default function CautaFirmaInput() {
+const CautaFirmaInput = () => {
   const [searchKey, setSearchKey] = useState("");
   const router = useRouter();
   const handleSearch = () => {
@@ -30,4 +30,6 @@ export default function CautaFirmaInput() {
       </div>
     </div>
   );
-}
+};
+
+export default CautaFirmaInput;
