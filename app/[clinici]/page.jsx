@@ -12,17 +12,21 @@ import {
   fetchFirmeParams,
   transferaImagini,
 } from "@/utils/localProjectlUtils";
-import { cache } from "react";
+// import { cache } from "react";
 import { notFound } from "next/navigation";
 import { filtrareOferte } from "@/utils/commonUtils";
 
 export const revalidate = 60; // revalidate at most every minute , hour at 3600
 
 //FOLOSIM CACHE PENTRU A DEACTIVA DUPLICAREA FUNCTIEI DE GET DIN FIRESTORE (DACA ESTE FOLOSIT FETCH SE POATE FOLOSI SI SERVER COMPONENT SI IN GET METADATA DINAMIC)
-const getFirme = cache(async (params, cats) => {
+const getFirme = async (params, cats) => {
   let firme = fetchFirme(params, cats);
   return firme;
-});
+};
+// const getFirme = cache(async (params, cats) => {
+//   let firme = fetchFirme(params, cats);
+//   return firme;
+// });
 
 export async function generateStaticParams() {
   let combinatii = await fetchFirmeParams();
@@ -43,9 +47,11 @@ export async function generateMetadata({ params, searchParams }, parent) {
   let firme = await transferaImagini(firms);
   let firmeFinal = [];
   console.log("test here....", searchParams);
-  if (searchParams.slug) {
-    firmeFinal = await filtrareOferte(firme, searchParams.slug);
+  if (false) {
+    // console.log("test here....is slug", searchParams.slug);
+    // firmeFinal = await filtrareOferte(firme, searchParams.slug);
   } else {
+    console.log("test here....no is slug");
     firmeFinal = [...firme];
   }
 
@@ -60,14 +66,14 @@ export async function generateMetadata({ params, searchParams }, parent) {
         },
       ],
     },
-    alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${id}`,
-    },
-    manifest: `${process.env.NEXT_PUBLIC_SITE_URL}/manifest.json`,
-    robots: {
-      index: true,
-      follow: true,
-    },
+    // alternates: {
+    //   canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${id}`,
+    // },
+    // manifest: `${process.env.NEXT_PUBLIC_SITE_URL}/manifest.json`,
+    // robots: {
+    //   index: true,
+    //   follow: true,
+    // },
   };
 
   // optionally access and extend (rather than replace) parent metadata
@@ -90,7 +96,7 @@ export async function getServerData(params, searchParams) {
 
     let firme = await transferaImagini(firms);
     let firmeFinal = [];
-    if (searchParams) {
+    if (false) {
       firmeFinal = await filtrareOferte(firme, searchParams);
     } else {
       firmeFinal = [...firme];
@@ -108,12 +114,12 @@ export async function getServerData(params, searchParams) {
   }
 }
 
-const index = async ({ params, searchParams }) => {
+const index = async ({ params, searchParams = null }) => {
   // noStore();
-  console.log("params...", params);
+  console.log("params...in...clinici", params);
   console.log("searchParams....", searchParams);
-
-  const data = await getServerData(params, searchParams.slug);
+  //searchParams.slug provoaca eroarea DynamicServerError, cumva forteaza pagina dorita statica in pagina dinamica
+  const data = await getServerData(params);
   console.log("data....here..", data.firme);
   if (data.firme.length === 0) {
     notFound();

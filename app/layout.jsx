@@ -5,7 +5,7 @@ import { store } from "../store/store";
 // import ScrollToTop from "@/components/common/ScrollTop";
 import "../public/assets/scss/index.scss";
 import { Nunito } from "next/font/google";
-import CookieBanner from "@/components/Cookies/CookieBanner";
+// import CookieBanner from "@/components/Cookies/CookieBanner";
 // import { AuthProvider } from "@/context/AuthContext";
 // import { LoadScript } from "@react-google-maps/api";
 

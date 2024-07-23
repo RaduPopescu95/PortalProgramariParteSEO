@@ -110,6 +110,7 @@ export async function fetchFirme(parametri) {
 }
 
 export async function fetchFirmeParams() {
+  console.log("Start.....fetchFirmeParams....");
   // Apelează funcția handleGetFirestore pentru a obține datele din colecția "Firme"
   const firme = await handleGetFirestore("Firme");
 
@@ -122,16 +123,16 @@ export async function fetchFirmeParams() {
       // Combină categoria și localitatea și adaugă în Set
       const categoryLocation = `${replaceSpacesWithDashes(
         firma.categorie
-      ).toLowerCase()}__${replaceSpacesWithDashes(
+      ).toLowerCase()}-${replaceSpacesWithDashes(
         firma.localitate
       ).toLowerCase()}`;
       uniqueCategoryLocations.add(categoryLocation);
 
       // Adaugă și combinația suplimentară pentru clinici și localitate
-      const clinicsLocation = `clinici-${replaceSpacesWithDashes(
-        firma.localitate
-      ).toLowerCase()}`;
-      uniqueCategoryLocations.add(clinicsLocation);
+      // const clinicsLocation = `firme-amenajari-spatii-verzi-${replaceSpacesWithDashes(
+      //   firma.localitate
+      // ).toLowerCase()}`;
+      // uniqueCategoryLocations.add(clinicsLocation);
     }
   });
   console.log("uniqueCategoryLocations...", uniqueCategoryLocations);
