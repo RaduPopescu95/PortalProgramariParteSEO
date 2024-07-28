@@ -289,12 +289,14 @@ const MobileMenuContent = () => {
           {/* End Pages Listing */}
           <MenuItem>
             <div
-              onClick={() => router.push("/clinici")}
+              onClick={() => router.push("/firme-amenajari-spatii-verzi")}
               className={
-                pathname === "/clinici" ? "ui-active" : "inactive-mobile-menu"
+                pathname === "/firme-amenajari-spatii-verzi"
+                  ? "ui-active"
+                  : "inactive-mobile-menu"
               }
             >
-              Clinici
+              Firme amenjari spatii verzi
             </div>
           </MenuItem>
 

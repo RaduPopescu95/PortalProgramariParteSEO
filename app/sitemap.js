@@ -47,7 +47,7 @@ export default async function sitemap() {
   const localitati = parteneri.reduce((acc, partener) => {
     console.log("partener...sitemap", partener); // pentru verificare
     if (partener.judet) {
-      const url = `${URL}/clinici-${replaceSpacesWithDashes(
+      const url = `${URL}/firme-amenajari-spatii-verzi-${replaceSpacesWithDashes(
         partener.localitate.toLowerCase()
       )}`;
       if (!seenUrls.has(url)) {
@@ -114,7 +114,7 @@ export default async function sitemap() {
     "/politica-cookie",
     "/politica-confidentialitate",
     "/cauta",
-    "/clinici",
+    "/firme-amenajari-spatii-verzi",
     "/blog",
     "/contact",
   ].map((route) => ({

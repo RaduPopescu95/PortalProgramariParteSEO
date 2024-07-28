@@ -11,7 +11,8 @@ const transporter = nodemailer.createTransport({
   secure: true, // true for 465, false for other ports
   auth: {
     user: "exclusivmd@creditemedicale.ro",
-    pass: "vtn0079su8dh",
+    pass: "vtn0079su8d",
+    // pass: "vtn0079su8dh",
   },
 });
 
