@@ -32,6 +32,7 @@ const ContactWithAgent = ({ firma }) => {
       phone,
       email,
       message,
+      emailFirma: firma.emailUnu,
     };
 
     // Aici poți adăuga logica pentru a trimite datele către un server sau a le prelucra cum dorești

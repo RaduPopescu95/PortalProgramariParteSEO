@@ -141,4 +141,6 @@ const index = async ({ params, searchParams }) => {
   );
 };
 
+// ES LINT COMAND npx eslint --fix D:\NextJs\Portal\Portal\functions
+
 export default dynamic(() => Promise.resolve(index), { ssr: false });
