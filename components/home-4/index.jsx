@@ -163,7 +163,7 @@ const index = async ({ firme, articole, categorii }) => {
                     className="w-lg-75 w-md-75 w-sm-75"
                     navigare={"cauta"}
                   >
-                    Găsește o clinica în apropiere
+                    Găsește o firmă în apropiere
                   </Button>
                 </div>
               </div>
