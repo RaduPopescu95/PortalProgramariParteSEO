@@ -7,7 +7,7 @@ const CautaFirmaInput = () => {
   const [searchKey, setSearchKey] = useState("");
   const router = useRouter();
   const handleSearch = () => {
-    router.push(`/firme-amenajari-spatii-verzi?slug=${searchKey}`);
+    router.push(`/amenajari-gradini?slug=${searchKey}`);
   };
   return (
     <div className="form-group mb25">

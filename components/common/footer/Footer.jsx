@@ -98,7 +98,7 @@ const Footer = () => {
               <Link href="/cauta">Cauta clinic</Link>
             </li>
             <li>
-              <Link href="/firme-amenajari-spatii-verzi">
+              <Link href="/amenajari-gradini">
                 Firme amenajari spatii verzi
               </Link>
             </li>

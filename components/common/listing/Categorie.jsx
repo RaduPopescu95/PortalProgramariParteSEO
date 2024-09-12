@@ -7,7 +7,7 @@ const Categorie = ({ judet, localitati }) => {
         ? localitati.map((localitate, index) => (
             <li key={index}>
               <Link
-                href={`/firme-amenajari-spatii-verzi-${localitate.siteName.toLowerCase()}`}
+                href={`/amenajari-gradini-${localitate.siteName.toLowerCase()}`}
               >
                 <i className="fa fa-caret-right mr10"></i>
                 {localitate.siteName}

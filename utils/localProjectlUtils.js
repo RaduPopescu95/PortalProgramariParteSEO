@@ -129,7 +129,7 @@ export async function fetchFirmeParams() {
       uniqueCategoryLocations.add(categoryLocation);
 
       // Adaugă și combinația suplimentară pentru clinici și localitate
-      // const clinicsLocation = `firme-amenajari-spatii-verzi-${replaceSpacesWithDashes(
+      // const clinicsLocation = `amenajari-gradini-${replaceSpacesWithDashes(
       //   firma.localitate
       // ).toLowerCase()}`;
       // uniqueCategoryLocations.add(clinicsLocation);

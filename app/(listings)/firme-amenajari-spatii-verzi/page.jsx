@@ -16,7 +16,7 @@ export const metadata = {
       "Cauti un partener de incredere pentru gradina ta rezidentiala sau comerciala? Vezi firmele de pe portalul nostrum!",
   },
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/firme-amenajari-spatii-verzi`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/amenajari-gradini`,
   },
   manifest: `${process.env.NEXT_PUBLIC_SITE_URL}/manifest.json`,
   robots: {

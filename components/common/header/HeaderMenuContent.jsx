@@ -54,11 +54,9 @@ const HeaderMenuContent = ({ float = "" }) => {
 
       <li className="last">
         <Link
-          href="/firme-amenajari-spatii-verzi"
+          href="/amenajari-gradini"
           className={
-            pathname === "/firme-amenajari-spatii-verzi"
-              ? "ui-active"
-              : undefined
+            pathname === "/amenajari-gradini" ? "ui-active" : undefined
           }
         >
           Firme amenajari spatii verzi

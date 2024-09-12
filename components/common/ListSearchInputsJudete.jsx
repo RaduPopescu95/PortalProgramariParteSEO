@@ -26,9 +26,9 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
 
     if (!selectedCategorie && !selectedLocalitate && !selectedJudet) {
       if (firmName) {
-        router.push(`/firme-amenajari-spatii-verzi?slug=${firmName}`);
+        router.push(`/amenajari-gradini-?slug=${firmName}`);
       } else {
-        router.push(`/firme-amenajari-spatii-verzi`);
+        router.push(`/amenajari-gradini-`);
       }
       return;
     }
@@ -36,13 +36,13 @@ const ListSearchInputs = ({ className = "", localitati, judet }) => {
     if (selectedLocalitate) {
       if (firmName) {
         router.push(
-          `/firme-amenajari-spatii-verzi-${replaceSpacesWithDashes(
+          `/amenajari-gradini-${replaceSpacesWithDashes(
             selectedLocalitate.toLocaleLowerCase()
           )}?slug=${firmName}`
         );
       } else {
         router.push(
-          `/firme-amenajari-spatii-verzi-${replaceSpacesWithDashes(
+          `/amenajari-gradini-${replaceSpacesWithDashes(
             selectedLocalitate.toLocaleLowerCase()
           )}`
         );

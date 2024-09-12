@@ -7,7 +7,7 @@ import { transferaImagini } from "@/utils/localProjectlUtils";
 import { replaceSpacesWithDashes } from "@/utils/strintText";
 import { parseDateToISO } from "@/utils/timeUtils";
 
-const URL = `https://portal1-shik-projects.vercel.app`;
+const URL = `https://firmeamenajarigradina.ro`;
 
 export default async function sitemap() {
   console.log("Fetching 'Judete' data from Firestore...");
@@ -47,7 +47,7 @@ export default async function sitemap() {
   const localitati = parteneri.reduce((acc, partener) => {
     console.log("partener...sitemap", partener); // pentru verificare
     if (partener.judet) {
-      const url = `${URL}/firme-amenajari-spatii-verzi-${replaceSpacesWithDashes(
+      const url = `${URL}/amenajari-gradini-${replaceSpacesWithDashes(
         partener.localitate.toLowerCase()
       )}`;
       if (!seenUrls.has(url)) {
@@ -114,7 +114,7 @@ export default async function sitemap() {
     "/politica-cookie",
     "/politica-confidentialitate",
     "/cauta",
-    "/firme-amenajari-spatii-verzi",
+    "/amenajari-gradini",
     "/blog",
     "/contact",
   ].map((route) => ({
