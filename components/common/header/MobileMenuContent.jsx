@@ -380,7 +380,7 @@ const MobileMenuContent = () => {
       {/* </Sidebar> */}
 
       <Link
-        href="/inscrie-clinica"
+        href="/inscrie-firma"
         className="btn btn-block btn-lg btn-thm circle inscrie-clinica-link"
       >
         <span className="flaticon-plus"></span> Adauga firma

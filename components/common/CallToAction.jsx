@@ -24,14 +24,14 @@ const CallToAction = ({ className }) => {
                   style={{ minWidth: "calc(40% - 10px)" }}
                   navigare={"cauta"}
                 >
-                  Caută medic
+                  Caută firmă
                 </Button>
                 <Button
                   className="btnSecondary"
                   style={{ minWidth: "calc(40% - 10px)" }}
-                  navigare={"inscrie-clinica"}
+                  navigare={"inscrie-firma"}
                 >
-                  Înscrie o clinică
+                  Înscrie firmă
                 </Button>
               </div>
             </div>

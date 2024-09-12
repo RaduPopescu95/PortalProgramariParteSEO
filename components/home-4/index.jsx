@@ -70,7 +70,7 @@ const index = async ({ firme, articole, categorii }) => {
                       <Button
                         className="btnSecondary"
                         style={{ minWidth: "calc(30% - 10px)" }}
-                        navigare={"inscrie-clinica"}
+                        navigare={"inscrie-firma"}
                       >
                         Inscrie o firma{" "}
                         <span className="flaticon-right-arrow ml-10" />

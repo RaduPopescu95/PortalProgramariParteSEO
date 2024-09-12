@@ -52,9 +52,9 @@ const PromotionSection = ({ params }) => {
                   <Button
                     className="btnSecondary"
                     style={{ minWidth: "calc(30% - 10px)" }}
-                    navigare={"inscrie-clinica"}
+                    navigare={"inscrie-firma"}
                   >
-                    Înscrie o clinică{" "}
+                    Înscrie o firmă{" "}
                     <span className="flaticon-right-arrow ml-10" />
                   </Button>
                 </span>
