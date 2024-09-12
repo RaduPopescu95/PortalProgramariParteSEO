@@ -11,13 +11,13 @@ import { Nunito } from "next/font/google";
 
 export const metadata = {
   title: {
-    default: "Portal clinici",
-    template: "%s - Portal Clinici",
+    default: "Amenajari Gradini – Amenajari Spatii Verzi – Peisagisti",
+    template: "%s - Amenajari Gradini – Amenajari Spatii Verzi – Peisagisti",
   },
   description: "Descriere din root layout",
   openGraph: {
-    title: "Portal clinici",
-    description: "%s - Portal Clinici",
+    title: "Amenajari Gradini – Amenajari Spatii Verzi – Peisagisti",
+    description: "%s - Amenajari Gradini – Amenajari Spatii Verzi – Peisagisti",
     url: "https://nextjs.org/",
     siteName: "Nume site",
     images: [
@@ -36,7 +36,7 @@ export const metadata = {
   applicationName: "Portalul tau",
   authors: [{ name: "Pro Web" }],
   generator: "Next.js",
-  keywords: ["Portal", "Clinici"],
+  keywords: ["Portal", "Amenajari Gradini"],
   referrer: "origin-when-cross-origin",
   creator: "Pro web",
   publisher: "Pro web",

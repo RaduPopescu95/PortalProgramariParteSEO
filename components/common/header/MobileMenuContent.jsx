@@ -282,7 +282,7 @@ const MobileMenuContent = () => {
                 pathname === "/cauta" ? "ui-active" : "inactive-mobile-menu"
               }
             >
-              Cauta clinica
+              Cauta firmă
             </div>
           </MenuItem>
 

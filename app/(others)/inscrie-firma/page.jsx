@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
-import InscrieClinica from "@/components/inscrie-clinica";
+import InscrieClinica from "@/components/inscrie-firma";
 
 export const metadata = {
-  title: "InscrieClinica",
-  description: "InscrieClinica",
+  title: "înscrie firmă",
+  description: "înscrie firmă",
 };
 
 const index = () => {

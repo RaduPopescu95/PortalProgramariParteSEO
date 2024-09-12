@@ -28,7 +28,7 @@ const GlobalHeroFilter = ({ className = "" }) => {
             aria-controls="pills-profile"
             aria-selected="false"
           >
-            Înscrie o clinică
+            Înscrie o firmă
           </a>
         </li>
       </ul>

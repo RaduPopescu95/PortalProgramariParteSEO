@@ -1,7 +1,7 @@
 {
-  "name": "Portal clinici",
-  "short_name": "Portal clinici",
-  "description": "Portal clinici",
+  "name": "Portal amenjari gradini",
+  "short_name": "Portal amenjari gradini",
+  "description": "Portal amenjari gradini",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f1f4f9",
