@@ -7,7 +7,7 @@ import { transferaImagini } from "@/utils/localProjectlUtils";
 import { replaceSpacesWithDashes } from "@/utils/strintText";
 import { parseDateToISO } from "@/utils/timeUtils";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 const URL = `https://firmeamenajarigradina.ro`;
 
 export default async function sitemap() {
