@@ -43,7 +43,7 @@ const Header = () => {
             src="/assets/logo.png"
             alt="header-logo2.png"
           /> */}
-          <span>Portal</span>
+          <span>Firme Amenjari Gradini</span>
         </Link>
         {/* site logo brand */}
 

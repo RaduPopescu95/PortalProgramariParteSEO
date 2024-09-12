@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -44,7 +44,7 @@ const Header = () => {
             src="/assets/images/header-logo2.png"
             alt="header-logo2.png"
           /> */}
-          <span>Portal</span>
+          <span>Firme Amenjari Gradini</span>
         </Link>
         {/* site logo brand */}
 
