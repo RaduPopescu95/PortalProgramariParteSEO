@@ -7,6 +7,7 @@ import { transferaImagini } from "@/utils/localProjectlUtils";
 import { replaceSpacesWithDashes } from "@/utils/strintText";
 import { parseDateToISO } from "@/utils/timeUtils";
 
+export const revalidate = 60;
 const URL = `https://firmeamenajarigradina.ro`;
 
 export default async function sitemap() {
@@ -17,7 +18,7 @@ export default async function sitemap() {
   console.log("Fetching 'Parteneri' from Firestore...");
   const parteners = await handleGetFirestore("Firme");
   let parteneri = await transferaImagini(parteners);
-  // console.log("Parteneri Data:", parteneri);
+  console.log("Parteneri Data:", parteneri);
 
   const seenUrls = new Set();
 
@@ -119,7 +120,7 @@ export default async function sitemap() {
     "/contact",
   ].map((route) => ({
     url: `${URL}${route}`,
-    lastModified: "2024-06-26T00:00:00.000Z",
+    lastModified: "2024-09-26T00:00:00.000Z",
   }));
   console.log("Static routes:", routes);
 
