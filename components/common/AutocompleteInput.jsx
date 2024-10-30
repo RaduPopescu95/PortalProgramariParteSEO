@@ -19,19 +19,55 @@ const AutocompleteInput = ({ onPlaceChanged, adresa }) => {
     if (autocomplete) {
       const place = autocomplete.getPlace();
       if (place.geometry) {
-        // Asigură-te că locația are o geometrie definită
-        onPlaceChanged(
-          place.geometry.location.lat(),
-          place.geometry.location.lng(),
-          place.formatted_address,
-          place.url
-        );
-        setInputValue(place.formatted_address); // Actualizează adresa în input după selecție
+        // Extrage coordonatele locației
+        const latitude = place.geometry.location.lat();
+        const longitude = place.geometry.location.lng();
+        const formattedAddress = place.formatted_address;
+        const mapsUrl = place.url;
+  
+        // Extrage componentele adresei (țară, regiune, oraș)
+        let country = '';
+        let state = '';
+        let city = '';
+  
+        if (place.address_components) {
+          place.address_components.forEach((component) => {
+            const types = component.types;
+  
+            // Identifică țara
+            if (types.includes('country')) {
+              country = component.long_name;
+            }
+  
+            // Identifică regiunea (state / administrative_area_level_1)
+            if (types.includes('administrative_area_level_1')) {
+              state = component.long_name;
+            }
+  
+            // Identifică orașul (locality / administrative_area_level_2)
+            if (types.includes('locality')) {
+              city = component.long_name;
+            } else if (types.includes('administrative_area_level_2') && !city) {
+              city = component.long_name;
+            }
+          });
+        }
+  
+        // Apelează funcția de callback pentru a transmite toate datele
+        onPlaceChanged(latitude, longitude, formattedAddress, mapsUrl, {
+          country,
+          state,
+          city,
+        });
+  
+        // Actualizează valoarea în input după selecție
+        setInputValue(formattedAddress);
       } else {
         console.log("No location selected from suggestions.");
       }
     }
   };
+  
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value); // Permite modificarea inputului

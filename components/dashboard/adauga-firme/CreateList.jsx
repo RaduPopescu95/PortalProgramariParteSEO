@@ -4,23 +4,26 @@ const CreateList = ({
   handleInputChange,
   formValues,
   categorii,
-  judete,
-  handleJudetChange,
+  tari, // Lista cu țări
+  regiuni, // Lista cu regiuni pe baza țării selectate
+  handleTaraChange, // Funcție pentru schimbarea țării
+  handleRegiuneChange, // Funcție pentru schimbarea regiunii
   localitati,
   imaginiData,
 }) => {
   return (
     <>
+      {/* Selecteaza Stare */}
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input ui_kit_select_search form-group">
-          <label>Selecteaza Stare</label>
+          <label>Selectează Stare</label>
           <select
             name="stare"
             className="selectpicker form-select"
             data-live-search="true"
             data-width="100%"
-            value={formValues.stare} // Asigură legătura cu state-ul părintelui
-            onChange={handleInputChange} // Folosește funcția de manipulare a schimbării
+            value={formValues.stare}
+            onChange={handleInputChange}
           >
             <option data-tokens="Selecteaza">Selecteaza</option>
             <option data-tokens="Publicat">Publicat</option>
@@ -28,101 +31,149 @@ const CreateList = ({
           </select>
         </div>
       </div>
-      {/* End .col */}
+
+      {/* Selecteaza Categorie */}
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input ui_kit_select_search form-group">
-          <label>Selecteaza Categorie</label>
+          <label>Selectează Categorie</label>
           <select
             name="categorie"
             className="selectpicker form-select"
             data-live-search="true"
             data-width="100%"
-            value={formValues.categorie} // Asigură legătura cu state-ul părintelui
-            onChange={handleInputChange} // Folosește funcția de manipulare a schimbării
+            value={formValues.categorie}
+            onChange={handleInputChange}
           >
             <option data-tokens="Selecteaza">Selecteaza</option>
             {categorii.map((cat, index) => (
-              <option data-tokens={cat.siteName}>{cat.siteName}</option>
+              <option key={index} value={cat.siteName} data-tokens={cat.siteName}>
+                {cat.siteName}
+              </option>
             ))}
           </select>
         </div>
       </div>
-      {/* End .col */}
-      <div className="col-lg-6 col-xl-6">
-        <div className="my_profile_setting_input ui_kit_select_search form-group">
-          <label>Selecteaza Judet</label>
-          <select
-            name="judet"
-            className="selectpicker form-select"
-            data-live-search="true"
-            data-width="100%"
-            value={formValues.judet} // Asigură legătura cu state-ul părintelui
-            onChange={handleJudetChange} // Folosește funcția de manipulare a schimbării
-          >
-            <option data-tokens="Selecteaza">Selecteaza</option>
-            {judete.map((jud, index) => (
-              <option data-tokens={jud.siteName}>{jud.siteName}</option>
-            ))}
-          </select>
-        </div>
-      </div>
-      {/* End .col */}
-      <div className="col-lg-6 col-xl-6">
-        <div className="my_profile_setting_input ui_kit_select_search form-group">
-          <label>Selecteaza Localitate</label>
-          <select
-            name="localitate"
-            className="selectpicker form-select"
-            data-live-search="true"
-            data-width="100%"
-            value={formValues.localitate} // Asigură legătura cu state-ul părintelui
-            onChange={handleInputChange} // Folosește funcția de manipulare a schimbării
-          >
-            <option data-tokens="Selecteaza">Selecteaza</option>
-            {localitati.map((loc, index) => (
-              <option data-tokens={loc.siteName}>{loc.siteName}</option>
-            ))}
-          </select>
-        </div>
-      </div>
-      {/* End .col */}
+
+{/* Selectează Țara */}
+<div className="col-lg-6 col-xl-6">
+  <div className="my_profile_setting_input ui_kit_select_search form-group">
+    <label>Selectează Țara</label>
+    <select
+      name="tara"
+      className="selectpicker form-select"
+      data-live-search="true"
+      data-width="100%"
+      value={formValues.tara}
+      onChange={handleTaraChange}
+    >
+      <option data-tokens="Selecteaza">Selecteaza</option>
+      {tari.length > 0 ? (
+        tari.map((tara, index) => (
+          <option key={index} value={tara.code} data-tokens={tara.name}>
+            {tara.name}
+          </option>
+        ))
+      ) : (
+        <option>Încărcare țări...</option>
+      )}
+    </select>
+  </div>
+</div>
+
+{/* Selectează Regiune */}
+<div className="col-lg-6 col-xl-6">
+  <div className="my_profile_setting_input ui_kit_select_search form-group">
+    <label>Selectează Regiune</label>
+    <select
+      name="regiune"
+      className="selectpicker form-select"
+      data-live-search="true"
+      data-width="100%"
+      value={formValues.regiune}
+      onChange={handleRegiuneChange}
+    >
+      <option data-tokens="Selecteaza">Selecteaza</option>
+      {regiuni.length > 0 ? (
+        regiuni.map((regiune, index) => (
+          <option key={index} value={regiune.code} data-tokens={regiune.name}>
+            {regiune.name}
+          </option>
+        ))
+      ) : (
+        <option>Încărcare regiuni...</option>
+      )}
+    </select>
+  </div>
+</div>
+
+{/* Selectează Localitate */}
+<div className="col-lg-6 col-xl-6">
+  <div className="my_profile_setting_input ui_kit_select_search form-group">
+    <label>Selectează Localitate</label>
+    <select
+      name="localitate"
+      className="selectpicker form-select"
+      data-live-search="true"
+      data-width="100%"
+      value={formValues.localitate}
+      onChange={handleInputChange}
+    >
+      <option data-tokens="Selecteaza">Selecteaza</option>
+      {localitati.length > 0 ? (
+        localitati.map((loc, index) => (
+          <option key={index} value={loc.code} data-tokens={loc.name}>
+            {loc.name}
+          </option>
+        ))
+      ) : (
+        <option>Încărcare localități...</option>
+      )}
+    </select>
+  </div>
+</div>
+
+
+
+      {/* Email, Parola și Confirmare Parola */}
       <div className="col-lg-12">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="siteName">Nume</label>
+          <label htmlFor="email">Email</label>
           <input
-            type="text"
+            type="email"
             className="form-control"
-            id="siteName"
-            name="siteName"
-            value={formValues.siteName}
+            id="email"
+            name="email"
+            value={formValues.email}
             onChange={handleInputChange}
           />
         </div>
       </div>
+
       <div className="col-lg-12">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="metaTitle">Meta Title</label>
+          <label htmlFor="password">Parola</label>
           <input
-            type="text"
+            type="password"
             className="form-control"
-            id="metaTitle"
-            name="metaTitle"
-            value={formValues.metaTitle}
+            id="password"
+            name="password"
+            value={formValues.password}
             onChange={handleInputChange}
           />
         </div>
       </div>
+
       <div className="col-lg-12">
-        <div className="my_profile_setting_textarea">
-          <label htmlFor="metaDescription">Meta Description</label>
-          <textarea
+        <div className="my_profile_setting_input form-group">
+          <label htmlFor="confirmPassword">Confirmare Parola</label>
+          <input
+            type="password"
             className="form-control"
-            id="metaDescription"
-            name="metaDescription"
-            rows="7"
-            value={formValues.metaDescription}
+            id="confirmPassword"
+            name="confirmPassword"
+            value={formValues.confirmPassword}
             onChange={handleInputChange}
-          ></textarea>
+          />
         </div>
       </div>
     </>

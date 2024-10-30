@@ -2,14 +2,15 @@
 
 import { useEffect, useState } from "react";
 import BreadCrumb from "@/components/common/BreadCrumb";
-import Header from "../../common/header/dashboard/Header";
 import SidebarMenu from "../../common/header/dashboard/SidebarMenu";
-import MobileMenu from "../../common/header/MobileMenu";
 import CreateList from "./CreateList";
 import DetailedInfo from "./DetailedInfo";
 import FloorPlans from "./FloorPlans";
 import LocationField from "./LocationField";
 import PropertyMediaUploader from "./PropertyMediaUploader";
+import locationData from "../../../utils/locations/countries+states+cities.json"; // Înlocuiește cu calea către JSON
+
+import axios from "axios";
 import {
   handleGetFirestore,
   handleQueryFirestore,
@@ -25,6 +26,22 @@ import { useParams, useRouter } from "next/navigation";
 import CommonLoader from "@/components/common/CommonLoader";
 import { uploadImage, uploadMultipleImages } from "@/utils/storageUtils";
 import DOMPurify from "isomorphic-dompurify";
+import Image from "next/image";
+import CallToAction from "../../common/CallToAction";
+import CopyrightFooter from "../../common/footer/CopyrightFooter";
+import Footer from "../../common/footer/Footer";
+import Header from "../../common/header/DefaultHeader";
+import MobileMenu from "../../common/header/MobileMenu";
+import PopupSignInUp from "../../common/PopupSignInUp";
+import BreadCrumbBanner from "./BreadCrumbBanner";
+import Form from "./Form";
+import SidebarListings from "./SidebarListings";
+import { saveAllLocationsToFirebase, saveCountryStateCityToFirestore } from "@/utils/tariRegiuniLocalitati";
+
+
+const BASE_URL = "https://wft-geo-db.p.rapidapi.com/v1/geo";
+
+
 
 const Index = () => {
   // Adăugarea unui nou state pentru mesajul de succes
@@ -34,6 +51,8 @@ const Index = () => {
   const [deletedImages, setDeletedImages] = useState([]);
   const [categorii, setCategorii] = useState([]);
   const [judete, setJudete] = useState([]);
+  const [tari, setTari] = useState([]); // Nou - lista de țări
+  const [regiuni, setRegiuni] = useState([]); // Nou - lista de regiuni în funcție de țară
   const [localitati, setLocalitati] = useState([]);
   const [deletedLogo, setDeletedLogo] = useState(null);
   const [fileNames, setFileNames] = useState([]);
@@ -52,6 +71,8 @@ const Index = () => {
     metaDescription: "",
     articleContentFirst: "",
     articleContentSecond: "",
+    tara: "", // Nou - țară
+    regiune: "", // Nou - regiune
     stare: "",
     categorie: "",
     judet: "",
@@ -79,6 +100,100 @@ const Index = () => {
   const id = params.id;
 
   let isEdit = id && id.length > 0 ? true : false;
+
+  const generateMetaTitle = (categorie, localitate, regiune, tara) => {
+    return `${categorie} în ${localitate}, ${regiune}, ${tara} - Găsește Servicii Profesionale`;
+  };
+  
+  const generateMetaDescription = (categorie, localitate, regiune, tara) => {
+    return `Caută ${categorie} de top în ${localitate}, ${regiune}, ${tara}. Explorează servicii de înaltă calitate oferite de profesioniști certificați.`;
+  };
+
+// Incarcarea initiala a tarilor
+const loadCountries = async () => {
+  try {
+    const response = await axios.get("https://restcountries.com/v3.1/all");
+    const countries = response.data.map((country) => ({
+      code: country.cca2,
+      name: country.name.common,
+    }));
+    setTari(countries);
+  } catch (error) {
+    console.error("Eroare la încărcarea țărilor:", error);
+  }
+};
+
+useEffect(() => {
+  // loadCountries();
+  saveCountryStateCityToFirestore()
+}, []);
+
+
+
+// Functia de schimbare pentru tara
+const handleTaraChange = (e) => {
+  const selectedCountryCode = e.target.value;
+  setFormValues((prevState) => ({ ...prevState, tara: selectedCountryCode, regiune: "", localitate: "" }));
+  
+  const selectedCountry = locationData.find(country => country.iso2 === selectedCountryCode);
+  if (selectedCountry) {
+    setRegiuni(selectedCountry.states.map(state => ({
+      name: state.name,
+      code: state.state_code,
+      cities: state.cities || [],
+    })));
+  }
+};
+
+
+
+// Functia de schimbare pentru regiune
+// Functia de schimbare pentru regiune
+const handleRegiuneChange = (e) => {
+  const selectedRegionCode = e.target.value;
+  setFormValues((prevState) => ({ ...prevState, regiune: selectedRegionCode, localitate: "" }));
+  
+  const selectedRegion = regiuni.find(region => region.code === selectedRegionCode);
+  if (selectedRegion) {
+    // Obține doar numele și codul orașelor pentru a evita eroarea
+    setLocalitati(
+      selectedRegion.cities.map(city => ({
+        name: city.name || "Unknown City",
+        code: city.id || "unknown_code"
+      }))
+    );
+  }
+};
+
+
+
+
+
+ 
+
+
+  // Alte funcții și logica rămân aceleași
+useEffect(() => {
+  if (formValues.categorie && formValues.localitate && formValues.regiune) {
+    setFormValues((prevState) => ({
+      ...prevState,
+      metaTitle: generateMetaTitle(
+        formValues.categorie,
+        formValues.localitate,
+        formValues.regiune, // actualizat pentru a folosi regiune
+        formValues.tara
+      ),
+      metaDescription: generateMetaDescription(
+        formValues.categorie,
+        formValues.localitate,
+        formValues.regiune, // actualizat pentru a folosi regiune
+        formValues.tara
+      ),
+    }));
+  }
+}, [formValues.categorie, formValues.localitate, formValues.regiune]);
+
+  
 
   // multiple image select
   const multipleImage = (e) => {
@@ -129,18 +244,23 @@ const Index = () => {
     }
   };
 
-  const handleLocationSelect = (lat, lng, adresa, urlMaps) => {
+  const handleLocationSelect = (lat, lng, adresa, urlMaps, locationDetails) => {
     console.log(`Selected location - Lat: ${lat}, Lng: ${lng}`);
+    console.log("location details....", locationDetails);
     setFormValues((prevState) => ({
       ...prevState,
       adresa: adresa,
       harta: urlMaps,
       coordonate: { lat, lng },
+      tara: locationDetails.country,
+      regiune: locationDetails.state,
+      localitate: locationDetails.city,
     }));
     console.log(
-      `Adresa setata: ${adresa}, Link harta: ${urlMaps}, Coordonate: Lat: ${lat}, Lng: ${lng}`
+      `Adresa setată: ${adresa}, Link hartă: ${urlMaps}, Coordonate: Lat: ${lat}, Lng: ${lng}, Țară: ${locationDetails.country}, Regiune: ${locationDetails.state}, Localitate: ${locationDetails.city}`
     );
   };
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -460,6 +580,17 @@ const Index = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (formValues.categorie && formValues.localitate && formValues.judet) {
+      setFormValues((prevState) => ({
+        ...prevState,
+        metaTitle: generateMetaTitle(formValues.categorie, formValues.localitate, formValues.judet, "România"),
+        metaDescription: generateMetaDescription(formValues.categorie, formValues.localitate, formValues.judet, "România"),
+      }));
+    }
+  }, [formValues.categorie, formValues.localitate, formValues.judet]);
+  
+
   // Handle single image selection
   const singleImage = (e) => {
     const file = e.target.files[0]; // Get the selected file
@@ -481,34 +612,27 @@ const Index = () => {
 
   return (
     <>
-      <MobileMenu />
-      <div className="dashboard_sidebar_menu">
-        <div
-          className="offcanvas offcanvas-dashboard offcanvas-start"
-          tabIndex="-1"
-          id="DashboardOffcanvasMenu"
-          data-bs-scroll="true"
-        >
-          <SidebarMenu />
-        </div>
-      </div>
+      {/* <!-- Main Header Nav --> */}
+      <Header />
 
-      <section className="our-dashbord dashbord bgc-f7 pb50">
+      {/* <!--  Mobile Menu --> */}
+      <MobileMenu />
+
+      {/* <!-- Inner Page Breadcrumb --> */}
+      <BreadCrumbBanner />
+
+      <section className="our-dashbord dashbord addfirm bgc-f7">
         <div className="container-fluid ovh">
           <div className="row">
             <div className="col-lg-12 maxw100flex-992">
               <div className="row">
-                <div className="col-lg-12 mb10">
-                  <div className="breadcrumb_content style2 mb30-991">
-                    <BreadCrumb title="Dashboard" subTitle="Adauga Firme" />
-                  </div>
-                </div>
+   
 
                 <div className="col-lg-12">
                   <div className="my_dashboard_review">
                     <div className="row">
                       <div className="col-lg-12">
-                        <h3 className="mb30">Setari Media</h3>
+                        <h3 className="mb30">Logo firma</h3>
                       </div>
 
                       <LogoUpload
@@ -523,12 +647,16 @@ const Index = () => {
                   <div className="my_dashboard_review mt30">
                     <div className="row">
                       <div className="col-lg-12">
-                        <h3 className="mb30">Setari principale</h3>
+                        <h3 className="mb30">Cont</h3>
                       </div>
 
                       <CreateList
                         handleInputChange={handleInputChange}
                         handleJudetChange={handleJudetChange}
+                        tari={tari} // Trimitem lista cu țări
+                        regiuni={regiuni} // Trimitem lista cu regiuni pentru țara selectată
+                        handleTaraChange={handleTaraChange} // Funcția de schimbare a țării
+                        handleRegiuneChange={handleRegiuneChange} // Funcția de schimbare a regiunii
                         formValues={formValues}
                         categorii={categorii}
                         judete={judete}
@@ -615,6 +743,14 @@ const Index = () => {
           </div>
         </div>
         {isLoading && <CommonLoader />}
+      </section>
+      <CallToAction className={"pt-20 pt-sm-120"} />
+      <section className="footer_one">
+        <div className="container">
+          <div className="row">
+            <Footer />
+          </div>
+        </div>
       </section>
     </>
   );

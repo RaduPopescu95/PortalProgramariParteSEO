@@ -19,24 +19,24 @@ if (typeof window !== "undefined") {
 }
 
 const SidebarMenu = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
   const pathname = usePathname();
 
-  useEffect(() => {
-    setLoading(true);
-    const unsubscribe = authentication.onAuthStateChanged((user) => {
-      if (!user) {
-        router.push("/signin"); // Redirecționează dacă utilizatorul nu este autentificat
-      } else {
-        setLoading(false); // Continuă să afișezi componenta dacă utilizatorul este autentificat
-      }
-    });
+  // useEffect(() => {
+  //   setLoading(true);
+  //   const unsubscribe = authentication.onAuthStateChanged((user) => {
+  //     if (!user) {
+  //       router.push("/signin"); // Redirecționează dacă utilizatorul nu este autentificat
+  //     } else {
+  //       setLoading(false); // Continuă să afișezi componenta dacă utilizatorul este autentificat
+  //     }
+  //   });
 
-    return () => unsubscribe(); // Dezabonează-te la schimbările de autentificare atunci când componenta este demontată
-  }, [router]);
+  //   return () => unsubscribe(); // Dezabonează-te la schimbările de autentificare atunci când componenta este demontată
+  // }, [router]);
 
   const logOut = () => {
     handleLogout()
